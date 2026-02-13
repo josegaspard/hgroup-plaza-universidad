@@ -153,7 +153,7 @@
                         <span class="text-xl font-mono font-bold text-carso-black tracking-widest">PLAZA2026</span>
                     </div>
 
-                    <button
+                    <button id="btn-ir-local"
                         class="w-full mt-6 py-4 bg-carso-brand text-white font-black uppercase tracking-widest rounded-xl hover:bg-carso-black transition-colors shadow-lg">
                         Ir al Local
                     </button>
@@ -207,27 +207,48 @@
     </div>
 
     <script>
-        const promos = [
-            { id: 1, title: "Venta Nocturna", store: "Sears", desc: "Hasta 50% de descuento en toda la tienda + 18 MSI con tarjetas participantes.", img: "https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg", discount: "50%" },
-            { id: 2, title: "Martes 2x1", store: "Starbucks", desc: "Compra una bebida grande o venti y llévate la segunda totalmente gratis.", img: "https://media.timeout.com/images/104989830/750/562/image.jpg", discount: "2x1" },
-            { id: 3, title: "Black Friday", store: "Liverpool", desc: "Descuentos increíbles en electrónica, moda y hogar. Solo por tiempo limitado.", img: "https://imagenes.eleconomista.com.mx/files/webp_768_448/uploads/2022/05/23/66e82cf740290.jpeg", discount: "40%" },
-            { id: 7, title: "Mega Descuento", store: "H&M", desc: "Hasta 60% en artículos seleccionados de temporada.", img: "https://imagenes.elpais.com/resizer/v2/JVSDJUU2X5IILC57IW7ZZSFNDM.jpg?auth=c97e0ff18cd03af7a39c188e5a3bc3e0175be5514dd41b4423107aafb6b1f678&width=1200", discount: "60%" }
+        // SHARED LIST OF LOCALES (MIRRORING DIRECTORIO.PHP LOGIC)
+        // In backend, this would loop through 'locales' table and check 'has_promotion'
+        const categories = ['Moda', 'Tecnología', 'Alimentos', 'Entretenimiento', 'Servicios', 'Departamental', 'Cafetería'];
+
+        // Exact same names as directory for consistency
+        const storeNames = [
+            'Sears', 'Liverpool', 'Zara', 'H&M', 'Cinépolis', 'Starbucks', 'Sanborns', 'Palacio de Hierro',
+            'Bershka', 'Pull&Bear', 'Massimo Dutti', 'Oysho', 'Stradivarius', 'Lefties', 'Uterqüe',
+            'Mango', 'Springfield', 'Women Secret', 'Cortefiel', 'Pedro del Hierro', 'Sfera',
+            'Mixup', 'iShop', 'MacStore', 'Samsung', 'Huawei', 'Xiaomi', 'Sony', 'Bose',
+            'GamePlanet', 'Gamers', 'Recórcholis', 'Italiannis', 'Chilis', 'PF Changs',
+            'Cheesecake Factory', 'California Pizza Kitchen', 'Vips', 'Toks', 'Bisquets Obregón',
+            'Casa de Toño', 'Sushi Itto', 'Moshi Moshi', 'Nutrisa', 'Santa Clara', 'Moyo',
+            'Krispy Kreme', 'Cinnabon', 'Domino\'s', 'Burger King'
         ];
+
+        // Generate 50 Promos 1:1 with Stores
+        const promos = [];
+        for (let i = 1; i <= 50; i++) {
+            promos.push({
+                id: i,
+                title: `${storeNames[i - 1]} - Oferta Especial`,
+                store: storeNames[i - 1] || `Local ${i}`,
+                desc: "Disfruta de descuentos exclusivos en toda la tienda. Solo por tiempo limitado.",
+                img: `images/locales/local_${i}.jpg?v=${new Date().getTime()}`,
+                discount: (i % 2 === 0) ? `${10 + (i % 5) * 10}%` : "2x1",
+                link: `directorio.html?local=${i}` // LINK TO DIRECTORY MODAL
+            });
+        }
 
         function renderPromos() {
             const container = document.getElementById('promos-grid');
             container.innerHTML = promos.map(promo => `
-               <div onclick="openPromoModal('${promo.title}', '${promo.store}', '${promo.desc}', '${promo.img}', '${promo.discount}')" 
-                    class="bg-white rounded-3xl overflow-hidden shadow-2xl hover:-translate-y-2 transition-all group cursor-pointer">
-                <div class="h-64 bg-gradient-to-br from-gray-100 to-gray-200 relative flex items-center justify-center overflow-hidden">
-                    <img src="${promo.img}" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div class="absolute top-4 right-4 bg-carso-brand text-white font-black text-3xl px-5 py-3 rounded-xl shadow-xl z-10 transform rotate-12 group-hover:rotate-0 transition-all">${promo.discount}</div>
-                    <span class="absolute bottom-4 left-4 text-3xl font-black text-white transform group-hover:translate-x-2 transition-transform duration-300 uppercase drop-shadow-lg">${promo.store}</span>
+               <div onclick="openPromoModal('${promo.title}', '${promo.store}', '${promo.desc}', '${promo.img}', '${promo.discount}', '${promo.link}')" 
+                    class="bg-white rounded-3xl overflow-hidden shadow-2xl hover:-translate-y-2 transition-all group cursor-pointer border border-gray-100">
+                <div class="h-64 bg-gray-50 relative flex items-center justify-center overflow-hidden p-6">
+                    <img src="${promo.img}" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute top-4 right-4 bg-carso-brand text-white font-black text-2xl px-4 py-2 rounded-xl shadow-xl z-10 transform rotate-12 group-hover:rotate-0 transition-all">${promo.discount}</div>
                 </div>
-                <div class="p-8">
+                <div class="p-8 border-t border-gray-100">
                     <span class="text-xs font-black text-carso-brand uppercase block mb-2 tracking-widest">Oferta Limitada</span>
-                    <h3 class="text-2xl font-black text-carso-black uppercase mb-4 leading-none">${promo.title}</h3>
+                    <h3 class="text-xl font-black text-carso-black uppercase mb-4 leading-none line-clamp-1">${promo.store}</h3>
                     <p class="text-gray-500 font-bold text-sm mb-6 line-clamp-2">${promo.desc}</p>
                     <button class="w-full py-4 bg-carso-black text-white font-black text-xs uppercase rounded-xl hover:bg-carso-brand transition-all shadow-lg">Ver Promoción</button>
                 </div>
@@ -241,7 +262,7 @@
             setTimeout(() => menu.classList.toggle('opacity-0'), 10);
         }
 
-        function openPromoModal(title, store, desc, img, discount) {
+        function openPromoModal(title, store, desc, img, discount, link) {
             const modal = document.getElementById('promo-modal');
             const content = document.getElementById('promo-modal-content');
 
@@ -250,6 +271,10 @@
             document.getElementById('promo-desc').innerText = desc;
             document.getElementById('promo-img').src = img;
             document.getElementById('promo-discount').innerText = discount;
+
+            // "IR AL LOCAL" BUTTON LOGIC update
+            const btn = document.getElementById('btn-ir-local');
+            btn.onclick = function () { window.location.href = link; };
 
             modal.classList.remove('hidden');
             setTimeout(() => {

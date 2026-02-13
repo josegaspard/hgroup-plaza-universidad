@@ -341,6 +341,21 @@
                     renderStores(filtered);
                 }
             });
+
+            // LOGIC FOR 'IR AL LOCAL' FLOW (Backend Integration)
+            // Check for ?local=ID in URL and open that modal
+            const urlParams = new URLSearchParams(window.location.search);
+            const localId = urlParams.get('local');
+            if (localId) {
+                const store = stores.find(s => s.id == localId);
+                if (store) {
+                    console.log("Opening store from URL:", store.name);
+                    // Small delay to ensure render is done
+                    setTimeout(() => {
+                        openDirectoryModal(store.id, store.name, store.cat, store.img, store.desc, 'Planta ' + store.floor, store.time);
+                    }, 500);
+                }
+            }
         });
 
         function toggleMobileMenu() {

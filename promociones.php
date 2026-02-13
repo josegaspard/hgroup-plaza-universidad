@@ -29,7 +29,11 @@ include("menu.php");
         <div id="promos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
             <?php
-            // BACKEND: Iterate over promotions and output HTML
+            // BACKEND LOGIC: 
+            // 1. Iterate through ALL active stores ($locales).
+            // 2. Ideally, check if they have an active promotion (or just show one per store as requested).
+            // 3. Render the HTML using the SAME logic and data as Directorio (Name, Image).
+            // 4. Ensure clicking 'Ir al Local' sends to directorio.php with ?local=ID
             ?>
 
             <!-- EJEMPLO ESTÁTICO -->
