@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promociones | Plaza Universidad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        carso: {
+                            brand: 'rgb(219 36 44)',
+                            black: '#000000',
+                            dark: '#111111',
+                            gray: '#F8F9FA'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-carso-black">
+
+    <!-- HEADER -->
+    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 h-20">
+        <div class="container mx-auto px-6 h-full flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group z-50 relative h-full">
+                <img src="https://i.imgur.com/JtMTpuI.png" alt="Plaza Universidad"
+                    class="h-10 md:h-14 w-auto object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
+                <div class="flex flex-col justify-center">
+                    <span
+                        class="text-[10px] font-black uppercase tracking-[0.2em] text-carso-brand leading-none mb-0.5">PLAZA</span>
+                    <span
+                        class="text-lg font-black uppercase leading-none text-carso-black tracking-tighter">UNIVERSIDAD</span>
+                </div>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-8 h-full">
+                <a href="directorio.html"
+                    class="text-sm font-extrabold uppercase hover:text-carso-brand transition-colors">Directorio</a>
+                <a href="eventos.html"
+                    class="text-sm font-extrabold uppercase hover:text-carso-brand transition-colors">Eventos</a>
+                <a href="promociones.html"
+                    class="text-sm font-extrabold uppercase text-carso-brand transition-colors">Promociones</a>
+                <a href="contacto.html"
+                    class="text-sm font-extrabold uppercase hover:text-carso-brand transition-colors">Contacto</a>
+            </nav>
+
+            <button class="lg:hidden text-carso-black p-2" onclick="toggleMobileMenu()">
+                <div class="space-y-1.5 w-8">
+                    <span class="block w-full h-0.5 bg-black transition-all duration-300"></span>
+                    <span class="block w-full h-0.5 bg-black transition-all duration-300"></span>
+                    <span class="block w-full h-0.5 bg-black transition-all duration-300"></span>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <!-- MENÚ MÓVIL (Overlay) -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 hidden opacity-0 transition-opacity duration-300">
+        <div class="flex flex-col items-center justify-center w-full h-full p-6">
+            <nav class="flex flex-col gap-8 text-center z-10 w-full">
+                <a href="index.html"
+                    class="text-4xl font-black uppercase text-carso-black hover:text-carso-brand transition-colors">Inicio</a>
+                <a href="directorio.html"
+                    class="text-4xl font-black uppercase text-carso-black hover:text-carso-brand transition-colors">Directorio</a>
+                <a href="eventos.html"
+                    class="text-4xl font-black uppercase text-carso-black hover:text-carso-brand transition-colors">Eventos</a>
+                <a href="promociones.html"
+                    class="text-4xl font-black uppercase text-carso-brand transition-colors">Promociones</a>
+                <a href="contacto.html"
+                    class="text-xl font-bold uppercase text-white bg-carso-brand py-4 px-8 rounded-full shadow-xl mx-auto mt-4">Contacto</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- HERO PROMOCIONES -->
+    <section class="relative h-[60vh] w-full overflow-hidden flex items-center justify-center bg-carso-brand mt-20">
+        <div class="absolute inset-0 z-0">
+            <img src="https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg"
+                class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-t from-carso-brand via-carso-brand/80 to-carso-brand/60"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+            <div class="inline-block mb-6">
+                <span
+                    class="py-2 px-4 border-2 border-white text-white font-black text-xs uppercase tracking-[0.25em] backdrop-blur-sm">Promociones</span>
+            </div>
+
+            <h1
+                class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-white mb-6 leading-none tracking-tighter drop-shadow-2xl uppercase italic">
+                Ofertas <span class="text-black">Increíbles</span>
+            </h1>
+
+            <p class="text-xl md:text-2xl text-white font-bold max-w-2xl mx-auto leading-relaxed">
+                Descuentos exclusivos en tus tiendas favoritas
+            </p>
+        </div>
+    </section>
+
+    <!-- PROMOCIONES GRID -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-black text-carso-black mb-2 tracking-tighter uppercase italic">
+                        Promociones Activas</h2>
+                    <p class="text-lg text-carso-brand font-bold uppercase tracking-widest">Aprovecha ahora</p>
+                </div>
+            </div>
+
+            <div id="promos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- JS llena esto -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white pt-24 pb-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 border-b border-gray-800 pb-12">
+                <div class="col-span-1 lg:col-span-2">
+                    <img src="https://i.imgur.com/JtMTpuI.png" alt="Plaza Universidad"
+                        class="h-12 w-auto mb-4 object-contain">
+                    <p class="mt-6 text-gray-500 text-sm font-medium leading-relaxed max-w-sm uppercase">Creando
+                        espacios que transforman ciudades.</p>
+                </div>
+                <div>
+                    <h4 class="font-black text-carso-brand mb-6 uppercase tracking-wider text-xs">Directo</h4>
+                    <ul class="space-y-4 text-sm text-gray-500 font-bold uppercase tracking-widest">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="directorio.html" class="hover:text-white transition-colors">Directorio</a></li>
+                        <li><a href="promociones.html" class="hover:text-white transition-colors">Promociones</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center text-[10px] text-gray-600 font-black uppercase tracking-widest italic">
+                <p>&copy; 2026 Plaza Universidad. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DATOS FALSOS - Simulando backend (eventosypromociones.php filtrado por tipo promoción)
+        const promosDB = [
+            { id: 1, title: "Venta Nocturna", store: "Sears", desc: "Hasta 50% de descuento en toda la tienda. Solo esta noche.", img: "https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg", discount: "50%" },
+            { id: 2, title: "2x1 en Café", store: "Starbucks", desc: "Compra un café y lleva otro gratis. Válido todo el día.", img: "https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg", discount: "2x1" },
+            { id: 3, title: "Black Friday", store: "Liverpool", desc: "Descuentos en electrónica, moda y hogar. No te lo pierdas.", img: "https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg", discount: "40%" },
+            { id: 4, title: "Combo Familiar", store: "Cinépolis", desc: "Palomitas + Refrescos + Dulces por solo $150. Válido fines de semana.", img: "https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg", discount: "$150" },
+            { id: 5, title: "Descuento Estudiantes", store: "Zara", desc: "15% de descuento presentando credencial vigente.", img: "https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg", discount: "15%" },
+            { id: 6, title: "Happy Hour", store: "Restaurante", desc: "Bebidas al 2x1 de 5pm a 7pm todos los días.", img: "https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg", discount: "2x1" },
+            { id: 7, title: "Mega Descuento", store: "H&M", desc: "Hasta 60% en artículos seleccionados.", img: "https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg", discount: "60%" },
+            { id: 8, title: "3x2 en Pizzas", store: "Domino's", desc: "Compra 3 pizzas y paga solo 2. Válido martes y miércoles.", img: "https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg", discount: "3x2" },
+            { id: 9, title: "Descuento Tarjeta", store: "Suburbia", desc: "20% adicional pagando con tarjeta del banco.", img: "https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg", discount: "20%" }
+        ];
+
+        function renderPromos() {
+            const container = document.getElementById('promos-grid');
+            container.innerHTML = promosDB.map(promo => `
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group hover:-translate-y-2 transition-all cursor-pointer">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="${promo.img}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 bg-carso-brand text-white font-black text-2xl px-4 py-2 rounded-xl shadow-xl">${promo.discount}</div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-[9px] font-black text-carso-brand uppercase tracking-widest block mb-2">${promo.store}</span>
+                        <h3 class="text-2xl font-black text-carso-black uppercase mb-3 group-hover:text-carso-brand transition-colors">${promo.title}</h3>
+                        <p class="text-gray-600 font-bold text-sm mb-4 uppercase">${promo.desc}</p>
+                        <button class="w-full py-3 bg-carso-brand text-white font-black text-xs uppercase tracking-widest rounded-lg hover:bg-carso-black transition-all">Ver Promoción</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            setTimeout(() => menu.classList.toggle('opacity-0'), 10);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPromos();
+        });
+    </script>
+</body>
+
+</html>

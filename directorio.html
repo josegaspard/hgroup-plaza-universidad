@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Directorio | Plaza Universidad</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        carso: {
+                            brand: 'rgb(219 36 44)',
+                            black: '#000000',
+                            dark: '#111111',
+                            gray: '#F8F9FA'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .loader {
+            border: 4px solid rgba(219, 36, 44, 0.2);
+            border-radius: 50%;
+            border-top: 4px solid rgb(219 36 44);
+            width: 40px;
+            height: 40px;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white text-carso-black">
+
+    <!-- HEADER -->
+    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 h-20">
+        <div class="container mx-auto px-6 h-full flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group z-50 relative h-full">
+                <img src="https://i.imgur.com/JtMTpuI.png" alt="Plaza Universidad"
+                    class="h-10 md:h-14 w-auto object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
+                <div class="flex flex-col justify-center">
+                    <span
+                        class="text-[10px] font-black uppercase tracking-[0.2em] text-carso-brand leading-none mb-0.5">PLAZA</span>
+                    <span
+                        class="text-lg font-black uppercase leading-none text-carso-black tracking-tighter">UNIVERSIDAD</span>
+                </div>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-8 h-full">
+                <a href="directorio.html"
+                    class="text-sm font-extrabold uppercase text-carso-brand transition-colors">Directorio</a>
+                <a href="eventos.html"
+                    class="text-sm font-extrabold uppercase hover:text-carso-brand transition-colors">Eventos</a>
+                <a href="promociones.html"
+                    class="text-sm font-extrabold uppercase hover:text-carso-brand transition-colors">Promociones</a>
+                <a href="contacto.html"
+                    class="text-sm font-extrabold uppercase hover:text-carso-brand transition-colors">Contacto</a>
+            </nav>
+
+            <button class="lg:hidden text-carso-black p-2" onclick="toggleMobileMenu()">
+                <div class="space-y-1.5 w-8">
+                    <span class="block w-full h-0.5 bg-black transition-all duration-300"></span>
+                    <span class="block w-full h-0.5 bg-black transition-all duration-300"></span>
+                    <span class="block w-full h-0.5 bg-black transition-all duration-300"></span>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <!-- MENÚ MÓVIL (Overlay) -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 hidden opacity-0 transition-opacity duration-300">
+        <div class="flex flex-col items-center justify-center w-full h-full p-6">
+            <nav class="flex flex-col gap-8 text-center z-10 w-full">
+                <a href="index.html"
+                    class="text-4xl font-black uppercase text-carso-black hover:text-carso-brand transition-colors">Inicio</a>
+                <a href="directorio.html"
+                    class="text-4xl font-black uppercase text-carso-brand transition-colors">Directorio</a>
+                <a href="eventos.html"
+                    class="text-4xl font-black uppercase text-carso-black hover:text-carso-brand transition-colors">Eventos</a>
+                <a href="promociones.html"
+                    class="text-4xl font-black uppercase text-carso-black hover:text-carso-brand transition-colors">Promociones</a>
+                <a href="contacto.html"
+                    class="text-xl font-bold uppercase text-white bg-carso-brand py-4 px-8 rounded-full shadow-xl mx-auto mt-4">Contacto</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- HERO DIRECTORIO -->
+    <section class="relative h-[60vh] w-full overflow-hidden flex items-center justify-center bg-carso-black mt-20">
+        <div class="absolute inset-0 z-0">
+            <img src="https://centrourbano.com/revista/wp-content/uploads/Garden-Santa-Fe-2.jpg"
+                class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/40"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+            <div class="inline-block mb-6">
+                <span
+                    class="py-2 px-4 border-2 border-carso-brand text-carso-brand font-black text-xs uppercase tracking-[0.25em] backdrop-blur-sm">Directorio</span>
+            </div>
+
+            <h1
+                class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-white mb-6 leading-none tracking-tighter drop-shadow-2xl uppercase italic">
+                Nuestras <span class="text-carso-brand">Tiendas</span>
+            </h1>
+
+            <p class="text-xl md:text-2xl text-gray-100 font-bold max-w-2xl mx-auto leading-relaxed">
+                Encuentra tus marcas favoritas en un solo lugar
+            </p>
+        </div>
+    </section>
+
+    <!-- FILTROS Y DIRECTORIO -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-black text-carso-black mb-2 tracking-tighter uppercase italic">
+                        Explora</h2>
+                    <p class="text-lg text-carso-brand font-bold uppercase tracking-widest">Más de 100 locales
+                        disponibles</p>
+                </div>
+
+                <div class="w-full lg:w-auto flex flex-col md:flex-row gap-4">
+                    <div class="relative grow">
+                        <i class="fas fa-search absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 text-lg"></i>
+                        <input type="text" id="search-store" placeholder="Buscar tienda..."
+                            class="w-full md:w-80 pl-12 pr-6 py-4 bg-white border-2 border-gray-100 rounded-xl font-bold text-carso-black focus:outline-none focus:border-carso-brand shadow-lg transition-colors">
+                    </div>
+                    <select id="filter-category"
+                        class="px-6 py-4 bg-white border-2 border-gray-100 rounded-xl font-bold text-carso-black focus:outline-none cursor-pointer shadow-lg">
+                        <option value="all">Todas las Categorías</option>
+                        <option value="Moda">Moda</option>
+                        <option value="Tecnología">Tecnología</option>
+                        <option value="Alimentos">Gastronomía</option>
+                        <option value="Entretenimiento">Entretenimiento</option>
+                        <option value="Servicios">Servicios</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="flex gap-4 overflow-x-auto hide-scroll mb-10 pb-4">
+                <button onclick="quickFilter('all')"
+                    class="px-8 py-3 rounded-full border-2 border-carso-black bg-carso-brand text-white text-sm font-black tracking-wide hover:bg-carso-black transition-all whitespace-nowrap uppercase">TODAS</button>
+                <button onclick="quickFilter('Moda')"
+                    class="px-8 py-3 rounded-full border-2 border-carso-black bg-white text-carso-brand text-sm font-black tracking-wide hover:bg-carso-black hover:text-white transition-all whitespace-nowrap uppercase">MODA</button>
+                <button onclick="quickFilter('Alimentos')"
+                    class="px-8 py-3 rounded-full border-2 border-carso-black bg-white text-carso-brand text-sm font-black tracking-wide hover:bg-carso-black hover:text-white transition-all whitespace-nowrap uppercase">RESTAURANTES</button>
+                <button onclick="quickFilter('Entretenimiento')"
+                    class="px-8 py-3 rounded-full border-2 border-carso-black bg-white text-carso-brand text-sm font-black tracking-wide hover:bg-carso-black hover:text-white transition-all whitespace-nowrap uppercase">CINE</button>
+                <button onclick="quickFilter('Servicios')"
+                    class="px-8 py-3 rounded-full border-2 border-carso-black bg-white text-carso-brand text-sm font-black tracking-wide hover:bg-carso-black hover:text-white transition-all whitespace-nowrap uppercase">SERVICIOS</button>
+            </div>
+
+            <div id="stores-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- JS llena esto -->
+            </div>
+
+            <div id="no-results" class="hidden text-center py-20">
+                <h3 class="text-3xl font-black text-gray-300 uppercase">Sin Resultados</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white pt-24 pb-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 border-b border-gray-800 pb-12">
+                <div class="col-span-1 lg:col-span-2">
+                    <img src="https://i.imgur.com/JtMTpuI.png" alt="Plaza Universidad"
+                        class="h-12 w-auto mb-4 object-contain">
+                    <p class="mt-6 text-gray-500 text-sm font-medium leading-relaxed max-w-sm uppercase">Creando
+                        espacios que transforman ciudades.</p>
+                </div>
+                <div>
+                    <h4 class="font-black text-carso-brand mb-6 uppercase tracking-wider text-xs">Directo</h4>
+                    <ul class="space-y-4 text-sm text-gray-500 font-bold uppercase tracking-widest">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="directorio.html" class="hover:text-white transition-colors">Directorio</a></li>
+                        <li><a href="promociones.html" class="hover:text-white transition-colors">Promociones</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center text-[10px] text-gray-600 font-black uppercase tracking-widest italic">
+                <p>&copy; 2026 Plaza Universidad. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE BOTTOM BAR -->
+    <div class="fixed bottom-0 w-full bg-white border-t border-gray-200 z-30 md:hidden pb-safe">
+        <div class="grid grid-cols-4 h-16">
+            <a href="index.html" class="flex flex-col items-center justify-center text-gray-400 hover:text-carso-brand">
+                <i class="fas fa-home text-lg mb-1"></i>
+                <span class="text-[9px] font-black uppercase tracking-tighter">Inicio</span>
+            </a>
+            <a href="directorio.html" class="flex flex-col items-center justify-center text-carso-brand">
+                <i class="fas fa-store text-lg mb-1"></i>
+                <span class="text-[9px] font-black uppercase tracking-tighter">Tiendas</span>
+            </a>
+            <a href="eventos.html"
+                class="flex flex-col items-center justify-center text-gray-400 hover:text-carso-brand">
+                <i class="fas fa-calendar-alt text-lg mb-1"></i>
+                <span class="text-[9px] font-black uppercase tracking-tighter">Eventos</span>
+            </a>
+            <button onclick="toggleMobileMenu()"
+                class="flex flex-col items-center justify-center text-gray-400 hover:text-carso-brand">
+                <i class="fas fa-bars text-lg mb-1"></i>
+                <span class="text-[9px] font-black uppercase tracking-tighter">Menú</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // DATOS FALSOS - Simulando backend (listadoLocatarios.php)
+        const storesDB = [
+            { id: 1, name: "Sears", cat: "Moda", floor: "PB", img: "https://imagenes.eleconomista.com.mx/files/webp_768_448/uploads/2022/05/23/66e82cf740290.jpeg", horario: "10:00 - 21:00" },
+            { id: 2, name: "Liverpool", cat: "Moda", floor: "PB", img: "https://centrourbano.com/revista/wp-content/uploads/Garden-Santa-Fe-2.jpg", horario: "10:00 - 21:00" },
+            { id: 3, name: "Cinépolis", cat: "Entretenimiento", floor: "PA", img: "https://media.timeout.com/images/104989830/750/562/image.jpg", horario: "11:00 - 23:00" },
+            { id: 4, name: "Starbucks", cat: "Alimentos", floor: "PB", img: "https://inmobiliaria.cushmanwakefield.es/wp-content/uploads/2023/01/pexels-mathias-reding-9328756-1-scaled.jpg", horario: "08:00 - 22:00" },
+            { id: 5, name: "Zara", cat: "Moda", floor: "PB", img: "https://imagenes.eleconomista.com.mx/files/webp_768_448/uploads/2022/05/23/66e82cf740290.jpeg", horario: "11:00 - 21:00" },
+            { id: 6, name: "H&M", cat: "Moda", floor: "PB", img: "https://centrourbano.com/revista/wp-content/uploads/Garden-Santa-Fe-2.jpg", horario: "11:00 - 21:00" },
+            { id: 7, name: "Cinemex", cat: "Entretenimiento", floor: "PA", img: "https://media.timeout.com/images/104989830/750/562/image.jpg", horario: "11:00 - 23:00" },
+            { id: 8, name: "Suburbia", cat: "Moda", floor: "PB", img: "https://imagenes.eleconomista.com.mx/files/webp_768_448/uploads/2022/05/23/66e82cf740290.jpeg", horario: "10:00 - 21:00" },
+            { id: 9, name: "Office Depot", cat: "Servicios", floor: "PB", img: "https://centrourbano.com/revista/wp-content/uploads/Garden-Santa-Fe-2.jpg", horario: "09:00 - 20:00" },
+            { id: 10, name: "Coppel", cat: "Moda", floor: "PB", img: "https://imagenes.eleconomista.com.mx/files/webp_768_448/uploads/2022/05/23/66e82cf740290.jpeg", horario: "10:00 - 21:00" },
+            { id: 11, name: "Telcel", cat: "Tecnología", floor: "PB", img: "https://centrourbano.com/revista/wp-content/uploads/Garden-Santa-Fe-2.jpg", horario: "10:00 - 20:00" },
+            { id: 12, name: "AT&T", cat: "Tecnología", floor: "PB", img: "https://imagenes.eleconomista.com.mx/files/webp_768_448/uploads/2022/05/23/66e82cf740290.jpeg", horario: "10:00 - 20:00" },
+            { id: 13, name: "McDonald's", cat: "Alimentos", floor: "PB", img: "https://inmobiliaria.cushmanwakefield.es/wp-content/uploads/2023/01/pexels-mathias-reding-9328756-1-scaled.jpg", horario: "07:00 - 23:00" },
+            { id: 14, name: "Burger King", cat: "Alimentos", floor: "PB", img: "https://inmobiliaria.cushmanwakefield.es/wp-content/uploads/2023/01/pexels-mathias-reding-9328756-1-scaled.jpg", horario: "09:00 - 22:00" },
+            { id: 15, name: "KFC", cat: "Alimentos", floor: "PB", img: "https://inmobiliaria.cushmanwakefield.es/wp-content/uploads/2023/01/pexels-mathias-reding-9328756-1-scaled.jpg", horario: "10:00 - 22:00" },
+            { id: 16, name: "Domino's Pizza", cat: "Alimentos", floor: "PB", img: "https://inmobiliaria.cushmanwakefield.es/wp-content/uploads/2023/01/pexels-mathias-reding-9328756-1-scaled.jpg", horario: "11:00 - 23:00" },
+            { id: 17, name: "Sanborns", cat: "Alimentos", floor: "PB", img: "https://inmobiliaria.cushmanwakefield.es/wp-content/uploads/2023/01/pexels-mathias-reding-9328756-1-scaled.jpg", horario: "08:00 - 22:00" },
+            { id: 18, name: "Vips", cat: "Alimentos", floor: "PB", img: "https://inmobiliaria.cushmanwakefield.es/wp-content/uploads/2023/01/pexels-mathias-reding-9328756-1-scaled.jpg", horario: "07:00 - 23:00" },
+            { id: 19, name: "Italiannis", cat: "Alimentos", floor: "PA", img: "https://inmobiliaria.cushmanwakefield.es/wp-content/uploads/2023/01/pexels-mathias-reding-9328756-1-scaled.jpg", horario: "13:00 - 23:00" },
+            { id: 20, name: "Chili's", cat: "Alimentos", floor: "PA", img: "https://inmobiliaria.cushmanwakefield.es/wp-content/uploads/2023/01/pexels-mathias-reding-9328756-1-scaled.jpg", horario: "13:00 - 23:00" }
+        ];
+
+        function renderStores(data) {
+            const grid = document.getElementById('stores-grid');
+
+            if (data.length === 0) {
+                document.getElementById('no-results').classList.remove('hidden');
+                grid.innerHTML = '';
+                return;
+            }
+
+            document.getElementById('no-results').classList.add('hidden');
+            grid.innerHTML = data.map(store => `
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group hover:-translate-y-2 transition-all cursor-pointer">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="${store.img}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-3 right-3 bg-white text-[9px] font-black px-2 py-1 rounded shadow-sm text-black uppercase tracking-widest">${store.floor}</div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-[9px] font-black text-carso-brand uppercase tracking-widest block mb-2">${store.cat}</span>
+                        <h3 class="text-xl font-black text-carso-black uppercase group-hover:text-carso-brand transition-colors mb-2">${store.name}</h3>
+                        <p class="text-xs text-gray-500 font-bold mb-4"><i class="far fa-clock mr-1"></i>${store.horario}</p>
+                        <button class="text-[10px] font-black text-gray-400 uppercase tracking-widest border-b border-transparent group-hover:border-carso-brand group-hover:text-carso-brand transition-all">Ver Detalles</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function quickFilter(cat) {
+            if (cat === 'all') {
+                renderStores(storesDB);
+            } else {
+                const filtered = storesDB.filter(s => s.cat === cat);
+                renderStores(filtered);
+            }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            setTimeout(() => menu.classList.toggle('opacity-0'), 10);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderStores(storesDB);
+
+            document.getElementById('search-store').addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase();
+                const filtered = storesDB.filter(s => s.name.toLowerCase().includes(query));
+                renderStores(filtered);
+            });
+
+            document.getElementById('filter-category').addEventListener('change', (e) => {
+                const cat = e.target.value;
+                if (cat === 'all') {
+                    renderStores(storesDB);
+                } else {
+                    const filtered = storesDB.filter(s => s.cat === cat);
+                    renderStores(filtered);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

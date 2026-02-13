@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Plaza Universidad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        carso: {
+                            brand: 'rgb(219 36 44)',
+                            black: '#000000',
+                            dark: '#111111',
+                            gray: '#F8F9FA'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-carso-black">
+
+    <!-- HEADER -->
+    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 h-20">
+        <div class="container mx-auto px-6 h-full flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group z-50 relative h-full">
+                <img src="https://i.imgur.com/JtMTpuI.png" alt="Plaza Universidad"
+                    class="h-10 md:h-14 w-auto object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
+                <div class="flex flex-col justify-center">
+                    <span
+                        class="text-[10px] font-black uppercase tracking-[0.2em] text-carso-brand leading-none mb-0.5">PLAZA</span>
+                    <span
+                        class="text-lg font-black uppercase leading-none text-carso-black tracking-tighter">UNIVERSIDAD</span>
+                </div>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-8 h-full">
+                <a href="directorio.html"
+                    class="text-sm font-extrabold uppercase hover:text-carso-brand transition-colors">Directorio</a>
+                <a href="eventos.html"
+                    class="text-sm font-extrabold uppercase hover:text-carso-brand transition-colors">Eventos</a>
+                <a href="promociones.html"
+                    class="text-sm font-extrabold uppercase hover:text-carso-brand transition-colors">Promociones</a>
+                <a href="contacto.html"
+                    class="text-sm font-extrabold uppercase text-carso-brand transition-colors">Contacto</a>
+            </nav>
+
+            <button class="lg:hidden text-carso-black p-2" onclick="toggleMobileMenu()">
+                <div class="space-y-1.5 w-8">
+                    <span class="block w-full h-0.5 bg-black transition-all duration-300"></span>
+                    <span class="block w-full h-0.5 bg-black transition-all duration-300"></span>
+                    <span class="block w-full h-0.5 bg-black transition-all duration-300"></span>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <!-- MENÚ MÓVIL (Overlay) -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 hidden opacity-0 transition-opacity duration-300">
+        <div class="flex flex-col items-center justify-center w-full h-full p-6">
+            <nav class="flex flex-col gap-8 text-center z-10 w-full">
+                <a href="index.html"
+                    class="text-4xl font-black uppercase text-carso-black hover:text-carso-brand transition-colors">Inicio</a>
+                <a href="directorio.html"
+                    class="text-4xl font-black uppercase text-carso-black hover:text-carso-brand transition-colors">Directorio</a>
+                <a href="eventos.html"
+                    class="text-4xl font-black uppercase text-carso-black hover:text-carso-brand transition-colors">Eventos</a>
+                <a href="promociones.html"
+                    class="text-4xl font-black uppercase text-carso-black hover:text-carso-brand transition-colors">Promociones</a>
+                <a href="contacto.html"
+                    class="text-xl font-bold uppercase text-white bg-carso-brand py-4 px-8 rounded-full shadow-xl mx-auto mt-4">Contacto</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- HERO CONTACTO -->
+    <section class="relative h-[60vh] w-full overflow-hidden flex items-center justify-center bg-carso-dark mt-20">
+        <div class="absolute inset-0 z-0">
+            <img src="https://centrourbano.com/revista/wp-content/uploads/Garden-Santa-Fe-2.jpg"
+                class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-t from-carso-dark via-carso-dark/80 to-carso-dark/60"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+            <div class="inline-block mb-6">
+                <span
+                    class="py-2 px-4 border-2 border-carso-brand text-carso-brand font-black text-xs uppercase tracking-[0.25em] backdrop-blur-sm">Contacto</span>
+            </div>
+
+            <h1
+                class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-white mb-6 leading-none tracking-tighter drop-shadow-2xl uppercase italic">
+                Conecta con <span class="text-carso-brand">Nosotros</span>
+            </h1>
+
+            <p class="text-xl md:text-2xl text-gray-100 font-bold max-w-2xl mx-auto leading-relaxed">
+                Renta de locales, activaciones y publicidad
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTACTO FORM -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- INFO -->
+                <div>
+                    <h3 class="text-5xl md:text-6xl font-black uppercase mb-8 leading-tight italic tracking-tighter">
+                        Estamos <br /> <span class="text-carso-brand">Aquí</span></h3>
+                    <p class="text-gray-600 font-bold text-lg mb-12 uppercase">Contáctanos para cualquier consulta</p>
+
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-6">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-carso-brand/10 flex items-center justify-center text-carso-brand text-2xl flex-shrink-0">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-black text-xl uppercase italic mb-2">Ubicación</h5>
+                                <p class="text-gray-600 font-medium">Av. Bordo de Xochiaca No. 3, Col. Benito Juárez,
+                                    Nezahualcóyotl, Estado de México, C.P. 57000</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-6">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-carso-brand/10 flex items-center justify-center text-carso-brand text-2xl flex-shrink-0">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-black text-xl uppercase italic mb-2">Teléfono</h5>
+                                <p class="text-gray-600 font-medium">(55) 1558-4217</p>
+                                <p class="text-gray-600 font-medium">(55) 5793-0000</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-6">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-carso-brand/10 flex items-center justify-center text-carso-brand text-2xl flex-shrink-0">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-black text-xl uppercase italic mb-2">Email</h5>
+                                <p class="text-gray-600 font-medium">contacto@plazauniversidad.com</p>
+                                <p class="text-gray-600 font-medium">info@plazauniversidad.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-6">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-carso-brand/10 flex items-center justify-center text-carso-brand text-2xl flex-shrink-0">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-black text-xl uppercase italic mb-2">Horarios</h5>
+                                <p class="text-gray-600 font-medium">Lunes a Domingo: 10:00 - 21:00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12">
+                        <h5 class="font-black text-lg uppercase mb-4 tracking-wider">Síguenos</h5>
+                        <div class="flex gap-4">
+                            <a href="#"
+                                class="w-12 h-12 rounded-full bg-carso-brand/10 flex items-center justify-center text-carso-brand hover:bg-carso-brand hover:text-white transition-all">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#"
+                                class="w-12 h-12 rounded-full bg-carso-brand/10 flex items-center justify-center text-carso-brand hover:bg-carso-brand hover:text-white transition-all">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#"
+                                class="w-12 h-12 rounded-full bg-carso-brand/10 flex items-center justify-center text-carso-brand hover:bg-carso-brand hover:text-white transition-all">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FORM -->
+                <div class="bg-carso-dark rounded-3xl p-10 text-white shadow-2xl">
+                    <h4 class="text-3xl font-black uppercase mb-8 tracking-tighter italic">Envíanos un <span
+                            class="text-carso-brand">Mensaje</span></h4>
+
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label class="block text-xs font-black uppercase tracking-widest mb-2 text-gray-400">Tipo de
+                                Mensaje *</label>
+                            <select name="tipoMensaje" required
+                                class="w-full bg-white/10 border-2 border-white/20 rounded-xl px-5 py-4 font-bold outline-none focus:border-carso-brand text-white cursor-pointer">
+                                <option value="">Elige una opción</option>
+                                <option value="Quejas y Sugerencias">Quejas y Sugerencias</option>
+                                <option value="Espacios Disponibles">Espacios Disponibles</option>
+                                <option value="Publicidad">Publicidad</option>
+                                <option value="Activaciones">Activaciones</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-black uppercase tracking-widest mb-2 text-gray-400">Nombre
+                                Completo *</label>
+                            <input type="text" name="nombre" required
+                                class="w-full bg-white/10 border-2 border-white/20 rounded-xl px-5 py-4 font-bold outline-none focus:border-carso-brand text-white placeholder-gray-500"
+                                placeholder="Tu nombre">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-black uppercase tracking-widest mb-2 text-gray-400">Correo
+                                Electrónico *</label>
+                            <input type="email" name="email" required
+                                class="w-full bg-white/10 border-2 border-white/20 rounded-xl px-5 py-4 font-bold outline-none focus:border-carso-brand text-white placeholder-gray-500"
+                                placeholder="tu@email.com">
+                        </div>
+
+                        <div>
+                            <label
+                                class="block text-xs font-black uppercase tracking-widest mb-2 text-gray-400">Teléfono</label>
+                            <input type="tel" name="telefono"
+                                class="w-full bg-white/10 border-2 border-white/20 rounded-xl px-5 py-4 font-bold outline-none focus:border-carso-brand text-white placeholder-gray-500"
+                                placeholder="(55) 1234-5678">
+                        </div>
+
+                        <div>
+                            <label
+                                class="block text-xs font-black uppercase tracking-widest mb-2 text-gray-400">Asunto</label>
+                            <select name="asunto"
+                                class="w-full bg-white/10 border-2 border-white/20 rounded-xl px-5 py-4 font-bold outline-none focus:border-carso-brand text-white cursor-pointer">
+                                <option value="Renta de Local">Renta de Local</option>
+                                <option value="Publicidad">Publicidad</option>
+                                <option value="Activaciones">Activaciones</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-black uppercase tracking-widest mb-2 text-gray-400">Mensaje
+                                *</label>
+                            <textarea name="mensaje" rows="4" required
+                                class="w-full bg-white/10 border-2 border-white/20 rounded-xl px-5 py-4 font-bold outline-none focus:border-carso-brand text-white placeholder-gray-500"
+                                placeholder="Escribe tu mensaje aquí..."></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full py-5 bg-carso-brand text-white font-black uppercase tracking-widest rounded-xl hover:bg-white hover:text-carso-brand transition-all shadow-xl">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+
+                    <div id="form-message" class="hidden mt-6 p-4 rounded-xl text-center font-bold"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPA -->
+    <section class="py-0">
+        <div class="w-full h-96 bg-gray-200">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.8!2d-99.0!3d19.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDI0JzAwLjAiTiA5OcKwMDAnMDAuMCJX!5e0!3m2!1ses!2smx!4v1234567890"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white pt-24 pb-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 border-b border-gray-800 pb-12">
+                <div class="col-span-1 lg:col-span-2">
+                    <img src="https://i.imgur.com/JtMTpuI.png" alt="Plaza Universidad"
+                        class="h-12 w-auto mb-4 object-contain">
+                    <p class="mt-6 text-gray-500 text-sm font-medium leading-relaxed max-w-sm uppercase">Creando
+                        espacios que transforman ciudades.</p>
+                </div>
+                <div>
+                    <h4 class="font-black text-carso-brand mb-6 uppercase tracking-wider text-xs">Directo</h4>
+                    <ul class="space-y-4 text-sm text-gray-500 font-bold uppercase tracking-widest">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="directorio.html" class="hover:text-white transition-colors">Directorio</a></li>
+                        <li><a href="promociones.html" class="hover:text-white transition-colors">Promociones</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center text-[10px] text-gray-600 font-black uppercase tracking-widest italic">
+                <p>&copy; 2026 Plaza Universidad. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            setTimeout(() => menu.classList.toggle('opacity-0'), 10);
+        }
+
+        // SIMULACIÓN DE ENVÍO AL BACKEND (mail.php)
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const messageDiv = document.getElementById('form-message');
+
+            // SIMULACIÓN - En producción esto haría fetch a mail.php
+            messageDiv.classList.remove('hidden', 'bg-red-500', 'bg-green-500');
+            messageDiv.classList.add('bg-green-500');
+            messageDiv.textContent = '¡Mensaje enviado correctamente! Te contactaremos pronto.';
+
+            this.reset();
+
+            setTimeout(() => {
+                messageDiv.classList.add('hidden');
+            }, 5000);
+
+            /* CÓDIGO REAL PARA BACKEND:
+            fetch('mail.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                messageDiv.classList.remove('hidden');
+                if (data.success) {
+                    messageDiv.classList.add('bg-green-500');
+                    messageDiv.textContent = data.message;
+                    this.reset();
+                } else {
+                    messageDiv.classList.add('bg-red-500');
+                    messageDiv.textContent = data.message;
+                }
+            })
+            .catch(error => {
+                messageDiv.classList.remove('hidden');
+                messageDiv.classList.add('bg-red-500');
+                messageDiv.textContent = 'Error al enviar el mensaje';
+            });
+            */
+        });
+    </script>
+</body>
+
+</html>

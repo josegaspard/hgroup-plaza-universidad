@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Sears",
+    "category": "Moda",
+    "floor": "PB",
+    "description": "Tienda departamental con moda, hogar y electrónica",
+    "phone": "(55) 1234-5678",
+    "hours": "10:00 - 21:00",
+    "image": "https://imagenes.eleconomista.com.mx/files/webp_768_448/uploads/2022/05/23/66e82cf740290.jpeg",
+    "logo": "",
+    "tags": ["moda", "ropa", "hogar", "electrónica"]
+  },
+  {
+    "id": 2,
+    "name": "Liverpool",
+    "category": "Moda",
+    "floor": "PB",
+    "description": "Moda de lujo y tendencias internacionales",
+    "phone": "(55) 1234-5679",
+    "hours": "10:00 - 21:00",
+    "image": "https://centrourbano.com/revista/wp-content/uploads/Garden-Santa-Fe-2.jpg",
+    "logo": "",
+    "tags": ["moda", "lujo", "departamental"]
+  },
+  {
+    "id": 3,
+    "name": "Cinépolis",
+    "category": "Entretenimiento",
+    "floor": "PA",
+    "description": "Cine con la mejor experiencia audiovisual",
+    "phone": "(55) 1234-5680",
+    "hours": "11:00 - 23:00",
+    "image": "https://media.timeout.com/images/104989830/750/562/image.jpg",
+    "logo": "",
+    "tags": ["cine", "películas", "entretenimiento"]
+  },
+  {
+    "id": 4,
+    "name": "Starbucks",
+    "category": "Alimentos",
+    "floor": "PB",
+    "description": "Café premium y bebidas especiales",
+    "phone": "(55) 1234-5681",
+    "hours": "08:00 - 22:00",
+    "image": "https://inmobiliaria.cushmanwakefield.es/wp-content/uploads/2023/01/pexels-mathias-reding-9328756-1-scaled.jpg",
+    "logo": "",
+    "tags": ["café", "bebidas", "postres"]
+  }
+]

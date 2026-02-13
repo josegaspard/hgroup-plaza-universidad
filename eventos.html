@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos | Plaza Universidad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        carso: {
+                            brand: 'rgb(219 36 44)',
+                            black: '#000000',
+                            dark: '#111111',
+                            gray: '#F8F9FA'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-carso-black">
+
+    <!-- HEADER -->
+    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 h-20">
+        <div class="container mx-auto px-6 h-full flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group z-50 relative h-full">
+                <img src="https://i.imgur.com/JtMTpuI.png" alt="Plaza Universidad"
+                    class="h-10 md:h-14 w-auto object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
+                <div class="flex flex-col justify-center">
+                    <span
+                        class="text-[10px] font-black uppercase tracking-[0.2em] text-carso-brand leading-none mb-0.5">PLAZA</span>
+                    <span
+                        class="text-lg font-black uppercase leading-none text-carso-black tracking-tighter">UNIVERSIDAD</span>
+                </div>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-8 h-full">
+                <a href="directorio.html"
+                    class="text-sm font-extrabold uppercase hover:text-carso-brand transition-colors">Directorio</a>
+                <a href="eventos.html"
+                    class="text-sm font-extrabold uppercase text-carso-brand transition-colors">Eventos</a>
+                <a href="promociones.html"
+                    class="text-sm font-extrabold uppercase hover:text-carso-brand transition-colors">Promociones</a>
+                <a href="contacto.html"
+                    class="text-sm font-extrabold uppercase hover:text-carso-brand transition-colors">Contacto</a>
+            </nav>
+
+            <button class="lg:hidden text-carso-black p-2" onclick="toggleMobileMenu()">
+                <div class="space-y-1.5 w-8">
+                    <span class="block w-full h-0.5 bg-black transition-all duration-300"></span>
+                    <span class="block w-full h-0.5 bg-black transition-all duration-300"></span>
+                    <span class="block w-full h-0.5 bg-black transition-all duration-300"></span>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <!-- MENÚ MÓVIL (Overlay) -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 hidden opacity-0 transition-opacity duration-300">
+        <div class="flex flex-col items-center justify-center w-full h-full p-6">
+            <nav class="flex flex-col gap-8 text-center z-10 w-full">
+                <a href="index.html"
+                    class="text-4xl font-black uppercase text-carso-black hover:text-carso-brand transition-colors">Inicio</a>
+                <a href="directorio.html"
+                    class="text-4xl font-black uppercase text-carso-black hover:text-carso-brand transition-colors">Directorio</a>
+                <a href="eventos.html"
+                    class="text-4xl font-black uppercase text-carso-brand transition-colors">Eventos</a>
+                <a href="promociones.html"
+                    class="text-4xl font-black uppercase text-carso-black hover:text-carso-brand transition-colors">Promociones</a>
+                <a href="contacto.html"
+                    class="text-xl font-bold uppercase text-white bg-carso-brand py-4 px-8 rounded-full shadow-xl mx-auto mt-4">Contacto</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- HERO EVENTOS -->
+    <section class="relative h-[60vh] w-full overflow-hidden flex items-center justify-center bg-carso-black mt-20">
+        <div class="absolute inset-0 z-0">
+            <img src="https://imagenes.elpais.com/resizer/v2/JVSDJUU2X5IILC57IW7ZZSFNDM.jpg?auth=c97e0ff18cd03af7a39c188e5a3bc3e0175be5514dd41b4423107aafb6b1f678&width=1200"
+                class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/40"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+            <div class="inline-block mb-6">
+                <span
+                    class="py-2 px-4 border-2 border-carso-brand text-carso-brand font-black text-xs uppercase tracking-[0.25em] backdrop-blur-sm">Eventos</span>
+            </div>
+
+            <h1
+                class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-white mb-6 leading-none tracking-tighter drop-shadow-2xl uppercase italic">
+                Vive la <span class="text-carso-brand">Experiencia</span>
+            </h1>
+
+            <p class="text-xl md:text-2xl text-gray-100 font-bold max-w-2xl mx-auto leading-relaxed">
+                Descubre los mejores eventos y activaciones
+            </p>
+        </div>
+    </section>
+
+    <!-- EVENTOS GRID -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-black text-carso-black mb-2 tracking-tighter uppercase italic">
+                        Próximos Eventos</h2>
+                    <p class="text-lg text-carso-brand font-bold uppercase tracking-widest">No te pierdas nada</p>
+                </div>
+            </div>
+
+            <div id="events-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <!-- JS llena esto -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white pt-24 pb-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 border-b border-gray-800 pb-12">
+                <div class="col-span-1 lg:col-span-2">
+                    <img src="https://i.imgur.com/JtMTpuI.png" alt="Plaza Universidad"
+                        class="h-12 w-auto mb-4 object-contain">
+                    <p class="mt-6 text-gray-500 text-sm font-medium leading-relaxed max-w-sm uppercase">Creando
+                        espacios que transforman ciudades.</p>
+                </div>
+                <div>
+                    <h4 class="font-black text-carso-brand mb-6 uppercase tracking-wider text-xs">Directo</h4>
+                    <ul class="space-y-4 text-sm text-gray-500 font-bold uppercase tracking-widest">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="directorio.html" class="hover:text-white transition-colors">Directorio</a></li>
+                        <li><a href="promociones.html" class="hover:text-white transition-colors">Promociones</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center text-[10px] text-gray-600 font-black uppercase tracking-widest italic">
+                <p>&copy; 2026 Plaza Universidad. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DATOS FALSOS - Simulando backend (eventosypromociones.php filtrado por tipo)
+        const eventsDB = [
+            { id: 1, title: "Fashion Week Plaza Universidad", type: "Evento", desc: "Pasarela exclusiva de temporada Primavera-Verano con las mejores marcas de la plaza.", img: "https://imagenes.elpais.com/resizer/v2/JVSDJUU2X5IILC57IW7ZZSFNDM.jpg?auth=c97e0ff18cd03af7a39c188e5a3bc3e0175be5514dd41b4423107aafb6b1f678&width=1200", date: "15 Mar 2026" },
+            { id: 2, title: "Concierto de Verano", type: "Evento", desc: "Música en vivo con artistas locales. Entrada gratuita.", img: "https://media.timeout.com/images/104989830/750/562/image.jpg", date: "22 Mar 2026" },
+            { id: 3, title: "Taller de Cocina", type: "Evento", desc: "Aprende a cocinar con chefs profesionales. Cupo limitado.", img: "https://imagenes.elpais.com/resizer/v2/JVSDJUU2X5IILC57IW7ZZSFNDM.jpg?auth=c97e0ff18cd03af7a39c188e5a3bc3e0175be5514dd41b4423107aafb6b1f678&width=1200", date: "5 Abr 2026" },
+            { id: 4, title: "Expo Tecnología", type: "Evento", desc: "Las últimas novedades en tecnología. Entrada libre.", img: "https://media.timeout.com/images/104989830/750/562/image.jpg", date: "12 Abr 2026" },
+            { id: 5, title: "Día del Niño - Actividades", type: "Evento", desc: "Juegos, concursos y diversión para toda la familia.", img: "https://imagenes.elpais.com/resizer/v2/JVSDJUU2X5IILC57IW7ZZSFNDM.jpg?auth=c97e0ff18cd03af7a39c188e5a3bc3e0175be5514dd41b4423107aafb6b1f678&width=1200", date: "30 Abr 2026" },
+            { id: 6, title: "Festival Gastronómico", type: "Evento", desc: "Sabores de todo el mundo en un solo lugar.", img: "https://media.timeout.com/images/104989830/750/562/image.jpg", date: "10 May 2026" },
+            { id: 7, title: "Día de las Madres - Regalos", type: "Evento", desc: "Encuentra el regalo perfecto para mamá.", img: "https://imagenes.elpais.com/resizer/v2/JVSDJUU2X5IILC57IW7ZZSFNDM.jpg?auth=c97e0ff18cd03af7a39c188e5a3bc3e0175be5514dd41b4423107aafb6b1f678&width=1200", date: "10 May 2026" },
+            { id: 8, title: "Torneo de Videojuegos", type: "Evento", desc: "Competencia de eSports con premios increíbles.", img: "https://media.timeout.com/images/104989830/750/562/image.jpg", date: "25 May 2026" }
+        ];
+
+        function renderEvents() {
+            const container = document.getElementById('events-grid');
+            container.innerHTML = eventsDB.map(evt => `
+                <div class="relative h-[450px] rounded-[2rem] overflow-hidden group cursor-pointer border border-gray-100 shadow-xl hover:shadow-2xl transition-all">
+                    <img src="${evt.img}" class="w-full h-full object-cover opacity-70 transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-10 w-full">
+                        <span class="bg-carso-brand text-white font-black text-[10px] px-3 py-1 uppercase rounded mb-4 inline-block tracking-widest">${evt.date}</span>
+                        <h3 class="text-4xl font-black uppercase mb-4 tracking-tighter text-white">${evt.title}</h3>
+                        <p class="text-gray-300 font-bold text-sm mb-4">${evt.desc}</p>
+                        <button class="text-carso-brand font-black text-xs uppercase tracking-widest flex items-center gap-2">Ver Detalles <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            setTimeout(() => menu.classList.toggle('opacity-0'), 10);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderEvents();
+        });
+    </script>
+</body>
+
+</html>
