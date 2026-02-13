@@ -164,28 +164,29 @@
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="closeDirectoryModal()">
         </div>
         <div class="relative w-full h-full flex items-center justify-center p-4">
-            <div class="bg-white w-full max-w-4xl rounded-3xl overflow-hidden shadow-2xl transform scale-95 opacity-0 transition-all duration-300 relative"
+            <div class="bg-white w-full max-w-4xl rounded-3xl overflow-hidden shadow-2xl transform scale-95 opacity-0 transition-all duration-300 relative max-h-[85vh] overflow-y-auto"
                 id="dir-modal-content">
 
                 <!-- Close Button (FIXED X) -->
                 <button onclick="closeDirectoryModal()"
-                    class="absolute top-6 right-6 z-50 w-12 h-12 bg-gray-100 hover:bg-carso-brand text-gray-400 hover:text-white rounded-full flex items-center justify-center transition-all shadow-lg hover:shadow-xl hover:scale-110">
-                    <i class="fas fa-times text-xl"></i>
+                    class="absolute top-4 right-4 md:top-6 md:right-6 z-50 w-10 h-10 md:w-12 md:h-12 bg-gray-100 hover:bg-carso-brand text-gray-400 hover:text-white rounded-full flex items-center justify-center transition-all shadow-lg hover:shadow-xl hover:scale-110">
+                    <i class="fas fa-times text-lg md:text-xl"></i>
                 </button>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 h-full">
-                    <div class="h-64 md:h-[500px] bg-gray-50 relative flex items-center justify-center p-12">
+                    <div class="h-48 md:h-[500px] bg-gray-50 relative flex items-center justify-center p-8 md:p-12">
                         <div class="absolute inset-0 bg-carso-brand/5"></div>
                         <img id="modal-img" src=""
                             class="w-full h-full object-contain drop-shadow-xl mix-blend-multiply relative z-10 transition-transform duration-500 hover:scale-105">
                     </div>
-                    <div class="p-10 flex flex-col justify-center bg-white relative">
+                    <div class="p-6 md:p-10 flex flex-col justify-center bg-white relative">
                         <h2 id="modal-title"
-                            class="text-4xl md:text-5xl font-black text-carso-black uppercase tracking-tighter mb-2 leading-none">
+                            class="text-3xl md:text-5xl font-black text-carso-black uppercase tracking-tighter mb-2 leading-none">
                         </h2>
                         <span id="modal-cat"
-                            class="text-carso-brand font-bold uppercase tracking-widest text-xs mb-8 block"></span>
-                        <p id="modal-desc" class="text-gray-600 font-medium text-lg leading-relaxed mb-8"></p>
+                            class="text-carso-brand font-bold uppercase tracking-widest text-[10px] md:text-xs mb-6 md:mb-8 block"></span>
+                        <p id="modal-desc"
+                            class="text-gray-600 font-medium text-sm md:text-lg leading-relaxed mb-6 md:mb-8"></p>
                         <div class="space-y-4 border-t border-gray-100 pt-8">
                             <div class="flex items-center gap-4 text-gray-500">
                                 <div
