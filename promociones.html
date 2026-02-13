@@ -207,35 +207,29 @@
     </div>
 
     <script>
-        // SHARED LIST OF LOCALES (MIRRORING DIRECTORIO.PHP LOGIC)
-        // In backend, this would loop through 'locales' table and check 'has_promotion'
-        const categories = ['Moda', 'Tecnología', 'Alimentos', 'Entretenimiento', 'Servicios', 'Departamental', 'Cafetería'];
-
-        // Exact same names as directory for consistency
-        const storeNames = [
-            'Sears', 'Liverpool', 'Sanborns', 'Palacio de Hierro', 'Cinépolis', 'Zara', 'H&M', 'C&A',
-            'Bershka', 'Pull&Bear', 'Massimo Dutti', 'Oysho', 'Stradivarius', 'Lefties', 'Uterqüe',
-            'Mango', 'Springfield', 'Women Secret', 'Cortefiel', 'Sfera', 'Forever 21', 'Gap',
-            'Old Navy', 'American Eagle', 'Aeropostale', 'Levi\'s', 'Dockers', 'Scappino', 'Roberts',
-            'Men\'s Fashion', 'Aldo Conti', 'High Life', 'Hugo Boss', 'Tommy Hilfiger', 'Lacoste',
-            'Guess', 'Calvin Klein', 'Armani Exchange', 'Sephora', 'Mac Cosmetics', 'Sally Beauty',
-            'Bellísima', 'GNC', 'Nutrisa', 'Santa Clara', 'Moyo', 'Krispy Kreme', 'Starbucks',
-            'Cielito Querido', 'Italiannis'
+        const storeFiles = [
+            "5.11 OutDoor Adventure.jpg", "Asaderos Grill.jpg", "Cielito Querido Café.jpg", "Cinépolis.jpg",
+            "Coffe Tree.jpg", "Cristal Joyas.jpg", "DAX.jpg", "Devlyno.jpg", "El Globo.jpg", "Ferrioni.jpg",
+            "Galex.jpg", "Game Planet.jpg", "Innvictus.jpg", "iShop.jpg", "Julio.jpg", "La casa de las Carcasas.jpg",
+            "La Milagresa.jpg", "Le Macaron.jpg", "Marti.jpg", "McDonalds.jpg", "Michel Domit Collezioni.jpg",
+            "Mixup.jpg", "Mobo Shop.jpg", "Mumuso.jpg", "New Era.jpg", "Nutrisa.jpg", "Pandora.jpg",
+            "Robert's.jpg", "Samsonite.jpg", "Sanborns.jpg", "Santa Clara.jpg", "Sears.jpg", "Shasa.jpg",
+            "Skechers.jpg", "Sushiroll.jpg", "TAF.jpg", "Telcel.jpg", "Turin.jpg", "Vittorio Forti.jpg", "YAK.jpg"
         ];
 
-        // Generate 50 Promos 1:1 with Stores
-        const promos = [];
-        for (let i = 1; i <= 50; i++) {
-            promos.push({
-                id: i,
-                title: `${storeNames[i - 1]} - Oferta Especial`,
-                store: storeNames[i - 1] || `Local ${i}`,
-                desc: "Disfruta de descuentos exclusivos en toda la tienda. Solo por tiempo limitado.",
-                img: `images/locales/local_${i}.jpg?v=${new Date().getTime()}`,
-                discount: (i % 2 === 0) ? `${10 + (i % 5) * 10}%` : "2x1",
-                link: `directorio.html?local=${i}` // LINK TO DIRECTORY MODAL
-            });
-        }
+        // Generate Promos 1:1 with Stores
+        const promos = storeFiles.map((file, index) => {
+            const name = file.replace('.jpg', '');
+            return {
+                id: index + 1,
+                title: `${name} - Oferta Especial`,
+                store: name,
+                desc: `¡Visita ${name} hoy! Aprovecha nuestras promociones exclusivas en Plaza Universidad. Calidad y precio inigualables.`,
+                img: `images/locales/${encodeURIComponent(file)}`,
+                discount: (index % 2 === 0) ? `${10 + (index % 5) * 10}%` : "2x1",
+                link: `directorio.html?local=${index + 1}` // LINK TO DIRECTORY MODAL
+            };
+        });
 
         function renderPromos() {
             const container = document.getElementById('promos-grid');

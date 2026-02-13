@@ -256,42 +256,33 @@
     </div>
 
     <script>
-        // GENERATE 50 MOCK STORES USING LOCAL IMAGES MAPPED FROM FOLDER
+        // REAL STORE DATA FROM FOLDER
+        const storeFiles = [
+            "5.11 OutDoor Adventure.jpg", "Asaderos Grill.jpg", "Cielito Querido Café.jpg", "Cinépolis.jpg",
+            "Coffe Tree.jpg", "Cristal Joyas.jpg", "DAX.jpg", "Devlyno.jpg", "El Globo.jpg", "Ferrioni.jpg",
+            "Galex.jpg", "Game Planet.jpg", "Innvictus.jpg", "iShop.jpg", "Julio.jpg", "La casa de las Carcasas.jpg",
+            "La Milagresa.jpg", "Le Macaron.jpg", "Marti.jpg", "McDonalds.jpg", "Michel Domit Collezioni.jpg",
+            "Mixup.jpg", "Mobo Shop.jpg", "Mumuso.jpg", "New Era.jpg", "Nutrisa.jpg", "Pandora.jpg",
+            "Robert's.jpg", "Samsonite.jpg", "Sanborns.jpg", "Santa Clara.jpg", "Sears.jpg", "Shasa.jpg",
+            "Skechers.jpg", "Sushiroll.jpg", "TAF.jpg", "Telcel.jpg", "Turin.jpg", "Vittorio Forti.jpg", "YAK.jpg"
+        ];
+
         const categories = ['Moda', 'Tecnología', 'Alimentos', 'Entretenimiento', 'Servicios', 'Departamental', 'Cafetería'];
         const floors = ['PB', 'PA'];
 
-        // Manual mapping or generated list. Since we have local_1.jpg to local_50.jpg
-        // We will assign names sequentially for the demo as requested ("todas las imagenes con su nombre de local").
-        // Since I don't have the real names for each specific "AAA...jpg" file, I will use generic meaningful names mixed with real ones.
-        const storeNames = [
-            'Sears', 'Liverpool', 'Sanborns', 'Palacio de Hierro', 'Cinépolis', 'Zara', 'H&M', 'C&A',
-            'Bershka', 'Pull&Bear', 'Massimo Dutti', 'Oysho', 'Stradivarius', 'Lefties', 'Uterqüe',
-            'Mango', 'Springfield', 'Women Secret', 'Cortefiel', 'Sfera', 'Forever 21', 'Gap',
-            'Old Navy', 'American Eagle', 'Aeropostale', 'Levi\'s', 'Dockers', 'Scappino', 'Roberts',
-            'Men\'s Fashion', 'Aldo Conti', 'High Life', 'Hugo Boss', 'Tommy Hilfiger', 'Lacoste',
-            'Guess', 'Calvin Klein', 'Armani Exchange', 'Sephora', 'Mac Cosmetics', 'Sally Beauty',
-            'Bellísima', 'GNC', 'Nutrisa', 'Santa Clara', 'Moyo', 'Krispy Kreme', 'Starbucks',
-            'Cielito Querido', 'Italiannis'
-        ];
-
-        const stores = [];
-
-        // We have 50 images: local_1.jpg to local_50.jpg
-        for (let i = 1; i <= 50; i++) {
-            // Assign name from list or fallback
-            // Note: The user said "menos las que dicen segundo piso". 
-            // The file list I saw (AAA...) didn't have such names, so I assume all copied files are valid.
-            stores.push({
-                id: i,
-                name: storeNames[i - 1] || `Local ${i}`,
-                cat: categories[i % categories.length],
-                floor: floors[i % floors.length],
-                img: `images/locales/local_${i}.jpg?v=${new Date().getTime()}`,
-                desc: 'Disfruta de la mejor experiencia de compra con los productos más exclusivos y las últimas tendencias.',
-                hue: i % 3 === 0 ? 'bg-carso-brand' : (i % 3 === 1 ? 'bg-black' : 'bg-gray-800'),
+        const stores = storeFiles.map((file, index) => {
+            const name = file.replace('.jpg', '');
+            return {
+                id: index + 1,
+                name: name,
+                cat: categories[index % categories.length],
+                floor: floors[index % floors.length],
+                img: `images/locales/${encodeURIComponent(file)}`,
+                desc: `Visita ${name} en Plaza Universidad y descubre lo mejor en su categoría. Calidad y servicio excepcional para todos nuestros visitantes.`,
+                hue: index % 3 === 0 ? 'bg-carso-brand' : (index % 3 === 1 ? 'bg-black' : 'bg-gray-800'),
                 time: '11:00 - 21:00'
-            });
-        }
+            };
+        });
 
         function renderStores(data) {
             const grid = document.getElementById('stores-grid');
