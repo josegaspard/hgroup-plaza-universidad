@@ -43,7 +43,7 @@
     <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 h-20">
         <div class="container mx-auto px-6 h-full flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-3 group z-50 relative h-full">
-                <img src="https://i.imgur.com/JtMTpuI.png" alt="Plaza Universidad"
+                <img src="logos/logo.webp" alt="Plaza Universidad"
                     class="h-10 md:h-14 w-auto object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
                 <div class="flex flex-col justify-center">
                     <span
@@ -52,7 +52,6 @@
                         class="text-lg font-black uppercase leading-none text-carso-black tracking-tighter">UNIVERSIDAD</span>
                 </div>
             </a>
-
             <nav class="hidden lg:flex items-center gap-8 h-full">
                 <a href="directorio.html"
                     class="text-sm font-extrabold uppercase hover:text-carso-brand transition-colors">Directorio</a>
@@ -63,7 +62,6 @@
                 <a href="contacto.html"
                     class="text-sm font-extrabold uppercase hover:text-carso-brand transition-colors">Contacto</a>
             </nav>
-
             <button class="lg:hidden text-carso-black p-2" onclick="toggleMobileMenu()">
                 <div class="space-y-1.5 w-8">
                     <span class="block w-full h-0.5 bg-black transition-all duration-300"></span>
@@ -93,54 +91,84 @@
     </div>
 
     <!-- HERO PROMOCIONES -->
-    <section class="relative h-[60vh] w-full overflow-hidden flex items-center justify-center bg-carso-brand mt-20">
+    <div class="relative bg-carso-brand h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden mt-20">
         <div class="absolute inset-0 z-0">
-            <img src="https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg"
-                class="w-full h-full object-cover opacity-30">
-            <div class="absolute inset-0 bg-gradient-to-t from-carso-brand via-carso-brand/80 to-carso-brand/60"></div>
+            <img src="https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?q=80&w=2940&auto=format&fit=crop"
+                alt="Promociones Plaza Universidad" class="w-full h-full object-cover opacity-20 mix-blend-multiply">
+            <div class="absolute inset-0 bg-gradient-to-t from-carso-brand/90 to-transparent"></div>
         </div>
-
-        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
-            <div class="inline-block mb-6">
-                <span
-                    class="py-2 px-4 border-2 border-white text-white font-black text-xs uppercase tracking-[0.25em] backdrop-blur-sm">Promociones</span>
-            </div>
-
-            <h1
-                class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-white mb-6 leading-none tracking-tighter drop-shadow-2xl uppercase italic">
-                Ofertas <span class="text-black">Increíbles</span>
+        <div class="relative z-10 text-center px-6">
+            <h1 class="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-4 italic">
+                Promociones <span class="text-black">Irresistibles</span>
             </h1>
-
-            <p class="text-xl md:text-2xl text-white font-bold max-w-2xl mx-auto leading-relaxed">
-                Descuentos exclusivos en tus tiendas favoritas
+            <p class="text-xl text-white/90 font-bold uppercase tracking-widest max-w-2xl mx-auto">
+                Aprovecha los mejores descuentos
             </p>
         </div>
-    </section>
+    </div>
 
     <!-- PROMOCIONES GRID -->
-    <section class="py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
-                <div>
-                    <h2 class="text-4xl md:text-5xl font-black text-carso-black mb-2 tracking-tighter uppercase italic">
-                        Promociones Activas</h2>
-                    <p class="text-lg text-carso-brand font-bold uppercase tracking-widest">Aprovecha ahora</p>
+    <div class="container mx-auto px-6 py-24 -mt-20 relative z-20">
+        <div id="promos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- JS fills this -->
+        </div>
+    </div>
+
+    <!-- MODAL PROMOCIÓN -->
+    <div id="promo-modal" class="fixed inset-0 z-[60] hidden">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="closePromoModal()"></div>
+        <div class="relative w-full h-full flex items-center justify-center p-4">
+            <div class="bg-white w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl transform scale-95 opacity-0 transition-all duration-300 relative border-4 border-carso-brand"
+                id="promo-modal-content">
+
+                <!-- Close Button -->
+                <button onclick="closePromoModal()"
+                    class="absolute top-4 right-4 z-20 w-10 h-10 bg-black/20 hover:bg-black text-white rounded-full flex items-center justify-center backdrop-blur-md transition-all">
+                    <i class="fas fa-times"></i>
+                </button>
+
+                <div class="relative h-48 bg-gray-100">
+                    <img id="promo-img" src="" class="w-full h-full object-cover">
+                    <div
+                        class="absolute bottom-0 left-0 bg-carso-brand text-white text-xs font-black uppercase tracking-widest px-4 py-2 rounded-tr-xl">
+                        Válido hasta agotar existencias
+                    </div>
+                </div>
+
+                <div class="p-8 text-center">
+                    <div
+                        class="inline-block bg-carso-black text-white text-3xl font-black px-6 py-2 rounded-lg -mt-12 mb-6 shadow-lg transform rotate-2 relative z-10">
+                        <span id="promo-discount"></span>
+                    </div>
+
+                    <h3 id="promo-store" class="text-xs font-black text-carso-brand uppercase tracking-[0.2em] mb-2">
+                    </h3>
+                    <h2 id="promo-title"
+                        class="text-3xl font-black text-carso-black uppercase leading-none mb-4 italic"></h2>
+                    <p id="promo-desc" class="text-gray-600 font-medium text-sm leading-relaxed mb-8"></p>
+
+                    <div class="bg-gray-50 rounded-xl p-4 border border-dashed border-gray-300">
+                        <span class="block text-[10px] font-black uppercase text-gray-400 mb-1">Código de
+                            Promoción</span>
+                        <span class="text-xl font-mono font-bold text-carso-black tracking-widest">PLAZA2026</span>
+                    </div>
+
+                    <button
+                        class="w-full mt-6 py-4 bg-carso-brand text-white font-black uppercase tracking-widest rounded-xl hover:bg-carso-black transition-colors shadow-lg">
+                        Ir al Local
+                    </button>
                 </div>
             </div>
-
-            <div id="promos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- JS llena esto -->
-            </div>
         </div>
-    </section>
+    </div>
+
 
     <!-- FOOTER -->
     <footer class="bg-black text-white pt-24 pb-12">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 border-b border-gray-800 pb-12">
                 <div class="col-span-1 lg:col-span-2">
-                    <img src="https://i.imgur.com/JtMTpuI.png" alt="Plaza Universidad"
-                        class="h-12 w-auto mb-4 object-contain">
+                    <img src="logos/logo.webp" alt="Plaza Universidad" class="h-12 w-auto mb-4 object-contain">
                     <p class="mt-6 text-gray-500 text-sm font-medium leading-relaxed max-w-sm uppercase">Creando
                         espacios que transforman ciudades.</p>
                 </div>
@@ -149,45 +177,61 @@
                     <ul class="space-y-4 text-sm text-gray-500 font-bold uppercase tracking-widest">
                         <li><a href="index.html" class="hover:text-white transition-colors">Inicio</a></li>
                         <li><a href="directorio.html" class="hover:text-white transition-colors">Directorio</a></li>
-                        <li><a href="promociones.html" class="hover:text-white transition-colors">Promociones</a></li>
+                        <li><a href="eventos.html" class="hover:text-white transition-colors">Eventos</a></li>
                     </ul>
                 </div>
-            </div>
-            <div class="text-center text-[10px] text-gray-600 font-black uppercase tracking-widest italic">
-                <p>&copy; 2026 Plaza Universidad. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
+    <!-- MOBILE BAR -->
+    <div class="fixed bottom-0 w-full bg-white border-t border-gray-200 z-30 md:hidden pb-safe">
+        <div class="grid grid-cols-4 h-16">
+            <a href="index.html"
+                class="flex flex-col items-center justify-center text-gray-400 hover:text-carso-brand"><i
+                    class="fas fa-home text-lg mb-1"></i><span
+                    class="text-[9px] font-black uppercase tracking-tighter">Inicio</span></a>
+            <a href="directorio.html"
+                class="flex flex-col items-center justify-center text-gray-400 hover:text-carso-brand"><i
+                    class="fas fa-store text-lg mb-1"></i><span
+                    class="text-[9px] font-black uppercase tracking-tighter">Tiendas</span></a>
+            <a href="eventos.html"
+                class="flex flex-col items-center justify-center text-gray-400 hover:text-carso-brand"><i
+                    class="fas fa-calendar-alt text-lg mb-1"></i><span
+                    class="text-[9px] font-black uppercase tracking-tighter">Eventos</span></a>
+            <button onclick="toggleMobileMenu()"
+                class="flex flex-col items-center justify-center text-gray-400 hover:text-carso-brand"><i
+                    class="fas fa-bars text-lg mb-1"></i><span
+                    class="text-[9px] font-black uppercase tracking-tighter">Menú</span></button>
+        </div>
+    </div>
+
     <script>
-        // DATOS FALSOS - Simulando backend (eventosypromociones.php filtrado por tipo promoción)
-        const promosDB = [
-            { id: 1, title: "Venta Nocturna", store: "Sears", desc: "Hasta 50% de descuento en toda la tienda. Solo esta noche.", img: "https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg", discount: "50%" },
-            { id: 2, title: "2x1 en Café", store: "Starbucks", desc: "Compra un café y lleva otro gratis. Válido todo el día.", img: "https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg", discount: "2x1" },
-            { id: 3, title: "Black Friday", store: "Liverpool", desc: "Descuentos en electrónica, moda y hogar. No te lo pierdas.", img: "https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg", discount: "40%" },
-            { id: 4, title: "Combo Familiar", store: "Cinépolis", desc: "Palomitas + Refrescos + Dulces por solo $150. Válido fines de semana.", img: "https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg", discount: "$150" },
-            { id: 5, title: "Descuento Estudiantes", store: "Zara", desc: "15% de descuento presentando credencial vigente.", img: "https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg", discount: "15%" },
-            { id: 6, title: "Happy Hour", store: "Restaurante", desc: "Bebidas al 2x1 de 5pm a 7pm todos los días.", img: "https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg", discount: "2x1" },
-            { id: 7, title: "Mega Descuento", store: "H&M", desc: "Hasta 60% en artículos seleccionados.", img: "https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg", discount: "60%" },
-            { id: 8, title: "3x2 en Pizzas", store: "Domino's", desc: "Compra 3 pizzas y paga solo 2. Válido martes y miércoles.", img: "https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg", discount: "3x2" },
-            { id: 9, title: "Descuento Tarjeta", store: "Suburbia", desc: "20% adicional pagando con tarjeta del banco.", img: "https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg", discount: "20%" }
+        const promos = [
+            { id: 1, title: "Venta Nocturna", store: "Sears", desc: "Hasta 50% de descuento en toda la tienda + 18 MSI con tarjetas participantes.", img: "https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg", discount: "50%" },
+            { id: 2, title: "Martes 2x1", store: "Starbucks", desc: "Compra una bebida grande o venti y llévate la segunda totalmente gratis.", img: "https://media.timeout.com/images/104989830/750/562/image.jpg", discount: "2x1" },
+            { id: 3, title: "Black Friday", store: "Liverpool", desc: "Descuentos increíbles en electrónica, moda y hogar. Solo por tiempo limitado.", img: "https://imagenes.eleconomista.com.mx/files/webp_768_448/uploads/2022/05/23/66e82cf740290.jpeg", discount: "40%" },
+            { id: 7, title: "Mega Descuento", store: "H&M", desc: "Hasta 60% en artículos seleccionados de temporada.", img: "https://imagenes.elpais.com/resizer/v2/JVSDJUU2X5IILC57IW7ZZSFNDM.jpg?auth=c97e0ff18cd03af7a39c188e5a3bc3e0175be5514dd41b4423107aafb6b1f678&width=1200", discount: "60%" }
         ];
 
         function renderPromos() {
             const container = document.getElementById('promos-grid');
-            container.innerHTML = promosDB.map(promo => `
-                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group hover:-translate-y-2 transition-all cursor-pointer">
-                    <div class="h-56 overflow-hidden relative">
-                        <img src="${promo.img}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute top-4 right-4 bg-carso-brand text-white font-black text-2xl px-4 py-2 rounded-xl shadow-xl">${promo.discount}</div>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-[9px] font-black text-carso-brand uppercase tracking-widest block mb-2">${promo.store}</span>
-                        <h3 class="text-2xl font-black text-carso-black uppercase mb-3 group-hover:text-carso-brand transition-colors">${promo.title}</h3>
-                        <p class="text-gray-600 font-bold text-sm mb-4 uppercase">${promo.desc}</p>
-                        <button class="w-full py-3 bg-carso-brand text-white font-black text-xs uppercase tracking-widest rounded-lg hover:bg-carso-black transition-all">Ver Promoción</button>
-                    </div>
+            container.innerHTML = promos.map(promo => `
+               <div onclick="openPromoModal('${promo.title}', '${promo.store}', '${promo.desc}', '${promo.img}', '${promo.discount}')" 
+                    class="bg-white rounded-3xl overflow-hidden shadow-2xl hover:-translate-y-2 transition-all group cursor-pointer">
+                <div class="h-64 bg-gradient-to-br from-gray-100 to-gray-200 relative flex items-center justify-center overflow-hidden">
+                    <img src="${promo.img}" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute top-4 right-4 bg-carso-brand text-white font-black text-3xl px-5 py-3 rounded-xl shadow-xl z-10 transform rotate-12 group-hover:rotate-0 transition-all">${promo.discount}</div>
+                    <span class="absolute bottom-4 left-4 text-3xl font-black text-white transform group-hover:translate-x-2 transition-transform duration-300 uppercase drop-shadow-lg">${promo.store}</span>
                 </div>
+                <div class="p-8">
+                    <span class="text-xs font-black text-carso-brand uppercase block mb-2 tracking-widest">Oferta Limitada</span>
+                    <h3 class="text-2xl font-black text-carso-black uppercase mb-4 leading-none">${promo.title}</h3>
+                    <p class="text-gray-500 font-bold text-sm mb-6 line-clamp-2">${promo.desc}</p>
+                    <button class="w-full py-4 bg-carso-black text-white font-black text-xs uppercase rounded-xl hover:bg-carso-brand transition-all shadow-lg">Ver Promoción</button>
+                </div>
+            </div>
             `).join('');
         }
 
@@ -195,6 +239,35 @@
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
             setTimeout(() => menu.classList.toggle('opacity-0'), 10);
+        }
+
+        function openPromoModal(title, store, desc, img, discount) {
+            const modal = document.getElementById('promo-modal');
+            const content = document.getElementById('promo-modal-content');
+
+            document.getElementById('promo-title').innerText = title;
+            document.getElementById('promo-store').innerText = store;
+            document.getElementById('promo-desc').innerText = desc;
+            document.getElementById('promo-img').src = img;
+            document.getElementById('promo-discount').innerText = discount;
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closePromoModal() {
+            const modal = document.getElementById('promo-modal');
+            const content = document.getElementById('promo-modal-content');
+
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
         }
 
         document.addEventListener('DOMContentLoaded', () => {

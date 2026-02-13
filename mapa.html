@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mapa Interactivo | Plaza Universidad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        carso: {
+                            brand: 'rgb(219 36 44)',
+                            black: '#000000',
+                            dark: '#111111',
+                            gray: '#F8F9FA'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-carso-black">
+
+    <!-- HEADER -->
+    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 h-20">
+        <div class="container mx-auto px-6 h-full flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group z-50 relative h-full">
+                <img src="logos/logo.webp" alt="Plaza Universidad"
+                    class="h-10 md:h-14 w-auto object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
+                <div class="flex flex-col justify-center">
+                    <span
+                        class="text-[10px] font-black uppercase tracking-[0.2em] text-carso-brand leading-none mb-0.5">PLAZA</span>
+                    <span
+                        class="text-lg font-black uppercase leading-none text-carso-black tracking-tighter">UNIVERSIDAD</span>
+                </div>
+            </a>
+            <nav class="hidden lg:flex items-center gap-8 h-full">
+                <a href="directorio.html"
+                    class="text-sm font-extrabold uppercase hover:text-carso-brand transition-colors">Directorio</a>
+                <a href="eventos.html"
+                    class="text-sm font-extrabold uppercase hover:text-carso-brand transition-colors">Eventos</a>
+                <a href="promociones.html"
+                    class="text-sm font-extrabold uppercase hover:text-carso-brand transition-colors">Promociones</a>
+                <a href="contacto.html"
+                    class="text-sm font-extrabold uppercase hover:text-carso-brand transition-colors">Contacto</a>
+            </nav>
+            <button class="lg:hidden text-carso-black p-2" onclick="toggleMobileMenu()">
+                <div class="space-y-1.5 w-8">
+                    <span class="block w-full h-0.5 bg-black transition-all duration-300"></span>
+                    <span class="block w-full h-0.5 bg-black transition-all duration-300"></span>
+                    <span class="block w-full h-0.5 bg-black transition-all duration-300"></span>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <!-- MENÚ MÓVIL (Overlay) -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 hidden opacity-0 transition-opacity duration-300">
+        <div class="flex flex-col items-center justify-center w-full h-full p-6">
+            <nav class="flex flex-col gap-8 text-center z-10 w-full">
+                <a href="index.html"
+                    class="text-4xl font-black uppercase text-carso-black hover:text-carso-brand transition-colors">Inicio</a>
+                <a href="directorio.html"
+                    class="text-4xl font-black uppercase text-carso-black hover:text-carso-brand transition-colors">Directorio</a>
+                <a href="eventos.html"
+                    class="text-4xl font-black uppercase text-carso-black hover:text-carso-brand transition-colors">Eventos</a>
+                <a href="promociones.html"
+                    class="text-4xl font-black uppercase text-carso-black hover:text-carso-brand transition-colors">Promociones</a>
+                <a href="contacto.html"
+                    class="text-xl font-bold uppercase text-white bg-carso-brand py-4 px-8 rounded-full shadow-xl mx-auto mt-4">Contacto</a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="bg-gray-50 min-h-screen">
+        <!-- Header Page -->
+        <div class="relative bg-white h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden pt-20">
+            <div class="absolute inset-0 z-0">
+                <!-- Simulate map image -->
+                <img src="https://www.formato7.com/wp-content/uploads/2020/11/Plaza-americas-Xalapa.jpg"
+                    class="w-full h-full object-cover opacity-20 grayscale">
+            </div>
+            <div class="relative z-10 text-center px-6">
+                <h1 class="text-5xl md:text-7xl font-black text-carso-black uppercase tracking-tighter mb-4 italic">
+                    Mapa <span class="text-carso-brand">Interactivo</span>
+                </h1>
+                <p class="text-xl text-gray-500 font-bold uppercase tracking-widest max-w-2xl mx-auto">
+                    Ubica tus tiendas favoritas fácilmente
+                </p>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="container mx-auto px-6 py-24 -mt-20 relative z-20">
+            <div class="bg-white rounded-3xl shadow-2xl p-8 mb-16 overflow-hidden min-h-[600px] flex flex-col relative">
+
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+                    <div class="flex gap-4">
+                        <button
+                            class="px-8 py-3 bg-carso-black text-white font-black text-xs uppercase rounded-full hover:bg-carso-brand transition-all shadow-lg active">Planta
+                            Baja</button>
+                        <button
+                            class="px-8 py-3 bg-gray-100 text-gray-500 font-black text-xs uppercase rounded-full hover:bg-gray-200 transition-all hover:text-carso-black">Planta
+                            Alta</button>
+                    </div>
+                </div>
+
+                <!-- Simulation Container -->
+                <div class="flex-grow bg-gray-50 rounded-2xl border border-gray-100 relative overflow-hidden flex items-center justify-center text-center p-10"
+                    id="map-simulation">
+                    <div class="text-gray-400">
+                        <i class="fas fa-map-marked-alt text-6xl mb-4 block opacity-20"></i>
+                        <span class="block text-2xl font-black uppercase tracking-widest mb-2 opacity-40">Mapa
+                            SVG</span>
+                        <span class="text-xs font-normal uppercase tracking-widest text-gray-300">(Se cargará
+                            dinámicamente desde el backend)</span>
+                    </div>
+
+                    <!-- Highlight Message (Simulacion) -->
+                    <div id="highlight-msg"
+                        class="absolute top-10 left-10 right-10 bg-carso-brand text-white p-6 rounded-2xl shadow-xl hidden animate-bounce z-50 max-w-sm mx-auto">
+                        <div class="flex items-center gap-4 justify-center">
+                            <i class="fas fa-map-pin text-3xl"></i>
+                            <div class="text-left">
+                                <span
+                                    class="block text-[10px] font-black uppercase tracking-widest opacity-80">Localizando
+                                    Tienda</span>
+                                <h3 id="store-name-highlight" class="text-xl font-black uppercase leading-none">Zara
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white pt-24 pb-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 border-b border-gray-800 pb-12">
+                <div class="col-span-1 lg:col-span-2">
+                    <img src="logos/logo.webp" alt="Plaza Universidad" class="h-12 w-auto mb-4 object-contain">
+                    <p class="mt-6 text-gray-500 text-sm font-medium leading-relaxed max-w-sm uppercase">Creando
+                        espacios que transforman ciudades.</p>
+                </div>
+                <div>
+                    <h4 class="font-black text-carso-brand mb-6 uppercase tracking-wider text-xs">Directo</h4>
+                    <ul class="space-y-4 text-sm text-gray-500 font-bold uppercase tracking-widest">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="directorio.html" class="hover:text-white transition-colors">Directorio</a></li>
+                        <li><a href="eventos.html" class="hover:text-white transition-colors">Eventos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const localId = urlParams.get('local');
+
+            if (localId) {
+                // Determine store name based on ID (In real backend, checking DB)
+                // For demo, we just say "Local #[ID]"
+                document.getElementById('store-name-highlight').innerText = "Local #" + localId;
+                document.getElementById('highlight-msg').classList.remove('hidden');
+            }
+        });
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle("hidden");
+            setTimeout(() => menu.classList.toggle("opacity-0"), 10);
+        }
+    </script>
+</body>
+
+</html>

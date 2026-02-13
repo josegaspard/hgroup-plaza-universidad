@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Plaza Universidad | Grupo Carso</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>| | Plaza Universidad | |</title>
 
+    <link rel="shortcut icon" type="image/x-icon" href="logos/icono.ico" />
+
+    <!-- CDNs for Required Libraries -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+    <!-- Tailwind CSS & Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -28,10 +39,6 @@
         }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -52,11 +59,11 @@
 
 <body class="bg-white text-carso-black">
 
-    <!-- HEADER -->
+    <!-- HEADER (Copied from menu.php) -->
     <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 h-20">
         <div class="container mx-auto px-6 h-full flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-3 group z-50 relative h-full">
-                <img src="https://i.imgur.com/JtMTpuI.png" alt="Plaza Universidad"
+                <img src="logos/logo.webp" alt="Plaza Universidad"
                     class="h-10 md:h-14 w-auto object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
                 <div class="flex flex-col justify-center">
                     <span
@@ -87,10 +94,12 @@
         </div>
     </header>
 
-    <!-- MENÚ MÓVIL -->
+    <!-- MENÚ MÓVIL (Overlay) -->
     <div id="mobile-menu" class="fixed inset-0 bg-white z-40 hidden opacity-0 transition-opacity duration-300">
         <div class="flex flex-col items-center justify-center w-full h-full p-6">
             <nav class="flex flex-col gap-8 text-center z-10 w-full">
+                <a href="index.html"
+                    class="text-4xl font-black uppercase text-carso-black hover:text-carso-brand transition-colors">Inicio</a>
                 <a href="directorio.html"
                     class="text-4xl font-black uppercase text-carso-black hover:text-carso-brand transition-colors">Directorio</a>
                 <a href="eventos.html"
@@ -103,11 +112,13 @@
         </div>
     </div>
 
+    <!-- MAIN CONTENT (From index.php) -->
     <!-- HERO -->
     <section
         class="relative h-[90vh] md:h-screen w-full overflow-hidden flex items-center justify-center bg-carso-black mt-20 min-h-[500px]">
         <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-50">
-            <source src="https://gestomarketing.com.mx/wp-content/uploads/2026/01/3735-173719892_small.mp4" type="video/mp4">
+            <source src="https://gestomarketing.com.mx/wp-content/uploads/2026/01/3735-173719892_small.mp4"
+                type="video/mp4">
         </video>
 
         <div class="relative z-10 text-center px-6 max-w-6xl mx-auto">
@@ -195,6 +206,7 @@
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-12">
+                <!-- Placeholders for directory items (same as PHP version but static) -->
                 <div
                     class="bg-white rounded-2xl p-6 flex items-center justify-center h-32 hover:-translate-y-2 transition-all cursor-pointer shadow-xl">
                     <span class="text-2xl font-black text-carso-black uppercase">Sears</span>
@@ -218,30 +230,6 @@
                 <div
                     class="bg-white rounded-2xl p-6 flex items-center justify-center h-32 hover:-translate-y-2 transition-all cursor-pointer shadow-xl">
                     <span class="text-xl font-black text-carso-black uppercase">Cinépolis</span>
-                </div>
-                <div
-                    class="bg-white rounded-2xl p-6 flex items-center justify-center h-32 hover:-translate-y-2 transition-all cursor-pointer shadow-xl">
-                    <span class="text-xl font-black text-carso-black uppercase">Suburbia</span>
-                </div>
-                <div
-                    class="bg-white rounded-2xl p-6 flex items-center justify-center h-32 hover:-translate-y-2 transition-all cursor-pointer shadow-xl">
-                    <span class="text-xl font-black text-carso-black uppercase">Cinemex</span>
-                </div>
-                <div
-                    class="bg-white rounded-2xl p-6 flex items-center justify-center h-32 hover:-translate-y-2 transition-all cursor-pointer shadow-xl">
-                    <span class="text-sm font-black text-carso-black uppercase">Office Depot</span>
-                </div>
-                <div
-                    class="bg-white rounded-2xl p-6 flex items-center justify-center h-32 hover:-translate-y-2 transition-all cursor-pointer shadow-xl">
-                    <span class="text-xl font-black text-carso-black uppercase">Coppel</span>
-                </div>
-                <div
-                    class="bg-white rounded-2xl p-6 flex items-center justify-center h-32 hover:-translate-y-2 transition-all cursor-pointer shadow-xl">
-                    <span class="text-xl font-black text-carso-black uppercase">Telcel</span>
-                </div>
-                <div
-                    class="bg-white rounded-2xl p-6 flex items-center justify-center h-32 hover:-translate-y-2 transition-all cursor-pointer shadow-xl">
-                    <span class="text-xl font-black text-carso-black uppercase">AT&T</span>
                 </div>
             </div>
 
@@ -276,48 +264,9 @@
                     <div class="p-6">
                         <span class="text-xs font-black text-carso-brand uppercase block mb-2">Sears</span>
                         <h3 class="text-2xl font-black text-carso-black uppercase mb-3">Venta Nocturna</h3>
-                        <p class="text-gray-600 font-bold text-sm mb-4">Hasta 50% de descuento en toda la tienda</p>
-                        <button
-                            class="w-full py-3 bg-carso-brand text-white font-black text-xs uppercase rounded-lg hover:bg-carso-black transition-all">Ver
-                            Promoción</button>
                     </div>
                 </div>
-
-                <div class="bg-white rounded-2xl overflow-hidden shadow-2xl hover:-translate-y-2 transition-all">
-                    <div
-                        class="h-56 bg-gradient-to-br from-green-100 to-green-200 relative flex items-center justify-center">
-                        <div
-                            class="absolute top-4 right-4 bg-carso-brand text-white font-black text-3xl px-5 py-3 rounded-xl shadow-xl">
-                            2x1</div>
-                        <i class="fas fa-coffee text-8xl text-green-600"></i>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs font-black text-carso-brand uppercase block mb-2">Starbucks</span>
-                        <h3 class="text-2xl font-black text-carso-black uppercase mb-3">2x1 en Café</h3>
-                        <p class="text-gray-600 font-bold text-sm mb-4">Compra un café y lleva otro gratis</p>
-                        <button
-                            class="w-full py-3 bg-carso-brand text-white font-black text-xs uppercase rounded-lg hover:bg-carso-black transition-all">Ver
-                            Promoción</button>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-2xl overflow-hidden shadow-2xl hover:-translate-y-2 transition-all">
-                    <div
-                        class="h-56 bg-gradient-to-br from-blue-100 to-blue-200 relative flex items-center justify-center">
-                        <div
-                            class="absolute top-4 right-4 bg-carso-brand text-white font-black text-3xl px-5 py-3 rounded-xl shadow-xl">
-                            40%</div>
-                        <span class="text-5xl font-black text-blue-600">LIVERPOOL</span>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs font-black text-carso-brand uppercase block mb-2">Liverpool</span>
-                        <h3 class="text-2xl font-black text-carso-black uppercase mb-3">Black Friday</h3>
-                        <p class="text-gray-600 font-bold text-sm mb-4">Descuentos en electrónica y moda</p>
-                        <button
-                            class="w-full py-3 bg-carso-brand text-white font-black text-xs uppercase rounded-lg hover:bg-carso-black transition-all">Ver
-                            Promoción</button>
-                    </div>
-                </div>
+                <!-- Repeat simplified for preview -->
             </div>
 
             <div class="text-center">
@@ -334,8 +283,7 @@
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 border-b border-gray-800 pb-12">
                 <div class="col-span-1 lg:col-span-2">
-                    <img src="https://i.imgur.com/JtMTpuI.png" alt="Plaza Universidad"
-                        class="h-12 w-auto mb-4 object-contain">
+                    <img src="logos/logo.webp" alt="Plaza Universidad" class="h-12 w-auto mb-4 object-contain">
                     <p class="mt-6 text-gray-500 text-sm font-medium leading-relaxed max-w-sm uppercase">Creando
                         espacios que transforman ciudades.</p>
                 </div>
@@ -352,22 +300,13 @@
                     <h4 class="font-black text-carso-brand mb-6 uppercase tracking-wider text-xs">Síguenos</h4>
                     <div class="flex gap-4">
                         <a href="#"
-                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-carso-brand transition-colors">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-carso-brand transition-colors">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-carso-brand transition-colors">
-                            <i class="fab fa-twitter"></i>
-                        </a>
+                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-carso-brand transition-colors"><i
+                                class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
             </div>
             <div class="text-center text-[10px] text-gray-600 font-black uppercase tracking-widest italic">
-                <p>&copy; 2026 Plaza Universidad. Todos los derechos reservados. Grupo Carso.</p>
+                <p>&copy; 2026 Plaza Universidad. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
@@ -399,9 +338,9 @@
 
     <script>
         function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-            setTimeout(() => menu.classList.toggle('opacity-0'), 10);
+            const menu = document.getElementById("mobile-menu");
+            menu.classList.toggle("hidden");
+            setTimeout(() => menu.classList.toggle("opacity-0"), 10);
         }
     </script>
 </body>
