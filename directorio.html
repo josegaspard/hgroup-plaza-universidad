@@ -188,7 +188,8 @@
                             <div class="flex items-center gap-4 text-gray-500">
                                 <div
                                     class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-carso-brand">
-                                    <i class="fas fa-map-marker-alt"></i></div>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
                                 <div><span
                                         class="block text-[10px] font-black uppercase tracking-widest text-gray-400">Ubicación</span><span
                                         id="modal-loc" class="font-bold text-carso-black"></span></div>
@@ -196,7 +197,8 @@
                             <div class="flex items-center gap-4 text-gray-500">
                                 <div
                                     class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-carso-brand">
-                                    <i class="far fa-clock"></i></div>
+                                    <i class="far fa-clock"></i>
+                                </div>
                                 <div><span
                                         class="block text-[10px] font-black uppercase tracking-widest text-gray-400">Horario</span><span
                                         id="modal-time" class="font-bold text-carso-black"></span></div>
@@ -284,7 +286,7 @@
                 name: storeNames[i - 1] || `Local ${i}`,
                 cat: categories[i % categories.length],
                 floor: floors[i % floors.length],
-                img: `images/locales/local_${i}.jpg`,
+                img: `images/locales/local_${i}.jpg?v=${new Date().getTime()}`,
                 desc: 'Disfruta de la mejor experiencia de compra con los productos más exclusivos y las últimas tendencias.',
                 hue: i % 3 === 0 ? 'bg-carso-brand' : (i % 3 === 1 ? 'bg-black' : 'bg-gray-800'),
                 time: '11:00 - 21:00'
