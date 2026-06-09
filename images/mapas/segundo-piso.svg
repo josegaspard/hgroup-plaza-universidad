@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 820" font-family="'Segoe UI', Arial, sans-serif" role="img" aria-label="Mapa Segundo Piso Plaza Universidad">
+  <defs>
+    <style>
+      .store-zone { cursor: pointer; transition: opacity 0.18s, filter 0.18s; }
+      .store-zone:hover { opacity: 0.82; filter: brightness(0.92); }
+      .anchor-lbl { font-size: 17px; font-weight: 700; fill: #2a2a2a; text-anchor: middle; dominant-baseline: middle; pointer-events: none; }
+      .small-lbl  { font-size: 8.5px; font-weight: 600; fill: #333; text-anchor: middle; dominant-baseline: middle; pointer-events: none; }
+      .micro-lbl  { font-size: 7px; font-weight: 600; fill: #444; text-anchor: middle; dominant-baseline: middle; pointer-events: none; }
+      .cat-lbl    { font-size: 7px; fill: #888; text-anchor: middle; dominant-baseline: middle; pointer-events: none; }
+    </style>
+  </defs>
+
+  <!-- Fondo exterior -->
+  <rect width="1100" height="820" fill="#d4cfc4"/>
+  <rect x="0" y="770" width="1100" height="50" fill="#c8c8b8"/>
+  <text x="550" y="795" style="font-size:11px;fill:#666;text-anchor:middle;letter-spacing:3;font-weight:600">AV. UNIVERSIDAD</text>
+  <rect x="0" y="0" width="45" height="770" fill="#c8c8b8"/>
+  <rect x="1055" y="0" width="45" height="820" fill="#c8c8b8"/>
+
+  <!-- Contorno segundo piso -->
+  <polygon points="45,55 255,55 255,45 1055,45 1055,760 45,760" fill="#edeae0" stroke="#888" stroke-width="2"/>
+
+  <!-- Área de estacionamiento / circulación -->
+  <rect x="48" y="58" width="1004" height="300" rx="3" fill="#cfd8dc"/>
+  <text x="550" y="215" style="font-size:14px;fill:#607d8b;text-anchor:middle;font-weight:600;letter-spacing:2">ESTACIONAMIENTO</text>
+  <text x="550" y="235" style="font-size:10px;fill:#90a4ae;text-anchor:middle">Segundo Nivel</text>
+
+  <!-- ═══ SEARS SEGUNDO PISO ═══ -->
+  <a href="../../directorio.html" target="_top">
+    <rect x="592" y="362" width="460" height="390" rx="4" fill="#FFE94D" class="store-zone" stroke="#e6c900" stroke-width="1.5"/>
+    <text x="822" y="545" class="anchor-lbl" style="font-size:22px">SEARS</text>
+    <text x="822" y="572" style="font-size:11px;fill:#666;text-anchor:middle">Segundo Piso</text>
+  </a>
+
+  <!-- ═══ TIENDAS SEGUNDO PISO ═══ -->
+  <!-- Franja izquierda piso 2 -->
+  <a href="../../directorio.html" target="_top">
+    <rect x="48" y="362" width="207" height="390" rx="3" fill="#b8c9de" class="store-zone"/>
+    <text x="152" y="553" class="anchor-lbl" style="font-size:13px;fill:#fff">Pasillo<tspan x="152" dy="18">2° Piso</tspan></text>
+  </a>
+
+  <!-- Centro segundo piso - tiendas -->
+  <a href="../../directorio.html" target="_top">
+    <rect x="258" y="362" width="90" height="90" rx="2" fill="#fff8e8" class="store-zone"/>
+    <text x="303" y="407" class="small-lbl">Asaderos<tspan x="303" dy="11">Grill</tspan></text>
+  </a>
+  <a href="../../directorio.html" target="_top">
+    <rect x="353" y="362" width="90" height="90" rx="2" fill="#fff8e8" class="store-zone"/>
+    <text x="398" y="407" class="small-lbl">Robert's</text>
+  </a>
+  <a href="../../directorio.html" target="_top">
+    <rect x="448" y="362" width="90" height="90" rx="2" fill="#fff8e8" class="store-zone"/>
+    <text x="493" y="407" class="small-lbl">Samsonite</text>
+  </a>
+  <a href="../../directorio.html" target="_top">
+    <rect x="258" y="457" width="90" height="90" rx="2" fill="#fff0e0" class="store-zone"/>
+    <text x="303" y="502" class="small-lbl">Patio de<tspan x="303" dy="11">Comidas</tspan></text>
+  </a>
+  <a href="../../directorio.html" target="_top">
+    <rect x="353" y="457" width="90" height="90" rx="2" fill="#fff8e8" class="store-zone"/>
+    <text x="398" y="502" class="small-lbl">Innvictus</text>
+  </a>
+  <a href="../../directorio.html" target="_top">
+    <rect x="448" y="457" width="90" height="90" rx="2" fill="#fff8e8" class="store-zone"/>
+    <text x="493" y="502" class="small-lbl">Skechers</text>
+  </a>
+  <a href="../../directorio.html" target="_top">
+    <rect x="258" y="552" width="90" height="90" rx="2" fill="#fff8e8" class="store-zone"/>
+    <text x="303" y="597" class="small-lbl">New Era</text>
+  </a>
+  <a href="../../directorio.html" target="_top">
+    <rect x="353" y="552" width="90" height="90" rx="2" fill="#fff8e8" class="store-zone"/>
+    <text x="398" y="597" class="small-lbl">Martí</text>
+  </a>
+  <a href="../../directorio.html" target="_top">
+    <rect x="448" y="552" width="90" height="90" rx="2" fill="#fff8e8" class="store-zone"/>
+    <text x="493" y="597" class="small-lbl">5.11 Outdoor</text>
+  </a>
+  <a href="../../directorio.html" target="_top">
+    <rect x="258" y="647" width="280" height="105" rx="2" fill="#fff8e8" class="store-zone"/>
+    <text x="398" y="700" class="small-lbl" style="font-size:10px">Tercer Piso / Accesos</text>
+  </a>
+
+  <!-- Leyenda -->
+  <rect x="958" y="48" width="145" height="120" rx="6" fill="white" opacity="0.92" stroke="#ccc" stroke-width="1"/>
+  <text x="968" y="67" style="font-size:9px;font-weight:700;fill:#333">LEYENDA</text>
+  <rect x="968" y="75" width="12" height="10" fill="#FFE94D" stroke="#ccc" stroke-width="0.5"/>
+  <text x="984" y="84" style="font-size:8px;fill:#555">Rentado / Operando</text>
+  <rect x="968" y="91" width="12" height="10" fill="#fff8e8" stroke="#ccc" stroke-width="0.5"/>
+  <text x="984" y="100" style="font-size:8px;fill:#555">Local comercial</text>
+  <rect x="968" y="107" width="12" height="10" fill="#cfd8dc" stroke="#ccc" stroke-width="0.5"/>
+  <text x="984" y="116" style="font-size:8px;fill:#555">Estacionamiento</text>
+  <rect x="968" y="123" width="12" height="10" fill="#b8c9de" stroke="#ccc" stroke-width="0.5"/>
+  <text x="984" y="132" style="font-size:8px;fill:#555">Pasillo / Circulación</text>
+
+  <!-- Branding -->
+  <rect x="958" y="183" width="145" height="50" rx="4" fill="#3a1a6e"/>
+  <text x="1030" y="202" style="font-size:9px;fill:#fbbd1a;text-anchor:middle;letter-spacing:3;font-weight:700">PLAZA</text>
+  <text x="1030" y="220" style="font-size:9px;fill:#fff;text-anchor:middle;letter-spacing:2;font-weight:400">UNIVERSIDAD</text>
+  <text x="958" y="248" style="font-size:8px;fill:#888;letter-spacing:1">SEGUNDO PISO</text>
+  <text x="958" y="260" style="font-size:7px;fill:#aaa">05 ENERO 2026</text>
+</svg>

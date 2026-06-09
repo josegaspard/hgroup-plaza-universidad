@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapa Interactivo | Plaza Universidad</title>
+    <meta name="description"
+        content="Mapa interactivo de Plaza Universidad. Ubica tiendas en Planta Baja, Mezzanine y Sótano. Av. Universidad 1000, CDMX." />
+    <link rel="canonical" href="https://josegaspard.github.io/hgroup-plaza-universidad/mapa.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Mapa Interactivo | Plaza Universidad" />
+    <meta property="og:description"
+        content="Mapa interactivo de Plaza Universidad. Ubica tiendas en Planta Baja, Mezzanine y Sótano." />
+    <meta property="og:image" content="images/locales/Exteriores%20de%20plaza.jpg" />
+    <meta property="og:url" content="https://josegaspard.github.io/hgroup-plaza-universidad/mapa.html" />
+    <meta property="og:site_name" content="Plaza Universidad" />
+    <meta property="og:locale" content="es_MX" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mapa | Plaza Universidad" />
+    <meta name="twitter:description" content="Mapa interactivo de Plaza Universidad." />
+    <meta name="twitter:image" content="images/locales/Exteriores%20de%20plaza.jpg" />
+    <meta name="author" content="Plaza Universidad - Inmuebles Carso" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#1a1a2e" />
+    <link rel="shortcut icon" type="image/x-icon" href="logos/icono.ico" />
+    <link rel="icon" type="image/x-icon" href="logos/icono.ico" />
+    <link rel="apple-touch-icon" href="logos/logo.png" />
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- CDNs (compatibles con backend INCARSO: jQuery 3.2.1 + Bootstrap 3.3.7) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Tailwind CSS & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        plaza: {
+                            black: '#1a1a2e',
+                            purple: '#6B2D8B',
+                            gold: '#C9A96E',
+                            cream: '#F5F1EB',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Lato', 'Helvetica Neue', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* MAP LAYOUT: sidebar + map canvas, push below fixed nav */
+        .map-wrapper {
+            margin-top: 80px;
+            height: calc(100vh - 80px);
+            display: flex;
+            overflow: hidden;
+        }
+
+        .map-sidebar {
+            width: 300px;
+            flex-shrink: 0;
+            background: #fff;
+            border-right: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* STORE LIST — generado por backend listadoLocatarios.php */
+        .store-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .store-list::-webkit-scrollbar { width: 3px; }
+        .store-list::-webkit-scrollbar-track { background: #f5f5f5; }
+        .store-list::-webkit-scrollbar-thumb { background: #ccc; }
+
+        /*
+         * BACKEND COMPAT: locatariosMapa() genera items con class="local"
+         * Los links tienen IDs como "Dlocal1PlantaBaja"
+         * Hover conecta con SVG via IDs "local1PlantaBaja"
+         */
+        .store-list .local,
+        .store-list-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 20px;
+            cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+            background: #fff;
+            transition: background .25s, padding-left .25s;
+            text-decoration: none;
+            position: relative;
+            font-size: 13px;
+            color: #333;
+        }
+
+        .store-list .local::before,
+        .store-list-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            background: #6B2D8B;
+            transition: width .25s;
+        }
+
+        .store-list .local:hover,
+        .store-list-item:hover,
+        .store-list .local.highlighted {
+            background: #f9f5ff;
+            padding-left: 28px;
+        }
+
+        .store-list .local:hover::before,
+        .store-list-item:hover::before,
+        .store-list .local.highlighted::before {
+            width: 4px;
+        }
+
+        /* MAP CANVAS */
+        .map-canvas {
+            flex: 1;
+            position: relative;
+            background: #fafafa;
+            overflow: hidden;
+        }
+
+        .map-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        /*
+         * SVG container: el backend inyecta el SVG del mapa aquí
+         * Los polígonos tienen class="localP" e IDs como "1PlantaBaja"
+         * En el demo usamos imágenes PNG de los planos oficiales
+         */
+        #mapa,
+        .tab-content { width: 100%; height: 100%; }
+        .tab-content .tab-pane { height: 100%; }
+        #mapa svg { width: 100%; height: 100%; max-height: 100%; }
+
+        /* Map floor image */
+        .map-floor-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 20px;
+        }
+
+        /* Simbología bar */
+        .simbologia-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid #eee;
+            padding: 10px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            z-index: 5;
+        }
+
+        @media (max-width: 768px) {
+            body { overflow: auto; }
+            .map-wrapper { flex-direction: column; height: auto; min-height: calc(100vh - 72px); margin-top: 72px; }
+            .map-sidebar { width: 100%; max-height: none; height: auto; border-right: none; border-bottom: 1px solid #eee; flex-shrink: 0; }
+            .store-list { max-height: 220px; }
+            .map-canvas { min-height: 60vh; flex: 1; }
+            .simbologia-bar { position: relative; gap: 12px; padding: 8px 12px; flex-wrap: wrap; }
+        }
+    </style>
+</head>
+
+<body class="bg-white text-plaza-black">
+
+    <!-- HEADER -->
+    <header class="fixed w-full top-0 z-50 bg-white/98 backdrop-blur-md shadow-sm h-20">
+        <div class="container mx-auto px-4 md:px-6 h-full flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 md:gap-3 group z-50 relative h-full">
+                <img src="logos/logo.webp" alt="Plaza Universidad"
+                    class="h-8 md:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+                <div class="flex flex-col justify-center">
+                    <span
+                        class="text-[8px] md:text-[10px] font-bold uppercase tracking-[0.15em] md:tracking-[0.2em] text-plaza-purple leading-none mb-0.5">PLAZA</span>
+                    <span
+                        class="text-sm md:text-lg font-bold uppercase leading-none text-plaza-black tracking-tight">UNIVERSIDAD</span>
+                </div>
+            </a>
+            <nav class="hidden lg:flex items-center gap-6 md:gap-8 h-full">
+                <a href="index.html"
+                    class="text-xs font-bold uppercase tracking-[0.15em] text-gray-500 hover:text-plaza-black transition-colors">Inicio</a>
+                <a href="directorio.html"
+                    class="text-xs font-bold uppercase tracking-[0.15em] text-gray-500 hover:text-plaza-black transition-colors">Directorio</a>
+                <a href="mapa.html"
+                    class="text-xs font-bold uppercase tracking-[0.15em] text-plaza-purple transition-colors border-b-2 border-plaza-purple pb-1">Mapa</a>
+                <a href="eventos.html"
+                    class="text-xs font-bold uppercase tracking-[0.15em] text-gray-500 hover:text-plaza-black transition-colors">Eventos</a>
+                <a href="promociones.html"
+                    class="text-xs font-bold uppercase tracking-[0.15em] text-gray-500 hover:text-plaza-black transition-colors">Promociones</a>
+                <a href="contacto.html"
+                    class="text-xs font-bold uppercase tracking-[0.15em] text-white bg-plaza-purple px-5 py-2.5 rounded-full hover:bg-purple-800 transition-colors">Contacto</a>
+            </nav>
+            <button class="lg:hidden text-plaza-black p-2" onclick="toggleMobileMenu()">
+                <div class="space-y-1.5 w-7">
+                    <span class="block w-full h-0.5 bg-plaza-black transition-all duration-300"></span>
+                    <span class="block w-full h-0.5 bg-plaza-black transition-all duration-300"></span>
+                    <span class="block w-full h-0.5 bg-plaza-black transition-all duration-300"></span>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <!-- MENÚ MÓVIL -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 hidden opacity-0 transition-opacity duration-300">
+        <div class="flex flex-col items-center justify-center w-full h-full p-6">
+            <nav class="flex flex-col gap-6 text-center z-10 w-full">
+                <a href="index.html" class="text-3xl font-bold uppercase text-plaza-black hover:text-plaza-purple transition-colors">Inicio</a>
+                <a href="directorio.html" class="text-3xl font-bold uppercase text-plaza-black hover:text-plaza-purple transition-colors">Directorio</a>
+                <a href="mapa.html" class="text-3xl font-bold uppercase text-plaza-purple">Mapa</a>
+                <a href="eventos.html" class="text-3xl font-bold uppercase text-plaza-black hover:text-plaza-purple transition-colors">Eventos</a>
+                <a href="promociones.html" class="text-3xl font-bold uppercase text-plaza-black hover:text-plaza-purple transition-colors">Promociones</a>
+                <a href="contacto.html" class="text-lg font-bold uppercase text-white bg-plaza-purple py-4 px-8 rounded-full shadow-xl mx-auto mt-4">Contacto</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         MAPA INTERACTIVO
+         Layout: sidebar (lista locatarios + filtros) + canvas (SVG/imagen)
+         Compatible con backend INCARSO:
+         - listadoLocatarios.php (AJAX, POST: centroComercial, giroComercial, piso)
+         - locatarioModal.php (GET: CentroComercial, idCatLocatario, origen)
+         - filtroGiroComercial.php / filtroGiroComercialLocal.php
+         - giroComercial() genera el <select> de filtro
+         - locatariosMapa2PRB() genera la lista de locatarios con class="local"
+         - SVG con polígonos class="localP" e IDs "1PlantaBaja", "2PlantaBaja", etc.
+         ============================================================ -->
+    <main>
+        <div class="map-wrapper">
+
+            <!-- SIDEBAR -->
+            <aside class="map-sidebar">
+                <!-- Sidebar Header -->
+                <div class="bg-plaza-black p-6">
+                    <h1 class="text-2xl md:text-3xl font-serif text-white leading-none mb-2">Mapa</h1>
+                    <p class="text-xs text-gray-400 uppercase tracking-widest">Ubica tu tienda favorita</p>
+                </div>
+
+                <!-- PISOS: tabs Bootstrap 3 (compatibles con backend) -->
+                <div class="bg-plaza-black/90">
+                    <ul class="nav nav-tabs flex border-none m-0" role="tablist">
+                        <li class="active flex-1">
+                            <a href="#tab_pb" data-toggle="tab" data-piso="Planta Baja"
+                                class="block text-center py-3 px-2 text-[9px] font-bold uppercase tracking-widest text-white/50 hover:text-white transition-colors bg-transparent border-none"
+                                style="border:none;margin:0;border-radius:0;">
+                                <i class="fas fa-building text-[8px] mr-1"></i> PB
+                            </a>
+                        </li>
+                        <li class="flex-1">
+                            <a href="#tab_mz" data-toggle="tab" data-piso="Mezzanine"
+                                class="block text-center py-3 px-2 text-[9px] font-bold uppercase tracking-widest text-white/50 hover:text-white transition-colors bg-transparent border-none"
+                                style="border:none;margin:0;border-radius:0;">
+                                <i class="fas fa-layer-group text-[8px] mr-1"></i> Mezzanine
+                            </a>
+                        </li>
+                        <li class="flex-1">
+                            <a href="#tab_st" data-toggle="tab" data-piso="Sótano"
+                                class="block text-center py-3 px-2 text-[9px] font-bold uppercase tracking-widest text-white/50 hover:text-white transition-colors bg-transparent border-none"
+                                style="border:none;margin:0;border-radius:0;">
+                                <i class="fas fa-arrow-down text-[8px] mr-1"></i> Sótano
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- FILTRO: giroComercial() del backend genera el <select> aquí -->
+                <div class="p-3 border-b border-gray-100">
+                    <!--
+                        BACKEND: En mapa.php se reemplaza con:
+                        <?php echo giroComercial($CentroComercial); ?>
+                    -->
+                    <select class="giroComercial w-full text-xs font-bold uppercase tracking-wider text-gray-500 bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 outline-none cursor-pointer appearance-none hover:border-plaza-purple transition-colors"
+                        style="background-image:url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%236B2D8B%22 stroke-width=%222%22%3E%3Cpath d=%22M6 9l6 6 6-6%22/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 12px center;background-size:16px;">
+                        <option value="">Todos los giros</option>
+                        <option value="Moda">Moda</option>
+                        <option value="Alimentos">Alimentos y Bebidas</option>
+                        <option value="Entretenimiento">Entretenimiento</option>
+                        <option value="Servicios">Servicios</option>
+                        <option value="Tecnología">Tecnología</option>
+                        <option value="Salud">Salud y Belleza</option>
+                    </select>
+                </div>
+
+                <!-- LISTA DE LOCATARIOS: generada por el backend vía AJAX -->
+                <div class="store-list" id="PlantaBaja">
+                    <!--
+                        BACKEND: Se carga via AJAX desde listadoLocatarios.php
+                        $.ajax({ url:'listadoLocatarios.php', type:'POST',
+                            data:{centroComercial:XX, giroComercial:'', piso:'Planta Baja'} });
+
+                        El backend genera HTML:
+                        <a class="local" id="Dlocal1PlantaBaja" href="locatarioModal.php?...">
+                            <span>Nombre Tienda</span>
+                        </a>
+                    -->
+                    <div class="p-8 text-center text-gray-300">
+                        <i class="fas fa-store text-4xl mb-4 block opacity-30"></i>
+                        <p class="text-xs uppercase tracking-widest font-bold">Lista de locatarios</p>
+                        <p class="text-[10px] text-gray-400 mt-2">Se carga desde el Gestor de Contenidos</p>
+                    </div>
+                </div>
+                <div class="store-list hidden" id="Mezzanine">
+                    <div class="p-8 text-center text-gray-300">
+                        <i class="fas fa-store text-4xl mb-4 block opacity-30"></i>
+                        <p class="text-xs uppercase tracking-widest font-bold">Locatarios Mezzanine</p>
+                        <p class="text-[10px] text-gray-400 mt-2">Se carga desde el Gestor de Contenidos</p>
+                    </div>
+                </div>
+                <div class="store-list hidden" id="Sotano">
+                    <div class="p-8 text-center text-gray-300">
+                        <i class="fas fa-store text-4xl mb-4 block opacity-30"></i>
+                        <p class="text-xs uppercase tracking-widest font-bold">Locatarios Sótano</p>
+                        <p class="text-[10px] text-gray-400 mt-2">Se carga desde el Gestor de Contenidos</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- MAPA CANVAS -->
+            <div class="map-canvas">
+                <div class="map-inner">
+                    <div class="tab-content" id="tabContent">
+
+                        <!-- PLANTA BAJA -->
+                        <div class="tab-pane active in" id="tab_pb">
+                            <div id="mapa" style="margin:0 auto;width:100%;height:100%;">
+                                <!--
+                                    BACKEND: Aquí se inyecta el SVG interactivo de Planta Baja.
+                                    ~106KB de SVG inline con polígonos:
+                                    <polygon id="local1PlantaBaja" class="localP" points="..." fill="#f8f3e8" />
+                                    INCARSO generará el SVG desde los planos oficiales.
+                                    Locales: 1-79, Anclas: Sears(2), Sanborns(4), DAX(58), YAK(62), Mixup(63)
+                                    DEMO: Imagen PNG del plano oficial.
+                                -->
+                                <img src="images/mapas/pisos/planta-baja.png"
+                                    alt="Planta Baja - Plaza Universidad - Locales 1 al 79"
+                                    class="map-floor-img">
+                            </div>
+                        </div>
+
+                        <!-- MEZZANINE -->
+                        <div class="tab-pane" id="tab_mz">
+                            <div id="mapaMezzanine" style="margin:0 auto;width:100%;height:100%;">
+                                <!--
+                                    BACKEND: SVG interactivo de Mezzanine.
+                                    Polígonos: Cinépolis (local 1), local 3, Sears (local 2), Vestíbulo.
+                                    DEMO: Imagen PNG del plano oficial.
+                                -->
+                                <img src="images/mapas/pisos/mezzanine.png"
+                                    alt="Mezzanine - Plaza Universidad - Cinépolis, Sears"
+                                    class="map-floor-img">
+                            </div>
+                        </div>
+
+                        <!-- SÓTANO -->
+                        <div class="tab-pane" id="tab_st">
+                            <div id="mapaSotano" style="margin:0 auto;width:100%;height:100%;">
+                                <!--
+                                    BACKEND: SVG interactivo de Sótano.
+                                    Polígonos: locales 80-87, Sears (local 2).
+                                    DEMO: Imagen PNG del plano oficial.
+                                -->
+                                <img src="images/mapas/pisos/sotano.png"
+                                    alt="Sótano - Plaza Universidad - Locales 80 al 87"
+                                    class="map-floor-img">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Simbología -->
+                <div class="simbologia-bar">
+                    <span class="text-[10px] text-plaza-purple font-bold uppercase tracking-wider flex items-center gap-1.5">
+                        <i class="fas fa-elevator"></i> Elevador
+                    </span>
+                    <span class="text-[10px] text-plaza-purple font-bold uppercase tracking-wider flex items-center gap-1.5">
+                        <i class="fas fa-user-tie"></i> Administración
+                    </span>
+                    <span class="text-[10px] text-plaza-purple font-bold uppercase tracking-wider flex items-center gap-1.5">
+                        <i class="fas fa-stairs"></i> Escaleras
+                    </span>
+                    <span class="text-[10px] text-plaza-purple font-bold uppercase tracking-wider flex items-center gap-1.5">
+                        <i class="fas fa-restroom"></i> Sanitarios
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- MODALES BOOTSTRAP 3 (requeridos por backend INCARSO) -->
+    <!--
+        BACKEND: En mapa.php se reemplaza con:
+        <?php include("modales.php"); ?>
+        Incluye: #miModalLocatario, #miModalPublicidad, etc.
+    -->
+    <div class="modal fade" id="miModalLocatario" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" id="miModalContenidoLocatario">
+                <!-- locatarioModal.php se carga aquí vía jQuery AJAX -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /*
+         * ============================================================
+         * MAPA INTERACTIVO — JavaScript
+         * ============================================================
+         * Compatible con el backend de Inmuebles Carso.
+         *
+         * En producción (mapa.php), las funciones PHP inyectan:
+         * - giroComercial($CentroComercial) → <select class="giroComercial">
+         * - locatariosMapa2PRB() → lista de <a class="local"> con IDs
+         * - SVG inline con <polygon class="localP"> y IDs
+         *
+         * Las interacciones (hover, click, filtro, cambio de piso)
+         * se manejan con jQuery + AJAX, idéntico al backend real.
+         * ============================================================
+         */
+
+        // BACKEND: $CentroComercial se obtiene de header.php
+        // var centroComercial = <?php echo $CentroComercial; ?>;
+        var centroComercial = 99; // Placeholder — INCARSO asigna el ID real
+
+        $(document).ready(function () {
+
+            /* ---- Click en locatario de la lista → abre modal ---- */
+            $(document).on('click', '.local', function (e) {
+                var _href = this.href;
+                e.preventDefault();
+                $('#miModalContenidoLocatario').load(_href, function () {
+                    $('#miModalLocatario').modal('show');
+                });
+                return false;
+            });
+
+            /* ---- Hover lista → resalta polígono SVG ---- */
+            $(document).on('mouseenter', '.local', function () {
+                var id = $(this).attr('id');
+                if (id) {
+                    var idMapa = id.replace('D', '');
+                    var color = $('#' + idMapa).css('fill');
+                    $('#' + idMapa).css('fill-opacity', '.5');
+                    $('#' + id).css({ 'background': color, 'font-weight': 'bold', 'color': 'white' });
+                }
+            });
+            $(document).on('mouseleave', '.local', function () {
+                var id = $(this).attr('id');
+                if (id) {
+                    var idMapa = id.replace('D', '');
+                    $('#' + idMapa).css('fill-opacity', '1');
+                    $('#' + id).css({ 'background': 'none', 'font-weight': 'normal', 'color': 'black' });
+                }
+            });
+
+            /* ---- Click en polígono SVG → abre modal de locatario ---- */
+            $(document).on('click', '.localP', function () {
+                var id = $(this).attr('id');
+                id = id.replace('PlantaBaja', '').replace('Mezzanine', '').replace('Sotano', '');
+                $('#miModalContenidoLocatario').load(
+                    'locatarioModal.php?CentroComercial=' + centroComercial + '&idCatLocatario=' + id + '&origen=mapa',
+                    function () { $('#miModalLocatario').modal('show'); }
+                );
+                return false;
+            });
+
+            /* ---- Hover polígono SVG → resalta en lista ---- */
+            $(document).on('mouseenter', '.localP', function () {
+                var id = $(this).attr('id');
+                var color = $('#local' + id).css('fill');
+                $('#local' + id).css('fill-opacity', '.5');
+                $('#Dlocal' + id).css({ 'background': color, 'font-weight': 'bold', 'color': 'white' });
+            });
+            $(document).on('mouseleave', '.localP', function () {
+                var id = $(this).attr('id');
+                $('#local' + id).css('fill-opacity', '1');
+                $('#Dlocal' + id).css({ 'background': 'none', 'font-weight': 'normal', 'color': 'black' });
+            });
+
+            /* ---- Filtro por giro comercial → AJAX ---- */
+            $(document).on('change', '.giroComercial', function () {
+                var giroComercial = $(this).val();
+                $.ajax({
+                    url: 'listadoLocatarios.php',
+                    type: 'POST',
+                    data: { centroComercial: centroComercial, giroComercial: giroComercial, piso: 'Planta Baja' },
+                    cache: false,
+                    success: function (data) { $('#PlantaBaja').html(data); }
+                });
+                $.ajax({
+                    url: 'listadoLocatarios.php',
+                    type: 'POST',
+                    data: { centroComercial: centroComercial, giroComercial: giroComercial, piso: 'Mezzanine' },
+                    cache: false,
+                    success: function (data) { $('#Mezzanine').html(data); }
+                });
+                $.ajax({
+                    url: 'listadoLocatarios.php',
+                    type: 'POST',
+                    data: { centroComercial: centroComercial, giroComercial: giroComercial, piso: 'Sótano' },
+                    cache: false,
+                    success: function (data) { $('#Sotano').html(data); }
+                });
+            });
+
+            /* ---- Cambio de tab de piso → cargar locatarios + mostrar lista ---- */
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var piso = $(e.target).data('piso');
+                var targetDiv;
+                if (piso === 'Planta Baja') targetDiv = '#PlantaBaja';
+                else if (piso === 'Mezzanine') targetDiv = '#Mezzanine';
+                else targetDiv = '#Sotano';
+
+                // Show/hide store lists
+                $('.store-list').addClass('hidden');
+                $(targetDiv).removeClass('hidden');
+
+                var giroComercial = $('.giroComercial').val() || '';
+                $.ajax({
+                    url: 'listadoLocatarios.php',
+                    type: 'POST',
+                    data: { centroComercial: centroComercial, giroComercial: giroComercial, piso: piso },
+                    cache: false,
+                    success: function (data) { $(targetDiv).html(data); }
+                });
+            });
+
+            /* ---- Style active tab ---- */
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                $('a[data-toggle="tab"]').css({ 'color': 'rgba(255,255,255,0.5)', 'background': 'transparent' });
+                $(e.target).css({ 'color': '#fff', 'background': 'rgba(255,255,255,0.08)' });
+            });
+            $('li.active a[data-toggle="tab"]').css({ 'color': '#fff', 'background': 'rgba(255,255,255,0.08)' });
+
+            /* ---- Cerrar modal ---- */
+            $(document).on('click', '#cerrar', function () {
+                $(this).closest('.modal').modal('hide');
+            });
+        });
+
+        /* Mobile menu */
+        function toggleMobileMenu() {
+            var menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            setTimeout(function () { menu.classList.toggle('opacity-0'); }, 10);
+            document.body.style.overflow = menu.classList.contains('hidden') ? '' : 'hidden';
+        }
+    </script>
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Plaza Universidad", "item": "https://josegaspard.github.io/hgroup-plaza-universidad/" },
+            { "@type": "ListItem", "position": 2, "name": "Mapa Interactivo", "item": "https://josegaspard.github.io/hgroup-plaza-universidad/mapa.html" }
+        ]
+    }
+    </script>
+</body>
+
+</html>

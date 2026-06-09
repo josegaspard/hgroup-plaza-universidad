@@ -1,0 +1,339 @@
+<!-- PLANTA BAJA INTERIOR — Plaza Universidad -->
+<!-- Stores link to ../../directorio.html?tienda=NOMBRE for deep modal linking -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 870"
+     font-family="'Segoe UI',Arial,sans-serif" role="img" aria-label="Mapa Planta Baja Plaza Universidad">
+<defs>
+  <style>
+    .z { cursor:pointer; transition:opacity .2s,filter .2s; }
+    .z:hover { opacity:.8; filter:brightness(.93); }
+    .al { font-size:18px; font-weight:700; fill:#1a1a1a; text-anchor:middle; dominant-baseline:middle; pointer-events:none; }
+    .sl { font-size:9px; font-weight:700; fill:#333; text-anchor:middle; dominant-baseline:middle; pointer-events:none; }
+    .cl { font-size:7.5px; fill:#777; text-anchor:middle; dominant-baseline:middle; pointer-events:none; }
+    .co { fill:#eee9de; }
+    .rd { fill:#FFE94D; }   /* Rentado/amarillo */
+    .ci { fill:#b8c9de; }   /* Cinema/azul */
+    .ga { fill:#fff0e0; }   /* Gastronomía */
+    .sh { fill:#f8f3e8; }   /* Tienda */
+    .sv { fill:#F4845F; }   /* Servicios */
+  </style>
+</defs>
+
+<!-- ── FONDO EXTERIOR ── -->
+<rect width="1200" height="870" fill="#d0ccc0"/>
+<rect x="0" y="820" width="1200" height="50" fill="#c0bdb4"/>
+<text x="600" y="848" style="font-size:10px;fill:#888;text-anchor:middle;letter-spacing:3;font-weight:600">AV. UNIVERSIDAD</text>
+<rect x="0" y="0" width="42" height="820" fill="#c0bdb4"/>
+<text x="18" y="430" transform="rotate(-90,18,430)" style="font-size:9px;fill:#888;text-anchor:middle;letter-spacing:2;font-weight:600">CALLE PARROQUIA</text>
+<rect x="1158" y="0" width="42" height="870" fill="#c0bdb4"/>
+<text x="1176" y="430" transform="rotate(90,1176,430)" style="font-size:8px;fill:#888;text-anchor:middle;letter-spacing:1;font-weight:500">E.F. &amp; G.R. POPOCATÉPETL</text>
+
+<!-- ── CONTORNO MALL ── -->
+<polygon points="42,42 260,42 260,38 1158,38 1158,820 42,820" fill="#f0ece3" stroke="#888" stroke-width="2"/>
+
+<!-- ══════════════════════════════════════════
+     CINÉPOLIS — superior izquierda
+══════════════════════════════════════════ -->
+<a href="../../directorio.html?tienda=Cin%C3%A9polis" target="_top">
+  <rect x="44" y="44" width="216" height="265" rx="4" class="z ci"/>
+  <ellipse cx="152" cy="186" rx="74" ry="65" fill="#9ab4cc"/>
+  <text x="152" y="180" class="sl" style="fill:#fff;font-size:12px">CINÉPOLIS</text>
+  <text x="152" y="197" class="cl" style="fill:#d0dff0">Entretenimiento · PA</text>
+  <title>Cinépolis — Entretenimiento</title>
+</a>
+
+<!-- ══════════════════════════════════════════
+     SEARS — columna derecha (ancla principal)
+══════════════════════════════════════════ -->
+<a href="../../directorio.html?tienda=Sears" target="_top">
+  <rect x="630" y="44" width="522" height="752" rx="4" class="z rd" stroke="#e6c900" stroke-width="1.5"/>
+  <text x="891" y="400" class="al" style="font-size:30px">SEARS</text>
+  <text x="891" y="435" class="cl" style="font-size:11px">Planta Baja · Piso 2 · Piso 3</text>
+  <title>Sears — Planta Baja</title>
+</a>
+
+<!-- ══════════════════════════════════════════
+     SANBORNS — inferior izquierda (ancla)
+══════════════════════════════════════════ -->
+<a href="../../directorio.html?tienda=Sanborns" target="_top">
+  <rect x="44" y="590" width="214" height="226" rx="4" class="z rd" stroke="#e6c900" stroke-width="1.5"/>
+  <text x="151" y="700" class="al" style="font-size:22px">SANBORNS</text>
+  <text x="151" y="728" class="cl" style="font-size:10px">Planta Baja</text>
+  <title>Sanborns — Planta Baja</title>
+</a>
+
+<!-- ══════════════════════════════════════════
+     CITIBANAMEX — inferior derecha (exterior)
+══════════════════════════════════════════ -->
+<a href="../../directorio.html?tienda=Citibanamex" target="_top">
+  <rect x="862" y="748" width="294" height="68" rx="4" class="z sv" stroke="#d46840" stroke-width="1.5"/>
+  <text x="1009" y="782" class="al" style="fill:#fff;font-size:14px">CITIBANAMEX</text>
+  <title>Citibanamex — Servicios financieros</title>
+</a>
+
+<!-- ══════════════════════════════════════════
+     FRANJA SUPERIOR — tiendas (x=260–630, y=44–170)
+══════════════════════════════════════════ -->
+<a href="../../directorio.html?tienda=YAK" target="_top">
+  <rect x="263" y="47" width="88" height="112" rx="2" class="z sh"/>
+  <text x="307" y="96" class="sl">YAK</text>
+  <text x="307" y="111" class="cl">Deportes · PB</text>
+  <title>YAK — Deportes</title>
+</a>
+<a href="../../directorio.html?tienda=Mixup" target="_top">
+  <rect x="356" y="47" width="88" height="112" rx="2" class="z sh"/>
+  <text x="400" y="96" class="sl">Mixup</text>
+  <text x="400" y="111" class="cl">Entretenimiento</text>
+  <title>Mixup — Entretenimiento</title>
+</a>
+<a href="../../directorio.html?tienda=5.11%20OutDoor%20Adventure" target="_top">
+  <rect x="449" y="47" width="88" height="112" rx="2" class="z sh"/>
+  <text x="493" y="90" class="sl">5.11</text>
+  <text x="493" y="103" class="sl">Outdoor</text>
+  <text x="493" y="118" class="cl">Deportes</text>
+  <title>5.11 OutDoor Adventure — Deportes</title>
+</a>
+<a href="../../directorio.html?tienda=DAX" target="_top">
+  <rect x="542" y="47" width="82" height="112" rx="2" class="z sh"/>
+  <text x="583" y="96" class="sl">DAX</text>
+  <text x="583" y="111" class="cl">Lifestyle</text>
+  <title>DAX — Lifestyle</title>
+</a>
+
+<!-- SEGUNDA FILA SUPERIOR (y=164–270) -->
+<a href="../../directorio.html?tienda=Skechers" target="_top">
+  <rect x="263" y="164" width="88" height="90" rx="2" class="z sh"/>
+  <text x="307" y="208" class="sl">Skechers</text>
+  <text x="307" y="222" class="cl">Moda</text>
+</a>
+<a href="../../directorio.html?tienda=New%20Era" target="_top">
+  <rect x="356" y="164" width="88" height="90" rx="2" class="z sh"/>
+  <text x="400" y="208" class="sl">New Era</text>
+  <text x="400" y="222" class="cl">Moda</text>
+</a>
+<a href="../../directorio.html?tienda=Innvictus" target="_top">
+  <rect x="449" y="164" width="88" height="90" rx="2" class="z sh"/>
+  <text x="493" y="208" class="sl">Innvictus</text>
+  <text x="493" y="222" class="cl">Deportes</text>
+</a>
+<a href="../../directorio.html?tienda=Mart%C3%AD" target="_top">
+  <rect x="542" y="164" width="82" height="90" rx="2" class="z sh"/>
+  <text x="583" y="208" class="sl">Martí</text>
+  <text x="583" y="222" class="cl">Deportes</text>
+</a>
+
+<!-- CORREDOR HORIZONTAL SUPERIOR (y=258–280) -->
+<rect x="260" y="258" width="368" height="24" fill="#e4e0d6"/>
+
+<!-- ══════════════════════════════════════════
+     BLOQUE IZQUIERDO BAJO CINÉPOLIS (x=44–260)
+══════════════════════════════════════════ -->
+<a href="../../directorio.html?tienda=Game%20Planet" target="_top">
+  <rect x="47" y="313" width="103" height="78" rx="2" class="z sh"/>
+  <text x="99" y="350" class="sl">Game Planet</text>
+  <text x="99" y="364" class="cl">Entretenimiento</text>
+</a>
+<a href="../../directorio.html?tienda=iShop" target="_top">
+  <rect x="155" y="313" width="103" height="78" rx="2" class="z sh"/>
+  <text x="207" y="350" class="sl">iShop</text>
+  <text x="207" y="364" class="cl">Tecnología</text>
+</a>
+<a href="../../directorio.html?tienda=Mobo%20Shop" target="_top">
+  <rect x="47" y="396" width="103" height="78" rx="2" class="z sh"/>
+  <text x="99" y="433" class="sl">Mobo Shop</text>
+  <text x="99" y="447" class="cl">Tecnología</text>
+</a>
+<a href="../../directorio.html?tienda=Telcel" target="_top">
+  <rect x="155" y="396" width="103" height="78" rx="2" class="z sh"/>
+  <text x="207" y="433" class="sl">Telcel</text>
+  <text x="207" y="447" class="cl">Servicios</text>
+</a>
+<a href="../../directorio.html?tienda=Devlyno" target="_top">
+  <rect x="47" y="479" width="103" height="78" rx="2" class="z sh"/>
+  <text x="99" y="516" class="sl">Devlyno</text>
+  <text x="99" y="530" class="cl">Moda</text>
+</a>
+<a href="../../directorio.html?tienda=Mumuso" target="_top">
+  <rect x="155" y="479" width="103" height="78" rx="2" class="z sh"/>
+  <text x="207" y="516" class="sl">Mumuso</text>
+  <text x="207" y="530" class="cl">Lifestyle</text>
+</a>
+<!-- Corredor transversal (y=562-586) -->
+<rect x="44" y="562" width="214" height="24" fill="#e4e0d6"/>
+
+<!-- ══════════════════════════════════════════
+     CENTRO — izquierda del corredor vertical (x=260–440)
+══════════════════════════════════════════ -->
+<a href="../../directorio.html?tienda=Ferrioni" target="_top">
+  <rect x="263" y="286" width="82" height="78" rx="2" class="z sh"/>
+  <text x="304" y="324" class="sl">Ferrioni</text>
+  <text x="304" y="338" class="cl">Moda</text>
+</a>
+<a href="../../directorio.html?tienda=Julio" target="_top">
+  <rect x="350" y="286" width="82" height="78" rx="2" class="z sh"/>
+  <text x="391" y="324" class="sl">Julio</text>
+  <text x="391" y="338" class="cl">Moda</text>
+</a>
+<a href="../../directorio.html?tienda=Turin" target="_top">
+  <rect x="263" y="369" width="82" height="78" rx="2" class="z sh"/>
+  <text x="304" y="407" class="sl">Turin</text>
+  <text x="304" y="421" class="cl">Dulces</text>
+</a>
+<a href="../../directorio.html?tienda=Vittorio%20Forti" target="_top">
+  <rect x="350" y="369" width="82" height="78" rx="2" class="z sh"/>
+  <text x="391" y="400" class="sl">Vittorio</text>
+  <text x="391" y="413" class="sl">Forti</text>
+  <text x="391" y="428" class="cl">Moda</text>
+</a>
+<a href="../../directorio.html?tienda=Michel%20Domit%20Collezioni" target="_top">
+  <rect x="263" y="452" width="82" height="78" rx="2" class="z sh"/>
+  <text x="304" y="485" class="sl">Michel</text>
+  <text x="304" y="498" class="sl">Domit</text>
+  <text x="304" y="512" class="cl">Moda</text>
+</a>
+<a href="../../directorio.html?tienda=Shasa" target="_top">
+  <rect x="350" y="452" width="82" height="78" rx="2" class="z sh"/>
+  <text x="391" y="490" class="sl">Shasa</text>
+  <text x="391" y="504" class="cl">Moda</text>
+</a>
+
+<!-- Corredor vertical centro (x=436–456) -->
+<rect x="436" y="258" width="22" height="380" fill="#e4e0d6"/>
+
+<!-- ══════════════════════════════════════════
+     CENTRO — derecha del corredor vertical (x=458–626)
+══════════════════════════════════════════ -->
+<a href="../../directorio.html?tienda=Pandora" target="_top">
+  <rect x="459" y="286" width="82" height="78" rx="2" class="z sh"/>
+  <text x="500" y="324" class="sl">Pandora</text>
+  <text x="500" y="338" class="cl">Joyería</text>
+</a>
+<a href="../../directorio.html?tienda=Cristal%20Joyas" target="_top">
+  <rect x="546" y="286" width="80" height="78" rx="2" class="z sh"/>
+  <text x="586" y="324" class="sl">Cristal</text>
+  <text x="586" y="338" class="sl">Joyas</text>
+</a>
+<a href="../../directorio.html?tienda=Samsonite" target="_top">
+  <rect x="459" y="369" width="82" height="78" rx="2" class="z sh"/>
+  <text x="500" y="407" class="sl">Samsonite</text>
+  <text x="500" y="421" class="cl">Accesorios</text>
+</a>
+<a href="../../directorio.html?tienda=Robert%27s" target="_top">
+  <rect x="546" y="369" width="80" height="78" rx="2" class="z sh"/>
+  <text x="586" y="407" class="sl">Robert's</text>
+  <text x="586" y="421" class="cl">Moda</text>
+</a>
+<a href="../../directorio.html?tienda=Galex" target="_top">
+  <rect x="459" y="452" width="82" height="78" rx="2" class="z sh"/>
+  <text x="500" y="490" class="sl">Galex</text>
+  <text x="500" y="504" class="cl">Óptica</text>
+</a>
+<a href="../../directorio.html?tienda=La%20Casa%20de%20las%20Carcasas" target="_top">
+  <rect x="546" y="452" width="80" height="78" rx="2" class="z sh"/>
+  <text x="586" y="483" class="sl">La Casa</text>
+  <text x="586" y="496" class="sl">Carcasas</text>
+  <text x="586" y="510" class="cl">Accesorios</text>
+</a>
+
+<!-- Corredor horizontal inferior (y=534–556) -->
+<rect x="260" y="534" width="366" height="22" fill="#e4e0d6"/>
+
+<!-- ══════════════════════════════════════════
+     FILA GASTRONOMÍA 1 (y=560–636) x=263–626
+══════════════════════════════════════════ -->
+<a href="../../directorio.html?tienda=Le%20Macaron" target="_top">
+  <rect x="263" y="560" width="88" height="72" rx="2" class="z ga"/>
+  <text x="307" y="593" class="sl">Le Macaron</text>
+  <text x="307" y="607" class="cl">Café</text>
+</a>
+<a href="../../directorio.html?tienda=Cielito%20Querido%20Caf%C3%A9" target="_top">
+  <rect x="355" y="560" width="88" height="72" rx="2" class="z ga"/>
+  <text x="399" y="590" class="sl">Cielito</text>
+  <text x="399" y="603" class="sl">Querido</text>
+  <text x="399" y="617" class="cl">Café</text>
+</a>
+<a href="../../directorio.html?tienda=Coffe%20Tree" target="_top">
+  <rect x="447" y="560" width="88" height="72" rx="2" class="z ga"/>
+  <text x="491" y="593" class="sl">Coffee Tree</text>
+  <text x="491" y="607" class="cl">Café</text>
+</a>
+<a href="../../directorio.html?tienda=Sushiroll" target="_top">
+  <rect x="539" y="560" width="87" height="72" rx="2" class="z ga"/>
+  <text x="583" y="593" class="sl">Sushiroll</text>
+  <text x="583" y="607" class="cl">Gastronomía</text>
+</a>
+
+<!-- ══════════════════════════════════════════
+     FILA GASTRONOMÍA 2 (y=636–712) x=263–626
+══════════════════════════════════════════ -->
+<a href="../../directorio.html?tienda=Asaderos%20Grill" target="_top">
+  <rect x="263" y="636" width="88" height="72" rx="2" class="z ga"/>
+  <text x="307" y="669" class="sl">Asaderos Grill</text>
+  <text x="307" y="683" class="cl">Gastronomía</text>
+</a>
+<a href="../../directorio.html?tienda=McDonalds" target="_top">
+  <rect x="355" y="636" width="88" height="72" rx="2" class="z ga"/>
+  <text x="399" y="669" class="sl">McDonald's</text>
+  <text x="399" y="683" class="cl">Gastronomía</text>
+</a>
+<a href="../../directorio.html?tienda=El%20Globo" target="_top">
+  <rect x="447" y="636" width="88" height="72" rx="2" class="z ga"/>
+  <text x="491" y="669" class="sl">El Globo</text>
+  <text x="491" y="683" class="cl">Gastronomía</text>
+</a>
+<a href="../../directorio.html?tienda=Santa%20Clara" target="_top">
+  <rect x="539" y="636" width="87" height="72" rx="2" class="z ga"/>
+  <text x="583" y="669" class="sl">Santa Clara</text>
+  <text x="583" y="683" class="cl">Gastronomía</text>
+</a>
+
+<!-- ══════════════════════════════════════════
+     FILA 3 — TIENDAS (y=712–790) x=263–626
+══════════════════════════════════════════ -->
+<a href="../../directorio.html?tienda=Nutrisa" target="_top">
+  <rect x="263" y="712" width="88" height="72" rx="2" class="z ga"/>
+  <text x="307" y="748" class="sl">Nutrisa</text>
+  <text x="307" y="762" class="cl">Gastronomía</text>
+</a>
+<a href="../../directorio.html?tienda=La%20Milagresa" target="_top">
+  <rect x="355" y="712" width="88" height="72" rx="2" class="z sh"/>
+  <text x="399" y="748" class="sl">La Milagresa</text>
+</a>
+<a href="../../directorio.html?tienda=Innvictus" target="_top">
+  <rect x="447" y="712" width="88" height="72" rx="2" class="z sh"/>
+  <text x="491" y="748" class="sl">Innvictus</text>
+</a>
+<a href="../../directorio.html?tienda=Ferrioni" target="_top">
+  <rect x="539" y="712" width="87" height="72" rx="2" class="z sh"/>
+  <text x="583" y="748" class="sl">Ferrioni</text>
+</a>
+
+<!-- ══════════════════════════════════════════
+     LEYENDA
+══════════════════════════════════════════ -->
+<rect x="44" y="44" width="0" height="0"/>
+<!-- Leyenda: top-left corner of available space -->
+<rect x="1010" y="44" width="144" height="168" rx="6" fill="white" opacity=".93" stroke="#ccc" stroke-width="1"/>
+<text x="1020" y="64" style="font-size:9px;font-weight:700;fill:#333;letter-spacing:1">LEYENDA</text>
+<rect x="1020" y="72" width="11" height="10" fill="#FFE94D" stroke="#ccc" stroke-width=".5"/>
+<text x="1035" y="81" style="font-size:8px;fill:#555">Rentado / Operando</text>
+<rect x="1020" y="88" width="11" height="10" fill="#f8f3e8" stroke="#ccc" stroke-width=".5"/>
+<text x="1035" y="97" style="font-size:8px;fill:#555">Local comercial</text>
+<rect x="1020" y="104" width="11" height="10" fill="#fff0e0" stroke="#ccc" stroke-width=".5"/>
+<text x="1035" y="113" style="font-size:8px;fill:#555">Gastronomía</text>
+<rect x="1020" y="120" width="11" height="10" fill="#b8c9de" stroke="#ccc" stroke-width=".5"/>
+<text x="1035" y="129" style="font-size:8px;fill:#555">Entretenimiento</text>
+<rect x="1020" y="136" width="11" height="10" fill="#F4845F" stroke="#ccc" stroke-width=".5"/>
+<text x="1035" y="145" style="font-size:8px;fill:#555">Servicios</text>
+<rect x="1020" y="152" width="11" height="10" fill="#e4e0d6" stroke="#ccc" stroke-width=".5"/>
+<text x="1035" y="161" style="font-size:8px;fill:#555">Pasillo / Corredor</text>
+
+<!-- Branding -->
+<rect x="1010" y="228" width="144" height="52" rx="4" fill="#3a1a6e"/>
+<text x="1082" y="248" style="font-size:9px;fill:#fbbd1a;text-anchor:middle;letter-spacing:3;font-weight:700">PLAZA</text>
+<text x="1082" y="267" style="font-size:9px;fill:#fff;text-anchor:middle;letter-spacing:2">UNIVERSIDAD</text>
+<text x="1010" y="298" style="font-size:8px;fill:#999;letter-spacing:1">PLANTA BAJA</text>
+<text x="1010" y="312" style="font-size:7px;fill:#bbb">05 ENERO 2026</text>
+
+<!-- Instrucción móvil -->
+<text x="600" y="858" style="font-size:9px;fill:#aaa;text-anchor:middle;letter-spacing:1">Toca cualquier local para ver su información</text>
+</svg>

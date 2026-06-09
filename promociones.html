@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>| | Plaza Universidad | |</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="logos/icono.ico" />
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        plaza: {
+                            purple: '#7f188c',
+                            gold: '#fab700',
+                            magenta: '#c10059',
+                            black: '#2d0a44',
+                            gray: '#f5f5f5',
+                            white: '#ffffff'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Lato"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .modal-backdrop {
+            z-index: 40 !important;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    
+        /* ============================================================
+         * CLIENTE PLAZA UNIVERSIDAD — overrides solicitados Abr 2026
+         * (revisado: sin escalado global de fuente, sin override gold)
+         * ============================================================ */
+        .font-light { font-weight: 400 !important; }
+
+        /* Bump fuerte a textos no-titulares (cliente abr 2026 — revisión 2) */
+        .text-xs { font-size: 14px !important; line-height: 1.55 !important; }
+        .text-sm { font-size: 16px !important; line-height: 1.6 !important; }
+        .text-base { font-size: 18px !important; line-height: 1.65 !important; }
+        .text-lg { font-size: 21px !important; line-height: 1.55 !important; }
+        /* Tamaños arbitrarios chicos del directorio: subir a 12-13px */
+        .text-\[7px\], .text-\[8px\], .text-\[9px\] { font-size: 12px !important; }
+        .text-\[10px\], .text-\[11px\] { font-size: 13px !important; }
+        /* Párrafos sin clase Tailwind */
+        p:not([class*="text-"]), li:not([class*="text-"]) { font-size: 17px; }
+
+    </style>
+</head>
+
+<body class="bg-white text-plaza-black">
+
+    <header id="main-header"
+        class="fixed w-full top-0 z-50 transition-all duration-500 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm h-24">
+        <div class="container mx-auto px-6 h-full flex items-center relative">
+            <button class="lg:hidden text-plaza-black p-2 hover:opacity-70 transition-opacity focus:outline-none"
+                onclick="toggleMobileMenu()">
+                <div class="space-y-1.5 w-6">
+                    <span class="block w-full h-0.5 bg-plaza-black"></span>
+                    <span class="block w-full h-0.5 bg-plaza-black"></span>
+                    <span class="block w-full h-0.5 bg-plaza-black"></span>
+                </div>
+            </button>
+
+            <a href="index.html" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group z-10">
+                <img src="logos/logo.png" alt="Plaza Universidad"
+                    class="h-12 md:h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-105">
+            </a>
+
+            <nav class="hidden lg:flex flex-1 items-center justify-end gap-8 pr-24">
+                <a href="directorio.html"
+                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Directorio</a>
+                <a href="eventos.html"
+                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Eventos</a>
+            </nav>
+
+            <!-- Right: Desktop Navigation -->
+            <nav class="hidden lg:flex flex-1 items-center justify-start gap-8 pl-24">
+                <a href="promociones.html"
+                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Promociones</a>
+                <a href="contacto.html"
+                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Contacto</a>
+            </nav>
+            <div class="lg:hidden w-6 ml-auto"></div>
+        </div>
+    </header>
+    <!-- MOBILE MENU OVERLAY: Full Screen, Luxury Typography -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-[60] hidden opacity-0 transition-opacity duration-500 flex-col items-center justify-center">
+        <!-- Close Button -->
+        <button onclick="toggleMobileMenu()"
+            class="absolute top-8 right-8 text-plaza-black hover:rotate-90 transition-transform duration-500 focus:outline-none">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+        <nav class="flex flex-col gap-8 text-center z-10 w-full px-6">
+            <span class="text-[10px] text-plaza-gold font-bold uppercase tracking-[0.3em] mb-4">Menú Principal</span>
+            <a href="index.html"
+                class="text-4xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Inicio</a>
+            <a href="directorio.html"
+                class="text-4xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Directorio</a>
+            <a href="eventos.html"
+                class="text-4xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Eventos</a>
+            <a href="promociones.html"
+                class="text-4xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Promociones</a>
+            <div class="w-16 h-px bg-plaza-gold mx-auto my-6"></div>
+            <a href="contacto.html"
+                class="text-sm font-sans font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-plaza-black transition-colors">Contacto</a>
+        </nav>
+        <div class="absolute bottom-12 text-center w-full">
+            <img src="logos/logo.png" alt="Plaza Universidad" class="h-8 mx-auto opacity-30 ">
+        </div>
+    </div>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById("mobile-menu");
+            if (menu.classList.contains("hidden")) {
+                menu.classList.remove("hidden");
+                menu.classList.add("flex");
+                setTimeout(() => { menu.classList.remove("opacity-0"); document.body.classList.add("overflow-hidden"); }, 10);
+            } else {
+                menu.classList.add("opacity-0");
+                setTimeout(() => { menu.classList.add("hidden"); menu.classList.remove("flex"); document.body.classList.remove("overflow-hidden"); }, 500);
+            }
+        }
+    </script>
+
+    <div class="bg-white">
+        <!-- HERO SECTION: Promociones -->
+        <div
+            class="relative h-[55vh] md:h-[65vh] flex items-center justify-center overflow-hidden bg-plaza-black pt-24">
+            <!-- Background Image -->
+            <div class="absolute inset-0 z-0">
+                <img src="images/locales/Pandora.jpg" alt="Promociones Plaza Universidad"
+                    class="w-full h-full object-cover opacity-50">
+                <div class="absolute inset-0 bg-gradient-to-t from-plaza-black/80 via-black/20 to-black/40"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="relative z-10 text-center px-6 max-w-5xl mx-auto fade-in-up flex flex-col items-center">
+                <h1
+                    class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif text-white leading-tight mb-6 md:mb-8 drop-shadow-2xl">
+                    Nuestras <span class="text-plaza-gold font-light">Promociones</span>
+                </h1>
+                <p
+                    class="text-gray-200 font-sans font-light text-sm md:text-lg max-w-2xl mx-auto leading-relaxed tracking-wide">
+                    Ofertas exclusivas, descuentos y beneficios especiales. Aprovecha lo mejor de Plaza Universidad.
+                </p>
+            </div>
+        </div>
+
+        <!-- EVENTS GRID -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="mb-12 text-center">
+                    <span class="text-plaza-gold text-[10px] font-bold uppercase tracking-[0.3em] block mb-3">Plaza
+                        Universidad</span>
+                    <h2 class="text-3xl md:text-4xl font-serif text-plaza-black">Lo que está pasando</h2>
+                    <p class="text-gray-400 font-light mt-3 text-sm">Actividades y eventos organizados por el centro
+                        comercial.</p>
+                </div>
+                <div id="promos-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <!-- Evento 1 -->
+                    <div onclick="openPromoModal('Tributo a Sheriff Labrador', 'Plaza Universidad', 'images/promociones/evento1.jpg', '¡Ven y disfruta de un increíble tributo a Sheriff Labrador! Un show espectacular lleno de música, baile y mucha aventura para los más pequeños. Te esperamos el Sábado 21 de Marzo a las 5:00 P.M.', 'Sábado 21 de Marzo, 5:00 PM')"
+                        class="group cursor-pointer bg-white overflow-hidden fade-in-up rounded-sm shadow-sm hover:shadow-xl transition-all duration-300">
+                        <div class="relative overflow-hidden aspect-[4/5] bg-gray-50">
+                            <img src="images/promociones/evento1.jpg" alt="Tributo a Sheriff Labrador"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                            <!-- Overlay denso por defecto, transparente al hover (cliente abr 2026) -->
+                            <div class="absolute inset-0 bg-plaza-black/65 group-hover:bg-plaza-black/0 transition-all duration-700"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-plaza-black/90 via-plaza-black/30 to-transparent opacity-80 group-hover:opacity-0 transition-opacity duration-700"></div>
+
+                            <div class="absolute top-6 right-6">
+                                <span
+                                    class="bg-plaza-gold text-plaza-black text-[9px] font-bold uppercase tracking-widest px-4 py-2">Evento</span>
+                            </div>
+
+                            <div
+                                class="absolute bottom-8 left-8 right-8 text-white transform transition-transform duration-500 group-hover:-translate-y-2">
+                                <h3 class="text-2xl font-serif mb-2">Tributo a Sheriff Labrador</h3>
+                                <p
+                                    class="text-gray-300 text-sm font-light opacity-0 group-hover:opacity-100 transition-opacity duration-500 line-clamp-2">
+                                    ¡Un show lleno de música, baile y aventura para toda la familia!</p>
+                                <div
+                                    class="h-px w-0 bg-plaza-gold mt-4 group-hover:w-16 transition-all duration-500 delay-100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evento 2 -->
+                    <div onclick="openPromoModal('Boletos para Alex G', 'Plaza Universidad', 'images/promociones/evento2.jpg', 'Canjea tus tickets de Plaza Universidad por pases dobles para el concierto de Alex G este 14 de Abril en el Auditorio BB. Por cada $3,000 MXN de compra acumulados (máx. 2 tickets), obtén tu acceso en Administración.', 'A partir del 25 de Febrero')"
+                        class="group cursor-pointer bg-white overflow-hidden fade-in-up rounded-sm shadow-sm hover:shadow-xl transition-all duration-300">
+                        <div class="relative overflow-hidden aspect-[4/5] bg-gray-50">
+                            <img src="images/promociones/evento2.jpg" alt="Boletos para Alex G"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                            <!-- Overlay denso por defecto, transparente al hover (cliente abr 2026) -->
+                            <div class="absolute inset-0 bg-plaza-black/65 group-hover:bg-plaza-black/0 transition-all duration-700"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-plaza-black/90 via-plaza-black/30 to-transparent opacity-80 group-hover:opacity-0 transition-opacity duration-700"></div>
+
+                            <div class="absolute top-6 right-6">
+                                <span
+                                    class="bg-white text-plaza-black text-[9px] font-bold uppercase tracking-widest px-4 py-2">Promoción</span>
+                            </div>
+
+                            <div
+                                class="absolute bottom-8 left-8 right-8 text-white transform transition-transform duration-500 group-hover:-translate-y-2">
+                                <h3 class="text-2xl font-serif mb-2">Boletos para Alex G</h3>
+                                <p
+                                    class="text-gray-300 text-sm font-light opacity-0 group-hover:opacity-100 transition-opacity duration-500 line-clamp-2">
+                                    ¡Canjea tus tickets de compra por un pase doble para ver a Alex G!</p>
+                                <div
+                                    class="h-px w-0 bg-plaza-gold mt-4 group-hover:w-16 transition-all duration-500 delay-100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- MODAL: Elegant Overlay -->
+        <div id="promo-modal" class="fixed inset-0 z-[70] hidden">
+            <div class="absolute inset-0 bg-plaza-black/90 backdrop-blur-md transition-opacity"
+                onclick="closePromoModal()">
+            </div>
+            <div class="relative w-full h-full flex items-center justify-center p-6">
+                <div class="max-w-4xl w-full bg-white flex flex-col md:flex-row opacity-0 transform scale-95 transition-all duration-500 shadow-2xl relative max-h-[90vh] overflow-y-auto"
+                    id="promo-modal-content">
+                    <button onclick="closePromoModal()"
+                        class="absolute top-4 right-4 text-plaza-black z-[60] bg-white/90 rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-plaza-gold transition-colors">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+
+                    <!-- Left: Image -->
+                    <div class="w-full md:w-1/2 bg-gray-100 flex items-center justify-center min-h-[300px] p-4">
+                        <img id="modal-img" src="" alt="Promoción" class="max-w-full max-h-[70vh] object-contain shadow-md">
+                    </div>
+
+                    <!-- Right: Information -->
+                    <div
+                        class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center text-center md:text-left bg-white">
+                        <span
+                            class="text-plaza-magenta text-[10px] font-bold uppercase tracking-[0.3em] block mb-4">Oferta
+                            Especial</span>
+                        <h2 id="modal-title"
+                            class="text-3xl md:text-4xl font-serif text-plaza-black mb-4 leading-tight"></h2>
+                        <span id="modal-store"
+                            class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 block mb-6"></span>
+                        <p id="modal-desc" class="text-gray-600 font-sans font-light leading-relaxed mb-6"></p>
+
+                        <div
+                            class="bg-gray-50 py-3 px-6 mb-6 inline-block md:inline-flex justify-center md:justify-start self-center md:self-start">
+                            <p id="modal-validity" class="text-xs font-bold text-gray-500 uppercase tracking-wider"></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openPromoModal(title, store, img, desc, validity) {
+            const modal = document.getElementById('promo-modal');
+            const content = document.getElementById('promo-modal-content');
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-store').innerText = store;
+            document.getElementById('modal-img').src = img;
+            document.getElementById('modal-desc').innerText = desc;
+            document.getElementById('modal-validity').innerText = validity;
+
+            modal.classList.remove('hidden');
+            setTimeout(function () {
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+        function closePromoModal() {
+            var modal = document.getElementById('promo-modal');
+            var content = document.getElementById('promo-modal-content');
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+            setTimeout(function () { modal.classList.add('hidden'); }, 300);
+        }
+    </script>
+
+    <footer class="bg-plaza-black text-white pt-24 pb-12 border-t border-gray-900 mt-auto">
+        <div class="container mx-auto px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-16 border-b border-white/10 pb-12">
+
+                <!-- Brand Column -->
+                <div class="col-span-2 lg:col-span-2">
+                    <a href="index.html" class="block mb-8 group">
+                        <img src="logos/logo-blanco.png" alt="Plaza Universidad"
+                            class="h-10 md:h-12 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity">
+                    </a>
+                    <p class="text-gray-400 text-sm font-light font-sans leading-loose max-w-sm">
+                        Plaza Universidad &mdash; Sur de la Ciudad de México.
+                    </p>
+                </div>
+
+                <!-- Explore Column -->
+                <div class="col-span-1 lg:col-span-1">
+                    <h4 class="font-bold text-plaza-gold mb-8 uppercase tracking-[0.2em] text-[10px] font-sans">
+                        Navegación</h4>
+                    <ul class="space-y-4 text-sm text-gray-400 font-light font-sans tracking-wide">
+                        <li><a href="index.html" class="hover:text-white transition-colors duration-300">Inicio</a></li>
+                        <li><a href="directorio.html"
+                                class="hover:text-white transition-colors duration-300">Directorio</a></li>
+                        <li><a href="eventos.html" class="hover:text-white transition-colors duration-300">Eventos</a>
+                        </li>
+                        <li><a href="promociones.html"
+                                class="hover:text-white transition-colors duration-300">Promociones</a></li>
+                    </ul>
+                </div>
+
+                <!-- Visit Column -->
+                <div class="col-span-1 lg:col-span-1">
+                    <h4 class="font-bold text-plaza-gold mb-8 uppercase tracking-[0.2em] text-[10px] font-sans">
+                        Visítanos</h4>
+                    <ul class="space-y-4 text-sm text-gray-400 font-light font-sans tracking-wide">
+                        <li>Av. Universidad 1000</li>
+                        <li>Col. Santa Cruz Atoyac</li>
+                        <li>CDMX, México 03310</li>
+                        <li class="pt-6">
+                            <a href="contacto.html"
+                                class="text-white border-b border-white/30 pb-1 hover:border-plaza-gold hover:text-plaza-gold transition-colors">Contáctanos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Row -->
+            <div class="flex flex-col md:flex-row justify-between items-center pt-2 gap-6">
+                <div class="flex flex-col md:flex-row gap-2 md:gap-8 text-center md:text-left">
+                    <p class="text-[10px] text-gray-600 font-sans tracking-[0.2em] uppercase">&copy; 2026 Plaza
+                        Universidad.</p>
+                </div>
+
+                <div class="flex gap-8">
+                    <a href="https://www.instagram.com/plazauniversidad/?hl=es" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+                        class="text-white hover:text-plaza-gold transition-colors transform hover:-translate-y-1 duration-300"><i
+                            class="fab fa-instagram text-lg"></i></a>
+                    <a href="https://www.facebook.com/PlazaUniversidad/?locale=es_LA" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+                        class="text-white hover:text-plaza-gold transition-colors transform hover:-translate-y-1 duration-300"><i
+                            class="fab fa-facebook-f text-lg"></i></a>
+                    <a href="https://x.com/P_UNIVERSIDAD?lang=es" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"
+                        class="text-white hover:text-plaza-gold transition-colors transform hover:-translate-y-1 duration-300"><i
+                            class="fab fa-x-twitter text-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="Scripts/jquery.validate.min.js"></script>
+    <script src="Scripts/main.js"></script>
+</body>
+
+</html>

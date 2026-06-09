@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto | Plaza Universidad</title>
+    <meta name="description"
+        content="Contacta a Plaza Universidad. Atención al cliente, renta de espacios y mensajes importantes." />
+
+    <link rel="shortcut icon" type="image/x-icon" href="logos/icono.ico" />
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        plaza: {
+                            purple: '#7f188c',
+                            gold: '#fab700',
+                            magenta: '#c10059',
+                            black: '#2d0a44',
+                            gray: '#f5f5f5',
+                            white: '#ffffff'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Lato"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .modal-backdrop {
+            z-index: 40 !important;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Contact card hover */
+        .contact-card {
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(44, 10, 68, 0.12);
+        }
+
+        /* Aviso item */
+        .aviso-item {
+            border-left: 3px solid #fab700;
+            padding-left: 1rem;
+        }
+    
+        /* ============================================================
+         * CLIENTE PLAZA UNIVERSIDAD — overrides solicitados Abr 2026
+         * (revisado: sin escalado global de fuente, sin override gold)
+         * ============================================================ */
+        .font-light { font-weight: 400 !important; }
+
+        /* Bump fuerte a textos no-titulares (cliente abr 2026 — revisión 2) */
+        .text-xs { font-size: 14px !important; line-height: 1.55 !important; }
+        .text-sm { font-size: 16px !important; line-height: 1.6 !important; }
+        .text-base { font-size: 18px !important; line-height: 1.65 !important; }
+        .text-lg { font-size: 21px !important; line-height: 1.55 !important; }
+        /* Tamaños arbitrarios chicos del directorio: subir a 12-13px */
+        .text-\[7px\], .text-\[8px\], .text-\[9px\] { font-size: 12px !important; }
+        .text-\[10px\], .text-\[11px\] { font-size: 13px !important; }
+        /* Párrafos sin clase Tailwind */
+        p:not([class*="text-"]), li:not([class*="text-"]) { font-size: 17px; }
+
+    </style>
+</head>
+
+<body class="bg-white text-plaza-black">
+
+    <header id="main-header"
+        class="fixed w-full top-0 z-50 transition-all duration-500 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm h-24">
+        <div class="container mx-auto px-6 h-full flex items-center relative">
+            <button class="lg:hidden text-plaza-black p-2 hover:opacity-70 transition-opacity focus:outline-none"
+                onclick="toggleMobileMenu()">
+                <div class="space-y-1.5 w-6">
+                    <span class="block w-full h-0.5 bg-plaza-black"></span>
+                    <span class="block w-full h-0.5 bg-plaza-black"></span>
+                    <span class="block w-full h-0.5 bg-plaza-black"></span>
+                </div>
+            </button>
+
+            <a href="index.html" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group z-10">
+                <img src="logos/logo.png" alt="Plaza Universidad"
+                    class="h-12 md:h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-105">
+            </a>
+
+            <nav class="hidden lg:flex flex-1 items-center justify-end gap-8 pr-24">
+                <a href="directorio.html"
+                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Directorio</a>
+                <a href="eventos.html"
+                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Eventos</a>
+            </nav>
+
+            <nav class="hidden lg:flex flex-1 items-center justify-start gap-8 pl-24">
+                <a href="promociones.html"
+                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Promociones</a>
+                <a href="contacto.html"
+                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Contacto</a>
+            </nav>
+            <div class="lg:hidden w-6 ml-auto"></div>
+        </div>
+    </header>
+
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-[60] hidden opacity-0 transition-opacity duration-500 flex-col items-center justify-center">
+        <button onclick="toggleMobileMenu()"
+            class="absolute top-8 right-8 text-plaza-black hover:rotate-90 transition-transform duration-500 focus:outline-none">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+        <nav class="flex flex-col gap-8 text-center z-10 w-full px-6">
+            <span class="text-[10px] text-plaza-gold font-bold uppercase tracking-[0.3em] mb-4">Menú Principal</span>
+            <a href="index.html"
+                class="text-4xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Inicio</a>
+            <a href="directorio.html"
+                class="text-4xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Directorio</a>
+            <a href="eventos.html"
+                class="text-4xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Eventos</a>
+            <a href="promociones.html"
+                class="text-4xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Promociones</a>
+            <div class="w-16 h-px bg-plaza-gold mx-auto my-6"></div>
+            <a href="contacto.html"
+                class="text-sm font-sans font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-plaza-black transition-colors">Contacto</a>
+        </nav>
+        <div class="absolute bottom-12 text-center w-full">
+            <img src="logos/logo.png" alt="Plaza Universidad" class="h-8 mx-auto opacity-30 ">
+        </div>
+    </div>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById("mobile-menu");
+            if (menu.classList.contains("hidden")) {
+                menu.classList.remove("hidden");
+                menu.classList.add("flex");
+                setTimeout(() => { menu.classList.remove("opacity-0"); document.body.classList.add("overflow-hidden"); }, 10);
+            } else {
+                menu.classList.add("opacity-0");
+                setTimeout(() => { menu.classList.add("hidden"); menu.classList.remove("flex"); document.body.classList.remove("overflow-hidden"); }, 500);
+            }
+        }
+    </script>
+
+    <div class="bg-white min-h-screen">
+        <!-- HERO CONTACTO -->
+        <div
+            class="relative h-[55vh] md:h-[65vh] flex items-center justify-center overflow-hidden bg-plaza-black pt-24">
+            <div class="absolute inset-0 z-0">
+                <img src="images/locales/Cielito Querido Café.jpg" alt="Contacto Plaza Universidad"
+                    class="w-full h-full object-cover opacity-50">
+                <div class="absolute inset-0 bg-gradient-to-t from-plaza-black/80 via-black/20 to-black/40"></div>
+            </div>
+            <div class="relative z-10 text-center px-6 max-w-5xl mx-auto fade-in-up flex flex-col items-center">
+                <h1
+                    class="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-serif text-white leading-tight mb-4 md:mb-6 drop-shadow-2xl">
+                    Gracias por <span class="text-plaza-gold font-light">visitarnos</span>
+                </h1>
+                <p
+                    class="text-plaza-gold font-serif text-xl md:text-3xl max-w-2xl mx-auto leading-relaxed tracking-wide italic">
+                    ¿En qué podemos servirle hoy?
+                </p>
+            </div>
+        </div>
+
+        <!-- INTRO TEXT -->
+        <div class="bg-plaza-black/5 border-b border-gray-100 py-8">
+            <div class="container mx-auto px-6 text-center">
+                <p class="text-gray-600 font-sans font-light text-base max-w-2xl mx-auto">
+                    En Plaza Universidad nos importa tu experiencia. Encuentra a continuación los canales disponibles
+                    para atenderte de la mejor manera.
+                </p>
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="container mx-auto px-6 py-16 md:py-24">
+
+            <!-- ROW 1: Atención al cliente + Cuéntanos tu experiencia -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+
+                <!-- ATENCIÓN AL CLIENTE -->
+                <div class="contact-card bg-white border border-gray-200 rounded-sm p-8 md:p-10">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-plaza-gold/15 rounded-full flex items-center justify-center">
+                            <i class="fas fa-headset text-plaza-gold"></i>
+                        </div>
+                        <div>
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-[0.25em] text-plaza-gold block">Contacto
+                                directo</span>
+                            <h2 class="text-2xl font-serif text-plaza-black">Atención al Cliente</h2>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 font-light text-sm leading-relaxed mb-8">
+                        Nuestro equipo está disponible para resolver cualquier duda, asistirte durante tu visita o
+                        atender cualquier solicitud especial.
+                    </p>
+                    <div class="space-y-4">
+                        <!-- Email -->
+                        <a href="mailto:aux.puniversidad@incarso.com"
+                            class="flex items-center gap-4 p-4 bg-gray-50 hover:bg-plaza-gold/10 transition-colors rounded-sm group">
+                            <span
+                                class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center flex-shrink-0 group-hover:border-plaza-gold transition-colors">
+                                <i
+                                    class="fas fa-envelope text-plaza-black group-hover:text-plaza-gold transition-colors text-sm"></i>
+                            </span>
+                            <div>
+                                <span
+                                    class="text-[9px] font-bold uppercase tracking-wider text-gray-400 block">Email</span>
+                                <span class="text-sm font-medium text-plaza-black">aux.puniversidad@incarso.com</span>
+                            </div>
+                        </a>
+                        <!-- Teléfono -->
+                        <a href="tel:5511031521"
+                            class="flex items-center gap-4 p-4 bg-gray-50 hover:bg-plaza-gold/10 transition-colors rounded-sm group">
+                            <span
+                                class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center flex-shrink-0 group-hover:border-plaza-gold transition-colors">
+                                <i
+                                    class="fas fa-phone text-plaza-black group-hover:text-plaza-gold transition-colors text-sm"></i>
+                            </span>
+                            <div>
+                                <span
+                                    class="text-[9px] font-bold uppercase tracking-wider text-gray-400 block">Teléfono</span>
+                                <span class="text-sm font-medium text-plaza-black">Tel: (55) 1103 1521</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CUÉNTANOS TU EXPERIENCIA -->
+                <div class="contact-card bg-white border border-gray-200 rounded-sm p-8 md:p-10">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-plaza-purple/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-comment-dots text-plaza-purple"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-plaza-purple block">Tu
+                                opinión nos importa</span>
+                            <h2 class="text-2xl font-serif text-plaza-black">Cuéntanos tu Experiencia</h2>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 font-light text-sm leading-relaxed mb-8">
+                        Tu retroalimentación nos ayuda a mejorar. Comparte con nosotros tu experiencia en Plaza
+                        Universidad.
+                    </p>
+                    <!-- FORM: names/ids alineados con enviarCorreo.php via POST -->
+                    <form id="formulario-feedback" action="enviarCorreo.php" method="post" class="space-y-6">
+                        <!-- Campos ocultos requeridos por el servidor (emailCC y nombreCC) -->
+                        <input type="hidden" id="EmailPlaza" name="EmailPlaza" value="aux.puniversidad@incarso.com">
+                        <input type="hidden" id="NombrePlaza" name="NombrePlaza" value="Plaza Universidad">
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="group">
+                                <input id="NombreContacto" name="NombreContacto" type="text" placeholder="Tu nombre"
+                                    required
+                                    class="w-full bg-transparent border-b border-gray-200 py-3 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors placeholder-gray-300">
+                            </div>
+                            <div class="group">
+                                <input id="EmailContacto" name="EmailContacto" type="email"
+                                    placeholder="Tu correo electrónico" required
+                                    class="w-full bg-transparent border-b border-gray-200 py-3 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors placeholder-gray-300">
+                            </div>
+                        </div>
+                        <!-- Teléfono: requerido por enviarCorreo.php -->
+                        <div class="group">
+                            <input id="TelefonoContacto" name="TelefonoContacto" type="tel"
+                                placeholder="Tu teléfono (10 dígitos)" maxlength="10" required
+                                class="w-full bg-transparent border-b border-gray-200 py-3 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors placeholder-gray-300">
+                        </div>
+                        <!-- tipoMensaje: valor 1=Quejas y Sugerencias, 2=Espacios Disponibles (mapea con la BD del servidor) -->
+                        <div class="group">
+                            <select id="tipoMensaje" name="tipoMensaje" required
+                                class="w-full bg-transparent border-b border-gray-200 py-3 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors appearance-none cursor-pointer">
+                                <option value="" disabled selected>¿Sobre qué nos quieres hablar?</option>
+                                <option value="1">Quejas y Sugerencias</option>
+                                <option value="2">Espacios Disponibles</option>
+                            </select>
+                        </div>
+                        <div class="group">
+                            <textarea id="Mensaje" name="Mensaje" rows="3" required
+                                placeholder="Cuéntanos con detalle tu experiencia..."
+                                class="w-full bg-transparent border-b border-gray-200 py-3 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors placeholder-gray-300 resize-none"></textarea>
+                        </div>
+                        <!-- Aviso de Privacidad: requerido por el servidor (oculto visualmente pero funcional) -->
+                        <div class="flex items-start gap-2 text-xs text-gray-400 font-sans">
+                            <input type="checkbox" id="chkAvisoPrivacidad" name="AvisoPrivacidad" value="true" required
+                                class="mt-0.5 accent-plaza-purple">
+                            <label for="chkAvisoPrivacidad">
+                                He leído y acepto el <a href="AvisodePrivacidad.php"
+                                    class="underline hover:text-plaza-black transition-colors">Aviso de Privacidad</a>
+                            </label>
+                        </div>
+                        <button type="submit" id="form-submit"
+                            class="group flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-plaza-black hover:text-plaza-purple transition-colors mt-4">
+                            Enviar comentario
+                            <span
+                                class="w-12 h-px bg-plaza-black group-hover:w-20 group-hover:bg-plaza-purple transition-all duration-300"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- ROW 2: Espacios disponibles (Avisos eliminados a petición del cliente abr 2026) -->
+            <div class="max-w-4xl mx-auto mb-16">
+
+                <!-- SÍGUENOS EN REDES SOCIALES -->
+                <div class="bg-white border border-gray-200 rounded-sm p-6 md:p-8 mb-8 text-center shadow-sm">
+                    <span class="text-plaza-gold text-[10px] font-bold uppercase tracking-[0.3em] block mb-3">Mantente al día</span>
+                    <h3 class="text-xl md:text-2xl font-serif text-plaza-black mb-5">Síguenos en nuestras redes sociales</h3>
+                    <div class="flex justify-center gap-5">
+                        <a href="https://www.instagram.com/plazauniversidad/?hl=es" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+                            class="w-12 h-12 rounded-full bg-plaza-black text-white flex items-center justify-center hover:bg-plaza-gold hover:text-plaza-black transition-colors transform hover:-translate-y-1 duration-300">
+                            <i class="fab fa-instagram text-xl"></i></a>
+                        <a href="https://www.facebook.com/PlazaUniversidad/?locale=es_LA" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+                            class="w-12 h-12 rounded-full bg-plaza-black text-white flex items-center justify-center hover:bg-plaza-gold hover:text-plaza-black transition-colors transform hover:-translate-y-1 duration-300">
+                            <i class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="https://x.com/P_UNIVERSIDAD?lang=es" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"
+                            class="w-12 h-12 rounded-full bg-plaza-black text-white flex items-center justify-center hover:bg-plaza-gold hover:text-plaza-black transition-colors transform hover:-translate-y-1 duration-300">
+                            <i class="fab fa-x-twitter text-xl"></i></a>
+                    </div>
+                </div>
+
+                <!-- ESPACIOS DISPONIBLES -->
+                <div class="contact-card bg-plaza-black text-white rounded-sm p-8 md:p-10">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 md:w-14 md:h-14 bg-plaza-gold/20 rounded-full flex items-center justify-center shrink-0">
+                            <i class="fas fa-store-alt text-plaza-gold text-lg md:text-xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-plaza-gold block mb-1">Renta de locales</span>
+                            <h2 class="text-3xl md:text-4xl font-serif text-white leading-tight">Espacios Disponibles</h2>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 font-light text-sm leading-relaxed mb-8">
+                        ¿Te interesa abrir tu negocio en Plaza Universidad? Contamos con locales comerciales disponibles
+                        en distintos niveles. Nuestro equipo de renta te brindará toda la información necesaria.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                        <a href="tel:5554741430"
+                            class="flex items-center gap-3 bg-white/5 rounded-lg px-4 py-3 hover:bg-white/10 transition-colors group">
+                            <div class="w-10 h-10 bg-plaza-gold/20 rounded-full flex items-center justify-center shrink-0">
+                                <i class="fas fa-phone text-plaza-gold text-sm"></i>
+                            </div>
+                            <div>
+                                <span class="text-[9px] uppercase tracking-wider text-gray-500 block">Teléfono 1</span>
+                                <span class="text-white font-bold text-sm group-hover:text-plaza-gold transition-colors">(55) 5474 1430</span>
+                            </div>
+                        </a>
+                        <a href="tel:5554741680"
+                            class="flex items-center gap-3 bg-white/5 rounded-lg px-4 py-3 hover:bg-white/10 transition-colors group">
+                            <div class="w-10 h-10 bg-plaza-gold/20 rounded-full flex items-center justify-center shrink-0">
+                                <i class="fas fa-phone text-plaza-gold text-sm"></i>
+                            </div>
+                            <div>
+                                <span class="text-[9px] uppercase tracking-wider text-gray-500 block">Teléfono 2</span>
+                                <span class="text-white font-bold text-sm group-hover:text-plaza-gold transition-colors">(55) 5474 1680</span>
+                            </div>
+                        </a>
+                        <a href="mailto:informacion.comercial@incarso.com"
+                            class="flex items-center gap-3 bg-white/5 rounded-lg px-4 py-3 hover:bg-white/10 transition-colors group">
+                            <div class="w-10 h-10 bg-plaza-gold/20 rounded-full flex items-center justify-center shrink-0">
+                                <i class="fas fa-envelope text-plaza-gold text-sm"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <span class="text-[9px] uppercase tracking-wider text-gray-500 block">Email</span>
+                                <span class="text-white font-bold text-xs sm:text-sm group-hover:text-plaza-gold transition-colors truncate block">informacion.comercial@incarso.com</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Formulario de contacto renta -->
+                    <form id="formulario-renta" class="space-y-5 border-t border-white/10 pt-8">
+                        <h3 class="text-sm font-bold uppercase tracking-wider text-plaza-gold mb-4">Solicitar
+                            información</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" placeholder="Tu nombre"
+                                class="w-full bg-white/10 border border-white/20 py-3 px-4 font-sans font-light text-white placeholder-white/40 focus:outline-none focus:border-plaza-gold transition-colors text-sm">
+                            <input type="email" placeholder="Correo electrónico"
+                                class="w-full bg-white/10 border border-white/20 py-3 px-4 font-sans font-light text-white placeholder-white/40 focus:outline-none focus:border-plaza-gold transition-colors text-sm">
+                        </div>
+                        <input type="tel" placeholder="Teléfono de contacto"
+                            class="w-full bg-white/10 border border-white/20 py-3 px-4 font-sans font-light text-white placeholder-white/40 focus:outline-none focus:border-plaza-gold transition-colors text-sm">
+                        <textarea rows="2" placeholder="Cuéntanos sobre tu negocio y necesidades de espacio..."
+                            class="w-full bg-white/10 border border-white/20 py-3 px-4 font-sans font-light text-white placeholder-white/40 focus:outline-none focus:border-plaza-gold transition-colors text-sm resize-none"></textarea>
+                        <button type="submit"
+                            class="w-full py-3 bg-plaza-gold text-plaza-black font-bold uppercase tracking-[0.2em] text-xs hover:bg-white transition-colors">
+                            Enviar solicitud
+                        </button>
+                        <div class="flex flex-col sm:flex-row gap-3 text-center">
+                            <a href="tel:5554741430"
+                                class="flex items-center justify-center gap-2 text-xs text-gray-400 hover:text-plaza-gold transition-colors">
+                                <i class="fas fa-phone text-[10px]"></i> (55) 5474 1430
+                            </a>
+                            <a href="tel:5554741680"
+                                class="flex items-center justify-center gap-2 text-xs text-gray-400 hover:text-plaza-gold transition-colors">
+                                <i class="fas fa-phone text-[10px]"></i> (55) 5474 1680
+                            </a>
+                            <a href="mailto:informacion.comercial@incarso.com"
+                                class="flex items-center justify-center gap-2 text-xs text-gray-400 hover:text-plaza-gold transition-colors">
+                                <i class="fas fa-envelope text-[10px]"></i> informacion.comercial@incarso.com
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- ROW 3: Mapa de ubicación -->
+            <div class="border-t border-gray-100 pt-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                    <div>
+                        <span
+                            class="text-plaza-gold text-[10px] font-bold uppercase tracking-[0.3em] block mb-4">Ubicación</span>
+                        <h3 class="text-3xl font-serif text-plaza-black mb-6">Visítanos</h3>
+                        <address class="not-italic text-gray-500 font-sans font-light leading-loose text-lg mb-8">
+                            Av. Universidad 1000<br>
+                            Col. Santa Cruz Atoyac<br>
+                            Benito Juárez, CDMX 03310
+                        </address>
+                        <div class="flex flex-col gap-3">
+                            <a href="tel:5511031521"
+                                class="text-plaza-black hover:text-plaza-gold transition-colors font-serif text-xl">Tel:
+                                (55) 1103 1521</a>
+                            <a href="mailto:aux.puniversidad@incarso.com"
+                                class="text-gray-400 hover:text-plaza-black transition-colors font-sans font-light">aux.puniversidad@incarso.com</a>
+                        </div>
+                    </div>
+                    <div class="h-[400px] w-full bg-gray-100 relative">
+                        <iframe
+                            title="Ubicación de Plaza Universidad en el mapa"
+                            src="https://maps.google.com/maps?q=Plaza%20Universidad%2C%20Av.%20Universidad%201000%2C%20Sta%20Cruz%20Atoyac%2C%2003310%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX&t=m&z=16&ie=UTF8&iwloc=&output=embed"
+                            class="absolute inset-0 w-full h-full" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="bg-plaza-black text-white pt-24 pb-12 border-t border-gray-900 mt-auto">
+        <div class="container mx-auto px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-16 border-b border-white/10 pb-12">
+
+                <!-- Brand Column -->
+                <div class="col-span-2 lg:col-span-2">
+                    <a href="index.html" class="block mb-8 group">
+                        <img src="logos/logo-blanco.png" alt="Plaza Universidad"
+                            class="h-10 md:h-12 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity">
+                    </a>
+                    <p class="text-gray-400 text-sm font-light font-sans leading-loose max-w-sm">
+                        Plaza Universidad &mdash; Sur de la Ciudad de México.
+                    </p>
+                </div>
+
+                <!-- Explore Column -->
+                <div class="col-span-1 lg:col-span-1">
+                    <h4 class="font-bold text-plaza-gold mb-8 uppercase tracking-[0.2em] text-[10px] font-sans">
+                        Navegación</h4>
+                    <ul class="space-y-4 text-sm text-gray-400 font-light font-sans tracking-wide">
+                        <li><a href="index.html" class="hover:text-white transition-colors duration-300">Inicio</a></li>
+                        <li><a href="directorio.html"
+                                class="hover:text-white transition-colors duration-300">Directorio</a></li>
+                        <li><a href="eventos.html" class="hover:text-white transition-colors duration-300">Eventos</a>
+                        </li>
+                        <li><a href="promociones.html"
+                                class="hover:text-white transition-colors duration-300">Promociones</a></li>
+                    </ul>
+                </div>
+
+                <!-- Visit Column -->
+                <div class="col-span-1 lg:col-span-1">
+                    <h4 class="font-bold text-plaza-gold mb-8 uppercase tracking-[0.2em] text-[10px] font-sans">
+                        Visítanos</h4>
+                    <ul class="space-y-4 text-sm text-gray-400 font-light font-sans tracking-wide">
+                        <li>Av. Universidad 1000</li>
+                        <li>Col. Santa Cruz Atoyac</li>
+                        <li>CDMX, México 03310</li>
+                        <li class="pt-6">
+                            <a href="contacto.html"
+                                class="text-white border-b border-white/30 pb-1 hover:border-plaza-gold hover:text-plaza-gold transition-colors">Contáctanos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Row -->
+            <div class="flex flex-col md:flex-row justify-between items-center pt-2 gap-6">
+                <div class="flex flex-col md:flex-row gap-2 md:gap-8 text-center md:text-left">
+                    <p class="text-[10px] text-gray-600 font-sans tracking-[0.2em] uppercase">&copy; 2026 Plaza
+                        Universidad.</p>
+                </div>
+
+                <div class="flex gap-8">
+                    <a href="https://www.instagram.com/plazauniversidad/?hl=es" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+                        class="text-white hover:text-plaza-gold transition-colors transform hover:-translate-y-1 duration-300"><i
+                            class="fab fa-instagram text-lg"></i></a>
+                    <a href="https://www.facebook.com/PlazaUniversidad/?locale=es_LA" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+                        class="text-white hover:text-plaza-gold transition-colors transform hover:-translate-y-1 duration-300"><i
+                            class="fab fa-facebook-f text-lg"></i></a>
+                    <a href="https://x.com/P_UNIVERSIDAD?lang=es" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"
+                        class="text-white hover:text-plaza-gold transition-colors transform hover:-translate-y-1 duration-300"><i
+                            class="fab fa-x-twitter text-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="Scripts/jquery.validate.min.js"></script>
+    <script src="Scripts/main.js"></script>
+</body>
+
+</html>

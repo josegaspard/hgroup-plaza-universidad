@@ -1,0 +1,125 @@
+<!-- PLANTA BAJA EXTERIOR / ESTACIONAMIENTO EXTERIOR — Plaza Universidad -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 870"
+     font-family="'Segoe UI',Arial,sans-serif" role="img" aria-label="Mapa Planta Baja Exterior Plaza Universidad">
+<defs>
+  <style>
+    .z { cursor:pointer; transition:opacity .2s,filter .2s; }
+    .z:hover { opacity:.8; filter:brightness(.93); }
+    .al { font-size:18px; font-weight:700; fill:#1a1a1a; text-anchor:middle; dominant-baseline:middle; pointer-events:none; }
+    .sl { font-size:9px; font-weight:700; fill:#333; text-anchor:middle; dominant-baseline:middle; pointer-events:none; }
+    .cl { font-size:7.5px; fill:#777; text-anchor:middle; dominant-baseline:middle; pointer-events:none; }
+  </style>
+</defs>
+
+<!-- Fondo exterior -->
+<rect width="1200" height="870" fill="#d0ccc0"/>
+<rect x="0" y="820" width="1200" height="50" fill="#c0bdb4"/>
+<text x="600" y="848" style="font-size:10px;fill:#888;text-anchor:middle;letter-spacing:3;font-weight:600">AV. UNIVERSIDAD</text>
+<rect x="0" y="0" width="42" height="820" fill="#c0bdb4"/>
+<rect x="1158" y="0" width="42" height="870" fill="#c0bdb4"/>
+
+<!-- Contorno general -->
+<polygon points="42,42 1158,42 1158,820 42,820" fill="#edeae0" stroke="#888" stroke-width="2"/>
+
+<!-- ─── ZONA ESTACIONAMIENTO NORTE-CENTRAL (gran área de cajones) ─── -->
+<rect x="44" y="44" width="1112" height="210" rx="3" fill="#cfd8dc"/>
+<text x="580" y="140" style="font-size:15px;fill:#607d8b;text-anchor:middle;font-weight:600;letter-spacing:2">ESTACIONAMIENTO NORTE</text>
+<text x="580" y="162" style="font-size:10px;fill:#90a4ae;text-anchor:middle">Limite de Predio · N.P.T. + 35.65</text>
+<!-- Cajones de estacionamiento (filas simuladas) -->
+<line x1="80" y1="88" x2="1120" y2="88" stroke="#b0bec5" stroke-width=".8" stroke-dasharray="10,5"/>
+<line x1="80" y1="118" x2="1120" y2="118" stroke="#b0bec5" stroke-width=".8" stroke-dasharray="10,5"/>
+<line x1="80" y1="148" x2="1120" y2="148" stroke="#b0bec5" stroke-width=".8" stroke-dasharray="10,5"/>
+<line x1="80" y1="178" x2="1120" y2="178" stroke="#b0bec5" stroke-width=".8" stroke-dasharray="10,5"/>
+<line x1="80" y1="208" x2="1120" y2="208" stroke="#b0bec5" stroke-width=".8" stroke-dasharray="10,5"/>
+<!-- Divisores verticales -->
+<line x1="180" y1="58" x2="180" y2="238" stroke="#b0bec5" stroke-width=".5"/>
+<line x1="310" y1="58" x2="310" y2="238" stroke="#b0bec5" stroke-width=".5"/>
+<line x1="440" y1="58" x2="440" y2="238" stroke="#b0bec5" stroke-width=".5"/>
+<line x1="570" y1="58" x2="570" y2="238" stroke="#b0bec5" stroke-width=".5"/>
+<line x1="700" y1="58" x2="700" y2="238" stroke="#b0bec5" stroke-width=".5"/>
+<line x1="830" y1="58" x2="830" y2="238" stroke="#b0bec5" stroke-width=".5"/>
+<line x1="960" y1="58" x2="960" y2="238" stroke="#b0bec5" stroke-width=".5"/>
+<line x1="1090" y1="58" x2="1090" y2="238" stroke="#b0bec5" stroke-width=".5"/>
+
+<!-- ─── ACCESO / CIRCULACIÓN ─── -->
+<rect x="44" y="258" width="1112" height="38" fill="#e0dbd2"/>
+<text x="600" y="277" style="font-size:9px;fill:#999;text-anchor:middle;letter-spacing:2">ACCESO VEHICULAR — CIRCULACIÓN</text>
+
+<!-- ─── ESTACIONAMIENTO VIP (campo izquierda) ─── -->
+<rect x="44" y="300" width="320" height="230" rx="3" fill="#d8e5f0" stroke="#b0c4de" stroke-width="1" stroke-dasharray="8,3"/>
+<text x="204" y="412" style="font-size:12px;fill:#6080a0;text-anchor:middle;font-weight:600">ESTACIONAMIENTO</text>
+<text x="204" y="432" style="font-size:12px;fill:#6080a0;text-anchor:middle;font-weight:600">VIP</text>
+
+<!-- ─── ESTACIONAMIENTO SUR-CENTRAL (zona cajones) ─── -->
+<rect x="44" y="534" width="680" height="240" rx="3" fill="#cfd8dc"/>
+<text x="384" y="650" style="font-size:14px;fill:#607d8b;text-anchor:middle;font-weight:600;letter-spacing:2">ESTACIONAMIENTO SUR</text>
+<!-- Cajones -->
+<line x1="80" y1="570" x2="700" y2="570" stroke="#b0bec5" stroke-width=".8" stroke-dasharray="10,5"/>
+<line x1="80" y1="600" x2="700" y2="600" stroke="#b0bec5" stroke-width=".8" stroke-dasharray="10,5"/>
+<line x1="80" y1="630" x2="700" y2="630" stroke="#b0bec5" stroke-width=".8" stroke-dasharray="10,5"/>
+<line x1="80" y1="660" x2="700" y2="660" stroke="#b0bec5" stroke-width=".8" stroke-dasharray="10,5"/>
+<line x1="80" y1="690" x2="700" y2="690" stroke="#b0bec5" stroke-width=".8" stroke-dasharray="10,5"/>
+<line x1="80" y1="720" x2="700" y2="720" stroke="#b0bec5" stroke-width=".8" stroke-dasharray="10,5"/>
+<line x1="200" y1="548" x2="200" y2="760" stroke="#b0bec5" stroke-width=".5"/>
+<line x1="360" y1="548" x2="360" y2="760" stroke="#b0bec5" stroke-width=".5"/>
+<line x1="520" y1="548" x2="520" y2="760" stroke="#b0bec5" stroke-width=".5"/>
+<line x1="680" y1="548" x2="680" y2="760" stroke="#b0bec5" stroke-width=".5"/>
+
+<!-- ─── SEARS (costado derecho) ─── -->
+<a href="../../directorio.html?tienda=Sears" target="_top">
+  <rect x="728" y="300" width="428" height="474" rx="4" fill="#FFE94D" stroke="#e6c900" stroke-width="1.5" class="z"/>
+  <text x="942" y="530" class="al" style="font-size:28px">SEARS</text>
+  <text x="942" y="562" class="cl" style="font-size:11px">Planta Baja Exterior</text>
+  <title>Sears — Planta Baja</title>
+</a>
+
+<!-- ─── PATIO INTERIOR / Mall entry zona tiendas ─── -->
+<rect x="368" y="300" width="356" height="230" rx="3" fill="#e8e3d8" stroke="#ccc" stroke-width="1"/>
+<text x="546" y="382" style="font-size:12px;fill:#888;text-anchor:middle;font-weight:600">PATIO INTERIOR</text>
+<text x="546" y="402" style="font-size:10px;fill:#aaa;text-anchor:middle">Accesos · Tiendas</text>
+
+<!-- Tiendas pequeñas en el patio interior -->
+<a href="../../directorio.html?tienda=Skechers" target="_top">
+  <rect x="372" y="418" width="80" height="55" rx="2" fill="#f8f3e8" class="z"/>
+  <text x="412" y="445" class="sl">Skechers</text>
+</a>
+<a href="../../directorio.html?tienda=New%20Era" target="_top">
+  <rect x="457" y="418" width="80" height="55" rx="2" fill="#f8f3e8" class="z"/>
+  <text x="497" y="445" class="sl">New Era</text>
+</a>
+<a href="../../directorio.html?tienda=Samsonite" target="_top">
+  <rect x="542" y="418" width="80" height="55" rx="2" fill="#f8f3e8" class="z"/>
+  <text x="582" y="445" class="sl">Samsonite</text>
+</a>
+<a href="../../directorio.html?tienda=DAX" target="_top">
+  <rect x="627" y="418" width="93" height="55" rx="2" fill="#f8f3e8" class="z"/>
+  <text x="674" y="445" class="sl">DAX</text>
+</a>
+
+<!-- ─── ÁREA MORADA (Alianza) ─── -->
+<rect x="220" y="750" width="140" height="62" rx="3" fill="#9b59b6" opacity=".5" stroke="#8e44ad" stroke-width="1"/>
+<text x="290" y="780" style="font-size:9px;fill:#6c3483;text-anchor:middle;font-weight:600">ALIANZA</text>
+
+<!-- Leyenda -->
+<rect x="1010" y="44" width="144" height="168" rx="6" fill="white" opacity=".93" stroke="#ccc" stroke-width="1"/>
+<text x="1020" y="64" style="font-size:9px;font-weight:700;fill:#333;letter-spacing:1">LEYENDA</text>
+<rect x="1020" y="72" width="11" height="10" fill="#FFE94D" stroke="#ccc" stroke-width=".5"/>
+<text x="1035" y="81" style="font-size:8px;fill:#555">Rentado / Operando</text>
+<rect x="1020" y="88" width="11" height="10" fill="#cfd8dc" stroke="#ccc" stroke-width=".5"/>
+<text x="1035" y="97" style="font-size:8px;fill:#555">Estacionamiento</text>
+<rect x="1020" y="104" width="11" height="10" fill="#fff0e0" stroke="#ccc" stroke-width=".5"/>
+<text x="1035" y="113" style="font-size:8px;fill:#555">Disponible / Negociación</text>
+<rect x="1020" y="120" width="11" height="10" fill="#9b59b6" stroke="#ccc" stroke-width=".5" opacity=".5"/>
+<text x="1035" y="129" style="font-size:8px;fill:#555">Alianza</text>
+<rect x="1020" y="136" width="11" height="10" fill="#d8e5f0" stroke="#ccc" stroke-width=".5"/>
+<text x="1035" y="145" style="font-size:8px;fill:#555">Est. VIP</text>
+<rect x="1020" y="152" width="11" height="10" fill="#e8e3d8" stroke="#ccc" stroke-width=".5"/>
+<text x="1035" y="161" style="font-size:8px;fill:#555">Accesos / Patio</text>
+
+<!-- Branding -->
+<rect x="1010" y="228" width="144" height="52" rx="4" fill="#3a1a6e"/>
+<text x="1082" y="248" style="font-size:9px;fill:#fbbd1a;text-anchor:middle;letter-spacing:3;font-weight:700">PLAZA</text>
+<text x="1082" y="267" style="font-size:9px;fill:#fff;text-anchor:middle;letter-spacing:2">UNIVERSIDAD</text>
+<text x="1010" y="298" style="font-size:8px;fill:#999;letter-spacing:1">PLANTA BAJA EXT.</text>
+<text x="1010" y="312" style="font-size:7px;fill:#bbb">05 ENERO 2026</text>
+</svg>

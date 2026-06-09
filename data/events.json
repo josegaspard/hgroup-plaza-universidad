@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "title": "Fashion Week Plaza Universidad",
+        "type": "Evento",
+        "category": "Moda",
+        "canAttend": true,
+        "attendButton": "Confirmar Asistencia",
+        "description": "Pasarela exclusiva de temporada Primavera-Verano con las mejores marcas de la plaza.",
+        "date": "2026-03-15",
+        "time": "18:00",
+        "location": "Planta Alta - Área Central",
+        "image": "https://imagenes.elpais.com/resizer/v2/JVSDJUU2X5IILC57IW7ZZSFNDM.jpg?auth=c97e0ff18cd03af7a39c188e5a3bc3e0175be5514dd41b4423107aafb6b1f678&width=1200",
+        "featured": true
+    },
+    {
+        "id": 2,
+        "title": "Venta Nocturna",
+        "type": "Promoción",
+        "category": "Ofertas",
+        "canAttend": false,
+        "attendButton": "",
+        "description": "Descuentos de hasta 70% en toda la plaza. Válido hasta medianoche.",
+        "date": "2026-02-20",
+        "time": "20:00 - 00:00",
+        "location": "Todas las tiendas participantes",
+        "image": "https://media.glamour.es/photos/6383d5ed16f67bfd5d27fbff/16:9/w_2560%2Cc_limit/Shooping%2520and%2520style-83.jpg",
+        "featured": true
+    },
+    {
+        "id": 3,
+        "title": "Concierto de Verano",
+        "type": "Evento",
+        "category": "Entretenimiento",
+        "canAttend": true,
+        "attendButton": "Reservar Entrada",
+        "description": "Música en vivo con artistas locales. Entrada gratuita.",
+        "date": "2026-04-10",
+        "time": "19:00",
+        "location": "Plaza Central",
+        "image": "https://imagenes.elpais.com/resizer/v2/JVSDJUU2X5IILC57IW7ZZSFNDM.jpg?auth=c97e0ff18cd03af7a39c188e5a3bc3e0175be5514dd41b4423107aafb6b1f678&width=1200",
+        "featured": false
+    }
+]
