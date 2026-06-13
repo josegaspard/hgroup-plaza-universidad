@@ -137,6 +137,17 @@
         .group:hover .store-card-tile .store-card-num {
             color: #fab700 !important;
         }
+        /* Tarjetas con logo: padding y, al hover, fondo blanco (el logo siempre legible) */
+        .store-card-tile:has(.store-card-logo) {
+            padding: 1.25rem;
+        }
+        .group:hover .store-card-tile:has(.store-card-logo) {
+            background-color: #ffffff;
+            border-color: rgb(45 10 68 / 1);
+        }
+        .group:hover .store-card-logo {
+            transform: scale(1.04);
+        }
     </style>
 </head>
 
@@ -324,7 +335,7 @@
                         data-category="Salud">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">21</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">+ Visión por Menos Precio</span>
+                            <img src="images/logos-tiendas/mas-vision-por-menos-precio.webp?v=l1" alt="+ Visión por Menos Precio" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 21</span>
@@ -338,7 +349,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">18</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Aldo Conti</span>
+                            <img src="images/logos-tiendas/aldo-conti.webp?v=l1" alt="Aldo Conti" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 18</span>
@@ -351,7 +362,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Antela Rossi</span>
+                            <img src="images/logos-tiendas/antela-rossi.webp?v=l1" alt="Antela Rossi" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -362,7 +373,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Lifestyle">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Aroma Home</span>
+                            <img src="images/logos-tiendas/aroma-home.webp?v=l1" alt="Aroma Home" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -374,7 +385,7 @@
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">09</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Asaderos Grill</span>
+                            <img src="images/logos-tiendas/asaderos-grill.webp?v=l1" alt="Asaderos Grill" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 9</span>
@@ -402,7 +413,7 @@
                         data-category="Servicios">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">45</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Banorte</span>
+                            <img src="images/logos-tiendas/banorte.webp?v=l1" alt="Banorte" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 45</span>
@@ -416,7 +427,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">19</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Bari</span>
+                            <img src="images/logos-tiendas/bari.webp?v=l1" alt="Bari" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 19</span>
@@ -443,10 +454,24 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Servicios">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Best Day</span>
+                            <img src="images/logos-tiendas/best-day.webp?v=l1" alt="Best Day" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
+                        </div>
+                    </div>
+                    <!-- Bio Relax -->
+                    <div onclick="openDirectoryModal(&apos;Bio Relax&apos;, &apos;Moda&apos;, &apos;images/tiendas/bio-relax.webp&apos;, &apos;Descubre lo mejor de Bio Relax en Plaza Universidad.&apos;, &apos;Local 35&apos;, &apos;11:00 - 21:00&apos;)"
+                        class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
+                        data-category="Moda">
+                        <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
+                            <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">35</span>
+                            <img src="images/logos-tiendas/bio-relax.webp?v=l1" alt="Bio Relax" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
+                        </div>
+                        <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
+                            <span>Local 35</span>
+                            <span class="opacity-30">|</span>
+                            <span>Detalles</span>
                         </div>
                     </div>
                     <!-- Bizzarro -->
@@ -455,7 +480,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">58</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Bizzarro</span>
+                            <img src="images/logos-tiendas/bizzarro.webp?v=l1" alt="Bizzarro" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 58</span>
@@ -468,7 +493,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Burger King</span>
+                            <img src="images/logos-tiendas/burger-king.webp?v=l1" alt="Burger King" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -480,7 +505,7 @@
                         data-category="Servicios">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">83</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Business &amp; Therapy Place</span>
+                            <img src="images/logos-tiendas/business-y-therapy-place.webp?v=l1" alt="Business &amp; Therapy Place" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 83</span>
@@ -493,7 +518,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Cassava Roots</span>
+                            <img src="images/logos-tiendas/cassava-roots.webp?v=l1" alt="Cassava Roots" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -504,7 +529,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Salud">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Celestolite</span>
+                            <img src="images/logos-tiendas/celestolite.webp?v=l1" alt="Celestolite" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -515,7 +540,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Tecnología">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Cellfie</span>
+                            <img src="images/logos-tiendas/cellfie.webp?v=l1" alt="Cellfie" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -526,7 +551,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Servicios">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Centro de Belleza</span>
+                            <img src="images/logos-tiendas/centro-de-belleza.webp?v=l1" alt="Centro de Belleza" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -537,7 +562,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Chili&apos;s</span>
+                            <img src="images/logos-tiendas/chilis.webp?v=l1" alt="Chili&#39;s" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -549,7 +574,7 @@
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">20</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Chilim Balam</span>
+                            <img src="images/logos-tiendas/chilim-balam.webp?v=l1" alt="Chilim Balam" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 20</span>
@@ -577,7 +602,7 @@
                         data-category="Servicios">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">39</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">CIBanco</span>
+                            <img src="images/logos-tiendas/ci-banco.webp?v=l1" alt="CIBanco" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 39</span>
@@ -591,7 +616,7 @@
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">03</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Cielito Querido Café</span>
+                            <img src="images/logos-tiendas/cielito-querido-cafe.webp?v=l1" alt="Cielito Querido Café" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 3</span>
@@ -605,7 +630,7 @@
                         data-category="Entretenimiento">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">01</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Cinépolis</span>
+                            <img src="images/logos-tiendas/cinepolis.webp?v=l1" alt="Cinépolis" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 1</span>
@@ -618,7 +643,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Coffee Tree</span>
+                            <img src="images/logos-tiendas/coffee-tree.webp?v=l1" alt="Coffee Tree" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -630,7 +655,7 @@
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">72</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Cosecha Sana</span>
+                            <img src="images/logos-tiendas/cosecha-sana.webp?v=l1" alt="Cosecha Sana" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 72</span>
@@ -644,7 +669,7 @@
                         data-category="Joyería">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">53</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Cristal Joyas</span>
+                            <img src="images/logos-tiendas/cristal-joyas.webp?v=l1" alt="Cristal Joyas" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 53</span>
@@ -657,7 +682,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Dalap</span>
+                            <img src="images/logos-tiendas/dalap.webp?v=l1" alt="Dalap" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -669,7 +694,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">59</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">DAX</span>
+                            <img src="images/logos-tiendas/dax.webp?v=l1" alt="DAX" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 59</span>
@@ -683,7 +708,7 @@
                         data-category="Deportes">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">56</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Deportes Martí</span>
+                            <img src="images/logos-tiendas/marti.webp?v=l1" alt="Deportes Martí" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 56</span>
@@ -697,7 +722,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">41</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Dorothy Gaynor</span>
+                            <img src="images/logos-tiendas/dorothy-gaynor.webp?v=l1" alt="Dorothy Gaynor" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 41</span>
@@ -711,7 +736,7 @@
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">71</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Dynasty</span>
+                            <img src="images/logos-tiendas/dynasty.webp?v=l1" alt="Dynasty" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 71</span>
@@ -725,7 +750,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">16</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">El Borceguí</span>
+                            <img src="images/logos-tiendas/el-borcegui.webp?v=l1" alt="El Borceguí" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 16</span>
@@ -738,7 +763,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">El Globo</span>
+                            <img src="images/logos-tiendas/el-globo.webp?v=l1" alt="El Globo" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -749,7 +774,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">El Portón</span>
+                            <img src="images/logos-tiendas/el-porton.webp?v=l1" alt="El Portón" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -761,7 +786,7 @@
                         data-category="Servicios">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">86</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Estética Imagen</span>
+                            <img src="images/logos-tiendas/estetica-imagen.webp?v=l1" alt="Estética Imagen" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 86</span>
@@ -775,7 +800,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">26</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Fajas Ann Chery</span>
+                            <img src="images/logos-tiendas/ann-chery.webp?v=l1" alt="Fajas Ann Chery" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 26</span>
@@ -789,7 +814,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">23</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Ferrioni</span>
+                            <img src="images/logos-tiendas/ferrioni.webp?v=l1" alt="Ferrioni" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 23</span>
@@ -817,7 +842,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">57</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Free Life</span>
+                            <img src="images/logos-tiendas/free-life.webp?v=l1" alt="Free Life" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 57</span>
@@ -831,7 +856,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">27</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Fullsand</span>
+                            <img src="images/logos-tiendas/fullsand.webp?v=l1" alt="Fullsand" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 27</span>
@@ -844,7 +869,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Entretenimiento">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Funin VR</span>
+                            <img src="images/logos-tiendas/funin-vr.webp?v=l1" alt="Funin VR" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -856,7 +881,7 @@
                         data-category="Tecnología">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">14</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Game Planet</span>
+                            <img src="images/logos-tiendas/game-planet.webp?v=l1" alt="Game Planet" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 14</span>
@@ -870,7 +895,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">24</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Giolini</span>
+                            <img src="images/logos-tiendas/giolini.webp?v=l1" alt="Giolini" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 24</span>
@@ -884,7 +909,7 @@
                         data-category="Salud">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">22</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">GNC General Nutrition Center</span>
+                            <img src="images/logos-tiendas/gnc.webp?v=l1" alt="GNC General Nutrition Center" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 22</span>
@@ -898,7 +923,7 @@
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">74</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Green Grass Addictive Salads</span>
+                            <img src="images/logos-tiendas/green-grass.webp?v=l1" alt="Green Grass Addictive Salads" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 74</span>
@@ -912,7 +937,7 @@
                         data-category="Servicios">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">82</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Greñitas</span>
+                            <img src="images/logos-tiendas/grenitas.webp?v=l1" alt="Greñitas" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 82</span>
@@ -925,7 +950,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Häagen-Dazs</span>
+                            <img src="images/logos-tiendas/haagen-dazs.webp?v=l1" alt="Häagen-Dazs" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -936,7 +961,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Joyería">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Helix Dorado</span>
+                            <img src="images/logos-tiendas/helix-dorado.webp?v=l1" alt="Helix Dorado" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -948,7 +973,7 @@
                         data-category="Servicios">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">06</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">HSBC</span>
+                            <img src="images/logos-tiendas/hsbc.webp?v=l1" alt="HSBC" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 6</span>
@@ -962,7 +987,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">32</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Innvictus</span>
+                            <img src="images/logos-tiendas/innvictus.webp?v=l1" alt="Innvictus" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 32</span>
@@ -975,7 +1000,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Tecnología">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">iShop</span>
+                            <img src="images/logos-tiendas/ishop.webp?v=l1" alt="iShop" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -987,7 +1012,7 @@
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">08</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Italianni&apos;s</span>
+                            <img src="images/logos-tiendas/italianni-s.webp?v=l1" alt="Italianni&#39;s" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 8</span>
@@ -1001,7 +1026,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">36</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Jarking</span>
+                            <img src="images/logos-tiendas/jarking.webp?v=l1" alt="Jarking" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 36</span>
@@ -1015,7 +1040,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">10</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Julio</span>
+                            <img src="images/logos-tiendas/julio.webp?v=l1" alt="Julio" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 10</span>
@@ -1023,13 +1048,13 @@
                             <span>Detalles</span>
                         </div>
                     </div>
-                    <!-- Kentucky Fried Chicken (KFC) -->
-                    <div onclick="openDirectoryModal(&apos;Kentucky Fried Chicken (KFC)&apos;, &apos;Gastronomía&apos;, &apos;images/tiendas/kfc.webp&apos;, &apos;Descubre lo mejor de Kentucky Fried Chicken (KFC) en Plaza Universidad.&apos;, &apos;Local 77&apos;, &apos;11:00 - 21:00&apos;)"
+                    <!-- KFC -->
+                    <div onclick="openDirectoryModal(&apos;KFC&apos;, &apos;Gastronomía&apos;, &apos;images/tiendas/kfc.webp&apos;, &apos;Descubre lo mejor de KFC en Plaza Universidad.&apos;, &apos;Local 77&apos;, &apos;11:00 - 21:00&apos;)"
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">77</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Kentucky Fried Chicken (KFC)</span>
+                            <img src="images/logos-tiendas/kfc.webp?v=l1" alt="KFC" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 77</span>
@@ -1043,7 +1068,7 @@
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">75</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">King Wok &amp; Grill</span>
+                            <img src="images/logos-tiendas/king-wok-y-grill.webp?v=l1" alt="King Wok &amp; Grill" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 75</span>
@@ -1056,7 +1081,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Krispy Kreme</span>
+                            <img src="images/logos-tiendas/krispy-kreme.webp?v=l1" alt="Krispy Kreme" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1068,7 +1093,7 @@
                         data-category="Tecnología">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">49</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">La Casa de las Carcasas / Kamaleón</span>
+                            <img src="images/logos-tiendas/la-casa-de-las-carcasas.webp?v=l1" alt="La Casa de las Carcasas / Kamaleón" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 49</span>
@@ -1076,13 +1101,13 @@
                             <span>Detalles</span>
                         </div>
                     </div>
-                    <!-- La Milagresa / Quirelli -->
-                    <div onclick="openDirectoryModal(&apos;La Milagresa / Quirelli&apos;, &apos;Gastronomía&apos;, &apos;images/tiendas/la-milagresa.webp&apos;, &apos;Descubre lo mejor de La Milagresa / Quirelli en Plaza Universidad.&apos;, &apos;Local 31&apos;, &apos;11:00 - 21:00&apos;)"
+                    <!-- La Milagresa -->
+                    <div onclick="openDirectoryModal(&apos;La Milagresa&apos;, &apos;Moda&apos;, &apos;images/tiendas/la-milagresa.webp&apos;, &apos;Descubre lo mejor de La Milagresa en Plaza Universidad.&apos;, &apos;Local 31&apos;, &apos;11:00 - 21:00&apos;)"
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
-                        data-category="Gastronomía">
+                        data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">31</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">La Milagresa / Quirelli</span>
+                            <img src="images/logos-tiendas/la-milagresa.webp?v=l1" alt="La Milagresa" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 31</span>
@@ -1095,7 +1120,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Le Macaron</span>
+                            <img src="images/logos-tiendas/le-macaron.webp?v=l1" alt="Le Macaron" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1107,7 +1132,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">43</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Liz Minelli</span>
+                            <img src="images/logos-tiendas/liz-minelli.webp?v=l1" alt="Liz Minelli" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 43</span>
@@ -1135,7 +1160,7 @@
                         data-category="Lifestyle">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">15</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Luuna</span>
+                            <img src="images/logos-tiendas/luuna.webp?v=l1" alt="Luuna" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 15</span>
@@ -1148,7 +1173,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Lifestyle">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Mabe</span>
+                            <img src="images/logos-tiendas/mabe.webp?v=l1" alt="Mabe" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1160,7 +1185,7 @@
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">79</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">McDonald&apos;s</span>
+                            <img src="images/logos-tiendas/mcdonalds.webp?v=l1" alt="McDonald&#39;s" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 79</span>
@@ -1174,7 +1199,7 @@
                         data-category="Salud">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">80</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Medicor</span>
+                            <img src="images/logos-tiendas/farmacias-medicor.webp?v=l1" alt="Medicor" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 80</span>
@@ -1188,7 +1213,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">42</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Men&apos;s Fashion</span>
+                            <img src="images/logos-tiendas/mens-fashion.webp?v=l1" alt="Men&#39;s Fashion" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 42</span>
@@ -1202,7 +1227,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">34</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Michel Domit</span>
+                            <img src="images/logos-tiendas/michel-domit.webp?v=l1" alt="Michel Domit" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 34</span>
@@ -1215,7 +1240,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Lifestyle">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Michi Verso</span>
+                            <img src="images/logos-tiendas/michi-verso.webp?v=l1" alt="Michi Verso" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1226,7 +1251,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Entretenimiento">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Millenials Toys</span>
+                            <img src="images/logos-tiendas/millenials-toys.webp?v=l1" alt="Millenials Toys" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1238,7 +1263,7 @@
                         data-category="Tecnología">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">63</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Mixup / iShop</span>
+                            <img src="images/logos-tiendas/mixup.webp?v=l1" alt="Mixup / iShop" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 63</span>
@@ -1251,7 +1276,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Tecnología">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Mobicen</span>
+                            <img src="images/logos-tiendas/mobicen.webp?v=l1" alt="Mobicen" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1263,7 +1288,7 @@
                         data-category="Tecnología">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">48</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Mobo Shop</span>
+                            <img src="images/logos-tiendas/mobo.webp?v=l1" alt="Mobo Shop" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 48</span>
@@ -1277,24 +1302,10 @@
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">70</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Monkey Papas</span>
+                            <img src="images/logos-tiendas/monkey-papas.webp?v=l1" alt="Monkey Papas" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 70</span>
-                            <span class="opacity-30">|</span>
-                            <span>Detalles</span>
-                        </div>
-                    </div>
-                    <!-- Monkey Papas -->
-                    <div onclick="openDirectoryModal(&apos;Monkey Papas&apos;, &apos;Gastronomía&apos;, &apos;images/tiendas/monkey-papas.webp&apos;, &apos;Descubre lo mejor de Monkey Papas en Plaza Universidad.&apos;, &apos;Local 81&apos;, &apos;11:00 - 21:00&apos;)"
-                        class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
-                        data-category="Gastronomía">
-                        <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">81</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Monkey Papas</span>
-                        </div>
-                        <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
-                            <span>Local 81</span>
                             <span class="opacity-30">|</span>
                             <span>Detalles</span>
                         </div>
@@ -1304,7 +1315,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Tecnología">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Motorola</span>
+                            <img src="images/logos-tiendas/motorola.webp?v=l1" alt="Motorola" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1315,7 +1326,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Moyo</span>
+                            <img src="images/logos-tiendas/moyo.webp?v=l1" alt="Moyo" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1327,7 +1338,7 @@
                         data-category="Lifestyle">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">51</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Mumuso</span>
+                            <img src="images/logos-tiendas/mumuso.webp?v=l1" alt="Mumuso" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 51</span>
@@ -1355,7 +1366,7 @@
                         data-category="Servicios">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">47</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Nailkery</span>
+                            <img src="images/logos-tiendas/nailkery.webp?v=l1" alt="Nailkery" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 47</span>
@@ -1368,7 +1379,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Salud">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Natural Balance</span>
+                            <img src="images/logos-tiendas/natural-balance.webp?v=l1" alt="Natural Balance" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1380,7 +1391,7 @@
                         data-category="Deportes">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">12</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Neria&apos;s Deportes</span>
+                            <img src="images/logos-tiendas/nerias.webp?v=l1" alt="Neria&#39;s Deportes" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 12</span>
@@ -1394,7 +1405,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">52</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">New Era</span>
+                            <img src="images/logos-tiendas/new-era.webp?v=l1" alt="New Era" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 52</span>
@@ -1408,7 +1419,7 @@
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">38</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Nutrisa</span>
+                            <img src="images/logos-tiendas/nutrisa.webp?v=l1" alt="Nutrisa" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 38</span>
@@ -1421,7 +1432,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Nutrisa</span>
+                            <img src="images/logos-tiendas/nutrisa-2.webp?v=l1" alt="Nutrisa" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1433,7 +1444,7 @@
                         data-category="Salud">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">55</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Ópticas Devlyn</span>
+                            <img src="images/logos-tiendas/devlyn.webp?v=l1" alt="Ópticas Devlyn" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 55</span>
@@ -1446,7 +1457,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Joyería">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Pandora</span>
+                            <img src="images/logos-tiendas/pandora.webp?v=l1" alt="Pandora" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1457,7 +1468,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Paredes</span>
+                            <img src="images/logos-tiendas/paredes.webp?v=l1" alt="Paredes" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1468,7 +1479,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Servicios">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Park N Wash</span>
+                            <img src="images/logos-tiendas/park-n-wash.webp?v=l1" alt="Park N Wash" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1480,7 +1491,7 @@
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">66</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Pizza Maestra</span>
+                            <img src="images/logos-tiendas/pizza-maestra.webp?v=l1" alt="Pizza Maestra" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 66</span>
@@ -1493,7 +1504,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Servicios">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Price Travel</span>
+                            <img src="images/logos-tiendas/price-travel.webp?v=l1" alt="Price Travel" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1504,7 +1515,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Quirelli</span>
+                            <img src="images/logos-tiendas/quirelli.webp?v=l1" alt="Quirelli" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1516,7 +1527,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">11</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Robert&apos;s</span>
+                            <img src="images/logos-tiendas/roberts.webp?v=l1" alt="Robert&#39;s" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 11</span>
@@ -1530,7 +1541,7 @@
                         data-category="Lifestyle">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">54</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Samsonite</span>
+                            <img src="images/logos-tiendas/samsonite.webp?v=l1" alt="Samsonite" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 54</span>
@@ -1544,7 +1555,7 @@
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">04</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Sanborns</span>
+                            <img src="images/logos-tiendas/sanborns.webp?v=l1" alt="Sanborns" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 4</span>
@@ -1557,7 +1568,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Santa Clara</span>
+                            <img src="images/logos-tiendas/santa-clara.webp?v=l1" alt="Santa Clara" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1569,7 +1580,7 @@
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">69</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Sbarro</span>
+                            <img src="images/logos-tiendas/sbarro.webp?v=l1" alt="Sbarro" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 69</span>
@@ -1583,7 +1594,7 @@
                         data-category="Departamental">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">02</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Sears</span>
+                            <img src="images/logos-tiendas/sears.webp?v=l1" alt="Sears" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 2</span>
@@ -1597,7 +1608,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">60</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Shasa</span>
+                            <img src="images/logos-tiendas/shasa.webp?v=l1" alt="Shasa" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 60</span>
@@ -1611,7 +1622,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">30</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Skechers</span>
+                            <img src="images/logos-tiendas/skechers.webp?v=l1" alt="Skechers" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 30</span>
@@ -1624,7 +1635,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Lifestyle">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Smart Bamboo</span>
+                            <img src="images/logos-tiendas/smart-bamboo.webp?v=l1" alt="Smart Bamboo" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1635,7 +1646,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Joyería">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Soleil</span>
+                            <img src="images/logos-tiendas/soleil.webp?v=l1" alt="Soleil" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1647,7 +1658,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">37</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Soley</span>
+                            <img src="images/logos-tiendas/soley.webp?v=l1" alt="Soley" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 37</span>
@@ -1660,7 +1671,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Tecnología">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Spyral</span>
+                            <img src="images/logos-tiendas/spyral.webp?v=l1" alt="Spyral" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1671,7 +1682,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Starbucks</span>
+                            <img src="images/logos-tiendas/starbucks.webp?v=l1" alt="Starbucks" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1683,7 +1694,7 @@
                         data-category="Tecnología">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">44</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Steren Shop</span>
+                            <img src="images/logos-tiendas/steren.webp?v=l1" alt="Steren Shop" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 44</span>
@@ -1696,7 +1707,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Departamental">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Suburbia</span>
+                            <img src="images/logos-tiendas/suburbia.webp?v=l1" alt="Suburbia" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1708,7 +1719,7 @@
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">78</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Subway</span>
+                            <img src="images/logos-tiendas/subway.webp?v=l1" alt="Subway" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 78</span>
@@ -1722,7 +1733,7 @@
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">73</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Sukiya Tokio Bowls &amp; Noodles</span>
+                            <img src="images/logos-tiendas/sukiya.webp?v=l1" alt="Sukiya Tokio Bowls &amp; Noodles" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 73</span>
@@ -1736,7 +1747,7 @@
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">76</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Sushi Roll</span>
+                            <img src="images/logos-tiendas/sushiroll.webp?v=l1" alt="Sushi Roll" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 76</span>
@@ -1749,7 +1760,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Tecnología">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">T Shops</span>
+                            <img src="images/logos-tiendas/t-shops.webp?v=l1" alt="T Shops" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1761,7 +1772,7 @@
                         data-category="Deportes">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">61</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Tactical 5.11</span>
+                            <img src="images/logos-tiendas/5-11.webp?v=l1" alt="Tactical 5.11" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 61</span>
@@ -1775,7 +1786,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">25</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">TAF</span>
+                            <img src="images/logos-tiendas/taf.webp?v=l1" alt="TAF" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 25</span>
@@ -1789,7 +1800,7 @@
                         data-category="Tecnología">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">33</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Telcel</span>
+                            <img src="images/logos-tiendas/telcel.webp?v=l1" alt="Telcel" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 33</span>
@@ -1803,7 +1814,7 @@
                         data-category="Tecnología">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">46</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Telcel</span>
+                            <img src="images/logos-tiendas/isla-telcel.webp?v=l1" alt="Telcel" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 46</span>
@@ -1816,7 +1827,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Tecnología">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Telcel</span>
+                            <img src="images/logos-tiendas/telcel-2.webp?v=l1" alt="Telcel" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1827,7 +1838,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Salud">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Therapy</span>
+                            <img src="images/logos-tiendas/therapy.webp?v=l1" alt="Therapy" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1838,7 +1849,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Todo Moda</span>
+                            <img src="images/logos-tiendas/todo-moda.webp?v=l1" alt="Todo Moda" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1850,7 +1861,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">13</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Trendy Accesories</span>
+                            <img src="images/logos-tiendas/trendy.webp?v=l1" alt="Trendy Accesories" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 13</span>
@@ -1864,7 +1875,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">17</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Vans</span>
+                            <img src="images/logos-tiendas/vans.webp?v=l1" alt="Vans" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 17</span>
@@ -1872,13 +1883,13 @@
                             <span>Detalles</span>
                         </div>
                     </div>
-                    <!-- Via Uno / Bio Relax -->
-                    <div onclick="openDirectoryModal(&apos;Via Uno / Bio Relax&apos;, &apos;Moda&apos;, &apos;images/tiendas/bio-relax.webp&apos;, &apos;Descubre lo mejor de Via Uno / Bio Relax en Plaza Universidad.&apos;, &apos;Local 35&apos;, &apos;11:00 - 21:00&apos;)"
+                    <!-- Via Uno -->
+                    <div onclick="openDirectoryModal(&apos;Via Uno&apos;, &apos;Moda&apos;, &apos;images/tiendas/via-uno.webp&apos;, &apos;Descubre lo mejor de Via Uno en Plaza Universidad.&apos;, &apos;Local 35&apos;, &apos;11:00 - 21:00&apos;)"
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">35</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Via Uno / Bio Relax</span>
+                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Via Uno</span>
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 35</span>
@@ -1892,7 +1903,7 @@
                         data-category="Servicios">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">85</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Villa Bella Salón</span>
+                            <img src="images/logos-tiendas/villa-bella.webp?v=l1" alt="Villa Bella Salón" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 85</span>
@@ -1905,7 +1916,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Gastronomía">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Vips</span>
+                            <img src="images/logos-tiendas/vips.webp?v=l1" alt="Vips" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1928,7 +1939,7 @@
                         data-category="Moda">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">40</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Vittorio Forti</span>
+                            <img src="images/logos-tiendas/vittorio-forti.webp?v=l1" alt="Vittorio Forti" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 40</span>
@@ -1941,7 +1952,7 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Lifestyle">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Volta</span>
+                            <img src="images/logos-tiendas/volta.webp?v=l1" alt="Volta" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
@@ -1952,19 +1963,19 @@
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Entretenimiento">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">Xcaret</span>
+                            <img src="images/logos-tiendas/xcaret.webp?v=l1" alt="Xcaret" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Ver tienda</span>
                         </div>
                     </div>
-                    <!-- YAK / Sport Book -->
-                    <div onclick="openDirectoryModal(&apos;YAK / Sport Book&apos;, &apos;Entretenimiento&apos;, &apos;images/tiendas/yak.webp&apos;, &apos;Descubre lo mejor de YAK / Sport Book en Plaza Universidad.&apos;, &apos;Local 62&apos;, &apos;11:00 - 21:00&apos;)"
+                    <!-- YAK -->
+                    <div onclick="openDirectoryModal(&apos;YAK&apos;, &apos;Entretenimiento&apos;, &apos;images/tiendas/yak.webp&apos;, &apos;Descubre lo mejor de YAK en Plaza Universidad.&apos;, &apos;Local 62&apos;, &apos;11:00 - 21:00&apos;)"
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
                         data-category="Entretenimiento">
                         <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
                             <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">62</span>
-                            <span class="store-card-name font-serif text-xl md:text-2xl text-plaza-black tracking-tight text-center leading-tight transition-colors duration-500">YAK / Sport Book</span>
+                            <img src="images/logos-tiendas/yak.webp?v=l1" alt="YAK" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
                         </div>
                         <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
                             <span>Local 62</span>
