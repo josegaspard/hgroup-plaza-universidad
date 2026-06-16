@@ -1427,17 +1427,6 @@
                             <span>Detalles</span>
                         </div>
                     </div>
-                    <!-- Nutrisa -->
-                    <div onclick="openDirectoryModal(&apos;Nutrisa&apos;, &apos;Gastronomía&apos;, &apos;images/tiendas/nutrisa-2.webp&apos;, &apos;&apos;, &apos;&apos;, &apos;&apos;)"
-                        class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
-                        data-category="Gastronomía">
-                        <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <img src="images/logos-tiendas/nutrisa-2.webp?v=l1" alt="Nutrisa" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
-                        </div>
-                        <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
-                            <span>Ver tienda</span>
-                        </div>
-                    </div>
                     <!-- Ópticas Devlyn -->
                     <div onclick="openDirectoryModal(&apos;Ópticas Devlyn&apos;, &apos;Salud&apos;, &apos;images/tiendas/devlyn.webp&apos;, &apos;Descubre lo mejor de Ópticas Devlyn en Plaza Universidad.&apos;, &apos;Local 55&apos;, &apos;11:00 - 21:00&apos;)"
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
@@ -1808,31 +1797,6 @@
                             <span>Detalles</span>
                         </div>
                     </div>
-                    <!-- Telcel -->
-                    <div onclick="openDirectoryModal(&apos;Telcel&apos;, &apos;Tecnología&apos;, &apos;images/tiendas/isla-telcel.webp&apos;, &apos;Descubre lo mejor de Telcel en Plaza Universidad.&apos;, &apos;Local 46&apos;, &apos;11:00 - 21:00&apos;)"
-                        class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
-                        data-category="Tecnología">
-                        <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <span class="store-card-num absolute top-2 right-3 text-[10px] font-bold tracking-[0.15em] text-plaza-gold">46</span>
-                            <img src="images/logos-tiendas/isla-telcel.webp?v=l1" alt="Telcel" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
-                        </div>
-                        <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
-                            <span>Local 46</span>
-                            <span class="opacity-30">|</span>
-                            <span>Detalles</span>
-                        </div>
-                    </div>
-                    <!-- Telcel -->
-                    <div onclick="openDirectoryModal(&apos;Telcel&apos;, &apos;Tecnología&apos;, &apos;images/tiendas/telcel-2.webp&apos;, &apos;&apos;, &apos;&apos;, &apos;&apos;)"
-                        class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
-                        data-category="Tecnología">
-                        <div class="store-card-tile w-full aspect-square border border-gray-200 mb-4 overflow-hidden relative flex items-center justify-center px-4 group-hover:shadow-lg duration-500">
-                            <img src="images/logos-tiendas/telcel-2.webp?v=l1" alt="Telcel" loading="lazy" class="store-card-logo max-h-[62%] max-w-[80%] w-auto h-auto object-contain transition-all duration-500">
-                        </div>
-                        <div class="flex justify-center items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-gray-500 group-hover:text-plaza-purple transition-colors">
-                            <span>Ver tienda</span>
-                        </div>
-                    </div>
                     <!-- Therapy -->
                     <div onclick="openDirectoryModal(&apos;Therapy&apos;, &apos;Salud&apos;, &apos;images/tiendas/therapy.webp&apos;, &apos;&apos;, &apos;&apos;, &apos;&apos;)"
                         class="group cursor-pointer flex flex-col items-center text-center fade-in-up"
@@ -2097,13 +2061,19 @@
 
                 <div id="modal-info-block" class="grid grid-cols-2 gap-8 border-t border-gray-200 pt-8 mb-8">
                     <div>
-                        <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 block mb-2">Local</span>
+                        <span id="modal-loc-label" class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 block mb-2">Local</span>
                         <span id="modal-loc" class="font-serif text-plaza-black text-xl"></span>
                     </div>
                     <div>
                         <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 block mb-2">Horario</span>
                         <span id="modal-time" class="font-serif text-plaza-black text-xl"></span>
                     </div>
+                </div>
+
+                <!-- Galería del local: varias vistas / varios locales (estilo Plaza Carso) -->
+                <div id="modal-gallery-wrap" class="border-t border-gray-200 pt-8 mb-8" style="display:none;">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 block mb-4">Galería</span>
+                    <div id="modal-gallery" class="flex flex-wrap gap-3"></div>
                 </div>
 
                 <!-- Redes sociales -->
@@ -2122,7 +2092,30 @@
         </div>
     </div>
 
-
+    <!-- Lightbox de galería del local (imagen ampliada + leyenda del local) -->
+    <div id="gallery-lightbox" class="fixed inset-0 z-[120] hidden items-center justify-center bg-black/90 backdrop-blur-sm"
+        onclick="closeGalleryLightbox(event)">
+        <button onclick="closeGalleryLightbox()" aria-label="Cerrar"
+            class="absolute top-5 right-5 z-10 bg-white/95 hover:bg-plaza-purple hover:text-white text-plaza-black rounded-full w-11 h-11 flex items-center justify-center shadow-lg transition-all">
+            <i class="fas fa-times text-lg"></i>
+        </button>
+        <button onclick="galleryPrev(event)" aria-label="Anterior"
+            class="gl-nav absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/85 hover:bg-white w-11 h-11 rounded-full items-center justify-center transition-all">
+            <i class="fas fa-chevron-left text-plaza-black"></i>
+        </button>
+        <button onclick="galleryNext(event)" aria-label="Siguiente"
+            class="gl-nav absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/85 hover:bg-white w-11 h-11 rounded-full items-center justify-center transition-all">
+            <i class="fas fa-chevron-right text-plaza-black"></i>
+        </button>
+        <figure class="flex flex-col items-center" onclick="event.stopPropagation()">
+            <img id="gallery-lightbox-img" src="" alt=""
+                class="max-w-[90vw] max-h-[74vh] object-contain rounded-lg shadow-2xl">
+            <figcaption class="mt-5 text-center">
+                <span id="gallery-lightbox-caption" class="block text-white font-serif text-xl md:text-2xl"></span>
+                <span id="gallery-lightbox-counter" class="block text-white/60 text-[11px] uppercase tracking-[0.25em] mt-2"></span>
+            </figcaption>
+        </figure>
+    </div>
 
     <script>
         // Social media links per store (Instagram & Facebook)
@@ -2167,6 +2160,26 @@
             'Vittorio Forti': { ig: '#', fb: '#' },
             'YAK': { ig: '#', fb: '#' },
             'iShop': { ig: 'https://www.instagram.com/ishopmx/', fb: 'https://www.facebook.com/iShopMX/' }
+        };
+
+        // ── Tiendas con varios locales / varias fotos (UNIFICADAS en una sola tarjeta) ──
+        // locals: se listan bajo "Locales". gallery: cada foto con la leyenda del local al que pertenece.
+        var _storeMerged = {
+            'Telcel': {
+                locals: ['Local 33', 'Local 46'],
+                gallery: [
+                    { src: 'images/tiendas/telcel.webp', loc: 'Local 33' },
+                    { src: 'images/tiendas/isla-telcel.webp', loc: 'Local 46' },
+                    { src: 'images/tiendas/telcel-2.webp', loc: '' }
+                ]
+            },
+            'Nutrisa': {
+                locals: ['Local 38'],
+                gallery: [
+                    { src: 'images/tiendas/nutrisa.webp', loc: 'Local 38' },
+                    { src: 'images/tiendas/nutrisa-2.webp', loc: '' }
+                ]
+            }
         };
 
         // ── Lista ordenada de tiendas (escaneada del DOM al cargar) ──
@@ -2221,10 +2234,17 @@
             document.getElementById('modal-title').innerText = s.title;
             document.getElementById('modal-cat').innerText = s.cat;
             document.getElementById('modal-desc').innerText = s.desc;
-            document.getElementById('modal-loc').innerText = s.loc;
+            // Locales (uno o varios fusionados) + galería de fotos con leyenda por local
+            var _merged = _storeMerged[s.title] || null;
+            var _locals = (_merged && _merged.locals && _merged.locals.length) ? _merged.locals : (s.loc ? [s.loc] : []);
+            var _locText = _locals.join(', ');
+            document.getElementById('modal-loc').innerText = _locText;
+            var _locLabel = document.getElementById('modal-loc-label');
+            if (_locLabel) _locLabel.innerText = _locals.length > 1 ? 'Locales' : 'Local';
             document.getElementById('modal-time').innerText = s.time;
             document.getElementById('modal-desc').style.display = s.desc ? '' : 'none';
-            var _ib=document.getElementById('modal-info-block'); if(_ib) _ib.style.display=(s.loc||s.time)?'':'none';
+            var _ib=document.getElementById('modal-info-block'); if(_ib) _ib.style.display=(_locText||s.time)?'':'none';
+            _renderModalGallery(s, _merged);
             var imgEl = document.getElementById('modal-img');
             imgEl.alt = s.title;
 
@@ -2261,6 +2281,65 @@
             fbEl.href = socials.fb;
             if (socials.ig === '#') { igEl.style.opacity = '0.4'; igEl.style.pointerEvents = 'none'; } else { igEl.style.opacity = '1'; igEl.style.pointerEvents = 'auto'; }
             if (socials.fb === '#') { fbEl.style.opacity = '0.4'; fbEl.style.pointerEvents = 'none'; } else { fbEl.style.opacity = '1'; fbEl.style.pointerEvents = 'auto'; }
+        }
+
+        // ── Galería de fotos del local (miniaturas) + lightbox con leyenda ──
+        var _galleryImgs = [];   // [{ src, loc }]
+        var _galleryIdx = 0;
+        function _renderModalGallery(s, merged) {
+            var wrap = document.getElementById('modal-gallery-wrap');
+            var grid = document.getElementById('modal-gallery');
+            _galleryImgs = (merged && merged.gallery && merged.gallery.length) ? merged.gallery.slice() : [];
+            // Solo se muestra la galería cuando hay MÁS de una imagen (varias vistas / locales).
+            if (_galleryImgs.length > 1) {
+                grid.innerHTML = _galleryImgs.map(function (g, i) {
+                    var cap = g.loc ? g.loc : s.title;
+                    var src = g.src + (g.src.indexOf('?') === -1 ? '?v=' + _imgVer : '');
+                    return '<button type="button" onclick="openGalleryLightbox(' + i + ')" aria-label="Ver ' + cap + '" '
+                        + 'class="group/th relative w-24 h-24 md:w-28 md:h-28 rounded-lg overflow-hidden border border-gray-200 hover:border-plaza-purple transition-all">'
+                        + '<img src="' + src + '" alt="' + s.title + ' — ' + cap + '" loading="lazy" '
+                        + 'class="w-full h-full object-cover transition-transform duration-500 group-hover/th:scale-110">'
+                        + '<span class="absolute inset-x-0 bottom-0 bg-black/65 text-white text-[9px] font-bold uppercase tracking-wider px-1.5 py-1 text-center truncate">' + cap + '</span>'
+                        + '</button>';
+                }).join('');
+                wrap.style.display = '';
+            } else {
+                wrap.style.display = 'none';
+                grid.innerHTML = '';
+            }
+        }
+        function _showGalleryLightbox() {
+            if (!_galleryImgs.length) return;
+            _galleryIdx = ((_galleryIdx % _galleryImgs.length) + _galleryImgs.length) % _galleryImgs.length;
+            var g = _galleryImgs[_galleryIdx];
+            var src = g.src + (g.src.indexOf('?') === -1 ? '?v=' + _imgVer : '');
+            var imgEl = document.getElementById('gallery-lightbox-img');
+            imgEl.src = src;
+            imgEl.alt = g.loc || '';
+            document.getElementById('gallery-lightbox-caption').innerText = g.loc ? g.loc : '';
+            var counter = document.getElementById('gallery-lightbox-counter');
+            counter.innerText = _galleryImgs.length > 1 ? (_galleryIdx + 1) + ' / ' + _galleryImgs.length : '';
+            document.querySelectorAll('#gallery-lightbox .gl-nav').forEach(function (n) {
+                n.style.display = _galleryImgs.length > 1 ? 'flex' : 'none';
+            });
+        }
+        function openGalleryLightbox(i) {
+            _galleryIdx = i || 0;
+            _showGalleryLightbox();
+            var lb = document.getElementById('gallery-lightbox');
+            lb.classList.remove('hidden');
+            lb.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+        function galleryNext(e) { if (e) e.stopPropagation(); _galleryIdx++; _showGalleryLightbox(); }
+        function galleryPrev(e) { if (e) e.stopPropagation(); _galleryIdx--; _showGalleryLightbox(); }
+        function closeGalleryLightbox(e) {
+            if (e && e.target && e.target.id === 'gallery-lightbox-img') return;
+            var lb = document.getElementById('gallery-lightbox');
+            lb.classList.add('hidden');
+            lb.classList.remove('flex');
+            // Si el modal de tienda sigue abierto, mantener el scroll bloqueado.
+            if (document.getElementById('dir-modal').classList.contains('hidden')) document.body.style.overflow = '';
         }
 
         function openDirectoryModal(title, cat, img, desc, loc, time) {
@@ -2306,9 +2385,17 @@
         }
         // Cerrar con tecla ESC
         document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && !document.getElementById('dir-modal').classList.contains('hidden')) {
-                closeDirectoryModal();
+            // Si el lightbox de galería está abierto, las flechas navegan SUS fotos.
+            var lb = document.getElementById('gallery-lightbox');
+            if (lb && !lb.classList.contains('hidden')) {
+                if (e.key === 'Escape') closeGalleryLightbox();
+                if (e.key === 'ArrowRight') galleryNext();
+                if (e.key === 'ArrowLeft') galleryPrev();
+                return;
             }
+            // Solo navegar tiendas cuando el modal está abierto.
+            if (document.getElementById('dir-modal').classList.contains('hidden')) return;
+            if (e.key === 'Escape') closeDirectoryModal();
             if (e.key === 'ArrowRight') nextStore();
             if (e.key === 'ArrowLeft') prevStore();
         });
