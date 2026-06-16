@@ -402,10 +402,7 @@
         .pu-base{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; pointer-events:none; -webkit-user-select:none; user-select:none; -webkit-user-drag:none; }
         .pu-zones{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; }
         .pu-zones polygon.zone{ fill:#6B2D8B; fill-opacity:0; stroke:#6B2D8B; stroke-opacity:0; stroke-width:2.5; stroke-linejoin:round; pointer-events:all; cursor:pointer; transition:fill-opacity .15s ease, stroke-opacity .15s ease; }
-        .pu-viewport.hint .pu-zones polygon.zone{ fill:#C9A96E; fill-opacity:.12; }
-        .pu-zones polygon.zone:hover{ fill:#6B2D8B; fill-opacity:.28; stroke-opacity:.9; }
-        .pu-zones polygon.zone.vacant:hover{ fill:#9a9a9a; fill-opacity:.22; stroke:#9a9a9a; stroke-opacity:.9; }
-        .pu-zones polygon.zone.sel{ fill:#C9A96E; fill-opacity:.42; stroke:#9a6f1f; stroke-opacity:1; stroke-width:3; }
+        .pu-zones polygon.zone:hover{ fill:#6B2D8B; fill-opacity:.30; stroke-opacity:1; }
 
         .pu-zoom{ position:absolute; right:14px; bottom:14px; z-index:20; display:flex; flex-direction:column; gap:7px; }
         .pu-zoom button{ width:38px; height:38px; border-radius:10px; border:1px solid #e7e1d6; background:rgba(255,255,255,.96); color:#1a1a2e; font-size:14px; cursor:pointer; box-shadow:0 5px 16px rgba(0,0,0,.1); display:flex; align-items:center; justify-content:center; transition:background .15s,color .15s; }
@@ -541,11 +538,12 @@
         function constrain(fid){ var v=view[fid]; if(v.s<MINS)v.s=MINS; var r=viewport.getBoundingClientRect(); v.tx=clamp(v.tx,-r.width*(v.s-1),0); v.ty=clamp(v.ty,-r.height*(v.s-1),0); }
         function zoomAt(fid,f,cx,cy){ var v=view[fid],r=viewport.getBoundingClientRect(); var px=(cx==null?r.width/2:cx),py=(cy==null?r.height/2:cy); var nsc=clamp(v.s*f,MINS,MAXS),k=nsc/v.s; v.tx=px-k*(px-v.tx); v.ty=py-k*(py-v.ty); v.s=nsc; constrain(fid); apply(fid); }
 
-        var pointers=new Map(),dragMoved=false,panStart=null,startDist=0,startMid=null,startS=1;
+        var pointers=new Map(),dragMoved=false,panStart=null,startDist=0,startMid=null,startS=1,downEl=null;
         function wire(){
             viewport.addEventListener('wheel',function(e){ e.preventDefault(); var r=viewport.getBoundingClientRect(); zoomAt(current, e.deltaY<0?1.12:1/1.12, e.clientX-r.left, e.clientY-r.top); },{passive:false});
             viewport.addEventListener('pointerdown',function(e){
                 if(e.target.closest('.pu-info')) return;
+                downEl=e.target;   // guardamos el elemento real (setPointerCapture redirige el 'click')
                 viewport.setPointerCapture(e.pointerId); pointers.set(e.pointerId,{x:e.clientX,y:e.clientY}); dragMoved=false;
                 if(pointers.size===1){ var v=view[current]; panStart={x:e.clientX,y:e.clientY,tx:v.tx,ty:v.ty}; viewport.classList.add('grabbing'); }
                 else if(pointers.size===2){ var p=[].concat(Array.from(pointers.values())); startDist=Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y); var r=viewport.getBoundingClientRect(); startMid={x:(p[0].x+p[1].x)/2-r.left,y:(p[0].y+p[1].y)/2-r.top}; startS=view[current].s; }
@@ -555,9 +553,16 @@
                 if(pointers.size===2){ var p=Array.from(pointers.values()); var d=Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y); if(startDist>0){ var v=view[current],t=clamp(startS*(d/startDist),MINS,MAXS),k=t/v.s; v.tx=startMid.x-k*(startMid.x-v.tx); v.ty=startMid.y-k*(startMid.y-v.ty); v.s=t; constrain(current); apply(current);} dragMoved=true; }
                 else if(pointers.size===1&&panStart){ var dx=e.clientX-panStart.x,dy=e.clientY-panStart.y; if(Math.abs(dx)>4||Math.abs(dy)>4)dragMoved=true; var v=view[current]; v.tx=panStart.tx+dx; v.ty=panStart.ty+dy; constrain(current); apply(current); }
             });
-            function up(e){ pointers.delete(e.pointerId); if(pointers.size<2)startDist=0; if(pointers.size===0){ panStart=null; viewport.classList.remove('grabbing'); } }
-            viewport.addEventListener('pointerup',up); viewport.addEventListener('pointercancel',up);
-            viewport.addEventListener('click',function(e){ var p=e.target.closest('polygon.zone'); if(!p||dragMoved) return; puSelect(p.dataset.floor,p.dataset.local,true); });
+            function cleanup(e){ pointers.delete(e.pointerId); if(pointers.size<2)startDist=0; if(pointers.size===0){ panStart=null; viewport.classList.remove('grabbing'); } }
+            viewport.addEventListener('pointerup',function(e){
+                var tap=(pointers.size===1 && !dragMoved);
+                cleanup(e);
+                if(tap && downEl && downEl.closest){
+                    var z=downEl.closest('polygon.zone');
+                    if(z){ var st=DATA.stores[z.dataset.floor+':'+z.dataset.local]; if(st&&st.name&&st.name!=='Disponible'){ window.location.href='directorio.html?tienda='+encodeURIComponent(st.name); } }
+                }
+            });
+            viewport.addEventListener('pointercancel',cleanup);
         }
 
         function findPoly(fid,n){ return zoneSvgs[fid].querySelector('polygon.zone[data-local="'+n+'"]'); }
@@ -602,10 +607,7 @@
         window.openMapModal=function(){
             var m=document.getElementById('map-modal'); m.classList.remove('hidden');
             if(!built) build();
-            setTimeout(function(){ m.classList.remove('opacity-0'); m.classList.add('opacity-100'); apply(current);
-                var vp=document.getElementById('pu-viewport'); vp.classList.add('hint');
-                setTimeout(function(){ vp.classList.remove('hint'); },3600);
-            },12);
+            setTimeout(function(){ m.classList.remove('opacity-0'); m.classList.add('opacity-100'); apply(current); },12);
             document.body.style.overflow='hidden';
         };
         window.closeMapModal=function(){

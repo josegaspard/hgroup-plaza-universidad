@@ -2319,14 +2319,17 @@
             const params = new URLSearchParams(window.location.search);
             const tienda = params.get('tienda');
             if (!tienda) return;
-            const target = decodeURIComponent(tienda).toLowerCase();
+            // normaliza: minúsculas, sin barras/comillas/apóstrofes, sin acentos -> match robusto (Robert's, Café, etc.)
+            const norm = s => String(s).toLowerCase().replace(/\\/g, '').replace(/['"`’]/g, '')
+                .normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim();
+            const target = norm(tienda);
             const allCards = document.querySelectorAll('#stores-grid > div[onclick]');
             for (const card of allCards) {
-                // El nombre de marca ahora vive en el primer arg del onclick o en el span del logo-card
-                const onclickAttr = card.getAttribute('onclick') || '';
-                const match = onclickAttr.match(/openDirectoryModal\(['"]([^'"]+)['"]/);
-                const name = match ? match[1] : '';
-                if (name.toLowerCase() === target) {
+                // primer argumento del onclick (soporta apóstrofes escapados dentro del nombre)
+                const oc = card.getAttribute('onclick') || '';
+                const m = oc.match(/openDirectoryModal\(\s*(['"])((?:\\.|(?!\1).)*)\1/);
+                const name = m ? m[2] : '';
+                if (name && norm(name) === target) {
                     setTimeout(() => {
                         card.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         card.click();
