@@ -208,10 +208,6 @@
                     class="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-serif text-white leading-tight mb-4 md:mb-6 drop-shadow-2xl">
                     Gracias por <span class="text-plaza-gold font-light">visitarnos</span>
                 </h1>
-                <p
-                    class="text-plaza-gold font-serif text-xl md:text-3xl max-w-2xl mx-auto leading-relaxed tracking-wide italic">
-                    ¿En qué podemos servirle hoy?
-                </p>
             </div>
         </div>
 
@@ -287,15 +283,9 @@
                             <i class="fas fa-comment-dots text-plaza-purple"></i>
                         </div>
                         <div>
-                            <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-plaza-purple block">Tu
-                                opinión nos importa</span>
                             <h2 class="text-2xl font-serif text-plaza-black">Cuéntanos tu Experiencia</h2>
                         </div>
                     </div>
-                    <p class="text-gray-500 font-light text-sm leading-relaxed mb-8">
-                        Tu retroalimentación nos ayuda a mejorar. Comparte con nosotros tu experiencia en Plaza
-                        Universidad.
-                    </p>
                     <!-- FORM: names/ids alineados con enviarCorreo.php via POST -->
                     <form id="formulario-feedback" action="enviarCorreo.php" method="post" class="space-y-6">
                         <!-- Campos ocultos requeridos por el servidor (emailCC y nombreCC) -->
@@ -331,7 +321,7 @@
                         </div>
                         <div class="group">
                             <textarea id="Mensaje" name="Mensaje" rows="3" required
-                                placeholder="Cuéntanos con detalle tu experiencia..."
+                                placeholder="Escribe tu mensaje..."
                                 class="w-full bg-transparent border-b border-gray-200 py-3 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors placeholder-gray-300 resize-none"></textarea>
                         </div>
                         <!-- Aviso de Privacidad: requerido por el servidor (oculto visualmente pero funcional) -->
@@ -440,20 +430,6 @@
                             class="w-full py-3 bg-plaza-gold text-plaza-black font-bold uppercase tracking-[0.2em] text-xs hover:bg-white transition-colors">
                             Enviar solicitud
                         </button>
-                        <div class="flex flex-col sm:flex-row gap-3 text-center">
-                            <a href="tel:5554741430"
-                                class="flex items-center justify-center gap-2 text-xs text-gray-400 hover:text-plaza-gold transition-colors">
-                                <i class="fas fa-phone text-[10px]"></i> (55) 5474 1430
-                            </a>
-                            <a href="tel:5554741680"
-                                class="flex items-center justify-center gap-2 text-xs text-gray-400 hover:text-plaza-gold transition-colors">
-                                <i class="fas fa-phone text-[10px]"></i> (55) 5474 1680
-                            </a>
-                            <a href="mailto:informacion.comercial@incarso.com"
-                                class="flex items-center justify-center gap-2 text-xs text-gray-400 hover:text-plaza-gold transition-colors">
-                                <i class="fas fa-envelope text-[10px]"></i> informacion.comercial@incarso.com
-                            </a>
-                        </div>
                     </form>
                 </div>
             </div>
@@ -491,9 +467,9 @@
         </div>
     </div>
 
-    <footer class="bg-plaza-black text-white pt-24 pb-12 border-t border-gray-900 mt-auto">
+    <footer class="bg-plaza-black text-white pt-12 md:pt-14 pb-8 md:pb-9 border-t border-gray-900 mt-auto">
         <div class="container mx-auto px-8">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-16 border-b border-white/10 pb-12">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-9 md:mb-10 border-b border-white/10 pb-8">
 
                 <!-- Brand Column -->
                 <div class="col-span-2 lg:col-span-2">

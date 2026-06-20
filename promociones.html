@@ -192,26 +192,15 @@
             <!-- Content -->
             <div class="relative z-10 text-center px-6 max-w-5xl mx-auto fade-in-up flex flex-col items-center">
                 <h1
-                    class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif text-white leading-tight mb-6 md:mb-8 drop-shadow-2xl">
-                    Nuestras <span class="text-plaza-gold font-light">Promociones</span>
+                    class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif text-white leading-tight drop-shadow-2xl">
+                    Eventos y <span class="text-plaza-gold font-light">promociones</span>
                 </h1>
-                <p
-                    class="text-gray-200 font-sans font-light text-sm md:text-lg max-w-2xl mx-auto leading-relaxed tracking-wide">
-                    Ofertas exclusivas, descuentos y beneficios especiales. Aprovecha lo mejor de Plaza Universidad.
-                </p>
             </div>
         </div>
 
         <!-- EVENTS GRID -->
         <section class="py-20 bg-white">
             <div class="container mx-auto px-6">
-                <div class="mb-12 text-center">
-                    <span class="text-plaza-gold text-[10px] font-bold uppercase tracking-[0.3em] block mb-3">Plaza
-                        Universidad</span>
-                    <h2 class="text-3xl md:text-4xl font-serif text-plaza-black">Lo que está pasando</h2>
-                    <p class="text-gray-400 font-light mt-3 text-sm">Actividades y eventos organizados por el centro
-                        comercial.</p>
-                </div>
                 <div id="promos-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                     <!-- Evento 1 -->
                     <div onclick="openPromoModal('Tributo a Sheriff Labrador', 'Plaza Universidad', 'images/promociones/evento1.jpg', '¡Ven y disfruta de un increíble tributo a Sheriff Labrador! Un show espectacular lleno de música, baile y mucha aventura para los más pequeños. Te esperamos el Sábado 21 de Marzo a las 5:00 P.M.', 'Sábado 21 de Marzo, 5:00 PM')"
@@ -219,9 +208,9 @@
                         <div class="relative overflow-hidden aspect-[4/5] bg-gray-50">
                             <img src="images/promociones/evento1.jpg" alt="Tributo a Sheriff Labrador"
                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
-                            <!-- Overlay denso por defecto, transparente al hover (cliente abr 2026) -->
-                            <div class="absolute inset-0 bg-plaza-black/65 group-hover:bg-plaza-black/0 transition-all duration-700"></div>
-                            <div class="absolute inset-0 bg-gradient-to-t from-plaza-black/90 via-plaza-black/30 to-transparent opacity-80 group-hover:opacity-0 transition-opacity duration-700"></div>
+                            <!-- Overlay más transparente (cliente jun 2026) — mejor contraste con el amarillo -->
+                            <div class="absolute inset-0 bg-plaza-black/35 group-hover:bg-plaza-black/0 transition-all duration-700"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-plaza-black/75 via-plaza-black/15 to-transparent opacity-70 group-hover:opacity-0 transition-opacity duration-700"></div>
 
                             <div class="absolute top-6 right-6">
                                 <span
@@ -247,9 +236,9 @@
                         <div class="relative overflow-hidden aspect-[4/5] bg-gray-50">
                             <img src="images/promociones/evento2.jpg" alt="Boletos para Alex G"
                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
-                            <!-- Overlay denso por defecto, transparente al hover (cliente abr 2026) -->
-                            <div class="absolute inset-0 bg-plaza-black/65 group-hover:bg-plaza-black/0 transition-all duration-700"></div>
-                            <div class="absolute inset-0 bg-gradient-to-t from-plaza-black/90 via-plaza-black/30 to-transparent opacity-80 group-hover:opacity-0 transition-opacity duration-700"></div>
+                            <!-- Overlay más transparente (cliente jun 2026) — mejor contraste con el amarillo -->
+                            <div class="absolute inset-0 bg-plaza-black/35 group-hover:bg-plaza-black/0 transition-all duration-700"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-plaza-black/75 via-plaza-black/15 to-transparent opacity-70 group-hover:opacity-0 transition-opacity duration-700"></div>
 
                             <div class="absolute top-6 right-6">
                                 <span
@@ -337,9 +326,9 @@
         }
     </script>
 
-    <footer class="bg-plaza-black text-white pt-24 pb-12 border-t border-gray-900 mt-auto">
+    <footer class="bg-plaza-black text-white pt-12 md:pt-14 pb-8 md:pb-9 border-t border-gray-900 mt-auto">
         <div class="container mx-auto px-8">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-16 border-b border-white/10 pb-12">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-9 md:mb-10 border-b border-white/10 pb-8">
 
                 <!-- Brand Column -->
                 <div class="col-span-2 lg:col-span-2">
