@@ -360,32 +360,20 @@
     <!-- QUICK LINKS & MAP INTERFACE -->
     <section class="relative z-20 -mt-12 md:-mt-20 px-4 md:px-6 pb-12 md:pb-20">
         <div class="container mx-auto">
-            <div class="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6 max-w-4xl mx-auto">
+            <div class="max-w-md mx-auto">
 
-                <!-- Card 1: Directory -->
+                <!-- Card único: Directorio (mapa + tiendas unificados, solicitado por el cliente jun 2026) -->
                 <a href="directorio.html"
-                    class="group bg-white p-5 md:p-10 shadow-2xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-t-4 border-plaza-gold flex flex-col items-center text-center">
-                    <div class="h-8 w-8 mb-3 md:mb-6 text-plaza-black group-hover:text-plaza-gold transition-colors">
-                        <i class="fas fa-store text-2xl md:text-3xl"></i>
+                    class="group block bg-white rounded-2xl shadow-lg ring-1 ring-black/5 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 px-8 py-8 md:px-12 md:py-10 text-center">
+                    <div class="mb-3 md:mb-4 text-plaza-purple group-hover:text-plaza-gold transition-colors">
+                        <i class="fas fa-map-location-dot text-2xl md:text-3xl"></i>
                     </div>
-                    <h3 class="text-base md:text-xl font-serif text-plaza-black mb-1 md:mb-2">Tiendas</h3>
+                    <h3 class="text-xl md:text-2xl font-serif text-plaza-black mb-1.5 md:mb-2">Directorio</h3>
                     <p
-                        class="text-[9px] md:text-[10px] font-sans uppercase tracking-[0.15em] md:tracking-[0.2em] text-gray-400 group-hover:text-plaza-gold transition-colors">
-                        Ver Directorio</p>
+                        class="inline-flex items-center gap-2 text-[10px] md:text-[11px] font-sans uppercase tracking-[0.2em] text-gray-400 group-hover:text-plaza-purple transition-colors">
+                        Tiendas y mapa <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+                    </p>
                 </a>
-
-                <!-- Card 2: Mapa Interactivo -->
-                <div onclick="openMapModal()"
-                    class="group bg-plaza-black p-5 md:p-10 shadow-2xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer border-t-4 border-white/20 flex flex-col items-center text-center">
-                    <div class="h-8 w-8 mb-3 md:mb-6 text-white group-hover:text-plaza-gold transition-colors">
-                        <i class="fas fa-map text-2xl md:text-3xl"></i>
-                    </div>
-                    <h3 class="text-base md:text-xl font-serif text-white mb-1 md:mb-2">Mapa del Centro</h3>
-                    <p
-                        class="text-[9px] md:text-[10px] font-sans uppercase tracking-[0.15em] md:tracking-[0.2em] text-gray-400 group-hover:text-plaza-gold transition-colors">
-                        Ver Ubicaciones</p>
-                </div>
-
 
             </div>
         </div>
