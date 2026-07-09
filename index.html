@@ -243,16 +243,14 @@
             <nav class="hidden lg:flex flex-1 items-center justify-end gap-8 pr-24">
                 <a href="directorio.html"
                     class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Directorio</a>
-                <a href="eventos.html"
-                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Eventos</a>
+                <a href="promociones.html"
+                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Eventos y promociones</a>
             </nav>
 
             <!-- Right: Desktop Navigation -->
             <nav class="hidden lg:flex flex-1 items-center justify-start gap-8 pl-24">
-                <a href="promociones.html"
-                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Promociones</a>
-                <a href="contacto.html"
-                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Contacto</a>
+                <a href="index.html#mapa"
+                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Mapa</a>
             </nav>
 
             <!-- Mobile: Spacer right (balance hamburger) -->
@@ -271,21 +269,11 @@
 
         <!-- Menu Content -->
         <nav class="flex flex-col gap-6 text-center z-10 w-full px-6">
-            <span class="text-[10px] text-plaza-gold font-bold uppercase tracking-[0.3em] mb-2">Menú Principal</span>
-
-            <a href="index.html"
-                class="text-3xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Inicio</a>
-            <a href="directorio.html"
-                class="text-3xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Directorio</a>
-            <a href="eventos.html"
-                class="text-3xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Eventos</a>
-            <a href="promociones.html"
-                class="text-3xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Promociones</a>
-
-            <div class="w-16 h-px bg-plaza-gold mx-auto my-4"></div>
-
-            <a href="contacto.html"
-                class="text-sm font-sans font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-plaza-black transition-colors">Contacto</a>
+            <span class="text-[10px] text-plaza-gold font-bold uppercase tracking-[0.3em] mb-4">Menú Principal</span>
+            <a href="index.html" class="text-3xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Inicio</a>
+            <a href="directorio.html" class="text-3xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Directorio</a>
+            <a href="promociones.html" class="text-3xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Eventos y promociones</a>
+            <a href="index.html#mapa" class="text-3xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Mapa</a>
         </nav>
 
         <!-- Decorative -->
@@ -589,10 +577,28 @@
         window.closeMapModal=function(){
             var m=document.getElementById('map-modal'); m.classList.remove('opacity-100'); m.classList.add('opacity-0');
             setTimeout(function(){ m.classList.add('hidden'); },300); document.body.style.overflow='';
+            if(location.hash==='#mapa'){ history.replaceState(null,'',location.pathname+location.search); }
         };
         document.getElementById('map-modal').addEventListener('click',function(e){ if(e.target===this) closeMapModal(); });
         if(matchMedia('(pointer:coarse)').matches){ var h=document.getElementById('pu-hint'); if(h) h.innerHTML='<i class="fas fa-hand-pointer"></i> Pellizca para acercar · arrastra · toca un local'; }
         window.addEventListener('resize',function(){ if(built) FLOORS.forEach(function(f){ constrain(f); apply(f); }); });
+
+        // Abrir el mapa automáticamente cuando se llega con #mapa (enlace "Mapa" del menú/footer y "Ver en el plano")
+        function _puMaybeOpenMap(){
+            if(location.hash!=='#mapa') return;
+            openMapModal();
+            var q=new URLSearchParams(location.search).get('tienda');
+            if(q){
+                var nq=q.toLowerCase(), target=null;
+                for(var key in DATA.stores){
+                    var nm=(DATA.stores[key].name||'');
+                    if(nm===q || nm.toLowerCase()===nq){ var pr=key.split(':'); target={f:pr[0],n:pr[1]}; break; }
+                }
+                if(target){ setTimeout(function(){ try{ puSelect(target.f, target.n, true); }catch(e){} }, 320); }
+            }
+        }
+        window.addEventListener('hashchange', _puMaybeOpenMap);
+        if(document.readyState!=='loading'){ _puMaybeOpenMap(); } else { window.addEventListener('DOMContentLoaded', _puMaybeOpenMap); }
     })();
     </script>
 
@@ -602,13 +608,12 @@
         <!-- Fila 1: texto izquierda · imagen derecha -->
         <div class="grid md:grid-cols-2 min-h-[68vh]">
             <div class="bg-plaza-gray flex flex-col justify-center px-8 py-16 md:px-16 md:py-24 order-2 md:order-1">
-                <span class="font-serif text-7xl md:text-8xl font-light leading-none -mb-3 select-none" style="color:rgba(127,24,140,0.14);">01</span>
                 <span class="flex items-center gap-3 text-[11px] md:text-xs font-bold uppercase tracking-[0.35em] text-plaza-purple mb-4">
                     <span class="block w-5 h-px bg-plaza-gold"></span> Moda &amp; Estilo
                 </span>
-                <h2 class="font-serif italic text-3xl md:text-5xl font-light text-plaza-black leading-tight mb-5">Las marcas que buscas, cerca.</h2>
+                <h2 class="font-serif italic text-3xl md:text-5xl font-light text-plaza-black leading-tight mb-5">Lo que tanto quieres y ya lo necesitas, aquí lo encuentras.</h2>
                 <p class="font-sans font-light text-base md:text-lg text-gray-500 leading-relaxed max-w-md mb-8">
-                    Desde grandes departamentales hasta boutiques de especialidad. Una selección amplia, para que encuentres lo tuyo.
+                    Más de 50 marcas, a tu disposición.
                 </p>
                 <a href="directorio.html" class="group inline-flex items-center gap-2 self-start text-xs font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-plaza-black pb-1 transition-all duration-300 hover:gap-4 hover:text-plaza-purple hover:border-plaza-purple">
                     Ver Directorio <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -626,8 +631,7 @@
                     loading="lazy" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[3000ms] ease-out hover:scale-105">
             </div>
             <div class="bg-plaza-black text-white flex flex-col justify-center px-8 py-16 md:px-16 md:py-24">
-                <span class="font-serif text-7xl md:text-8xl font-light leading-none -mb-3 select-none" style="color:rgba(255,255,255,0.10);">02</span>
-                <h2 class="font-serif italic text-4xl md:text-6xl font-light text-white leading-tight">Desde 1969</h2>
+                <h2 class="font-serif italic text-4xl md:text-6xl font-light text-white leading-tight">Desde 1969 nuestra prioridad sigues siendo tú.</h2>
             </div>
         </div>
     </section>
@@ -642,26 +646,10 @@
         </div>
     </section>
 
-    <!--NEWSLETTER: Minimal (compactado a petición del cliente)-->
-    <section class="py-8 md:py-12 bg-plaza-black text-white border-b border-gray-900">
-        <div class="container mx-auto px-4 md:px-6 text-center max-w-2xl">
-            <h3 class="text-2xl md:text-3xl font-serif mb-2 md:mb-3">Plaza Universidad</h3>
-            <p class="text-gray-400 font-sans font-light mb-4 md:mb-6 text-sm">Suscríbete para recibir las últimas
-                noticias y novedades de tu plaza.</p>
-            <form class="flex border-b border-gray-700 pb-2" aria-label="Suscripción al boletín de Plaza Universidad">
-                <label for="newsletter-email-html" class="sr-only">Correo electrónico</label>
-                <input type="email" id="newsletter-email-html" placeholder="Correo electrónico" autocomplete="email"
-                    class="bg-transparent w-full text-white placeholder-white/60 focus:outline-none font-sans font-light">
-                <button type="button"
-                    class="text-xs font-bold uppercase tracking-[0.2em] text-plaza-gold hover:text-white transition-colors">Unirse</button>
-            </form>
-        </div>
-    </section>
-
     <!-- FOOTER: Refined (alto reducido a petición del cliente) -->
     <footer class="bg-plaza-black text-white pt-10 md:pt-14 pb-7 md:pb-9 border-t border-gray-900 mt-auto">
         <div class="container mx-auto px-4 md:px-8">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 mb-6 md:mb-9 border-b border-white/10 pb-6 md:pb-8">
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12 mb-6 md:mb-9 border-b border-white/10 pb-6 md:pb-8">
 
                 <!-- Brand Column -->
                 <div class="col-span-2 lg:col-span-2">
@@ -672,6 +660,10 @@
                     <p class="text-gray-400 text-sm font-light font-sans leading-loose max-w-sm">
                         Plaza Universidad &mdash; Sur de la Ciudad de México.
                     </p>
+                    <div class="mt-6 space-y-2 text-gray-400 text-sm font-light font-sans max-w-sm">
+                        <p class="flex items-start gap-2"><i class="fas fa-location-dot text-plaza-gold mt-1"></i><span>Av. Universidad 1000, Col. Santa Cruz Atoyac, CDMX, México 03310</span></p>
+                        <p class="flex items-center gap-2"><i class="fas fa-clock text-plaza-gold"></i><span>Abierto todos los días &middot; 11:00 &ndash; 21:00 hrs</span></p>
+                    </div>
                 </div>
 
                 <!-- Explore Column -->
@@ -680,27 +672,9 @@
                         Navegación</h4>
                     <ul class="space-y-4 text-sm text-gray-400 font-light font-sans tracking-wide">
                         <li><a href="index.html" class="hover:text-white transition-colors duration-300">Inicio</a></li>
-                        <li><a href="directorio.html"
-                                class="hover:text-white transition-colors duration-300">Directorio</a></li>
-                        <li><a href="eventos.html" class="hover:text-white transition-colors duration-300">Eventos</a>
-                        </li>
-                        <li><a href="promociones.html"
-                                class="hover:text-white transition-colors duration-300">Promociones</a></li>
-                    </ul>
-                </div>
-
-                <!-- Visit Column -->
-                <div class="col-span-1 lg:col-span-1">
-                    <h4 class="font-bold text-plaza-gold mb-8 uppercase tracking-[0.2em] text-[10px] font-sans">
-                        Visítanos</h4>
-                    <ul class="space-y-4 text-sm text-gray-400 font-light font-sans tracking-wide">
-                        <li>Av. Universidad 1000</li>
-                        <li>Col. Santa Cruz Atoyac</li>
-                        <li>CDMX, México 03310</li>
-                        <li class="pt-6">
-                            <a href="contacto.html"
-                                class="text-white border-b border-white/30 pb-1 hover:border-plaza-gold hover:text-plaza-gold transition-colors">Contáctanos</a>
-                        </li>
+                        <li><a href="directorio.html" class="hover:text-white transition-colors duration-300">Directorio</a></li>
+                        <li><a href="promociones.html" class="hover:text-white transition-colors duration-300">Eventos y promociones</a></li>
+                        <li><a href="index.html#mapa" class="hover:text-white transition-colors duration-300">Mapa</a></li>
                     </ul>
                 </div>
             </div>

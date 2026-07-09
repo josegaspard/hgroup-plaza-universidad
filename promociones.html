@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+    <meta charset="UTF-8" />
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
@@ -124,16 +125,14 @@
             <nav class="hidden lg:flex flex-1 items-center justify-end gap-8 pr-24">
                 <a href="directorio.html"
                     class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Directorio</a>
-                <a href="eventos.html"
-                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Eventos</a>
+                <a href="promociones.html"
+                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Eventos y promociones</a>
             </nav>
 
             <!-- Right: Desktop Navigation -->
             <nav class="hidden lg:flex flex-1 items-center justify-start gap-8 pl-24">
-                <a href="promociones.html"
-                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Promociones</a>
-                <a href="contacto.html"
-                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Contacto</a>
+                <a href="index.html#mapa"
+                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Mapa</a>
             </nav>
             <div class="lg:hidden w-6 ml-auto"></div>
         </div>
@@ -148,17 +147,10 @@
         </button>
         <nav class="flex flex-col gap-8 text-center z-10 w-full px-6">
             <span class="text-[10px] text-plaza-gold font-bold uppercase tracking-[0.3em] mb-4">Menú Principal</span>
-            <a href="index.html"
-                class="text-4xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Inicio</a>
-            <a href="directorio.html"
-                class="text-4xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Directorio</a>
-            <a href="eventos.html"
-                class="text-4xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Eventos</a>
-            <a href="promociones.html"
-                class="text-4xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Promociones</a>
-            <div class="w-16 h-px bg-plaza-gold mx-auto my-6"></div>
-            <a href="contacto.html"
-                class="text-sm font-sans font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-plaza-black transition-colors">Contacto</a>
+            <a href="index.html" class="text-3xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Inicio</a>
+            <a href="directorio.html" class="text-3xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Directorio</a>
+            <a href="promociones.html" class="text-3xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Eventos y promociones</a>
+            <a href="index.html#mapa" class="text-3xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Mapa</a>
         </nav>
         <div class="absolute bottom-12 text-center w-full">
             <img src="logos/logo.png" alt="Plaza Universidad" class="h-8 mx-auto opacity-30 ">
@@ -204,58 +196,16 @@
                 <div id="promos-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                     <!-- Evento 1 -->
                     <div onclick="openPromoModal('Tributo a Sheriff Labrador', 'Plaza Universidad', 'images/promociones/evento1.jpg', '¡Ven y disfruta de un increíble tributo a Sheriff Labrador! Un show espectacular lleno de música, baile y mucha aventura para los más pequeños. Te esperamos el Sábado 21 de Marzo a las 5:00 P.M.', 'Sábado 21 de Marzo, 5:00 PM')"
-                        class="group cursor-pointer bg-white overflow-hidden fade-in-up rounded-sm shadow-sm hover:shadow-xl transition-all duration-300">
-                        <div class="relative overflow-hidden aspect-[4/5] bg-gray-50">
-                            <img src="images/promociones/evento1.jpg" alt="Tributo a Sheriff Labrador"
-                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
-                            <!-- Overlay más transparente (cliente jun 2026) — mejor contraste con el amarillo -->
-                            <div class="absolute inset-0 bg-plaza-black/35 group-hover:bg-plaza-black/0 transition-all duration-700"></div>
-                            <div class="absolute inset-0 bg-gradient-to-t from-plaza-black/75 via-plaza-black/15 to-transparent opacity-70 group-hover:opacity-0 transition-opacity duration-700"></div>
-
-                            <div class="absolute top-6 right-6">
-                                <span
-                                    class="bg-plaza-gold text-plaza-black text-[9px] font-bold uppercase tracking-widest px-4 py-2">Evento</span>
-                            </div>
-
-                            <div
-                                class="absolute bottom-8 left-8 right-8 text-white transform transition-transform duration-500 group-hover:-translate-y-2">
-                                <h3 class="text-2xl font-serif mb-2">Tributo a Sheriff Labrador</h3>
-                                <p
-                                    class="text-gray-300 text-sm font-light opacity-0 group-hover:opacity-100 transition-opacity duration-500 line-clamp-2">
-                                    ¡Un show lleno de música, baile y aventura para toda la familia!</p>
-                                <div
-                                    class="h-px w-0 bg-plaza-gold mt-4 group-hover:w-16 transition-all duration-500 delay-100">
-                                </div>
-                            </div>
-                        </div>
+                        class="group cursor-pointer overflow-hidden fade-in-up rounded-sm">
+                        <img src="images/promociones/evento1.jpg" alt="Tributo a Sheriff Labrador"
+                            class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.02]">
                     </div>
 
                     <!-- Evento 2 -->
                     <div onclick="openPromoModal('Boletos para Alex G', 'Plaza Universidad', 'images/promociones/evento2.jpg', 'Canjea tus tickets de Plaza Universidad por pases dobles para el concierto de Alex G este 14 de Abril en el Auditorio BB. Por cada $3,000 MXN de compra acumulados (máx. 2 tickets), obtén tu acceso en Administración.', 'A partir del 25 de Febrero')"
-                        class="group cursor-pointer bg-white overflow-hidden fade-in-up rounded-sm shadow-sm hover:shadow-xl transition-all duration-300">
-                        <div class="relative overflow-hidden aspect-[4/5] bg-gray-50">
-                            <img src="images/promociones/evento2.jpg" alt="Boletos para Alex G"
-                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
-                            <!-- Overlay más transparente (cliente jun 2026) — mejor contraste con el amarillo -->
-                            <div class="absolute inset-0 bg-plaza-black/35 group-hover:bg-plaza-black/0 transition-all duration-700"></div>
-                            <div class="absolute inset-0 bg-gradient-to-t from-plaza-black/75 via-plaza-black/15 to-transparent opacity-70 group-hover:opacity-0 transition-opacity duration-700"></div>
-
-                            <div class="absolute top-6 right-6">
-                                <span
-                                    class="bg-white text-plaza-black text-[9px] font-bold uppercase tracking-widest px-4 py-2">Promoción</span>
-                            </div>
-
-                            <div
-                                class="absolute bottom-8 left-8 right-8 text-white transform transition-transform duration-500 group-hover:-translate-y-2">
-                                <h3 class="text-2xl font-serif mb-2">Boletos para Alex G</h3>
-                                <p
-                                    class="text-gray-300 text-sm font-light opacity-0 group-hover:opacity-100 transition-opacity duration-500 line-clamp-2">
-                                    ¡Canjea tus tickets de compra por un pase doble para ver a Alex G!</p>
-                                <div
-                                    class="h-px w-0 bg-plaza-gold mt-4 group-hover:w-16 transition-all duration-500 delay-100">
-                                </div>
-                            </div>
-                        </div>
+                        class="group cursor-pointer overflow-hidden fade-in-up rounded-sm">
+                        <img src="images/promociones/evento2.jpg" alt="Boletos para Alex G"
+                            class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.02]">
                     </div>
                 </div>
             </div>
@@ -328,7 +278,7 @@
 
     <footer class="bg-plaza-black text-white pt-12 md:pt-14 pb-8 md:pb-9 border-t border-gray-900 mt-auto">
         <div class="container mx-auto px-8">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-9 md:mb-10 border-b border-white/10 pb-8">
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mb-9 md:mb-10 border-b border-white/10 pb-8">
 
                 <!-- Brand Column -->
                 <div class="col-span-2 lg:col-span-2">
@@ -339,6 +289,10 @@
                     <p class="text-gray-400 text-sm font-light font-sans leading-loose max-w-sm">
                         Plaza Universidad &mdash; Sur de la Ciudad de México.
                     </p>
+                    <div class="mt-6 space-y-2 text-gray-400 text-sm font-light font-sans max-w-sm">
+                        <p class="flex items-start gap-2"><i class="fas fa-location-dot text-plaza-gold mt-1"></i><span>Av. Universidad 1000, Col. Santa Cruz Atoyac, CDMX, México 03310</span></p>
+                        <p class="flex items-center gap-2"><i class="fas fa-clock text-plaza-gold"></i><span>Abierto todos los días &middot; 11:00 &ndash; 21:00 hrs</span></p>
+                    </div>
                 </div>
 
                 <!-- Explore Column -->
@@ -347,27 +301,9 @@
                         Navegación</h4>
                     <ul class="space-y-4 text-sm text-gray-400 font-light font-sans tracking-wide">
                         <li><a href="index.html" class="hover:text-white transition-colors duration-300">Inicio</a></li>
-                        <li><a href="directorio.html"
-                                class="hover:text-white transition-colors duration-300">Directorio</a></li>
-                        <li><a href="eventos.html" class="hover:text-white transition-colors duration-300">Eventos</a>
-                        </li>
-                        <li><a href="promociones.html"
-                                class="hover:text-white transition-colors duration-300">Promociones</a></li>
-                    </ul>
-                </div>
-
-                <!-- Visit Column -->
-                <div class="col-span-1 lg:col-span-1">
-                    <h4 class="font-bold text-plaza-gold mb-8 uppercase tracking-[0.2em] text-[10px] font-sans">
-                        Visítanos</h4>
-                    <ul class="space-y-4 text-sm text-gray-400 font-light font-sans tracking-wide">
-                        <li>Av. Universidad 1000</li>
-                        <li>Col. Santa Cruz Atoyac</li>
-                        <li>CDMX, México 03310</li>
-                        <li class="pt-6">
-                            <a href="contacto.html"
-                                class="text-white border-b border-white/30 pb-1 hover:border-plaza-gold hover:text-plaza-gold transition-colors">Contáctanos</a>
-                        </li>
+                        <li><a href="directorio.html" class="hover:text-white transition-colors duration-300">Directorio</a></li>
+                        <li><a href="promociones.html" class="hover:text-white transition-colors duration-300">Eventos y promociones</a></li>
+                        <li><a href="index.html#mapa" class="hover:text-white transition-colors duration-300">Mapa</a></li>
                     </ul>
                 </div>
             </div>
