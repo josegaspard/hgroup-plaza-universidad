@@ -148,24 +148,6 @@
             transform: scale(1.04);
         }
     </style>
-<style>
-    /* ── Submenú Directorio (inyectado) ── */
-    .nav-dd{position:relative}
-    .nav-dd .dd-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(10px);
-        background:#fff;min-width:240px;padding:12px 0;border-radius:2px;border:1px solid #eee;
-        box-shadow:0 20px 55px rgba(43,10,68,.16);opacity:0;visibility:hidden;transition:.22s;z-index:1200;
-        max-height:72vh;overflow-y:auto}
-    .nav-dd:hover .dd-menu,.nav-dd:focus-within .dd-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(4px)}
-    .nav-dd .dd-menu a{display:block;padding:7px 24px;font-family:'Poppins',sans-serif;font-size:12.5px;
-        letter-spacing:.02em;color:#333;white-space:nowrap;transition:.15s;text-transform:none;border:0}
-    .nav-dd .dd-menu a.dd-p{font-weight:700;margin-top:8px;color:#2d0a44;text-transform:uppercase;
-        letter-spacing:.12em;font-size:10.5px}
-    .nav-dd .dd-menu a.dd-p:first-child{margin-top:0}
-    .nav-dd .dd-menu a.dd-s{padding-left:40px;color:#666;font-size:12px}
-    .nav-dd .dd-menu a:hover{background:#faf7fc;color:#6b21a8}
-    #mobile-menu .mob-sub-p{font-size:1.35rem !important;font-weight:600;margin-top:.4rem}
-    #mobile-menu .mob-sub-s{font-size:1.05rem !important;padding-left:1.1rem;opacity:.7}
-</style>
 </head>
 
 <body class="bg-white text-plaza-black">
@@ -188,7 +170,7 @@
             </a>
 
             <nav class="hidden lg:flex flex-1 items-center justify-end gap-8 pr-24">
-                <div class="nav-dd relative inline-flex items-center"><a href="directorio.html" class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Directorio</a><div class="dd-menu"><a href="directorio.html?cat=Entretenimiento" class="dd-p">Entretenimiento</a><a href="directorio.html?cat=Fitness" class="dd-p">Fitness</a><a href="directorio.html?cat=Gastronom%C3%ADa" class="dd-p">Gastronomía</a><a href="directorio.html?cat=Cafeter%C3%ADas" class="dd-s">Cafeterías</a><a href="directorio.html?cat=Fast%20food" class="dd-s">Fast food</a><a href="directorio.html?cat=Restaurantes" class="dd-s">Restaurantes</a><a href="directorio.html?cat=Snacks" class="dd-s">Snacks</a><a href="directorio.html?cat=Vinos%20y%20licores" class="dd-s">Vinos y licores</a><a href="directorio.html?cat=Retail%20/%20Tiendas" class="dd-p">Retail / Tiendas</a><a href="directorio.html?cat=Beauty%20%26%20wellness" class="dd-s">Beauty & wellness</a><a href="directorio.html?cat=Citymarket" class="dd-s">Citymarket</a><a href="directorio.html?cat=Departamentales" class="dd-s">Departamentales</a><a href="directorio.html?cat=Joyer%C3%ADa" class="dd-s">Joyería</a><a href="directorio.html?cat=Moda%20y%20estilo" class="dd-s">Moda y estilo</a><a href="directorio.html?cat=Servicios" class="dd-p">Servicios</a><a href="directorio.html?cat=Bancos" class="dd-s">Bancos</a><a href="directorio.html?cat=Escuelas" class="dd-s">Escuelas</a><a href="directorio.html?cat=Inmobiliarias%20y%20agencias" class="dd-s">Inmobiliarias y agencias</a><a href="directorio.html?cat=Telefon%C3%ADa%20y%20Tecnolog%C3%ADa" class="dd-p">Telefonía y Tecnología</a><a href="directorio.html?cat=Automotriz" class="dd-s">Automotriz</a><a href="directorio.html?cat=Tecnolog%C3%ADa" class="dd-s">Tecnología</a><a href="directorio.html?cat=Telefon%C3%ADa" class="dd-s">Telefonía</a></div></div>
+                <a href="directorio.html" class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Directorio</a>
                 <a href="promociones.html"
                     class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Eventos y promociones</a>
             </nav>
@@ -214,28 +196,6 @@
             <span class="text-[10px] text-plaza-gold font-bold uppercase tracking-[0.3em] mb-4">Menú Principal</span>
             <a href="index.html" class="text-3xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Inicio</a>
             <a href="directorio.html" class="text-3xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Directorio</a>
-            <a href="directorio.html?cat=Entretenimiento" class="mob-sub-p">Entretenimiento</a>
-            <a href="directorio.html?cat=Fitness" class="mob-sub-p">Fitness</a>
-            <a href="directorio.html?cat=Gastronom%C3%ADa" class="mob-sub-p">Gastronomía</a>
-            <a href="directorio.html?cat=Cafeter%C3%ADas" class="mob-sub-s">Cafeterías</a>
-            <a href="directorio.html?cat=Fast%20food" class="mob-sub-s">Fast food</a>
-            <a href="directorio.html?cat=Restaurantes" class="mob-sub-s">Restaurantes</a>
-            <a href="directorio.html?cat=Snacks" class="mob-sub-s">Snacks</a>
-            <a href="directorio.html?cat=Vinos%20y%20licores" class="mob-sub-s">Vinos y licores</a>
-            <a href="directorio.html?cat=Retail%20/%20Tiendas" class="mob-sub-p">Retail / Tiendas</a>
-            <a href="directorio.html?cat=Beauty%20%26%20wellness" class="mob-sub-s">Beauty & wellness</a>
-            <a href="directorio.html?cat=Citymarket" class="mob-sub-s">Citymarket</a>
-            <a href="directorio.html?cat=Departamentales" class="mob-sub-s">Departamentales</a>
-            <a href="directorio.html?cat=Joyer%C3%ADa" class="mob-sub-s">Joyería</a>
-            <a href="directorio.html?cat=Moda%20y%20estilo" class="mob-sub-s">Moda y estilo</a>
-            <a href="directorio.html?cat=Servicios" class="mob-sub-p">Servicios</a>
-            <a href="directorio.html?cat=Bancos" class="mob-sub-s">Bancos</a>
-            <a href="directorio.html?cat=Escuelas" class="mob-sub-s">Escuelas</a>
-            <a href="directorio.html?cat=Inmobiliarias%20y%20agencias" class="mob-sub-s">Inmobiliarias y agencias</a>
-            <a href="directorio.html?cat=Telefon%C3%ADa%20y%20Tecnolog%C3%ADa" class="mob-sub-p">Telefonía y Tecnología</a>
-            <a href="directorio.html?cat=Automotriz" class="mob-sub-s">Automotriz</a>
-            <a href="directorio.html?cat=Tecnolog%C3%ADa" class="mob-sub-s">Tecnología</a>
-            <a href="directorio.html?cat=Telefon%C3%ADa" class="mob-sub-s">Telefonía</a>
             <a href="promociones.html" class="text-3xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Eventos y promociones</a>
             <a href="index.html#mapa" class="text-3xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Mapa</a>
             <a href="contacto.html" class="text-3xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Contacto</a>
@@ -290,34 +250,44 @@
                     id="filter-bar">
                     <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                         <!-- Tabs for Categories -->
-                        <div class="flex flex-wrap justify-center gap-8 md:gap-12">
-                            <button
-                                class="filter-btn text-xs font-bold uppercase tracking-[0.2em] text-plaza-purple hover:text-plaza-gold transition-colors relative active-filter"
-                                data-category="all">
-                                Todo
-                                <span
-                                    class="absolute -bottom-2 left-0 w-full h-px bg-plaza-purple hidden active-line"></span>
-                            </button>
-                            <button
-                                class="filter-btn text-xs font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-plaza-black transition-colors relative"
-                                data-category="Entretenimiento">Entretenimiento</button>
-                            <button
-                                class="filter-btn text-xs font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-plaza-black transition-colors relative"
-                                data-category="Fitness">Fitness</button>
-                            <button
-                                class="filter-btn text-xs font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-plaza-black transition-colors relative"
-                                data-category="Gastronomía">Gastronomía</button>
-                            <button
-                                class="filter-btn text-xs font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-plaza-black transition-colors relative"
-                                data-category="Retail / Tiendas">Retail / Tiendas</button>
-                            <button
-                                class="filter-btn text-xs font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-plaza-black transition-colors relative"
-                                data-category="Servicios">Servicios</button>
-                            <button
-                                class="filter-btn text-xs font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-plaza-black transition-colors relative"
-                                data-category="Telefonía y Tecnología">Telefonía y Tecnología</button>
+                        <div class="w-full flex flex-col items-center gap-y-1.5">
+                            <button class="filter-btn text-xs font-bold uppercase tracking-[0.2em] text-plaza-purple hover:text-plaza-gold transition-colors relative active-filter" data-category="all">Todo<span class="absolute -bottom-2 left-0 w-full h-px bg-plaza-purple hidden active-line"></span></button>
+                            <div class="w-full flex flex-wrap items-baseline justify-center gap-x-5 gap-y-1">
+                            <button class="filter-btn text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative" data-category="Entretenimiento">Entretenimiento</button>
+                            </div>
+                            <div class="w-full flex flex-wrap items-baseline justify-center gap-x-5 gap-y-1">
+                            <button class="filter-btn text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative" data-category="Fitness">Fitness</button>
+                            </div>
+                            <div class="w-full flex flex-wrap items-baseline justify-center gap-x-5 gap-y-1">
+                            <button class="filter-btn text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative" data-category="Gastronomía">Gastronomía</button>
+                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Cafeterías">Cafeterías</button>
+                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Fast food">Fast food</button>
+                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Restaurantes">Restaurantes</button>
+                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Snacks">Snacks</button>
+                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Vinos y licores">Vinos y licores</button>
+                            </div>
+                            <div class="w-full flex flex-wrap items-baseline justify-center gap-x-5 gap-y-1">
+                            <button class="filter-btn text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative" data-category="Retail / Tiendas">Retail / Tiendas</button>
+                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Beauty &amp; wellness">Beauty &amp; wellness</button>
+                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Citymarket">Citymarket</button>
+                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Departamentales">Departamentales</button>
+                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Joyería">Joyería</button>
+                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Moda y estilo">Moda y estilo</button>
+                            </div>
+                            <div class="w-full flex flex-wrap items-baseline justify-center gap-x-5 gap-y-1">
+                            <button class="filter-btn text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative" data-category="Servicios">Servicios</button>
+                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Bancos">Bancos</button>
+                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Escuelas">Escuelas</button>
+                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Inmobiliarias y agencias">Inmobiliarias y agencias</button>
+                            </div>
+                            <div class="w-full flex flex-wrap items-baseline justify-center gap-x-5 gap-y-1">
+                            <button class="filter-btn text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative" data-category="Telefonía y Tecnología">Telefonía y Tecnología</button>
+                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Automotriz">Automotriz</button>
+                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Tecnología">Tecnología</button>
+                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Telefonía">Telefonía</button>
+                            </div>
                         </div>
-                        <!-- Search -->
+                    <!-- Search -->
                         <div class="relative w-full md:w-64 group">
                             <input type="text" id="search-store" placeholder="Buscar..."
                                 class="w-full bg-transparent border-b border-gray-200 py-2 pl-0 pr-8 font-serif italic text-plaza-black focus:outline-none focus:border-plaza-gold placeholder-gray-300 transition-colors">
