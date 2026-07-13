@@ -251,6 +251,8 @@
             <nav class="hidden lg:flex flex-1 items-center justify-start gap-8 pl-24">
                 <a href="index.html#mapa"
                     class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Mapa</a>
+                <a href="contacto.html"
+                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Contacto</a>
             </nav>
 
             <!-- Mobile: Spacer right (balance hamburger) -->
@@ -274,6 +276,7 @@
             <a href="directorio.html" class="text-3xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Directorio</a>
             <a href="promociones.html" class="text-3xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Eventos y promociones</a>
             <a href="index.html#mapa" class="text-3xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Mapa</a>
+            <a href="contacto.html" class="text-3xl font-serif text-plaza-black hover:text-plaza-purple transition-colors">Contacto</a>
         </nav>
 
         <!-- Decorative -->
@@ -367,6 +370,7 @@
         .pu-zones{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; }
         .pu-zones polygon.zone{ fill:#6B2D8B; fill-opacity:0; stroke:#6B2D8B; stroke-opacity:0; stroke-width:2.5; stroke-linejoin:round; pointer-events:all; cursor:pointer; transition:fill-opacity .15s ease, stroke-opacity .15s ease; }
         .pu-zones polygon.zone:hover{ fill:#6B2D8B; fill-opacity:.30; stroke-opacity:1; }
+        .pu-zones polygon.zone.sel{ fill:#6B2D8B; fill-opacity:.34; stroke-opacity:1; }
 
         .pu-zoom{ position:absolute; right:14px; bottom:14px; z-index:20; display:flex; flex-direction:column; gap:7px; }
         .pu-zoom button{ width:38px; height:38px; border-radius:10px; border:1px solid #e7e1d6; background:rgba(255,255,255,.96); color:#1a1a2e; font-size:14px; cursor:pointer; box-shadow:0 5px 16px rgba(0,0,0,.1); display:flex; align-items:center; justify-content:center; transition:background .15s,color .15s; }
@@ -527,6 +531,12 @@
                 }
             });
             viewport.addEventListener('pointercancel',cleanup);
+            // #29b: al pasar el mouse por OTRO local, el local resaltado desde "Ver en el plano" deja de estar activo
+            viewport.addEventListener('mouseover',function(e){
+                if(!selPoly) return;
+                var z=(e.target&&e.target.closest)?e.target.closest('polygon.zone'):null;
+                if(z && z!==selPoly){ selPoly.classList.remove('sel'); selPoly=null; }
+            });
         }
 
         function findPoly(fid,n){ return zoneSvgs[fid].querySelector('polygon.zone[data-local="'+n+'"]'); }
