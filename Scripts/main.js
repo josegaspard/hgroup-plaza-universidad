@@ -47,45 +47,50 @@ $(document).ready(function() {
         });
     }
 
-    // ===== DIRECTORY FILTER (static HTML pages - directorio.html) =====
-    $('.filter-btn').click(function () {
-        var category = $(this).data('category');
-
+    // ===== DIRECTORY FILTER + TAXONOMÍA (directorio.html) =====
+    // Cada card tiene data-category = subcategoría (hoja). Filtrar por una
+    // categoría PADRE incluye todas sus subcategorías.
+    var DIR_CATS = {
+        'Entretenimiento': [], 'Fitness': [],
+        'Gastronomía': ['Cafeterías', 'Fast food', 'Restaurantes', 'Snacks', 'Vinos y licores'],
+        'Retail / Tiendas': ['Beauty & wellness', 'Citymarket', 'Departamentales', 'Joyería', 'Moda y estilo'],
+        'Servicios': ['Bancos', 'Escuelas', 'Inmobiliarias y agencias'],
+        'Telefonía y Tecnología': ['Automotriz', 'Tecnología', 'Telefonía']
+    };
+    function _dirCatMatch(itemCat, active) {
+        if (active === 'all') return true;
+        if (itemCat === active) return true;
+        var subs = DIR_CATS[active];
+        return subs ? subs.indexOf(itemCat) >= 0 : false;
+    }
+    function _dirApplyFilter(category) {
         $('.filter-btn').removeClass('text-plaza-purple active-filter').addClass('text-gray-400');
         $('.filter-btn span').addClass('hidden');
-
-        $(this).removeClass('text-gray-400').addClass('text-plaza-purple active-filter');
-        $(this).find('span').removeClass('hidden');
-
-        if (category == 'all') {
-            $('#stores-grid > div').fadeIn(300);
-        } else if (category == 'Variedad') {
-            $('#stores-grid > div').each(function () {
-                var itemCat = $(this).data('category');
-                if (itemCat !== 'Moda' && itemCat !== 'Gastronomía') {
-                    $(this).fadeIn(300);
-                } else {
-                    $(this).fadeOut(300);
-                }
-            });
-        } else {
-            $('#stores-grid > div').each(function () {
-                var itemCat = $(this).data('category');
-                if (itemCat === category) {
-                    $(this).fadeIn(300);
-                } else {
-                    $(this).fadeOut(300);
-                }
-            });
+        var $btn = $('.filter-btn').filter(function () { return String($(this).data('category')) === String(category); });
+        if ($btn.length) {
+            $btn.removeClass('text-gray-400').addClass('text-plaza-purple active-filter');
+            $btn.find('span').removeClass('hidden');
         }
-    });
+        $('#stores-grid > div').each(function () {
+            if (_dirCatMatch(String($(this).data('category')), category)) $(this).fadeIn(200); else $(this).hide();
+        });
+    }
+    $('.filter-btn').click(function () { _dirApplyFilter($(this).data('category')); });
 
-    // ===== SEARCH (static HTML pages) =====
+    // Deep-link de categoría desde el menú: directorio.html?cat=Nombre
+    if ($('#stores-grid').length) {
+        var _dirCat = new URLSearchParams(location.search).get('cat');
+        if (_dirCat) _dirApplyFilter(_dirCat);
+    }
+
+    // ===== SEARCH (directorio.html) =====
     $('#search-store').on('keyup', function () {
         var value = $(this).val().toLowerCase();
-        $('#stores-grid > div').filter(function () {
-            var title = $(this).find('h3').text().toLowerCase();
-            $(this).toggle(title.indexOf(value) > -1);
+        $('#stores-grid > div').each(function () {
+            var name = ($(this).find('img.store-card-logo').attr('alt')
+                || $(this).find('.store-card-name').text()
+                || $(this).text()).toLowerCase();
+            $(this).toggle(name.indexOf(value) > -1);
         });
     });
 
