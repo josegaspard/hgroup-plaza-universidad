@@ -74,8 +74,21 @@ $(document).ready(function() {
         $('#stores-grid > div').each(function () {
             if (_dirCatMatch(String($(this).data('category')), category)) $(this).fadeIn(200); else $(this).hide();
         });
+        $('.dir-cat').removeClass('dir-open');
     }
     $('.filter-btn').click(function () { _dirApplyFilter($(this).data('category')); });
+
+    // Desplegable de subcategorías: en escritorio aparece al pasar el cursor;
+    // en pantallas táctiles se abre/cierra al tocar la categoría padre.
+    $('.dir-parent').on('click', function () {
+        var $c = $(this).closest('.dir-cat');
+        var open = $c.hasClass('dir-open');
+        $('.dir-cat').removeClass('dir-open');
+        if (!open) $c.addClass('dir-open');
+    });
+    $(document).on('click', function (e) {
+        if (!$(e.target).closest('.dir-cat').length) $('.dir-cat').removeClass('dir-open');
+    });
 
     // Deep-link de categoría desde el menú: directorio.html?cat=Nombre
     if ($('#stores-grid').length) {

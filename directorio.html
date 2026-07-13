@@ -148,6 +148,31 @@
             transform: scale(1.04);
         }
     </style>
+
+    <style>
+    /* Barra de filtros: categorías con subcategorías anidadas (desplegable) */
+    .dir-cat { position: relative; display: inline-flex; align-items: center; }
+    .dir-parent::after { content: '\25BE'; margin-left: 7px; font-size: 9px; opacity: .5; transition: opacity .2s; }
+    .dir-cat:hover .dir-parent::after, .dir-cat.dir-open .dir-parent::after { opacity: .9; }
+    .dir-drop {
+        position: absolute; left: 50%; top: 100%;
+        transform: translateX(-50%) translateY(8px);
+        background: #fff; min-width: 212px; padding: 8px 0; border-radius: 6px;
+        box-shadow: 0 18px 50px rgba(0,0,0,.18);
+        opacity: 0; visibility: hidden; transition: opacity .2s, transform .2s, visibility .2s;
+        z-index: 70; display: flex; flex-direction: column;
+    }
+    .dir-cat:hover .dir-drop, .dir-cat:focus-within .dir-drop, .dir-cat.dir-open .dir-drop {
+        opacity: 1; visibility: visible; transform: translateX(-50%) translateY(2px);
+    }
+    .dir-drop .dir-sub {
+        width: 100%; text-align: left; padding: 8px 24px; font-size: 12px;
+        letter-spacing: .05em; text-transform: none; color: #6b7280; white-space: nowrap; transition: .15s;
+    }
+    .dir-drop .dir-sub:hover { background: rgba(0,0,0,.045); color: #5b2a86; }
+    .dir-drop .dir-sub.active-filter { color: #5b2a86; font-weight: 600; }
+    @media (max-width: 767px){ .dir-drop{ min-width: 184px } }
+    </style>
 </head>
 
 <body class="bg-white text-plaza-black">
@@ -250,41 +275,45 @@
                     id="filter-bar">
                     <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                         <!-- Tabs for Categories -->
-                        <div class="w-full flex flex-col items-center gap-y-1.5">
+                        <div class="w-full flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
                             <button class="filter-btn text-xs font-bold uppercase tracking-[0.2em] text-plaza-purple hover:text-plaza-gold transition-colors relative active-filter" data-category="all">Todo<span class="absolute -bottom-2 left-0 w-full h-px bg-plaza-purple hidden active-line"></span></button>
-                            <div class="w-full flex flex-wrap items-baseline justify-center gap-x-5 gap-y-1">
                             <button class="filter-btn text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative" data-category="Entretenimiento">Entretenimiento</button>
-                            </div>
-                            <div class="w-full flex flex-wrap items-baseline justify-center gap-x-5 gap-y-1">
                             <button class="filter-btn text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative" data-category="Fitness">Fitness</button>
+                            <div class="dir-cat">
+                                <button class="filter-btn dir-parent text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative" data-category="Gastronomía">Gastronomía</button>
+                                <div class="dir-drop">
+                                    <button class="filter-btn dir-sub" data-category="Cafeterías">Cafeterías</button>
+                                    <button class="filter-btn dir-sub" data-category="Fast food">Fast food</button>
+                                    <button class="filter-btn dir-sub" data-category="Restaurantes">Restaurantes</button>
+                                    <button class="filter-btn dir-sub" data-category="Snacks">Snacks</button>
+                                    <button class="filter-btn dir-sub" data-category="Vinos y licores">Vinos y licores</button>
+                                </div>
                             </div>
-                            <div class="w-full flex flex-wrap items-baseline justify-center gap-x-5 gap-y-1">
-                            <button class="filter-btn text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative" data-category="Gastronomía">Gastronomía</button>
-                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Cafeterías">Cafeterías</button>
-                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Fast food">Fast food</button>
-                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Restaurantes">Restaurantes</button>
-                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Snacks">Snacks</button>
-                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Vinos y licores">Vinos y licores</button>
+                            <div class="dir-cat">
+                                <button class="filter-btn dir-parent text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative" data-category="Retail / Tiendas">Retail / Tiendas</button>
+                                <div class="dir-drop">
+                                    <button class="filter-btn dir-sub" data-category="Beauty &amp; wellness">Beauty &amp; wellness</button>
+                                    <button class="filter-btn dir-sub" data-category="Citymarket">Citymarket</button>
+                                    <button class="filter-btn dir-sub" data-category="Departamentales">Departamentales</button>
+                                    <button class="filter-btn dir-sub" data-category="Joyería">Joyería</button>
+                                    <button class="filter-btn dir-sub" data-category="Moda y estilo">Moda y estilo</button>
+                                </div>
                             </div>
-                            <div class="w-full flex flex-wrap items-baseline justify-center gap-x-5 gap-y-1">
-                            <button class="filter-btn text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative" data-category="Retail / Tiendas">Retail / Tiendas</button>
-                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Beauty &amp; wellness">Beauty &amp; wellness</button>
-                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Citymarket">Citymarket</button>
-                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Departamentales">Departamentales</button>
-                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Joyería">Joyería</button>
-                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Moda y estilo">Moda y estilo</button>
+                            <div class="dir-cat">
+                                <button class="filter-btn dir-parent text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative" data-category="Servicios">Servicios</button>
+                                <div class="dir-drop">
+                                    <button class="filter-btn dir-sub" data-category="Bancos">Bancos</button>
+                                    <button class="filter-btn dir-sub" data-category="Escuelas">Escuelas</button>
+                                    <button class="filter-btn dir-sub" data-category="Inmobiliarias y agencias">Inmobiliarias y agencias</button>
+                                </div>
                             </div>
-                            <div class="w-full flex flex-wrap items-baseline justify-center gap-x-5 gap-y-1">
-                            <button class="filter-btn text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative" data-category="Servicios">Servicios</button>
-                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Bancos">Bancos</button>
-                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Escuelas">Escuelas</button>
-                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Inmobiliarias y agencias">Inmobiliarias y agencias</button>
-                            </div>
-                            <div class="w-full flex flex-wrap items-baseline justify-center gap-x-5 gap-y-1">
-                            <button class="filter-btn text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative" data-category="Telefonía y Tecnología">Telefonía y Tecnología</button>
-                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Automotriz">Automotriz</button>
-                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Tecnología">Tecnología</button>
-                            <button class="filter-btn text-[11px] font-medium tracking-[0.1em] text-gray-400 hover:text-plaza-purple transition-colors relative" data-category="Telefonía">Telefonía</button>
+                            <div class="dir-cat">
+                                <button class="filter-btn dir-parent text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative" data-category="Telefonía y Tecnología">Telefonía y Tecnología</button>
+                                <div class="dir-drop">
+                                    <button class="filter-btn dir-sub" data-category="Automotriz">Automotriz</button>
+                                    <button class="filter-btn dir-sub" data-category="Tecnología">Tecnología</button>
+                                    <button class="filter-btn dir-sub" data-category="Telefonía">Telefonía</button>
+                                </div>
                             </div>
                         </div>
                     <!-- Search -->
