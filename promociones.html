@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>| | Plaza Universidad | |</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="logos/icono.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="logos/icono.ico">
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
@@ -18,9 +15,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -105,11 +100,9 @@
 
 <body class="bg-white text-plaza-black">
 
-    <header id="main-header"
-        class="fixed w-full top-0 z-50 transition-all duration-500 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm h-24">
+    <header id="main-header" class="fixed w-full top-0 z-50 transition-all duration-500 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm h-24">
         <div class="container mx-auto px-6 h-full flex items-center relative">
-            <button class="lg:hidden text-plaza-black p-2 hover:opacity-70 transition-opacity focus:outline-none"
-                onclick="toggleMobileMenu()">
+            <button class="lg:hidden text-plaza-black p-2 hover:opacity-70 transition-opacity focus:outline-none" onclick="toggleMobileMenu()">
                 <div class="space-y-1.5 w-6">
                     <span class="block w-full h-0.5 bg-plaza-black"></span>
                     <span class="block w-full h-0.5 bg-plaza-black"></span>
@@ -118,32 +111,26 @@
             </button>
 
             <a href="index.html" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group z-10">
-                <img src="logos/logo.png" alt="Plaza Universidad"
-                    class="h-12 md:h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-105">
+                <img src="logos/logo.png" alt="Plaza Universidad" class="h-12 md:h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-105">
             </a>
 
             <nav class="hidden lg:flex flex-1 items-center justify-end gap-8 pr-24">
                 <a href="directorio.html" class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Directorio</a>
-                <a href="promociones.html"
-                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Eventos y promociones</a>
+                <a href="promociones.html" class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Eventos y promociones</a>
             </nav>
 
             <!-- Right: Desktop Navigation -->
             <nav class="hidden lg:flex flex-1 items-center justify-start gap-8 pl-24">
-                <a href="index.html#mapa"
-                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Mapa</a>
-                <a href="contacto.html"
-                    class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Contacto</a>
+                <a href="index.html#mapa" class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Mapa</a>
+                <a href="contacto.html" class="text-[11px] font-bold uppercase tracking-[0.2em] text-plaza-black border-b border-transparent hover:border-plaza-gold hover:text-plaza-purple transition-all duration-300 py-1">Contacto</a>
             </nav>
             <div class="lg:hidden w-6 ml-auto"></div>
         </div>
     </header>
     <!-- MOBILE MENU OVERLAY: Full Screen, Luxury Typography -->
-    <div id="mobile-menu"
-        class="fixed inset-0 bg-white z-[60] hidden opacity-0 transition-opacity duration-500 flex-col items-center justify-center">
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] hidden opacity-0 transition-opacity duration-500 flex-col items-center justify-center">
         <!-- Close Button -->
-        <button onclick="toggleMobileMenu()"
-            class="absolute top-8 right-8 text-plaza-black hover:rotate-90 transition-transform duration-500 focus:outline-none">
+        <button onclick="toggleMobileMenu()" class="absolute top-8 right-8 text-plaza-black hover:rotate-90 transition-transform duration-500 focus:outline-none">
             <i class="fas fa-times text-2xl"></i>
         </button>
         <nav class="flex flex-col gap-8 text-center z-10 w-full px-6">
@@ -174,19 +161,16 @@
 
     <div class="bg-white">
         <!-- HERO SECTION: Promociones -->
-        <div
-            class="relative h-[55vh] md:h-[65vh] flex items-center justify-center overflow-hidden bg-plaza-black pt-24">
+        <div class="relative h-[55vh] md:h-[65vh] flex items-center justify-center overflow-hidden bg-plaza-black pt-24">
             <!-- Background Image -->
             <div class="absolute inset-0 z-0">
-                <img src="images/locales/Pandora.jpg" alt="Promociones Plaza Universidad"
-                    class="w-full h-full object-cover opacity-50">
+                <img src="images/locales/Pandora.jpg" alt="Promociones Plaza Universidad" class="w-full h-full object-cover opacity-50">
                 <div class="absolute inset-0 bg-gradient-to-t from-plaza-black/80 via-black/20 to-black/40"></div>
             </div>
 
             <!-- Content -->
             <div class="relative z-10 text-center px-6 max-w-5xl mx-auto fade-in-up flex flex-col items-center">
-                <h1
-                    class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif text-white leading-tight drop-shadow-2xl">
+                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif text-white leading-tight drop-shadow-2xl">
                     Eventos y <span class="text-plaza-gold font-light">promociones</span>
                 </h1>
             </div>
@@ -195,33 +179,16 @@
         <!-- EVENTS GRID -->
         <section class="py-20 bg-white">
             <div class="container mx-auto px-6">
-                <div id="promos-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                    <!-- Evento 1 -->
-                    <div onclick="openPromoModal('Tributo a Sheriff Labrador', 'Plaza Universidad', 'images/promociones/evento1.jpg', '¡Ven y disfruta de un increíble tributo a Sheriff Labrador! Un show espectacular lleno de música, baile y mucha aventura para los más pequeños. Te esperamos el Sábado 21 de Marzo a las 5:00 P.M.', 'Sábado 21 de Marzo, 5:00 PM')"
-                        class="group cursor-pointer overflow-hidden fade-in-up rounded-sm">
-                        <img src="images/promociones/evento1.jpg" alt="Tributo a Sheriff Labrador"
-                            class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.02]">
-                    </div>
-
-                    <!-- Evento 2 -->
-                    <div onclick="openPromoModal('Boletos para Alex G', 'Plaza Universidad', 'images/promociones/evento2.jpg', 'Canjea tus tickets de Plaza Universidad por pases dobles para el concierto de Alex G este 14 de Abril en el Auditorio BB. Por cada $3,000 MXN de compra acumulados (máx. 2 tickets), obtén tu acceso en Administración.', 'A partir del 25 de Febrero')"
-                        class="group cursor-pointer overflow-hidden fade-in-up rounded-sm">
-                        <img src="images/promociones/evento2.jpg" alt="Boletos para Alex G"
-                            class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.02]">
-                    </div>
-                </div>
+                <div id="promos-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"><!-- Tributo a Sheriff Labrador --><div onclick="openPromoModal('Tributo a Sheriff Labrador', 'Plaza Universidad', 'publicaciones/pub12.jpg', '¡Ven y disfruta de un increíble tributo a Sheriff Labrador! Un show espectacular lleno de música, baile y mucha aventura para los más pequeños. Te esperamos el Sábado 21 de Marzo a las 5:00 P.M.', 'Sábado 21 de Marzo, 5:00 PM')" class="group cursor-pointer overflow-hidden fade-in-up rounded-sm"><img src="publicaciones/pub12.jpg" alt="Tributo a Sheriff Labrador" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.02]"></div><!-- Boletos para Alex G --><div onclick="openPromoModal('Boletos para Alex G', 'Plaza Universidad', 'publicaciones/pub13.jpg', 'Canjea tus tickets de Plaza Universidad por pases dobles para el concierto de Alex G este 14 de Abril en el Auditorio BB. Por cada $3,000 MXN de compra acumulados (máx. 2 tickets), obtén tu acceso en Administración.', 'A partir del 25 de Febrero')" class="group cursor-pointer overflow-hidden fade-in-up rounded-sm"><img src="publicaciones/pub13.jpg" alt="Boletos para Alex G" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.02]"></div></div>
             </div>
         </section>
         <!-- MODAL: Elegant Overlay -->
         <div id="promo-modal" class="fixed inset-0 z-[70] hidden">
-            <div class="absolute inset-0 bg-plaza-black/90 backdrop-blur-md transition-opacity"
-                onclick="closePromoModal()">
+            <div class="absolute inset-0 bg-plaza-black/90 backdrop-blur-md transition-opacity" onclick="closePromoModal()">
             </div>
             <div class="relative w-full h-full flex items-center justify-center p-6">
-                <div class="max-w-4xl w-full bg-white flex flex-col md:flex-row opacity-0 transform scale-95 transition-all duration-500 shadow-2xl relative max-h-[90vh] overflow-y-auto"
-                    id="promo-modal-content">
-                    <button onclick="closePromoModal()"
-                        class="absolute top-4 right-4 text-plaza-black z-[60] bg-white/90 rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-plaza-gold transition-colors">
+                <div class="max-w-4xl w-full bg-white flex flex-col md:flex-row opacity-0 transform scale-95 transition-all duration-500 shadow-2xl relative max-h-[90vh] overflow-y-auto" id="promo-modal-content">
+                    <button onclick="closePromoModal()" class="absolute top-4 right-4 text-plaza-black z-[60] bg-white/90 rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-plaza-gold transition-colors">
                         <i class="fas fa-times text-xl"></i>
                     </button>
 
@@ -231,19 +198,14 @@
                     </div>
 
                     <!-- Right: Information -->
-                    <div
-                        class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center text-center md:text-left bg-white">
-                        <span
-                            class="text-plaza-magenta text-[10px] font-bold uppercase tracking-[0.3em] block mb-4">Oferta
+                    <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center text-center md:text-left bg-white">
+                        <span class="text-plaza-magenta text-[10px] font-bold uppercase tracking-[0.3em] block mb-4">Oferta
                             Especial</span>
-                        <h2 id="modal-title"
-                            class="text-3xl md:text-4xl font-serif text-plaza-black mb-4 leading-tight"></h2>
-                        <span id="modal-store"
-                            class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 block mb-6"></span>
+                        <h2 id="modal-title" class="text-3xl md:text-4xl font-serif text-plaza-black mb-4 leading-tight"></h2>
+                        <span id="modal-store" class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 block mb-6"></span>
                         <p id="modal-desc" class="text-gray-600 font-sans font-light leading-relaxed mb-6"></p>
 
-                        <div
-                            class="bg-gray-50 py-3 px-6 mb-6 inline-block md:inline-flex justify-center md:justify-start self-center md:self-start">
+                        <div class="bg-gray-50 py-3 px-6 mb-6 inline-block md:inline-flex justify-center md:justify-start self-center md:self-start">
                             <p id="modal-validity" class="text-xs font-bold text-gray-500 uppercase tracking-wider"></p>
                         </div>
 
@@ -285,15 +247,14 @@
                 <!-- Brand Column -->
                 <div class="col-span-2 lg:col-span-2">
                     <a href="index.html" class="block mb-8 group">
-                        <img src="logos/logo-blanco.png" alt="Plaza Universidad"
-                            class="h-10 md:h-12 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity">
+                        <img src="logos/logo-blanco.png" alt="Plaza Universidad" class="h-10 md:h-12 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity">
                     </a>
                     <p class="text-gray-400 text-sm font-light font-sans leading-loose max-w-sm">
-                        Plaza Universidad &mdash; Sur de la Ciudad de México.
+                        Plaza Universidad — Sur de la Ciudad de México.
                     </p>
                     <div class="mt-6 space-y-2 text-gray-400 text-sm font-light font-sans max-w-sm">
                         <p class="flex items-start gap-2"><i class="fas fa-location-dot text-plaza-gold mt-1"></i><span>Av. Universidad 1000, Col. Santa Cruz Atoyac, CDMX, México 03310</span></p>
-                        <p class="flex items-center gap-2"><i class="fas fa-clock text-plaza-gold"></i><span>Abierto todos los días &middot; 11:00 &ndash; 21:00 hrs</span></p>
+                        <p class="flex items-center gap-2"><i class="fas fa-clock text-plaza-gold"></i><span>Abierto todos los días · 11:00 – 21:00 hrs</span></p>
                     </div>
                 </div>
 
@@ -313,26 +274,20 @@
             <!-- Bottom Row -->
             <div class="flex flex-col md:flex-row justify-between items-center pt-2 gap-6">
                 <div class="flex flex-col md:flex-row gap-2 md:gap-8 text-center md:text-left">
-                    <p class="text-[10px] text-gray-600 font-sans tracking-[0.2em] uppercase">&copy; 2026 Plaza
+                    <p class="text-[10px] text-gray-600 font-sans tracking-[0.2em] uppercase">© 2026 Plaza
                         Universidad.</p>
                 </div>
 
                 <div class="flex gap-8">
-                    <a href="https://www.instagram.com/plazauniversidad/?hl=es" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
-                        class="text-white hover:text-plaza-gold transition-colors transform hover:-translate-y-1 duration-300"><i
-                            class="fab fa-instagram text-lg"></i></a>
-                    <a href="https://www.facebook.com/PlazaUniversidad/?locale=es_LA" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
-                        class="text-white hover:text-plaza-gold transition-colors transform hover:-translate-y-1 duration-300"><i
-                            class="fab fa-facebook-f text-lg"></i></a>
-                    <a href="https://x.com/P_UNIVERSIDAD?lang=es" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"
-                        class="text-white hover:text-plaza-gold transition-colors transform hover:-translate-y-1 duration-300"><i
-                            class="fab fa-x-twitter text-lg"></i></a>
+                    <a href="https://www.instagram.com/puniversidadmx" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-white hover:text-plaza-gold transition-colors transform hover:-translate-y-1 duration-300"><i class="fab fa-instagram text-lg"></i></a>
+                    <a href="https://www.facebook.com/laplazauniversidad" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-white hover:text-plaza-gold transition-colors transform hover:-translate-y-1 duration-300"><i class="fab fa-facebook-f text-lg"></i></a>
+                    <a href="https://x.com/P_UNIVERSIDAD" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" class="text-white hover:text-plaza-gold transition-colors transform hover:-translate-y-1 duration-300"><i class="fab fa-x-twitter text-lg"></i></a>
                 </div>
             </div>
         </div>
     </footer>
     <script src="Scripts/jquery.validate.min.js"></script>
     <script src="Scripts/main.js"></script>
-</body>
 
-</html>
+
+</body></html>
