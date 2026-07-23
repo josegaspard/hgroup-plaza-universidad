@@ -90,6 +90,27 @@ $(document).ready(function() {
         if (!$(e.target).closest('.dir-cat').length) $('.dir-cat').removeClass('dir-open');
     });
 
+    // El desplegable va centrado en su pestaña; si la pestaña queda cerca de un borde
+    // se saldría de la pantalla (y en móvil generaba scroll horizontal aun estando cerrado,
+    // porque usa visibility:hidden y sigue ocupando espacio). Lo empujamos hacia dentro.
+    function _dirClampDrops() {
+        var margen = 8, vw = document.documentElement.clientWidth;
+        $('.dir-drop').each(function () {
+            var $d = $(this);
+            $d.css('margin-left', 0);
+            var r = this.getBoundingClientRect();
+            var ajuste = 0;
+            if (r.right > vw - margen) ajuste = -(r.right - (vw - margen));
+            else if (r.left < margen) ajuste = margen - r.left;
+            if (ajuste) $d.css('margin-left', Math.round(ajuste) + 'px');
+        });
+    }
+    if ($('.dir-drop').length) {
+        _dirClampDrops();
+        $(window).on('resize orientationchange', _dirClampDrops);
+        $('.dir-cat').on('mouseenter click', _dirClampDrops);
+    }
+
     // Deep-link de categoría desde el menú: directorio.html?cat=Nombre
     if ($('#stores-grid').length) {
         var _dirCat = new URLSearchParams(location.search).get('cat');
