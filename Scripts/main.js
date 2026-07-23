@@ -51,10 +51,10 @@ $(document).ready(function() {
     // Cada card tiene data-category = subcategoría (hoja). Filtrar por una
     // categoría PADRE incluye todas sus subcategorías.
     var DIR_CATS = {
-        'Entretenimiento': [], 'Fitness': [],
-        'Gastronomía': ['Cafeterías', 'Fast food', 'Restaurantes', 'Snacks', 'Vinos y licores'],
-        'Retail / Tiendas': ['Beauty & wellness', 'Citymarket', 'Departamentales', 'Joyería', 'Moda y estilo'],
-        'Servicios': ['Bancos', 'Escuelas', 'Inmobiliarias y agencias'],
+        'Entretenimiento': [], 'Deportes': [],
+        'Gastronomía': ['Cafeterías', 'Fast food', 'Restaurantes', 'Snacks'],
+        'Retail / Tiendas': ['Beauty & wellness', 'Casa', 'Departamentales', 'Joyería', 'Moda y estilo'],
+        'Servicios': ['Bancos'],
         'Telefonía y Tecnología': ['Automotriz', 'Tecnología', 'Telefonía']
     };
     function _dirCatMatch(itemCat, active) {
@@ -97,12 +97,16 @@ $(document).ready(function() {
     }
 
     // ===== SEARCH (directorio.html) =====
+    // Sin acentos: "turin" encuentra "Chocolates Turín", "cinepolis" -> "Cinépolis", etc.
+    function _dirNorm(s) {
+        return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
     $('#search-store').on('keyup', function () {
-        var value = $(this).val().toLowerCase();
+        var value = _dirNorm($(this).val());
         $('#stores-grid > div').each(function () {
-            var name = ($(this).find('img.store-card-logo').attr('alt')
+            var name = _dirNorm($(this).find('img.store-card-logo').attr('alt')
                 || $(this).find('.store-card-name').text()
-                || $(this).text()).toLowerCase();
+                || $(this).text());
             $(this).toggle(name.indexOf(value) > -1);
         });
     });
