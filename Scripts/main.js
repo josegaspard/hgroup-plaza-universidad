@@ -51,7 +51,7 @@ $(document).ready(function() {
     // Cada card tiene data-category = subcategoría (hoja). Filtrar por una
     // categoría PADRE incluye todas sus subcategorías.
     var DIR_CATS = {
-        'Entretenimiento': [], 'Deportes': [],
+        'Entretenimiento': [], 'Fitness': [],
         'Gastronomía': ['Cafeterías', 'Fast food', 'Restaurantes', 'Snacks'],
         'Retail / Tiendas': ['Beauty & wellness', 'Casa', 'Departamentales', 'Joyería', 'Moda y estilo'],
         'Servicios': ['Bancos'],
