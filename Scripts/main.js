@@ -53,7 +53,7 @@ $(document).ready(function() {
     var DIR_CATS = {
         'Entretenimiento': [],
         'Gastronomía': ['Cafeterías', 'Fast food', 'Restaurantes', 'Snacks'],
-        'Retail / Tiendas': ['Beauty & wellness', 'Casa', 'Departamentales', 'Joyería', 'Moda y estilo'],
+        'Retail / Tiendas': ['Beauty & wellness', 'Casa', 'Departamentales', 'Especialidades', 'Joyería', 'Moda y estilo'],
         'Servicios': ['Bancos'],
         'Telefonía y Tecnología': ['Automotriz', 'Tecnología', 'Telefonía']
     };
