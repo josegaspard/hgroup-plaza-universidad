@@ -544,6 +544,18 @@
             v.tx=r.width/2-v.s*zx; v.ty=r.height/2-v.s*zy; constrain(fid); apply(fid);
         }
         window.puCloseInfo=function(){ document.getElementById('pu-info').classList.remove('show'); if(selPoly){ selPoly.classList.remove('sel'); selPoly=null; } };
+        // La tienda existe en el directorio pero el plano SVG aún no tiene su zona dibujada
+        // (local nuevo / no vectorizado todavía) — se avisa en vez de fallar en silencio.
+        window.puShowUnmapped=function(name){
+            if(selPoly){ selPoly.classList.remove('sel'); selPoly=null; }
+            document.getElementById('pu-info-logo').innerHTML = '<span class="ph">'+(name.charAt(0)||'?')+'</span>';
+            document.getElementById('pu-info-cat').textContent = '';
+            document.getElementById('pu-info-name').textContent = name;
+            document.getElementById('pu-info-local').textContent = 'Todavía no tiene ubicación marcada en el plano';
+            var cta=document.getElementById('pu-info-cta');
+            cta.textContent='Ver en directorio'; cta.href='directorio.html?tienda='+encodeURIComponent(name);
+            document.getElementById('pu-info').classList.add('show');
+        };
 
         // ---------- buscador progresivo del mapa (mini preview a medida que se escribe) ----------
         window.puSearchInput=function(q){
@@ -625,6 +637,7 @@
                     if(nm===q || nm.toLowerCase()===nq){ var pr=key.split(':'); target={f:pr[0],n:pr[1]}; break; }
                 }
                 if(target){ setTimeout(function(){ try{ puSelect(target.f, target.n, true); }catch(e){} }, 320); }
+                else { setTimeout(function(){ puShowUnmapped(q); }, 320); }
             }
         }
         window.addEventListener('hashchange', _puMaybeOpenMap);
