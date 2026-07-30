@@ -358,13 +358,13 @@
         .pu-hint i{ opacity:.7; color:#C9A96E; }
         .pu-hint.gone{ opacity:0; pointer-events:none; transition:opacity .5s; }
 
-        .pu-info{ position:absolute; bottom:16px; left:16px; width:278px; max-width:calc(100% - 70px); background:#fff; border:1px solid #efe9df; box-shadow:0 14px 44px rgba(0,0,0,.16); border-radius:14px; padding:20px 20px 18px; opacity:0; pointer-events:none; transform:translateY(14px); transition:opacity .28s, transform .28s; z-index:25; }
+        .pu-info{ position:absolute; bottom:16px; left:16px; width:278px; max-width:calc(100% - 70px); background:#fff; border:1px solid #efe9df; box-shadow:0 14px 44px rgba(0,0,0,.16); border-radius:14px; padding:0 20px 18px; opacity:0; pointer-events:none; transform:translateY(14px); transition:opacity .28s, transform .28s; z-index:25; overflow:hidden; }
         .pu-info.show{ opacity:1; pointer-events:all; transform:none; }
-        .pu-info-close{ position:absolute; top:9px; right:12px; background:none; border:none; color:#b3aa9a; font-size:22px; line-height:1; cursor:pointer; }
-        .pu-info-close:hover{ color:#6B2D8B; }
-        .pu-info-logo{ height:88px; margin:-2px 0 12px; display:flex; align-items:center; justify-content:center; background:#F5F1EB; border-radius:10px; }
-        .pu-info-logo img{ max-height:64%; max-width:74%; object-fit:contain; }
-        .pu-info-logo .ph{ font-family:'Playfair Display',serif; font-size:34px; color:#cdbfa6; }
+        .pu-info-close{ position:absolute; top:10px; right:10px; width:26px; height:26px; display:flex; align-items:center; justify-content:center; background:rgba(26,26,46,.55); -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); border:none; border-radius:50%; color:#fff; font-size:17px; line-height:1; cursor:pointer; z-index:2; transition:background .15s; }
+        .pu-info-close:hover{ background:#6B2D8B; }
+        .pu-info-logo{ height:150px; margin:0 -20px 16px; display:flex; align-items:center; justify-content:center; background:#F5F1EB; overflow:hidden; }
+        .pu-info-logo img{ width:100%; height:100%; object-fit:cover; display:block; }
+        .pu-info-logo .ph{ font-family:'Playfair Display',serif; font-size:44px; color:#cdbfa6; }
         .pu-info-cat{ font-size:9px; text-transform:uppercase; letter-spacing:.22em; color:#C9A96E; font-weight:700; }
         .pu-info-name{ font-family:'Playfair Display',serif; font-size:21px; line-height:1.1; color:#1a1a2e; margin:4px 0 8px; }
         .pu-info-local{ font-size:11px; text-transform:uppercase; letter-spacing:.12em; color:#8a8275; margin-bottom:14px; }
@@ -375,6 +375,7 @@
             .pu-stage{ inset:8px; }
             .pu-hint{ display:none; }
             .pu-info{ left:8px; right:8px; bottom:8px; width:auto; max-width:none; }
+            .pu-info-logo{ height:120px; }
             .pu-zoom{ right:8px; bottom:8px; }
         }
     </style>
