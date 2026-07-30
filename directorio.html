@@ -373,22 +373,28 @@
                 <i class="fas fa-times text-lg"></i>
             </button>
 
-            <!-- IZQUIERDA: galería de imágenes -->
+            <!-- IZQUIERDA: carrusel de fotos del local (portada = #1, luego #2, #3…) -->
             <div class="relative bg-gray-100 h-[55vh] md:h-screen overflow-hidden group">
-                <img id="modal-img" src="" alt="" onclick="nextStore()" class="w-full h-full object-cover object-center cursor-pointer transition-opacity duration-500" title="Siguiente tienda">
+                <img id="modal-img" src="" alt="" onclick="openGalleryLightbox(_mainIdx)" class="w-full h-full object-cover object-center cursor-zoom-in transition-opacity duration-500" title="Ampliar">
 
-                <!-- Hint clic -->
+                <!-- Hint ampliar -->
                 <div class="absolute top-6 left-6 bg-white/90 text-plaza-black text-[10px] uppercase tracking-[0.2em] font-bold px-3 py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    <i class="fas fa-arrow-right mr-1"></i> Siguiente tienda
+                    <i class="fas fa-magnifying-glass-plus mr-1"></i> Ampliar
                 </div>
 
-                <!-- Botones prev/next -->
-                <button onclick="prevStore()" aria-label="Tienda anterior" class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <!-- Contador de fotos -->
+                <div id="modal-photo-counter" class="absolute top-6 right-6 bg-black/55 text-white text-[11px] font-bold tracking-[0.15em] px-3 py-1.5 rounded-full pointer-events-none z-10" style="display:none;"></div>
+
+                <!-- Flechas de FOTO (no de tienda): navegan las imágenes del local -->
+                <button id="modal-photo-prev" type="button" onclick="photoPrev(event)" aria-label="Foto anterior" class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/85 hover:bg-white w-11 h-11 rounded-full flex items-center justify-center shadow-md transition-all z-10" style="display:none;">
                     <i class="fas fa-chevron-left text-plaza-black"></i>
                 </button>
-                <button onclick="nextStore()" aria-label="Tienda siguiente" class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <button id="modal-photo-next" type="button" onclick="photoNext(event)" aria-label="Foto siguiente" class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/85 hover:bg-white w-11 h-11 rounded-full flex items-center justify-center shadow-md transition-all z-10" style="display:none;">
                     <i class="fas fa-chevron-right text-plaza-black"></i>
                 </button>
+
+                <!-- Tira de miniaturas (el carrusel visible) -->
+                <div id="modal-thumbs" class="absolute inset-x-0 bottom-0 flex gap-2 p-3 md:p-4 overflow-x-auto bg-gradient-to-t from-black/60 via-black/25 to-transparent z-10" style="display:none;"></div>
             </div>
 
             <!-- DERECHA: info -->
@@ -473,7 +479,7 @@
 
         // ── Tiendas con varios locales / varias fotos (UNIFICADAS en una sola tarjeta) ──
         // locals: se listan bajo "Locales". gallery: cada foto con la leyenda del local al que pertenece.
-        var _storeMerged = {"+ Visión por Menos Precio":{"locals":["Local 21"],"gallery":[{"src":"images/Locatarios/21/1.jpg","loc":"Local 21"}]},"Aldo Conti":{"locals":["Local 18"],"gallery":[{"src":"images/Locatarios/18/1.jpg","loc":"Local 18"}]},"Asaderos Grill":{"locals":["Local 9"],"gallery":[{"src":"images/Locatarios/9/1.jpg","loc":"Local 9"}]},"Banorte":{"locals":["Local 45"],"gallery":[{"src":"images/Locatarios/45/1.jpg","loc":"Local 45"}]},"Bari":{"locals":["Local 19"],"gallery":[{"src":"images/Locatarios/19/1.jpg","loc":"Local 19"}]},"Bizzarro":{"locals":["Local 58"],"gallery":[{"src":"images/Locatarios/58/1.jpg","loc":"Local 58"}]},"Business & Therapy Place":{"locals":["Local 83"],"gallery":[{"src":"images/Locatarios/83/1.jpg","loc":"Local 83"}]},"Chilim Balam":{"locals":["Local 20"],"gallery":[{"src":"images/Locatarios/20/1.jpg","loc":"Local 20"}]},"Chocolates Turín":{"locals":["Local 50"],"gallery":[{"src":"images/Locatarios/50/1.jpg","loc":"Local 50"}]},"CIBanco":{"locals":["Local 39"],"gallery":[{"src":"images/Locatarios/39/1.jpg","loc":"Local 39"}]},"Cielito Querido Café":{"locals":["Local 3"],"gallery":[{"src":"images/Locatarios/3/1.jpg","loc":"Local 3"}]},"Cinépolis":{"locals":["Local 1"],"gallery":[{"src":"images/Locatarios/1/1.jpg","loc":"Local 1"}]},"Cosecha Sana":{"locals":["Local 72"],"gallery":[{"src":"images/Locatarios/72/1.jpg","loc":"Local 72"}]},"Cristal Joyas":{"locals":["Local 53"],"gallery":[{"src":"images/Locatarios/53/1.jpg","loc":"Local 53"}]},"DAX":{"locals":["Local 59"],"gallery":[{"src":"images/Locatarios/59/1.jpg","loc":"Local 59"}]},"Deportes Martí":{"locals":["Local 56"],"gallery":[{"src":"images/Locatarios/56/1.jpg","loc":"Local 56"}]},"Dorothy Gaynor":{"locals":["Local 41"],"gallery":[{"src":"images/Locatarios/41/1.jpg","loc":"Local 41"}]},"Dynasty":{"locals":["Local 71"],"gallery":[{"src":"images/Locatarios/71/1.jpg","loc":"Local 71"}]},"El Borceguí":{"locals":["Local 16"],"gallery":[{"src":"images/Locatarios/16/1.jpg","loc":"Local 16"}]},"Estética Imagen":{"locals":["Local 86"],"gallery":[{"src":"images/Locatarios/86/1.jpg","loc":"Local 86"}]},"Fajas Ann Chery":{"locals":["Local 26"],"gallery":[{"src":"images/Locatarios/26/1.jpg","loc":"Local 26"}]},"Ferrioni":{"locals":["Local 23"],"gallery":[{"src":"images/Locatarios/23/1.jpg","loc":"Local 23"}]},"Flexi":{"locals":["Local 28"],"gallery":[{"src":"images/Locatarios/28/1.jpg","loc":"Local 28"}]},"Free Life":{"locals":["Local 57"],"gallery":[{"src":"images/Locatarios/57/1.jpg","loc":"Local 57"}]},"Fullsand":{"locals":["Local 27"],"gallery":[{"src":"images/Locatarios/27/1.jpg","loc":"Local 27"}]},"Game Planet":{"locals":["Local 14"],"gallery":[{"src":"images/Locatarios/14/1.jpg","loc":"Local 14"}]},"Giolini":{"locals":["Local 24"],"gallery":[{"src":"images/Locatarios/24/1.jpg","loc":"Local 24"}]},"GNC General Nutrition Center":{"locals":["Local 22"],"gallery":[{"src":"images/Locatarios/22/1.jpg","loc":"Local 22"}]},"Green Grass Addictive Salads":{"locals":["Local 74"],"gallery":[{"src":"images/Locatarios/74/1.jpg","loc":"Local 74"}]},"Greñitas":{"locals":["Local 82"],"gallery":[{"src":"images/Locatarios/82/1.jpg","loc":"Local 82"}]},"HSBC":{"locals":["Local 6"],"gallery":[{"src":"images/Locatarios/6/1.jpg","loc":"Local 6"}]},"Innvictus":{"locals":["Local 32"],"gallery":[{"src":"images/Locatarios/32/1.jpg","loc":"Local 32"}]},"Italianni's":{"locals":["Local 8"],"gallery":[{"src":"images/Locatarios/8/1.jpg","loc":"Local 8"}]},"Jarking":{"locals":["Local 36"],"gallery":[{"src":"images/Locatarios/36/1.jpg","loc":"Local 36"}]},"Julio":{"locals":["Local 10"],"gallery":[{"src":"images/Locatarios/10/1.jpg","loc":"Local 10"}]},"King Wok & Grill":{"locals":["Local 75"],"gallery":[{"src":"images/Locatarios/75/1.jpg","loc":"Local 75"}]},"La Casa de las Carcasas":{"locals":["Local 49"],"gallery":[{"src":"images/Locatarios/49/1.jpg","loc":"Local 49"}]},"Liz Minelli":{"locals":["Local 43"],"gallery":[{"src":"images/Locatarios/43/1.jpg","loc":"Local 43"}]},"Luuna":{"locals":["Local 15"],"gallery":[{"src":"images/Locatarios/15/1.jpg","loc":"Local 15"}]},"McDonald's":{"locals":["Local 79"],"gallery":[{"src":"images/Locatarios/79/1.jpg","loc":"Local 79"}]},"Medicor":{"locals":["Local 80"],"gallery":[{"src":"images/Locatarios/80/1.jpg","loc":"Local 80"}]},"Men's Fashion":{"locals":["Local 42"],"gallery":[{"src":"images/Locatarios/42/1.jpg","loc":"Local 42"}]},"Michel Domit":{"locals":["Local 34"],"gallery":[{"src":"images/Locatarios/34/1.jpg","loc":"Local 34"}]},"Mixup":{"locals":["Local 63"],"gallery":[{"src":"images/Locatarios/63/1.jpg","loc":"Local 63"}]},"Mobo Shop":{"locals":["Local 48"],"gallery":[{"src":"images/Locatarios/48/1.jpg","loc":"Local 48"}]},"Monkey Papas":{"locals":["Local 70","Local 81"],"gallery":[{"src":"images/Locatarios/70/1.jpg","loc":"Local 70"}]},"Mumuso":{"locals":["Local 51"],"gallery":[{"src":"images/Locatarios/51/1.jpg","loc":"Local 51"}]},"Nailkery":{"locals":["Local 47"],"gallery":[{"src":"images/Locatarios/47/1.jpg","loc":"Local 47"}]},"Neria's Deportes":{"locals":["Local 12"],"gallery":[{"src":"images/Locatarios/12/1.jpg","loc":"Local 12"}]},"New Era":{"locals":["Local 52"],"gallery":[{"src":"images/Locatarios/52/1.jpg","loc":"Local 52"}]},"Nutrisa":{"locals":["Local 38"],"gallery":[{"src":"images/Locatarios/38/1.jpg","loc":"Local 38"},{"src":"images/Locatarios/38/2.jpg","loc":"Local 38"}]},"Ópticas Devlyn":{"locals":["Local 55"],"gallery":[{"src":"images/Locatarios/55/1.jpg","loc":"Local 55"}]},"Pizza Maestra":{"locals":["Local 66"],"gallery":[{"src":"images/Locatarios/66/1.jpg","loc":"Local 66"}]},"Robert's":{"locals":["Local 11"],"gallery":[{"src":"images/Locatarios/11/1.jpg","loc":"Local 11"}]},"Samsonite":{"locals":["Local 54"],"gallery":[{"src":"images/Locatarios/54/1.jpg","loc":"Local 54"}]},"Sanborns":{"locals":["Local 4"],"gallery":[{"src":"images/Locatarios/4/1.jpg","loc":"Local 4"}]},"Sbarro":{"locals":["Local 69"],"gallery":[{"src":"images/Locatarios/69/1.jpg","loc":"Local 69"}]},"Sears":{"locals":["Local 2"],"gallery":[{"src":"images/Locatarios/2/1.jpg","loc":"Local 2"}]},"Shasa":{"locals":["Local 60"],"gallery":[{"src":"images/Locatarios/60/1.jpg","loc":"Local 60"}]},"Skechers":{"locals":["Local 30"],"gallery":[{"src":"images/Locatarios/30/1.jpg","loc":"Local 30"}]},"Soley":{"locals":["Local 37"],"gallery":[{"src":"images/Locatarios/37/1.jpg","loc":"Local 37"}]},"Steren Shop":{"locals":["Local 44"],"gallery":[{"src":"images/Locatarios/44/1.jpg","loc":"Local 44"}]},"Subway":{"locals":["Local 78"],"gallery":[{"src":"images/Locatarios/78/1.jpg","loc":"Local 78"}]},"Sukiya Tokio Bowls & Noodles":{"locals":["Local 73"],"gallery":[{"src":"images/Locatarios/73/1.jpg","loc":"Local 73"}]},"Sushi Roll":{"locals":["Local 76"],"gallery":[{"src":"images/Locatarios/76/1.jpg","loc":"Local 76"}]},"Tactical 5.11":{"locals":["Local 61"],"gallery":[{"src":"images/Locatarios/61/1.jpg","loc":"Local 61"}]},"TAF":{"locals":["Local 25"],"gallery":[{"src":"images/Locatarios/25/1.jpg","loc":"Local 25"}]},"Telcel":{"locals":["Local 33","Local 46"],"gallery":[{"src":"images/Locatarios/33/1.jpg","loc":"Local 33"},{"src":"images/Locatarios/33/2.jpg","loc":"Local 33"},{"src":"images/Locatarios/46/1.jpg","loc":"Local 46"}]},"Trendy Accesories":{"locals":["Local 13"],"gallery":[{"src":"images/Locatarios/13/1.jpg","loc":"Local 13"}]},"Vans":{"locals":["Local 17"],"gallery":[{"src":"images/Locatarios/17/1.jpg","loc":"Local 17"}]},"Villa Bella Salón":{"locals":["Local 85"],"gallery":[{"src":"images/Locatarios/85/1.jpg","loc":"Local 85"}]},"Vittorio Forti":{"locals":["Local 40"],"gallery":[{"src":"images/Locatarios/40/1.jpg","loc":"Local 40"}]}};
+        var _storeMerged = {"+ Visión por Menos Precio": {"locals": ["Local 21"], "gallery": [{"src": "images/Locatarios/21/1.jpg", "loc": "Local 21"}, {"src": "images/Locatarios/21/2.jpg", "loc": "Local 21"}, {"src": "images/Locatarios/21/3.jpg", "loc": "Local 21"}]}, "Aldo Conti": {"locals": ["Local 18"], "gallery": [{"src": "images/Locatarios/18/1.jpg", "loc": "Local 18"}, {"src": "images/Locatarios/18/2.jpg", "loc": "Local 18"}, {"src": "images/Locatarios/18/3.jpg", "loc": "Local 18"}]}, "Asaderos Grill": {"locals": ["Local 9"], "gallery": [{"src": "images/Locatarios/9/1.jpg", "loc": "Local 9"}, {"src": "images/Locatarios/9/2.jpg", "loc": "Local 9"}, {"src": "images/Locatarios/9/3.jpg", "loc": "Local 9"}]}, "Banorte": {"locals": ["Local 45"], "gallery": [{"src": "images/Locatarios/45/1.jpg", "loc": "Local 45"}]}, "Bari": {"locals": ["Local 19"], "gallery": [{"src": "images/Locatarios/19/1.jpg", "loc": "Local 19"}, {"src": "images/Locatarios/19/2.jpg", "loc": "Local 19"}, {"src": "images/Locatarios/19/3.jpg", "loc": "Local 19"}]}, "Bizzarro": {"locals": ["Local 58"], "gallery": [{"src": "images/Locatarios/58/1.jpg", "loc": "Local 58"}]}, "Business & Therapy Place": {"locals": ["Local 83"], "gallery": [{"src": "images/Locatarios/83/1.jpg", "loc": "Local 83"}]}, "Chilim Balam": {"locals": ["Local 20"], "gallery": [{"src": "images/Locatarios/20/1.jpg", "loc": "Local 20"}]}, "Chocolates Turín": {"locals": ["Local 50"], "gallery": [{"src": "images/Locatarios/50/1.jpg", "loc": "Local 50"}]}, "CIBanco": {"locals": ["Local 39"], "gallery": [{"src": "images/Locatarios/39/1.jpg", "loc": "Local 39"}]}, "Cielito Querido Café": {"locals": ["Local 3"], "gallery": [{"src": "images/Locatarios/3/1.jpg", "loc": "Local 3"}]}, "Cinépolis": {"locals": ["Local 1"], "gallery": [{"src": "images/Locatarios/1/1.jpg", "loc": "Local 1"}]}, "Cosecha Sana": {"locals": ["Local 72"], "gallery": [{"src": "images/Locatarios/72/1.jpg", "loc": "Local 72"}]}, "Cristal Joyas": {"locals": ["Local 53"], "gallery": [{"src": "images/Locatarios/53/1.jpg", "loc": "Local 53"}]}, "DAX": {"locals": ["Local 59"], "gallery": [{"src": "images/Locatarios/59/1.jpg", "loc": "Local 59"}]}, "Deportes Martí": {"locals": ["Local 56"], "gallery": [{"src": "images/Locatarios/56/1.jpg", "loc": "Local 56"}]}, "Dorothy Gaynor": {"locals": ["Local 41"], "gallery": [{"src": "images/Locatarios/41/1.jpg", "loc": "Local 41"}]}, "Dynasty": {"locals": ["Local 71"], "gallery": [{"src": "images/Locatarios/71/1.jpg", "loc": "Local 71"}]}, "El Borceguí": {"locals": ["Local 16"], "gallery": [{"src": "images/Locatarios/16/1.jpg", "loc": "Local 16"}, {"src": "images/Locatarios/16/2.jpg", "loc": "Local 16"}, {"src": "images/Locatarios/16/3.jpg", "loc": "Local 16"}]}, "Estética Imagen": {"locals": ["Local 86"], "gallery": [{"src": "images/Locatarios/86/1.jpg", "loc": "Local 86"}]}, "Fajas Ann Chery": {"locals": ["Local 26"], "gallery": [{"src": "images/Locatarios/26/1.jpg", "loc": "Local 26"}]}, "Ferrioni": {"locals": ["Local 23"], "gallery": [{"src": "images/Locatarios/23/1.jpg", "loc": "Local 23"}]}, "Flexi": {"locals": ["Local 28"], "gallery": [{"src": "images/Locatarios/28/1.jpg", "loc": "Local 28"}]}, "Free Life": {"locals": ["Local 57"], "gallery": [{"src": "images/Locatarios/57/1.jpg", "loc": "Local 57"}]}, "Fullsand": {"locals": ["Local 27"], "gallery": [{"src": "images/Locatarios/27/1.jpg", "loc": "Local 27"}, {"src": "images/Locatarios/27/2.jpg", "loc": "Local 27"}, {"src": "images/Locatarios/27/3.jpg", "loc": "Local 27"}]}, "Game Planet": {"locals": ["Local 14"], "gallery": [{"src": "images/Locatarios/14/1.jpg", "loc": "Local 14"}]}, "Giolini": {"locals": ["Local 24"], "gallery": [{"src": "images/Locatarios/24/1.jpg", "loc": "Local 24"}, {"src": "images/Locatarios/24/2.jpg", "loc": "Local 24"}, {"src": "images/Locatarios/24/3.jpg", "loc": "Local 24"}]}, "GNC General Nutrition Center": {"locals": ["Local 22"], "gallery": [{"src": "images/Locatarios/22/1.jpg", "loc": "Local 22"}]}, "Green Grass Addictive Salads": {"locals": ["Local 74"], "gallery": [{"src": "images/Locatarios/74/1.jpg", "loc": "Local 74"}]}, "Greñitas": {"locals": ["Local 82"], "gallery": [{"src": "images/Locatarios/82/1.jpg", "loc": "Local 82"}]}, "HSBC": {"locals": ["Local 6"], "gallery": [{"src": "images/Locatarios/6/1.jpg", "loc": "Local 6"}]}, "Innvictus": {"locals": ["Local 32"], "gallery": [{"src": "images/Locatarios/32/1.jpg", "loc": "Local 32"}]}, "Italianni's": {"locals": ["Local 8"], "gallery": [{"src": "images/Locatarios/8/1.jpg", "loc": "Local 8"}, {"src": "images/Locatarios/8/2.jpg", "loc": "Local 8"}, {"src": "images/Locatarios/8/3.jpg", "loc": "Local 8"}]}, "Jarking": {"locals": ["Local 36"], "gallery": [{"src": "images/Locatarios/36/1.jpg", "loc": "Local 36"}]}, "Julio": {"locals": ["Local 10"], "gallery": [{"src": "images/Locatarios/10/1.jpg", "loc": "Local 10"}, {"src": "images/Locatarios/10/2.jpg", "loc": "Local 10"}, {"src": "images/Locatarios/10/3.jpg", "loc": "Local 10"}]}, "King Wok & Grill": {"locals": ["Local 75"], "gallery": [{"src": "images/Locatarios/75/1.jpg", "loc": "Local 75"}]}, "La Casa de las Carcasas": {"locals": ["Local 49"], "gallery": [{"src": "images/Locatarios/49/1.jpg", "loc": "Local 49"}]}, "Liz Minelli": {"locals": ["Local 43"], "gallery": [{"src": "images/Locatarios/43/1.jpg", "loc": "Local 43"}]}, "Luuna": {"locals": ["Local 15"], "gallery": [{"src": "images/Locatarios/15/1.jpg", "loc": "Local 15"}]}, "McDonald's": {"locals": ["Local 79"], "gallery": [{"src": "images/Locatarios/79/1.jpg", "loc": "Local 79"}]}, "Medicor": {"locals": ["Local 80"], "gallery": [{"src": "images/Locatarios/80/1.jpg", "loc": "Local 80"}]}, "Men's Fashion": {"locals": ["Local 42"], "gallery": [{"src": "images/Locatarios/42/1.jpg", "loc": "Local 42"}]}, "Michel Domit": {"locals": ["Local 34"], "gallery": [{"src": "images/Locatarios/34/1.jpg", "loc": "Local 34"}]}, "Mixup": {"locals": ["Local 63"], "gallery": [{"src": "images/Locatarios/63/1.jpg", "loc": "Local 63"}]}, "Mobo Shop": {"locals": ["Local 48"], "gallery": [{"src": "images/Locatarios/48/1.jpg", "loc": "Local 48"}]}, "Monkey Papas": {"locals": ["Local 70", "Local 81"], "gallery": [{"src": "images/Locatarios/70/1.jpg", "loc": "Local 70"}]}, "Mumuso": {"locals": ["Local 51"], "gallery": [{"src": "images/Locatarios/51/1.jpg", "loc": "Local 51"}]}, "Nailkery": {"locals": ["Local 47"], "gallery": [{"src": "images/Locatarios/47/1.jpg", "loc": "Local 47"}]}, "Neria's Deportes": {"locals": ["Local 12"], "gallery": [{"src": "images/Locatarios/12/1.jpg", "loc": "Local 12"}]}, "New Era": {"locals": ["Local 52"], "gallery": [{"src": "images/Locatarios/52/1.jpg", "loc": "Local 52"}]}, "Nutrisa": {"locals": ["Local 38"], "gallery": [{"src": "images/Locatarios/38/1.jpg", "loc": "Local 38"}, {"src": "images/Locatarios/38/2.jpg", "loc": "Local 38"}]}, "Ópticas Devlyn": {"locals": ["Local 55"], "gallery": [{"src": "images/Locatarios/55/1.jpg", "loc": "Local 55"}]}, "Pizza Maestra": {"locals": ["Local 66"], "gallery": [{"src": "images/Locatarios/66/1.jpg", "loc": "Local 66"}]}, "Robert's": {"locals": ["Local 11"], "gallery": [{"src": "images/Locatarios/11/1.jpg", "loc": "Local 11"}, {"src": "images/Locatarios/11/2.jpg", "loc": "Local 11"}, {"src": "images/Locatarios/11/3.jpg", "loc": "Local 11"}]}, "Samsonite": {"locals": ["Local 54"], "gallery": [{"src": "images/Locatarios/54/1.jpg", "loc": "Local 54"}]}, "Sanborns": {"locals": ["Local 4"], "gallery": [{"src": "images/Locatarios/4/1.jpg", "loc": "Local 4"}]}, "Sbarro": {"locals": ["Local 69"], "gallery": [{"src": "images/Locatarios/69/1.jpg", "loc": "Local 69"}]}, "Sears": {"locals": ["Local 2"], "gallery": [{"src": "images/Locatarios/2/1.jpg", "loc": "Local 2"}, {"src": "images/Locatarios/2/2.jpg", "loc": "Local 2"}, {"src": "images/Locatarios/2/3.jpg", "loc": "Local 2"}]}, "Shasa": {"locals": ["Local 60"], "gallery": [{"src": "images/Locatarios/60/1.jpg", "loc": "Local 60"}]}, "Skechers": {"locals": ["Local 30"], "gallery": [{"src": "images/Locatarios/30/1.jpg", "loc": "Local 30"}, {"src": "images/Locatarios/30/2.jpg", "loc": "Local 30"}, {"src": "images/Locatarios/30/3.jpg", "loc": "Local 30"}]}, "Soley": {"locals": ["Local 37"], "gallery": [{"src": "images/Locatarios/37/1.jpg", "loc": "Local 37"}]}, "Steren Shop": {"locals": ["Local 44"], "gallery": [{"src": "images/Locatarios/44/1.jpg", "loc": "Local 44"}]}, "Subway": {"locals": ["Local 78"], "gallery": [{"src": "images/Locatarios/78/1.jpg", "loc": "Local 78"}]}, "Sukiya Tokio Bowls & Noodles": {"locals": ["Local 73"], "gallery": [{"src": "images/Locatarios/73/1.jpg", "loc": "Local 73"}]}, "Sushi Roll": {"locals": ["Local 76"], "gallery": [{"src": "images/Locatarios/76/1.jpg", "loc": "Local 76"}]}, "Tactical 5.11": {"locals": ["Local 61"], "gallery": [{"src": "images/Locatarios/61/1.jpg", "loc": "Local 61"}]}, "TAF": {"locals": ["Local 25"], "gallery": [{"src": "images/Locatarios/25/1.jpg", "loc": "Local 25"}]}, "Telcel": {"locals": ["Local 33", "Local 46"], "gallery": [{"src": "images/Locatarios/33/1.jpg", "loc": "Local 33"}, {"src": "images/Locatarios/33/2.jpg", "loc": "Local 33"}, {"src": "images/Locatarios/46/1.jpg", "loc": "Local 46"}]}, "Trendy Accesories": {"locals": ["Local 13"], "gallery": [{"src": "images/Locatarios/13/1.jpg", "loc": "Local 13"}]}, "Vans": {"locals": ["Local 17"], "gallery": [{"src": "images/Locatarios/17/1.jpg", "loc": "Local 17"}, {"src": "images/Locatarios/17/2.jpg", "loc": "Local 17"}, {"src": "images/Locatarios/17/3.jpg", "loc": "Local 17"}]}, "Villa Bella Salón": {"locals": ["Local 85"], "gallery": [{"src": "images/Locatarios/85/1.jpg", "loc": "Local 85"}]}, "Vittorio Forti": {"locals": ["Local 40"], "gallery": [{"src": "images/Locatarios/40/1.jpg", "loc": "Local 40"}]}};
 
         // ── Lista ordenada de tiendas (escaneada del DOM al cargar) ──
         // Cada item: { title, cat, img, desc, loc, time }
@@ -539,33 +545,16 @@
             document.getElementById('modal-time').innerText = s.time;
             document.getElementById('modal-desc').style.display = s.desc ? '' : 'none';
             var _ib=document.getElementById('modal-info-block'); if(_ib) _ib.style.display=(_locText||s.time)?'':'none';
-            _renderModalGallery(s, _merged);
-            var imgEl = document.getElementById('modal-img');
-            imgEl.alt = s.title;
-
-            var adj = _modalImgAdjust[s.title] || { pos: '50% 50%', scale: 1 };
-            var newSrc = s.img + (s.img.indexOf('?') === -1 ? '?v=' + _imgVer : '');
-
-            // Crossfade limpio: ocultamos la actual, precargamos la nueva, y al cargar aplicamos src+ajustes y mostramos.
-            imgEl.style.opacity = '0';
-            var myReq = ++_imgReqId;
-            var preload = new Image();
-            preload.onload = function () {
-                if (myReq !== _imgReqId) return; // llegó tarde: ya se abrió otra tienda
-                imgEl.src = newSrc;
-                imgEl.style.objectPosition = adj.pos;
-                imgEl.style.transform = (adj.scale && adj.scale !== 1) ? 'scale(' + adj.scale + ')' : '';
-                imgEl.style.transformOrigin = 'center center';
-                requestAnimationFrame(function () { imgEl.style.opacity = '1'; });
-            };
-            preload.onerror = function () {
-                if (myReq !== _imgReqId) return;
-                imgEl.src = 'images/locales/Exteriores de plaza.jpg';
-                imgEl.style.objectPosition = '50% 50%';
-                imgEl.style.transform = '';
-                requestAnimationFrame(function () { imgEl.style.opacity = '1'; });
-            };
-            preload.src = newSrc;
+            // ── Carrusel de fotos del local: portada (#1) + fotos extra (#2, #3…) ──
+            // La galería viene de _storeMerged[title].gallery (regenerada desde images/Locatarios/<local>/).
+            // Si la tienda no tiene galería, se usa solo su portada.
+            _galleryImgs = (_merged && _merged.gallery && _merged.gallery.length)
+                ? _merged.gallery.slice()
+                : [{ src: s.img, loc: (s.loc || '') }];
+            _mainIdx = 0;
+            _curStoreTitle = s.title;
+            _renderMainPhoto();
+            _renderThumbs();
 
             _renderStoreIndicator();
 
@@ -592,6 +581,68 @@
         // ── Galería de fotos del local (miniaturas) + lightbox con leyenda ──
         var _galleryImgs = [];   // [{ src, loc }]
         var _galleryIdx = 0;
+        var _mainIdx = 0;        // índice de la foto activa en el carrusel del local
+        var _curStoreTitle = '';
+
+        // ── Carrusel de fotos del local (imagen grande izquierda) ──
+        function _renderMainPhoto() {
+            var imgEl = document.getElementById('modal-img');
+            if (!imgEl || !_galleryImgs.length) return;
+            _mainIdx = ((_mainIdx % _galleryImgs.length) + _galleryImgs.length) % _galleryImgs.length;
+            var g = _galleryImgs[_mainIdx];
+            var newSrc = g.src + (g.src.indexOf('?') === -1 ? '?v=' + _imgVer : '');
+            var many = _galleryImgs.length > 1;
+            imgEl.alt = _curStoreTitle + (many ? ' — foto ' + (_mainIdx + 1) : '');
+            // Crossfade con token anti-carrera (si se abre otra tienda antes de cargar, no pinta la vieja)
+            imgEl.style.opacity = '0';
+            var myReq = ++_imgReqId;
+            var pre = new Image();
+            pre.onload = function () {
+                if (myReq !== _imgReqId) return;
+                imgEl.src = newSrc; imgEl.style.objectPosition = '50% 50%'; imgEl.style.transform = '';
+                requestAnimationFrame(function () { imgEl.style.opacity = '1'; });
+            };
+            pre.onerror = function () {
+                if (myReq !== _imgReqId) return;
+                imgEl.src = 'images/locales/Exteriores de plaza.jpg';
+                requestAnimationFrame(function () { imgEl.style.opacity = '1'; });
+            };
+            pre.src = newSrc;
+            // Contador + flechas (solo cuando hay más de una foto)
+            var cnt = document.getElementById('modal-photo-counter');
+            var pv = document.getElementById('modal-photo-prev');
+            var nx = document.getElementById('modal-photo-next');
+            if (cnt) { cnt.style.display = many ? '' : 'none'; cnt.textContent = many ? ((_mainIdx + 1) + ' / ' + _galleryImgs.length) : ''; }
+            if (pv) pv.style.display = many ? 'flex' : 'none';
+            if (nx) nx.style.display = many ? 'flex' : 'none';
+            // Resaltar la miniatura activa
+            var thumbs = document.querySelectorAll('#modal-thumbs [data-thumb]');
+            thumbs.forEach(function (t, i) {
+                var on = (i === _mainIdx);
+                t.style.opacity = on ? '1' : '0.6';
+                t.style.boxShadow = on ? '0 0 0 2px #7f188c' : 'none';
+            });
+        }
+        function _renderThumbs() {
+            var wrap = document.getElementById('modal-thumbs');
+            if (!wrap) return;
+            if (_galleryImgs.length > 1) {
+                wrap.innerHTML = _galleryImgs.map(function (g, i) {
+                    var src = g.src + (g.src.indexOf('?') === -1 ? '?v=' + _imgVer : '');
+                    return '<button type="button" data-thumb onclick="setPhoto(' + i + ',event)" aria-label="Ver foto ' + (i + 1) + '" '
+                        + 'class="flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-md overflow-hidden border border-white/40 transition-all duration-300" style="opacity:.6">'
+                        + '<img src="' + src + '" alt="" loading="lazy" class="w-full h-full object-cover"></button>';
+                }).join('');
+                wrap.style.display = 'flex';
+            } else {
+                wrap.innerHTML = '';
+                wrap.style.display = 'none';
+            }
+        }
+        function setPhoto(i, e) { if (e) e.stopPropagation(); _mainIdx = i; _renderMainPhoto(); }
+        function photoNext(e) { if (e) e.stopPropagation(); if (_galleryImgs.length < 2) return; _mainIdx++; _renderMainPhoto(); }
+        function photoPrev(e) { if (e) e.stopPropagation(); if (_galleryImgs.length < 2) return; _mainIdx--; _renderMainPhoto(); }
+
         function _renderModalGallery(s, merged) {
             var wrap = document.getElementById('modal-gallery-wrap');
             var grid = document.getElementById('modal-gallery');
@@ -703,8 +754,8 @@
             // Solo navegar tiendas cuando el modal está abierto.
             if (document.getElementById('dir-modal').classList.contains('hidden')) return;
             if (e.key === 'Escape') closeDirectoryModal();
-            if (e.key === 'ArrowRight') nextStore();
-            if (e.key === 'ArrowLeft') prevStore();
+            if (e.key === 'ArrowRight') photoNext();
+            if (e.key === 'ArrowLeft') photoPrev();
         });
 
         // ── Init: pre-construir lista de tiendas + Deep-link ?tienda=Name ──
