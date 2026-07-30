@@ -392,9 +392,6 @@
                 <button id="modal-photo-next" type="button" onclick="photoNext(event)" aria-label="Foto siguiente" class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/85 hover:bg-white w-11 h-11 rounded-full flex items-center justify-center shadow-md transition-all z-10" style="display:none;">
                     <i class="fas fa-chevron-right text-plaza-black"></i>
                 </button>
-
-                <!-- Tira de miniaturas (el carrusel visible) -->
-                <div id="modal-thumbs" class="absolute inset-x-0 bottom-0 flex gap-2 p-3 md:p-4 overflow-x-auto bg-gradient-to-t from-black/60 via-black/25 to-transparent z-10" style="display:none;"></div>
             </div>
 
             <!-- DERECHA: info -->
@@ -428,6 +425,12 @@
                 <a id="modal-plano" href="index.html#mapa" class="inline-flex items-center gap-3 self-start text-xs font-bold uppercase tracking-[0.2em] text-plaza-black border border-plaza-purple rounded-full px-6 py-3 mb-8 hover:bg-plaza-purple hover:text-white transition-all duration-300">
                     <i class="fas fa-map-location-dot"></i> Ver en el plano
                 </a>
+
+                <!-- CARRUSEL de fotos del local (DEBAJO de "Ver en el plano") -->
+                <div id="modal-thumbs-wrap" class="border-t border-gray-200 pt-8 mb-2" style="display:none;">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 block mb-4">Fotos del local</span>
+                    <div id="modal-thumbs" class="flex gap-3 overflow-x-auto pb-1"></div>
+                </div>
 
                 <!-- Galería del local: varias vistas / varios locales (estilo Plaza Carso) -->
                 <div id="modal-gallery-wrap" class="border-t border-gray-200 pt-8 mb-8" style="display:none;">
@@ -633,17 +636,20 @@
         }
         function _renderThumbs() {
             var wrap = document.getElementById('modal-thumbs');
+            var outer = document.getElementById('modal-thumbs-wrap');
             if (!wrap) return;
             if (_galleryImgs.length > 1) {
                 wrap.innerHTML = _galleryImgs.map(function (g, i) {
                     var src = g.src + (g.src.indexOf('?') === -1 ? '?v=' + _imgVer : '');
                     return '<button type="button" data-thumb onclick="setPhoto(' + i + ',event)" aria-label="Ver foto ' + (i + 1) + '" '
-                        + 'class="flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-md overflow-hidden border border-white/40 transition-all duration-300" style="opacity:.6">'
+                        + 'class="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-md overflow-hidden border border-gray-300 transition-all duration-300" style="opacity:.6">'
                         + '<img src="' + src + '" alt="" loading="lazy" class="w-full h-full object-cover"></button>';
                 }).join('');
+                if (outer) outer.style.display = '';
                 wrap.style.display = 'flex';
             } else {
                 wrap.innerHTML = '';
+                if (outer) outer.style.display = 'none';
                 wrap.style.display = 'none';
             }
         }
