@@ -551,6 +551,7 @@
             _galleryImgs = (_merged && _merged.gallery && _merged.gallery.length)
                 ? _merged.gallery.slice()
                 : [{ src: s.img, loc: (s.loc || '') }];
+            _galleryImgs = _padGallery(_galleryImgs); // clona la portada si hay pocas fotos → carrusel siempre visible
             _mainIdx = 0;
             _curStoreTitle = s.title;
             _renderMainPhoto();
@@ -583,6 +584,13 @@
         var _galleryIdx = 0;
         var _mainIdx = 0;        // índice de la foto activa en el carrusel del local
         var _curStoreTitle = '';
+        var _MIN_SLIDES = 3;     // mínimo de slides: si la tienda tiene menos fotos, se CLONA la portada para que el carrusel se vea siempre
+        function _padGallery(arr) {
+            if (!arr.length) return arr;
+            var out = arr.slice(), i = 0;
+            while (out.length < _MIN_SLIDES) { out.push(arr[i % arr.length]); i++; }
+            return out;
+        }
 
         // ── Carrusel de fotos del local (imagen grande izquierda) ──
         function _renderMainPhoto() {
