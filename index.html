@@ -540,7 +540,7 @@
             var sc=Math.min(fit.width/VB[2], fit.height/VB[3]);
             var offx=(fit.width-VB[2]*sc)/2, offy=(fit.height-VB[3]*sc)/2;
             var zx=offx+z.cx*sc, zy=offy+z.cy*sc;
-            v.s=clamp(Math.max(v.s,2.2),MINS,MAXS);
+            v.s=clamp(Math.max(v.s,1.8),MINS,MAXS);
             v.tx=r.width/2-v.s*zx; v.ty=r.height/2-v.s*zy; constrain(fid); apply(fid);
         }
         window.puCloseInfo=function(){ document.getElementById('pu-info').classList.remove('show'); if(selPoly){ selPoly.classList.remove('sel'); selPoly=null; } };
