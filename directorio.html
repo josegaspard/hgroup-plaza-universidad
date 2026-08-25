@@ -119,6 +119,34 @@
          * STORE CARD — hover invierte fondo (blanco → plaza-black)
          * y letras a blanco
          * ============================================================ */
+
+        /* ── Filtros del directorio (taxonomía oficial ago-2026) ── */
+        .pu-filtros { display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:center; gap:10px 18px; margin-top:18px; }
+        .pu-f { display:flex; flex-direction:column; gap:4px; }
+        .pu-f > span { font-size:9.5px; letter-spacing:.2em; text-transform:uppercase; color:#9ca3af; font-weight:700; }
+        .pu-f select {
+            font-size:12.5px; color:#111827; background:transparent; border:0; border-bottom:1px solid #e5e7eb;
+            padding:5px 22px 5px 2px; min-width:150px; max-width:230px; cursor:pointer; appearance:none;
+            background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23999' stroke-width='1.4'/%3E%3C/svg%3E");
+            background-repeat:no-repeat; background-position:right 4px center; background-size:9px;
+        }
+        .pu-f select:focus { outline:none; border-bottom-color:#7f188c; }
+        .pu-open, .pu-clear { font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; font-weight:700; cursor:pointer; background:none; padding:7px 14px; transition:all .2s; }
+        .pu-open { border:1px solid #e5e7eb; color:#9ca3af; border-radius:999px; }
+        .pu-open.on { border-color:#7f188c; background:#7f188c; color:#fff; }
+        .pu-clear { border:0; color:#9ca3af; text-decoration:underline; text-underline-offset:3px; }
+        .pu-clear:hover { color:#7f188c; }
+        .pu-f.off, .pu-open.off { display:none; }
+        @media (max-width:720px){ .pu-filtros{gap:8px 12px;} .pu-f select{min-width:132px; max-width:46vw;} }
+        /* Acciones de la ficha */
+        .pu-acts { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 4px; }
+        .pu-acts a { display:inline-flex; align-items:center; gap:7px; font-size:11px; letter-spacing:.14em;
+            text-transform:uppercase; font-weight:700; color:#111827; border:1px solid #e5e7eb; border-radius:999px;
+            padding:9px 15px; text-decoration:none; transition:all .2s; white-space:nowrap; }
+        .pu-acts a:hover { border-color:#7f188c; background:#7f188c; color:#fff; }
+        .pu-acts a.wa:hover { border-color:#25d366; background:#25d366; color:#fff; }
+        @media (max-width:620px){ .pu-acts a{font-size:10px; padding:8px 12px;} }
+
         .store-card-tile {
             background-color: #ffffff;
             transition: background-color .45s ease, border-color .45s ease, box-shadow .45s ease;
@@ -265,50 +293,23 @@
                 <!-- Elegant Filter Bar -->
                 <div class="sticky top-24 z-30 bg-white/95 backdrop-blur-md py-6 mb-16 border-b border-gray-100 transition-all duration-300" id="filter-bar">
                     <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                        <!-- Tabs for Categories -->
-                        <div class="w-full flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
-                            <button class="filter-btn text-xs font-bold uppercase tracking-[0.2em] text-plaza-purple hover:text-plaza-gold transition-colors relative active-filter" data-category="all">Todo<span class="absolute -bottom-2 left-0 w-full h-px bg-plaza-purple hidden active-line"></span></button>
-                            <button class="filter-btn text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative" data-category="Entretenimiento">Entretenimiento</button>
-                            <div class="dir-cat">
-                                <button class="filter-btn dir-parent text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative" data-category="Gastronomía">Gastronomía</button>
-                                <div class="dir-drop">
-                                    <button class="filter-btn dir-sub" data-category="Cafeterías">Cafeterías</button>
-                                    <button class="filter-btn dir-sub" data-category="Fast food">Fast food</button>
-                                    <button class="filter-btn dir-sub" data-category="Restaurantes">Restaurantes</button>
-                                    <button class="filter-btn dir-sub" data-category="Snacks">Snacks</button>
-                                </div>
-                            </div>
-                            <div class="dir-cat">
-                                <button class="filter-btn dir-parent text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative" data-category="Retail / Tiendas">Retail / Tiendas</button>
-                                <div class="dir-drop">
-                                    <button class="filter-btn dir-sub" data-category="Beauty &amp; wellness">Beauty &amp; wellness</button>
-                                    <button class="filter-btn dir-sub" data-category="Casa">Casa</button>
-                                    <button class="filter-btn dir-sub" data-category="Departamentales">Departamentales</button>
-                                    <button class="filter-btn dir-sub" data-category="Especialidades">Especialidades</button>
-                                    <button class="filter-btn dir-sub" data-category="Joyería">Joyería</button>
-                                    <button class="filter-btn dir-sub" data-category="Moda y estilo">Moda y estilo</button>
-                                </div>
-                            </div>
-                            <div class="dir-cat">
-                                <button class="filter-btn dir-parent text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative" data-category="Servicios">Servicios</button>
-                                <div class="dir-drop">
-                                    <button class="filter-btn dir-sub" data-category="Bancos">Bancos</button>
-                                </div>
-                            </div>
-                            <div class="dir-cat">
-                                <button class="filter-btn dir-parent text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative" data-category="Telefonía y Tecnología">Telefonía y Tecnología</button>
-                                <div class="dir-drop">
-                                    <button class="filter-btn dir-sub" data-category="Automotriz">Automotriz</button>
-                                    <button class="filter-btn dir-sub" data-category="Tecnología">Tecnología</button>
-                                    <button class="filter-btn dir-sub" data-category="Telefonía">Telefonía</button>
-                                </div>
-                            </div>
+                        <!-- Filtros: se construyen desde la taxonomía oficial, solo con ramas que tienen locatarios -->
+                        <div class="w-full flex flex-wrap items-center justify-center gap-x-7 gap-y-3" id="fam-bar">
+                            <button class="filter-btn text-xs font-bold uppercase tracking-[0.2em] text-plaza-purple hover:text-plaza-gold transition-colors relative active-filter" data-fam="all">Todo</button>
                         </div>
-                    <!-- Search -->
+                        <!-- Search -->
                         <div class="relative w-full md:w-64 group">
                             <input type="text" id="search-store" placeholder="Buscar..." class="w-full bg-transparent border-b border-gray-200 py-2 pl-0 pr-8 font-serif italic text-plaza-black focus:outline-none focus:border-plaza-gold placeholder-gray-300 transition-colors">
                             <i class="fas fa-search absolute right-0 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-plaza-gold transition-colors"></i>
                         </div>
+                    </div>
+                    <div class="pu-filtros" id="pu-filtros">
+                        <label class="pu-f"><span>Categoría</span><select id="fsCat"></select></label>
+                        <label class="pu-f"><span>Subcategoría</span><select id="fsSub"></select></label>
+                        <label class="pu-f" id="fsNivWrap"><span>Nivel</span><select id="fsNiv"></select></label>
+                        <label class="pu-f" id="fsZonWrap"><span>Zona</span><select id="fsZon"></select></label>
+                        <button type="button" class="pu-open" id="fsOpen">Abierto ahora</button>
+                        <button type="button" class="pu-clear" id="fsClear">Limpiar</button>
                     </div>
                 </div>
 
@@ -854,4 +855,214 @@
 
 
 
+
+<script>
+/* ══ TAXONOMÍA OFICIAL DE CENTROS COMERCIALES · Inmuebles Carso, ago-2026 ══
+   4 familias › 24 categorías › subcategorías. El directorio solo pinta las ramas
+   que tienen locatarios: ninguna categoría vacía llega al visitante.            */
+(function () {
+    var TAXO = {"Compras":{"Tiendas Departamentales":["Tiendas departamentales"],"Moda":["Mujer","Hombre","Infantil y bebés","Ropa interior y lencería","Calzado","Bolsas y accesorios","Moda deportiva","Trajes de baño","Uniformes"],"Joyería, Relojería y Accesorios":["Joyerías","Relojerías","Bisutería","Accesorios"],"Belleza y Cuidado Personal":["Cosméticos","Perfumerías","Skincare","Productos para el cabello","Barberías","Salones de belleza","Uñas","Spas","Depilación y tratamientos estéticos"],"Hogar, Decoración y Diseño":["Muebles","Decoración","Iluminación","Blancos","Cocina y mesa","Organización","Diseño e interiorismo","Florerías"],"Tecnología y Electrónica":["Telefonía celular","Computación","Electrónica","Audio y video","Accesorios tecnológicos","Reparación y soporte"],"Deportes y Bienestar":["Ropa y calzado deportivo","Artículos deportivos","Gimnasios","Estudios especializados","Nutrición y bienestar"],"Niños":["Moda infantil","Jugueterías","Bebés y maternidad","Educación y actividades"],"Regalos, Cultura y Entretenimiento":["Librerías","Papelerías","Regalos","Arte y galerías","Música","Coleccionables","Hobbies"],"Mascotas":["Tiendas para mascotas","Veterinarias","Estética canina","Alimentos y accesorios"],"Tiendas Especializadas":["Supermercados","Tiendas gourmet","Vinos y productos especializados","Conveniencia","Productos orgánicos","Tiendas de variedad"]},"Gastronomía":{"Restaurantes":["Cocina mexicana","Internacional","Italiana","Asiática","Japonesa","Mediterránea","Cortes y parrilla","Mariscos","Casual dining"],"Cafés y Desayunos":["Cafeterías","Coffee shops","Desayunos y brunch","Panaderías"],"Dulces y Postres":["Pastelerías","Chocolaterías","Dulcerías","Heladerías","Reposterías"],"Comida Rápida y Casual":["Fast food","Snacks"],"Bares y Vida Social":["Bares","Terrazas","Wine bars","Coctelería"]},"Servicios":{"Bancos y Servicios Financieros":["Bancos","Cajeros automáticos","Casas de cambio","Seguros","Servicios financieros"],"Salud y Medicina":["Consultorios médicos","Clínicas","Dentistas","Laboratorios","Farmacias","Fisioterapia y rehabilitación","Psicología","Nutrición"],"Ópticas y Audición":["Ópticas","Lentes y accesorios","Audiología"],"Educación":["Escuelas y academias","Idiomas","Arte y música","Cursos y talleres","Actividades infantiles","Capacitación"],"Servicios Personales":["Tintorerías","Lavanderías","Sastrerías y composturas","Zapaterías y reparación","Cerrajerías","Fotografía","Paquetería y mensajería"],"Servicios Profesionales":["Oficinas","Coworking","Agencias","Consultorías","Servicios jurídicos","Servicios contables","Inmobiliarias"],"Automotriz":["Agencias y showrooms","Lavado de autos","Detallado automotriz","Accesorios automotrices","Valet parking"]},"Entretenimiento":{"Entretenimiento":["Cines","Boliche","Juegos y arcades","Experiencias","Entretenimiento familiar","Entretenimiento infantil","Centros de diversión","Eventos y exposiciones"]}};
+    var CAT_FIX = {"byd":"Agencias y showrooms","ford":"Agencias y showrooms","inbursa":"Bancos","barber street":"Barberías","dax":"Productos para el cabello","enrique bricker":"Salones de belleza","moor spa & nails":"Uñas","svenson":"Depilación y tratamientos estéticos","city cafe":"Cafeterías","coffee tree":"Coffee shops","hello kitty cafe":"Cafeterías","izlah":"Cafeterías","starbucks":"Coffee shops","miniso":"Tiendas de variedad","city market":"Supermercados","sanborns":"Tiendas departamentales","acuario interactivo":"Experiencias","cinepolis":"Cines","flyover mexico":"Experiencias","gokart mania":"Centros de diversión","inspark":"Entretenimiento familiar","burger king":"Fast food","cosecha sana":"Fast food","daylight salads":"Fast food","domino's pizza":"Fast food","dynasty":"Asiática","jimmy joe chicken & grill":"Fast food","las flautas":"Cocina mexicana","o'kai poke bowls":"Japonesa","pizza maestra":"Italiana","poxtli":"Cocina mexicana","pio grill":"Fast food","subway":"Fast food","sushi itto":"Japonesa","wings army":"Casual dining","54d":"Estudios especializados","lomas studio":"Estudios especializados","sport city":"Gimnasios","masters":"Relojerías","nardo":"Joyerías","pandora":"Joyerías","ivonne":"Mujer","julio":"Hombre","pineda covalin":"Bolsas y accesorios","scappino":"Hombre","applebee's":"Casual dining","asadero beef":"Cortes y parrilla","asaderos grill":"Cortes y parrilla","biscotto":"Italiana","caballo bayo":"Cocina mexicana","carolo":"Italiana","la imperial":"Cocina mexicana","la raclette":"Internacional","loma linda":"Cortes y parrilla","p.f. chang's":"Asiática","vapiano":"Italiana","academia europea":"Escuelas y academias","bestday":"Agencias","dentalia":"Dentistas","showroom":"Tiendas departamentales","chilim balam":"Dulcerías","dolphy":"Dulcerías","la crepe parisienne":"Reposterías","le macaron":"Pastelerías","nutrisa":"Heladerías","santa clara":"Heladerías","spyral":"Snacks","garmin":"Electrónica","mixup":"Música","samsung":"Electrónica","steren":"Electrónica","ishop":"Computación","telcel":"Telefonía celular","la europea":"Vinos y productos especializados","park n wash":"Lavado de autos","banco santander":"Bancos","banorte":"Bancos","cibanco":"Bancos","hsbc":"Bancos","+ vision por menos precio":"Ópticas","centro de belleza":"Salones de belleza","estetica imagen":"Salones de belleza","gnc general nutrition center":"Nutrición y bienestar","grenitas":"Salones de belleza","nailkery":"Uñas","trendy accesories":"Accesorios","villa bella salon":"Salones de belleza","opticas devlyn":"Ópticas","cassava roots":"Coffee shops","cielito querido cafe":"Cafeterías","luuna":"Blancos","mumuso":"Tiendas de variedad","deportes marti":"Artículos deportivos","neria's deportes":"Artículos deportivos","sears":"Tiendas departamentales","suburbia":"Tiendas departamentales","yak":"Juegos y arcades","free life":"Productos orgánicos","green grass addictive salads":"Fast food","kentucky fried chicken (kfc)":"Fast food","king wok & grill":"Asiática","mcdonald's":"Fast food","sbarro":"Fast food","sukiya tokio bowls & noodles":"Japonesa","sushi roll":"Japonesa","bizzarro":"Joyerías","cristal joyas":"Joyerías","aldo conti":"Hombre","antela rossi":"Mujer","bari":"Calzado","bio-relax":"Calzado","dorothy gaynor":"Calzado","el borcegui":"Calzado","fajas ann chery":"Ropa interior y lencería","ferrioni":"Hombre","flexi":"Calzado","fullsand":"Moda deportiva","giolini":"Calzado","innvictus":"Calzado","jarking":"Calzado","la milagresa":"Mujer","liz minelli":"Mujer","men's fashion":"Hombre","michel domit":"Calzado","new era":"Bolsas y accesorios","quirelli":"Calzado","robert's":"Hombre","samsonite":"Bolsas y accesorios","shasa":"Mujer","skechers":"Calzado","soley":"Mujer","taf":"Calzado","tactical 5.11":"Uniformes","todo moda":"Bisutería","vans":"Calzado","vittorio forti":"Calzado","chili's":"Casual dining","el porton":"Cocina mexicana","italianni's":"Italiana","vips":"Casual dining","business & therapy place":"Oficinas","medicor":"Consultorios médicos","chocolates turin":"Chocolaterías","krispy kreme":"Reposterías","monkey papas":"Snacks","game planet":"Hobbies","steren shop":"Electrónica","la casa de las carcasas":"Accesorios tecnológicos","mobo shop":"Accesorios tecnológicos"};
+    var LEGACY = {"Fast food":"Fast food","Snacks":"Snacks","Restaurantes":"Casual dining","Cafeterías":"Cafeterías","Beauty & wellness":"Salones de belleza","Casa":"Decoración","Departamentales":"Tiendas departamentales","Joyería":"Joyerías","Moda y estilo":"Mujer","Vinos y licores":"Vinos y productos especializados","Bancos":"Bancos","Fitness":"Gimnasios","Automotriz":"Agencias y showrooms","Tecnología":"Electrónica","Telefonía":"Telefonía celular","Entretenimiento":"Experiencias","Especialidades":"Tiendas especializadas","Servicios":"Oficinas"};
+    var EXTRA = {};                                   // zona · WhatsApp · horario por día
+    var PLAZA_HOR = { abre: 11 * 60, cierra: 21 * 60 };
+    var PLAZA_DIR = 'Plaza Universidad, Av. Universidad 1000, Del Valle, 03100, CDMX';
+
+    function norm(t) {
+        return (t || '').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+    }
+    var PADRE = {};
+    for (var f in TAXO) for (var c in TAXO[f]) TAXO[f][c].forEach(function (h) { PADRE[h] = [f, c]; });
+
+    var grid = document.getElementById('stores-grid');
+    if (!grid) return;
+    var cards = [].slice.call(grid.querySelectorAll('div[onclick]'));
+
+    function datos(card) {
+        var m = (card.getAttribute('onclick') || '').match(/openDirectoryModal\(\s*'((?:\\'|[^'])*)'\s*,\s*'((?:\\'|[^'])*)'\s*,\s*'((?:\\'|[^'])*)'\s*,\s*'((?:\\'|[^'])*)'\s*,\s*'((?:\\'|[^'])*)'\s*,\s*'((?:\\'|[^'])*)'/);
+        if (!m) return null;
+        return { name: m[1].replace(/\\'/g, "'"), loc: m[5], time: m[6] };
+    }
+    // Clasificar cada tarjeta con la taxonomía nueva
+    cards.forEach(function (card) {
+        var d = datos(card); if (!d) return;
+        var vieja = card.getAttribute('data-category') || '';
+        var hoja = CAT_FIX[norm(d.name)] || LEGACY[vieja] || vieja;
+        var p = PADRE[hoja] || ['Otros', 'Otros'];
+        card.setAttribute('data-category', hoja);
+        card.setAttribute('data-par', p[1]);
+        card.setAttribute('data-fam', p[0]);
+        card.setAttribute('data-niv', d.loc || '');
+        var x = EXTRA[norm(d.name)] || {};
+        if (x.zona) card.setAttribute('data-zona', x.zona);
+        card.setAttribute('data-hor', (x.hor && (x.hor.todos || '')) || d.time || '');
+        card.setAttribute('data-name', d.name);
+    });
+
+    function abierto(card) {
+        var r = card.getAttribute('data-hor') || '';
+        var d = new Date(), min = d.getHours() * 60 + d.getMinutes();
+        var m = r.match(/(\d{1,2})[:.](\d{2})\s*[-–—a]+\s*(\d{1,2})[:.](\d{2})/);
+        if (m) { var a = +m[1] * 60 + +m[2], b = +m[3] * 60 + +m[4]; return min >= a && min < b; }
+        if (/cerrado/i.test(r)) return false;
+        return min >= PLAZA_HOR.abre && min < PLAZA_HOR.cierra;
+    }
+
+    // Ramas ocupadas de verdad
+    var VIVAS = {};
+    cards.forEach(function (c) {
+        var fa = c.getAttribute('data-fam'), pa = c.getAttribute('data-par'), ho = c.getAttribute('data-category');
+        VIVAS[fa] = VIVAS[fa] || {}; VIVAS[fa][pa] = VIVAS[fa][pa] || {}; VIVAS[fa][pa][ho] = 1;
+    });
+
+    var aFam = 'all', aCat = '', aSub = '', aNiv = '', aZon = '', aAbierto = false, aBusca = '';
+
+    var bar = document.getElementById('fam-bar');
+    var btnTodo = bar.querySelector('[data-fam="all"]');
+    Object.keys(TAXO).filter(function (f) { return VIVAS[f]; })
+        .concat(VIVAS['Otros'] ? ['Otros'] : [])
+        .forEach(function (fam) {
+            var b = document.createElement('button');
+            b.className = 'filter-btn text-xs font-bold uppercase tracking-[0.25em] text-gray-400 hover:text-plaza-black transition-colors relative';
+            b.setAttribute('data-fam', fam);
+            b.textContent = fam;
+            bar.appendChild(b);
+        });
+    function marcarFam() {
+        [].forEach.call(bar.querySelectorAll('.filter-btn'), function (b) {
+            var on = b.getAttribute('data-fam') === aFam;
+            b.classList.toggle('text-plaza-purple', on);
+            b.classList.toggle('active-filter', on);
+            b.classList.toggle('text-gray-400', !on);
+        });
+    }
+    bar.addEventListener('click', function (e) {
+        var b = e.target.closest('.filter-btn'); if (!b) return;
+        aFam = b.getAttribute('data-fam'); aCat = ''; aSub = '';
+        marcarFam(); pintarSelects(); aplicar();
+    });
+
+    function opts(sel, lista, etiqueta, valor) {
+        sel.innerHTML = '<option value="">' + etiqueta + '</option>' + lista.map(function (v) {
+            return '<option value="' + v.replace(/"/g, '&quot;') + '">' + v + '</option>';
+        }).join('');
+        sel.value = lista.indexOf(valor) >= 0 ? valor : '';
+    }
+    var elCat = document.getElementById('fsCat'), elSub = document.getElementById('fsSub'),
+        elNiv = document.getElementById('fsNiv'), elZon = document.getElementById('fsZon'),
+        elOpen = document.getElementById('fsOpen'), elClear = document.getElementById('fsClear');
+
+    function pintarSelects() {
+        var cats = [];
+        Object.keys(VIVAS).forEach(function (f) {
+            if (aFam === 'all' || f === aFam) cats = cats.concat(Object.keys(VIVAS[f]));
+        });
+        cats = cats.filter(function (v, i, a) { return a.indexOf(v) === i; })
+                   .sort(function (a, b) { return a.localeCompare(b, 'es'); });
+        opts(elCat, cats, 'Todas', aCat);
+        var subs = [];
+        Object.keys(VIVAS).forEach(function (f) {
+            if (aFam !== 'all' && f !== aFam && !aCat) return;
+            Object.keys(VIVAS[f]).forEach(function (c) {
+                if (aCat && c !== aCat) return;
+                subs = subs.concat(Object.keys(VIVAS[f][c]));
+            });
+        });
+        subs = subs.filter(function (v, i, a) { return a.indexOf(v) === i; })
+                   .sort(function (a, b) { return a.localeCompare(b, 'es'); });
+        opts(elSub, subs, 'Todas', aSub);
+        var vals = function (attr) {
+            return cards.map(function (c) { return c.getAttribute(attr) || ''; })
+                .filter(function (v, i, a) { return v && a.indexOf(v) === i; })
+                .sort(function (a, b) { return a.localeCompare(b, 'es'); });
+        };
+        var nivs = vals('data-niv'), zons = vals('data-zona');
+        opts(elNiv, nivs, 'Todos', aNiv);
+        opts(elZon, zons, 'Todas', aZon);
+        document.getElementById('fsNivWrap').classList.toggle('off', nivs.length < 2);
+        document.getElementById('fsZonWrap').classList.toggle('off', zons.length < 2);
+    }
+    function aplicar() {
+        var n = 0;
+        cards.forEach(function (c) {
+            var ok = (aFam === 'all' || c.getAttribute('data-fam') === aFam)
+                && (!aCat || c.getAttribute('data-par') === aCat)
+                && (!aSub || c.getAttribute('data-category') === aSub)
+                && (!aNiv || c.getAttribute('data-niv') === aNiv)
+                && (!aZon || c.getAttribute('data-zona') === aZon)
+                && (!aAbierto || abierto(c));
+            if (ok && aBusca) {
+                var t = (c.getAttribute('data-name') + ' ' + c.getAttribute('data-category') + ' '
+                       + c.getAttribute('data-par') + ' ' + c.getAttribute('data-fam')).toLowerCase();
+                ok = t.indexOf(aBusca) >= 0;
+            }
+            c.style.display = ok ? '' : 'none';
+            if (ok) n++;
+        });
+        var ct = document.getElementById('pu-count');
+        if (ct) {
+            var et = aSub || aCat || (aFam !== 'all' ? aFam : '');
+            ct.textContent = (aBusca || et || aAbierto)
+                ? n + ' tienda' + (n !== 1 ? 's' : '') + (et ? ' en ' + et : '') + (aAbierto ? ' abiertas ahora' : '')
+                : '';
+        }
+    }
+    elCat.addEventListener('change', function () { if (elCat.value !== aCat) aSub = ''; aCat = elCat.value; sincronizaFam(); pintarSelects(); aplicar(); });
+    elSub.addEventListener('change', function () { aSub = elSub.value; aplicar(); });
+    elNiv.addEventListener('change', function () { aNiv = elNiv.value; aplicar(); });
+    elZon.addEventListener('change', function () { aZon = elZon.value; aplicar(); });
+    elOpen.addEventListener('click', function () { aAbierto = !aAbierto; elOpen.classList.toggle('on', aAbierto); aplicar(); });
+    elClear.addEventListener('click', function () {
+        aFam = 'all'; aCat = aSub = aNiv = aZon = ''; aAbierto = false; aBusca = '';
+        var si = document.getElementById('search-store'); if (si) si.value = '';
+        elOpen.classList.remove('on'); marcarFam(); pintarSelects(); aplicar();
+    });
+    function sincronizaFam() {
+        if (!aCat) return;
+        for (var f in VIVAS) if (VIVAS[f][aCat]) { aFam = f; marcarFam(); return; }
+    }
+    // El buscador del diseño pasa por aquí (main.js ya no manda en el grid)
+    var si = document.getElementById('search-store');
+    if (si) {
+        var clon = si.cloneNode(true);
+        si.parentNode.replaceChild(clon, si);
+        clon.addEventListener('input', function () { aBusca = clon.value.trim().toLowerCase(); aplicar(); });
+    }
+    // Contador de resultados
+    var cont = document.createElement('p');
+    cont.id = 'pu-count';
+    cont.className = 'text-center text-xs uppercase tracking-[0.2em] text-gray-400 mb-8';
+    grid.parentNode.insertBefore(cont, grid);
+
+    marcarFam(); pintarSelects(); aplicar();
+
+    /* ── Acciones de la ficha: Llamar · WhatsApp · Sitio web · Cómo llegar ── */
+    var IA = {
+        tel: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>',
+        wa: '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2zm5.5 12.4c-.3-.2-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6a2 2 0 0 0 .3-.5.6.6 0 0 0 0-.6l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4A3.4 3.4 0 0 0 5.8 9c0 1.5 1.1 3 1.2 3.2a12 12 0 0 0 4.7 4.1c1.7.7 2 .6 2.4.5a3 3 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4z"/></svg>',
+        web: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>',
+        map: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>'
+    };
+    var box = document.getElementById('modal-social');
+    if (box) {
+        var acts = document.createElement('div');
+        acts.className = 'pu-acts'; acts.id = 'pu-acts';
+        box.parentNode.insertBefore(acts, box.nextSibling);
+        var orig = window._applyStoreToModal;
+        window._applyStoreToModal = function (s) {
+            orig.apply(this, arguments);
+            var tel = (window._storePhones || {})[s.title] || '';
+            var x = EXTRA[norm(s.title)] || {};
+            var soc = (window._storeSocials || {})[s.title] || {};
+            var h = '';
+            if (tel) h += '<a href="tel:' + tel.replace(/\D/g, '') + '">' + IA.tel + ' Llamar</a>';
+            if (x.wa) h += '<a class="wa" target="_blank" rel="noopener" href="https://wa.me/' + String(x.wa).replace(/\D/g, '') + '">' + IA.wa + ' WhatsApp</a>';
+            if (x.web || (soc.web && soc.web !== '#')) h += '<a target="_blank" rel="noopener" href="' + (x.web || soc.web) + '">' + IA.web + ' Sitio web</a>';
+            h += '<a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination='
+               + encodeURIComponent(PLAZA_DIR) + '">' + IA.map + ' Cómo llegar</a>';
+            acts.innerHTML = h;
+        };
+    }
+})();
+</script>
 </body></html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://josegaspard.github.io/hgroup-plaza-universidad/sitemap.xml
