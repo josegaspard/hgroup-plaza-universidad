@@ -398,6 +398,7 @@
                 <span id="modal-cat" class="text-plaza-purple font-bold uppercase tracking-[0.3em] text-xs mb-6 block"></span>
                 <h2 id="modal-title" class="text-4xl md:text-5xl lg:text-6xl font-serif text-plaza-black mb-6 leading-tight">
                 </h2>
+                <span id="modal-desc-label" class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 block mb-2">Descripción</span>
                 <p id="modal-desc" class="text-gray-600 font-sans text-base md:text-lg leading-relaxed mb-10 max-w-lg">
                 </p>
 
@@ -1040,6 +1041,10 @@
         document.getElementById('modal-zona').innerText = zona || 'Por definir';
         document.getElementById('modal-wa').innerText = x.wa || 'No disponible';
         var ib = document.getElementById('modal-info-block'); if (ib) ib.style.display = '';
+        // Descripción: campo etiquetado, como lo pide la ficha del cliente.
+        var de = document.getElementById('modal-desc');
+        if (de) { de.innerText = s.desc || 'Sin descripción cargada'; de.style.display = ''; }
+        var dl = document.getElementById('modal-desc-label'); if (dl) dl.style.display = '';
         var tel = (window._storePhones || {})[s.title] || PLAZA.tel;
         var soc = (window._storeSocials || {})[s.title] || {};
         var web = x.web || (soc.web && soc.web !== '#' ? soc.web : '');
