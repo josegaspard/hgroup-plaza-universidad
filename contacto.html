@@ -244,6 +244,10 @@
                         <input type="hidden" id="EmailPlaza" name="EmailPlaza" value="aux.puniversidad@incarso.com">
                         <input type="hidden" id="NombrePlaza" name="NombrePlaza" value="Plaza Universidad">
 
+                        <!-- Comentario, Nombre y Email — los 3 campos que pidió el cliente (26-ago-2026) -->
+                        <div class="group">
+                            <textarea id="Mensaje" name="Mensaje" rows="3" required="" placeholder="Comentario" class="w-full bg-transparent border-b border-gray-200 py-3 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors placeholder-gray-300 resize-none"></textarea>
+                        </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="group">
                                 <input id="NombreContacto" name="NombreContacto" type="text" placeholder="Nombre" required="" class="w-full bg-transparent border-b border-gray-200 py-3 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors placeholder-gray-300">
@@ -252,20 +256,9 @@
                                 <input id="EmailContacto" name="EmailContacto" type="email" placeholder="Email" required="" class="w-full bg-transparent border-b border-gray-200 py-3 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors placeholder-gray-300">
                             </div>
                         </div>
-                        <!-- Teléfono: requerido por enviarCorreo.php -->
-                        <div class="group">
-                            <input id="TelefonoContacto" name="TelefonoContacto" type="tel" placeholder="Tu teléfono (10 dígitos)" maxlength="10" required="" class="w-full bg-transparent border-b border-gray-200 py-3 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors placeholder-gray-300">
-                        </div>
-                        <!-- tipoMensaje: valor 1=Quejas y Sugerencias, 2=Espacios Disponibles (mapea con la BD del servidor) -->
-                        <div class="group">
-                            <select id="tipoMensaje" name="tipoMensaje" required="" class="w-full bg-transparent border-b border-gray-200 py-3 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors appearance-none cursor-pointer">
-                                <option value="" disabled="" selected="">¿Sobre qué nos quieres hablar?</option>
-                                <option value="1">Quejas y Sugerencias</option>
-                            </select>
-                        </div>
-                        <div class="group">
-                            <textarea id="Mensaje" name="Mensaje" rows="3" required="" placeholder="Comentario" class="w-full bg-transparent border-b border-gray-200 py-3 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors placeholder-gray-300 resize-none"></textarea>
-                        </div>
+                        <!-- enviarCorreo.php sigue recibiendo los 7 campos de siempre: tipoMensaje=1 enruta al correo de la plaza -->
+                        <input type="hidden" id="tipoMensaje" name="tipoMensaje" value="1">
+                        <input type="hidden" id="TelefonoContacto" name="TelefonoContacto" value="">
                         <!-- Aviso de Privacidad: requerido por el servidor (oculto visualmente pero funcional) -->
                         <div class="flex items-start gap-2 text-xs text-gray-400 font-sans">
                             <input type="checkbox" id="chkAvisoPrivacidad" name="AvisoPrivacidad" value="true" required="" class="mt-0.5 accent-plaza-purple">
@@ -281,65 +274,58 @@
                 </div>
             </div>
 
-            <!-- ROW 2: Espacios disponibles (Avisos eliminados a petición del cliente abr 2026) -->
+            <!-- ROW 2: Renta de locales — presentación sutil y solo en contacto (petición del cliente 26-ago-2026) -->
             <div class="max-w-4xl mx-auto mb-16">
 
-                <!-- ESPACIOS DISPONIBLES -->
-                <div class="contact-card bg-plaza-black text-white rounded-sm p-8 md:p-10">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-12 h-12 md:w-14 md:h-14 bg-plaza-gold/20 rounded-full flex items-center justify-center shrink-0">
-                            <i class="fas fa-store-alt text-plaza-gold text-lg md:text-xl"></i>
-                        </div>
-                        <div>
-                            <span class="text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-plaza-gold block mb-1">Renta de locales</span>
-                            <h3 class="text-3xl md:text-4xl font-serif text-white leading-tight">¿Quieres que tu marca esté en Plaza Universidad?</h3>
-                        </div>
-                    </div>
+                <div class="contact-card bg-white border border-gray-200 rounded-sm p-8 md:p-10">
+                    <span class="text-plaza-gold text-[10px] font-bold uppercase tracking-[0.3em] block mb-2">Renta de locales</span>
+                    <h3 class="text-2xl md:text-3xl font-serif text-plaza-black mb-8">Plaza Universidad. El lugar para tu marca.</h3>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                        <a href="tel:5554741430" class="flex items-center gap-3 bg-white/5 rounded-lg px-4 py-3 hover:bg-white/10 transition-colors group">
-                            <div class="w-10 h-10 bg-plaza-gold/20 rounded-full flex items-center justify-center shrink-0">
-                                <i class="fas fa-phone text-plaza-gold text-sm"></i>
-                            </div>
-                            <div>
-                                <span class="text-[9px] uppercase tracking-wider text-gray-500 block">Teléfono 1</span>
-                                <span class="text-white font-bold text-sm group-hover:text-plaza-gold transition-colors">(55) 5474 1430</span>
-                            </div>
+                    <!-- Teléfonos y correo de contacto: se respetan tal cual pidió el cliente -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
+                        <a href="tel:5554741430" class="flex items-center gap-3 bg-gray-50 hover:bg-plaza-gold/10 transition-colors rounded-sm px-4 py-3 group">
+                            <i class="fas fa-phone text-plaza-gold text-sm shrink-0" aria-hidden="true"></i>
+                            <span class="min-w-0">
+                                <span class="text-[9px] uppercase tracking-wider text-gray-400 block">Teléfono 1</span>
+                                <span class="text-sm font-medium text-plaza-black group-hover:text-plaza-purple transition-colors">(55) 5474 1430</span>
+                            </span>
                         </a>
-                        <a href="tel:5554741680" class="flex items-center gap-3 bg-white/5 rounded-lg px-4 py-3 hover:bg-white/10 transition-colors group">
-                            <div class="w-10 h-10 bg-plaza-gold/20 rounded-full flex items-center justify-center shrink-0">
-                                <i class="fas fa-phone text-plaza-gold text-sm"></i>
-                            </div>
-                            <div>
-                                <span class="text-[9px] uppercase tracking-wider text-gray-500 block">Teléfono 2</span>
-                                <span class="text-white font-bold text-sm group-hover:text-plaza-gold transition-colors">(55) 5474 1680</span>
-                            </div>
+                        <a href="tel:5554741680" class="flex items-center gap-3 bg-gray-50 hover:bg-plaza-gold/10 transition-colors rounded-sm px-4 py-3 group">
+                            <i class="fas fa-phone text-plaza-gold text-sm shrink-0" aria-hidden="true"></i>
+                            <span class="min-w-0">
+                                <span class="text-[9px] uppercase tracking-wider text-gray-400 block">Teléfono 2</span>
+                                <span class="text-sm font-medium text-plaza-black group-hover:text-plaza-purple transition-colors">(55) 5474 1680</span>
+                            </span>
                         </a>
-                        <a href="mailto:informacion.comercial@incarso.com" class="flex items-center gap-3 bg-white/5 rounded-lg px-4 py-3 hover:bg-white/10 transition-colors group">
-                            <div class="w-10 h-10 bg-plaza-gold/20 rounded-full flex items-center justify-center shrink-0">
-                                <i class="fas fa-envelope text-plaza-gold text-sm"></i>
-                            </div>
-                            <div class="min-w-0">
-                                <span class="text-[9px] uppercase tracking-wider text-gray-500 block">Email</span>
-                                <span class="text-white font-bold text-xs sm:text-sm group-hover:text-plaza-gold transition-colors truncate block">informacion.comercial@incarso.com</span>
-                            </div>
+                        <a href="mailto:informacion.comercial@incarso.com" class="flex items-center gap-3 bg-gray-50 hover:bg-plaza-gold/10 transition-colors rounded-sm px-4 py-3 group">
+                            <i class="fas fa-envelope text-plaza-gold text-sm shrink-0" aria-hidden="true"></i>
+                            <span class="min-w-0">
+                                <span class="text-[9px] uppercase tracking-wider text-gray-400 block">Email</span>
+                                <span class="text-xs sm:text-sm font-medium text-plaza-black group-hover:text-plaza-purple transition-colors truncate block">informacion.comercial@incarso.com</span>
+                            </span>
                         </a>
                     </div>
 
-                    <!-- Formulario de contacto renta -->
-                    <form id="formulario-renta" class="space-y-5 border-t border-white/10 pt-8">
-                        <h3 class="text-sm font-bold uppercase tracking-wider text-plaza-gold mb-4">Solicitar
-                            información</h3>
+                    <!-- Solicitud de renta: mismos campos que el formulario de arriba; tipoMensaje=2 la enruta a informacion.comercial@incarso.com -->
+                    <form id="formulario-renta" action="enviarCorreo.php" method="post" class="space-y-5 border-t border-gray-200 pt-8">
+                        <input type="hidden" name="EmailPlaza" value="aux.puniversidad@incarso.com">
+                        <input type="hidden" name="NombrePlaza" value="Plaza Universidad">
+                        <input type="hidden" name="tipoMensaje" value="2">
+                        <div class="group">
+                            <textarea name="Mensaje" rows="2" required="" placeholder="Comentario" aria-label="Comentario" class="w-full bg-transparent border-b border-gray-200 py-3 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors placeholder-gray-300 resize-none"></textarea>
+                        </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input type="text" placeholder="Tu nombre" class="w-full bg-white/10 border border-white/20 py-3 px-4 font-sans font-light text-white placeholder-white/40 focus:outline-none focus:border-plaza-gold transition-colors text-sm">
-                            <input type="email" placeholder="Correo electrónico" class="w-full bg-white/10 border border-white/20 py-3 px-4 font-sans font-light text-white placeholder-white/40 focus:outline-none focus:border-plaza-gold transition-colors text-sm">
+                            <input type="text" name="NombreContacto" required="" placeholder="Nombre" aria-label="Nombre" class="w-full bg-transparent border-b border-gray-200 py-3 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors placeholder-gray-300">
+                            <input type="email" name="EmailContacto" required="" placeholder="Email" aria-label="Email" class="w-full bg-transparent border-b border-gray-200 py-3 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors placeholder-gray-300">
                         </div>
-                        <input type="tel" placeholder="Teléfono de contacto" class="w-full bg-white/10 border border-white/20 py-3 px-4 font-sans font-light text-white placeholder-white/40 focus:outline-none focus:border-plaza-gold transition-colors text-sm">
-                        <textarea rows="2" placeholder="Cuéntanos sobre tu negocio y necesidades de espacio..." class="w-full bg-white/10 border border-white/20 py-3 px-4 font-sans font-light text-white placeholder-white/40 focus:outline-none focus:border-plaza-gold transition-colors text-sm resize-none"></textarea>
-                        <button type="submit" class="w-full py-3 bg-plaza-gold text-plaza-black font-bold uppercase tracking-[0.2em] text-xs hover:bg-white transition-colors">
+                        <input type="tel" name="TelefonoContacto" maxlength="10" placeholder="Teléfono" aria-label="Teléfono" class="w-full bg-transparent border-b border-gray-200 py-3 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors placeholder-gray-300">
+                        <button type="submit" class="group flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-plaza-black hover:text-plaza-purple transition-colors mt-4">
                             Enviar solicitud
+                            <span class="w-12 h-px bg-plaza-black group-hover:w-20 group-hover:bg-plaza-purple transition-all duration-300"></span>
                         </button>
                     </form>
+
+                    <p class="mt-8 text-xs font-sans tracking-[0.15em] uppercase text-gray-400">Tu marca. Tu espacio. Plaza Universidad.</p>
                 </div>
             </div>
 

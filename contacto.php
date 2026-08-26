@@ -59,40 +59,26 @@ include("menu.php");
 
             <!-- FORM -->
             <div class="order-2 lg:order-1 fade-in-up">
-                <h3 class="text-xl md:text-2xl font-serif text-plaza-black mb-6 md:mb-8">Envíenos un mensaje</h3>
+                <h3 class="text-xl md:text-2xl font-serif text-plaza-black mb-6 md:mb-8">Cuéntanos tu experiencia</h3>
 
                 <form id="formulario" class="space-y-8 md:space-y-12" aria-label="Formulario de contacto">
-                    <div class="group relative">
-                        <select id="tipoMensaje" name="tipoMensaje"
-                            class="w-full bg-transparent border-b border-gray-200 py-3 md:py-4 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors appearance-none cursor-pointer text-sm md:text-base">
-                            <option value="" disabled selected>Seleccione el motivo de su contacto</option>
-                            <option value="1">Atención al Cliente</option>
-                            <option value="2">Renta de Espacios</option>
-                            <option value="3">Información General</option>
-                        </select>
-                        <i class="fas fa-chevron-down absolute right-0 top-1/2 -translate-y-1/2 text-gray-300 text-xs pointer-events-none"></i>
+                    <!-- Comentario, Nombre y Email: los 3 campos que pidió el cliente (26-ago-2026) -->
+                    <div class="group">
+                        <textarea id="Mensaje" name="Mensaje" rows="2" placeholder="Comentario" aria-label="Comentario" class="w-full bg-transparent border-b border-gray-200 py-3 md:py-4 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors placeholder-gray-300 resize-none h-auto min-h-[50px] text-sm md:text-base"></textarea>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                         <div class="group">
-                            <input id="NombreContacto" name="NombreContacto" type="text" placeholder="Su Nombre"
-                                class="w-full bg-transparent border-b border-gray-200 py-3 md:py-4 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors placeholder-gray-300 text-sm md:text-base">
+                            <input id="NombreContacto" name="NombreContacto" type="text" placeholder="Nombre" aria-label="Nombre" class="w-full bg-transparent border-b border-gray-200 py-3 md:py-4 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors placeholder-gray-300 text-sm md:text-base">
                         </div>
                         <div class="group">
-                            <input id="TelefonoContacto" name="TelefonoContacto" type="tel" placeholder="Teléfono"
-                                class="w-full bg-transparent border-b border-gray-200 py-3 md:py-4 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors placeholder-gray-300 text-sm md:text-base">
+                            <input id="EmailContacto" name="EmailContacto" type="email" placeholder="Email" aria-label="Email" class="w-full bg-transparent border-b border-gray-200 py-3 md:py-4 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors placeholder-gray-300 text-sm md:text-base">
                         </div>
                     </div>
 
-                    <div class="group">
-                        <input id="EmailContacto" name="EmailContacto" type="email" placeholder="Correo Electrónico"
-                            class="w-full bg-transparent border-b border-gray-200 py-3 md:py-4 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors placeholder-gray-300 text-sm md:text-base">
-                    </div>
-
-                    <div class="group">
-                        <textarea id="Mensaje" name="Mensaje" rows="1" placeholder="¿En qué podemos ayudarle?"
-                            class="w-full bg-transparent border-b border-gray-200 py-3 md:py-4 font-sans font-light text-plaza-black focus:outline-none focus:border-plaza-gold transition-colors placeholder-gray-300 resize-none h-auto min-h-[50px] text-sm md:text-base"></textarea>
-                    </div>
+                    <!-- enviarCorreo.php sigue recibiendo los 7 campos: tipoMensaje=1 enruta al correo de la plaza -->
+                    <input type="hidden" id="tipoMensaje" name="tipoMensaje" value="1">
+                    <input type="hidden" id="TelefonoContacto" name="TelefonoContacto" value="">
 
                     <!-- Hidden Inputs (backend fills these) -->
                     <?php echo '<input id="EmailPlaza" name="EmailPlaza" type="hidden" value="' . emailCC($CentroComercial) . '">'; ?>
@@ -100,7 +86,7 @@ include("menu.php");
 
                     <button type="submit" id="form-submit"
                         class="group flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-plaza-black hover:text-plaza-purple transition-colors mt-6 md:mt-8">
-                        Enviar Solicitud
+                        Enviar comentario
                         <span class="w-12 h-px bg-plaza-black group-hover:w-20 group-hover:bg-plaza-purple transition-all duration-300"></span>
                     </button>
                 </form>

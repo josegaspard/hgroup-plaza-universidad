@@ -45,7 +45,7 @@ echo '
         <!-- Bottom Row -->
         <div class="flex flex-col md:flex-row justify-between items-center pt-2 gap-6">
                 <div class="flex flex-col md:flex-row gap-2 md:gap-8 text-center md:text-left">
-                    <p class="text-[10px] text-gray-600 font-sans tracking-[0.2em] uppercase">&copy; 2026 Plaza Universidad.</p>
+                    <p class="text-[10px] text-gray-600 font-sans tracking-[0.2em] uppercase">&copy; Plaza Universidad.</p>
                 </div>
 
                 <div class="flex gap-8">

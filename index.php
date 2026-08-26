@@ -99,32 +99,6 @@ include("menu.php");
             ?>
         </div>
 
-        <!-- Espacios disponibles -->
-        <aside class="border-t border-gray-200 pt-6 md:pt-10 mt-6 md:mt-4">
-            <div class="bg-white border border-gray-200 rounded-sm p-5 md:p-8 max-w-2xl mx-auto text-center shadow-sm">
-                <span class="text-plaza-gold text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] block mb-2 md:mb-3">Espacios Disponibles</span>
-                <h3 class="text-xl md:text-2xl font-serif text-plaza-black mb-2 md:mb-3">¿Quieres abrir tu negocio aquí?</h3>
-                <p class="text-gray-500 font-light mb-4 md:mb-6 text-xs md:text-sm leading-relaxed">Contamos con locales comerciales disponibles en distintos niveles. Contáctanos para recibir información sobre renta de espacios.</p>
-                <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap justify-center sm:gap-4">
-                    <a href="tel:5554741430"
-                        class="flex items-center justify-center gap-2 text-sm text-plaza-black hover:text-plaza-gold transition-colors font-medium">
-                        <i class="fas fa-phone text-plaza-gold" aria-hidden="true"></i> (55) 5474 1430
-                    </a>
-                    <a href="tel:5554741680"
-                        class="flex items-center justify-center gap-2 text-sm text-plaza-black hover:text-plaza-gold transition-colors font-medium">
-                        <i class="fas fa-phone text-plaza-gold" aria-hidden="true"></i> (55) 5474 1680
-                    </a>
-                    <a href="mailto:informacion.comercial@incarso.com"
-                        class="flex items-center justify-center gap-2 text-xs md:text-sm text-plaza-black hover:text-plaza-gold transition-colors font-medium break-all sm:break-normal">
-                        <i class="fas fa-envelope text-plaza-gold shrink-0" aria-hidden="true"></i> informacion.comercial@incarso.com
-                    </a>
-                    <a href="contacto.php"
-                        class="flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-wider text-plaza-purple hover:text-plaza-gold transition-colors">
-                        <i class="fas fa-arrow-right text-[10px]" aria-hidden="true"></i> Contactar ahora
-                    </a>
-                </div>
-            </div>
-        </aside>
     </div>
 </section>
 
