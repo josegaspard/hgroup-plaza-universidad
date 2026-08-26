@@ -1000,6 +1000,33 @@
     var plano = document.getElementById('modal-plano');
     var acts = document.createElement('div'); acts.className = 'pu-acts'; acts.id = 'pu-acts';
     if (plano) { plano.style.display = 'none'; plano.parentNode.insertBefore(acts, plano); }
+    // ── ENLACE CON LA BASE DE DATOS DEL CLIENTE ────────────────────────────────
+    // Sus ingenieros dejan en data/locatarios-contacto.json un objeto con forma
+    //   { "Nombre de la tienda": { tel, wa, web, ig, fb, zona, hor:{lunvie,sabado,domingo} } }
+    // y la ficha se rellena SOLA. Lo que ya venga del gestor siempre gana: esto
+    // sólo completa huecos. Si el fichero no existe, la web se comporta igual que hoy.
+    (function _enlazarBD() {
+        var CAMPOS = ['tel', 'wa', 'web', 'ig', 'fb', 'zona', 'hor', 'local', 'desc'];
+        fetch('data/locatarios-contacto.json?v=' + Date.now())
+            .then(function (r) { return r.ok ? r.json() : null; })
+            .then(function (d) {
+                if (!d || typeof d !== 'object') return;
+                var n = 0;
+                Object.keys(d).forEach(function (nombre) {
+                    var clave = norm(nombre), fila = d[nombre] || {};
+                    var x = EXTRA[clave] || (EXTRA[clave] = {});
+                    CAMPOS.forEach(function (c) { if (fila[c] && !x[c]) { x[c] = fila[c]; n++; } });
+                    window._storePhones = window._storePhones || {};
+                    window._storeSocials = window._storeSocials || {};
+                    if (fila.tel && !window._storePhones[nombre]) window._storePhones[nombre] = fila.tel;
+                    var soc = window._storeSocials[nombre] || (window._storeSocials[nombre] = {});
+                    ['ig', 'fb', 'web'].forEach(function (c) { if (fila[c] && (!soc[c] || soc[c] === '#')) soc[c] = fila[c]; });
+                });
+                console.info('[INCARSO] datos de contacto enlazados: ' + n + ' campos');
+            })
+            .catch(function () { /* sin fichero: nada cambia */ });
+    })();
+
     var orig = window._applyStoreToModal;
     window._applyStoreToModal = function (s) {
         orig.apply(this, arguments);
@@ -1014,9 +1041,18 @@
         var ub = [niv, local, zona].filter(Boolean).join(' · ');
         document.getElementById('modal-loc').innerText = ub || 'Consultar en informes';
         var lbl = document.getElementById('modal-loc-label'); if (lbl) lbl.innerText = 'Ubicación';
-        var hor = (x.hor && x.hor.todos) || s.time || '';
+        // Horario por día (lun–vie · sábado · domingo), como lo pide el cliente
+        var hor = '';
+        if (x.hor && typeof x.hor === 'object') {
+            var pz = [];
+            if (x.hor.lunvie) pz.push('Lun–Vie ' + x.hor.lunvie);
+            if (x.hor.sabado) pz.push('Sáb ' + x.hor.sabado);
+            if (x.hor.domingo) pz.push('Dom ' + x.hor.domingo);
+            hor = pz.length ? pz.join(' · ') : (x.hor.todos || '');
+        } else if (typeof x.hor === 'string') { hor = x.hor; }
+        if (!hor) hor = s.time || '';
         document.getElementById('modal-time').innerText = hor
-            ? (/lun|dom/i.test(hor) ? hor : 'Lunes a domingo, ' + hor) : PLAZA.horario;
+            ? (/lun|s\u00e1b|dom/i.test(hor) ? hor : 'Lunes a domingo, ' + hor) : PLAZA.horario;
         document.getElementById('modal-zona').innerText = zona || 'Por definir';
         document.getElementById('modal-wa').innerText = x.wa || 'No disponible';
         var ib = document.getElementById('modal-info-block'); if (ib) ib.style.display = '';
