@@ -43,11 +43,8 @@ echo '
         </div>
 
         <!-- Bottom Row -->
-        <div class="flex flex-col md:flex-row justify-between items-center pt-2 gap-6">
-                <div class="flex flex-col md:flex-row gap-2 md:gap-8 text-center md:text-left">
-                    <p class="text-[10px] text-gray-600 font-sans tracking-[0.2em] uppercase">&copy; Plaza Universidad.</p>
-                </div>
-
+        <!-- Sin leyenda de copyright (cliente, 7-sep-2026): sólo las redes, a la derecha -->
+        <div class="flex flex-col md:flex-row justify-end items-center pt-2 gap-6">
                 <div class="flex gap-8">
                     <a href="https://www.instagram.com/plazauniversidad" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-white hover:text-plaza-gold transition-colors transform hover:-translate-y-1 duration-300"><i class="fab fa-instagram text-lg"></i></a>
                     <a href="https://www.facebook.com/PlazaUniversidad" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-white hover:text-plaza-gold transition-colors transform hover:-translate-y-1 duration-300"><i class="fab fa-facebook-f text-lg"></i></a>
