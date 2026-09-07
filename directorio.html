@@ -120,24 +120,6 @@
          * y letras a blanco
          * ============================================================ */
 
-        /* ── Filtros del directorio: Categoría · Subcategoría · Piso/nivel · Zona · Abierto ahora ── */
-        .pu-filtros { display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:center; gap:10px 18px; margin-top:18px; }
-        .pu-f { display:flex; flex-direction:column; gap:4px; }
-        .pu-f > span { font-size:9.5px; letter-spacing:.2em; text-transform:uppercase; color:#9ca3af; font-weight:700; }
-        .pu-f select {
-            font-size:12.5px; color:#111827; background:transparent; border:0; border-bottom:1px solid #e5e7eb;
-            padding:5px 22px 5px 2px; min-width:158px; max-width:240px; cursor:pointer; appearance:none;
-            background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23999' stroke-width='1.4'/%3E%3C/svg%3E");
-            background-repeat:no-repeat; background-position:right 4px center; background-size:9px;
-        }
-        .pu-f select:focus { outline:none; border-bottom-color:#7f188c; }
-        .pu-f select option.vacia { color:#b3adb8; }
-        .pu-open, .pu-clear { font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; font-weight:700; cursor:pointer; background:none; padding:7px 14px; transition:all .2s; }
-        .pu-open { border:1px solid #e5e7eb; color:#9ca3af; border-radius:999px; }
-        .pu-open.on { border-color:#7f188c; background:#7f188c; color:#fff; }
-        .pu-clear { border:0; color:#9ca3af; text-decoration:underline; text-underline-offset:3px; }
-        .pu-clear:hover { color:#7f188c; }
-        @media (max-width:720px){ .pu-filtros{gap:8px 12px;} .pu-f select{min-width:132px;max-width:46vw;} }
         /* Acciones de la ficha */
         .pu-acts { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 24px; }
         .pu-acts a { display:inline-flex; align-items:center; gap:7px; font-size:11px; letter-spacing:.14em;
@@ -304,14 +286,8 @@
                             <i class="fas fa-search absolute right-0 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-plaza-gold transition-colors"></i>
                         </div>
                     </div>
-                    <div class="pu-filtros" id="pu-filtros">
-                        <label class="pu-f"><span>Categoría</span><select id="fsCat"></select></label>
-                        <label class="pu-f"><span>Subcategoría</span><select id="fsSub"></select></label>
-                        <label class="pu-f"><span>Piso / nivel</span><select id="fsNiv"></select></label>
-                        <label class="pu-f"><span>Zona</span><select id="fsZon"></select></label>
-                        <button type="button" class="pu-open" id="fsOpen">Abierto ahora</button>
-                        <button type="button" class="pu-clear" id="fsClear">Limpiar</button>
-                    </div>
+                    <!-- La fila de filtros (Categoría · Subcategoría · Piso/nivel · Zona · Abierto ahora · Limpiar)
+                         se retiró a petición del cliente el 7-sep-2026; quedan las familias y el buscador. -->
                 </div>
 
                 <!-- STORES GRID: Minimalist & Clean -->
@@ -910,6 +886,7 @@
         marcarFam(); pintar(); aplicar();
     });
     function opts(sel, lista, etiqueta, valor, conteo) {
+        if (!sel) return; // la fila de filtros ya no está en la página
         sel.innerHTML = '<option value="">' + etiqueta + '</option>' + lista.map(function (v) {
             var n = conteo ? (conteo[v] || 0) : null;
             return '<option value="' + v.replace(/"/g,'&quot;') + '"' + (n === 0 ? ' class="vacia"' : '') + '>'
@@ -965,20 +942,20 @@
             ? n + ' tienda' + (n !== 1 ? 's' : '') + (et ? ' en ' + et : '') + (aAbierto ? ' abiertas ahora' : '')
             : '';
     }
-    elCat.addEventListener('change', function () {
+    if (elCat) elCat.addEventListener('change', function () {
         if (elCat.value !== aCat) aSub = '';
         aCat = elCat.value;
         if (aCat) for (var f in TAXO) if (TAXO[f][aCat]) { aFam = f; marcarFam(); break; }
         pintar(); aplicar();
     });
-    elSub.addEventListener('change', function(){ aSub = elSub.value; aplicar(); });
-    elNiv.addEventListener('change', function(){ aNiv = elNiv.value; aplicar(); });
-    elZon.addEventListener('change', function(){ aZon = elZon.value; aplicar(); });
-    elOpen.addEventListener('click', function(){ aAbierto = !aAbierto; elOpen.classList.toggle('on', aAbierto); aplicar(); });
-    elClear.addEventListener('click', function () {
+    if (elSub) elSub.addEventListener('change', function(){ aSub = elSub.value; aplicar(); });
+    if (elNiv) elNiv.addEventListener('change', function(){ aNiv = elNiv.value; aplicar(); });
+    if (elZon) elZon.addEventListener('change', function(){ aZon = elZon.value; aplicar(); });
+    if (elOpen) elOpen.addEventListener('click', function(){ aAbierto = !aAbierto; elOpen.classList.toggle('on', aAbierto); aplicar(); });
+    if (elClear) elClear.addEventListener('click', function () {
         aFam='all'; aCat=aSub=aNiv=aZon=''; aAbierto=false; aBusca='';
         var si=document.getElementById('search-store'); if(si) si.value='';
-        elOpen.classList.remove('on'); marcarFam(); pintar(); aplicar();
+        if (elOpen) elOpen.classList.remove('on'); marcarFam(); pintar(); aplicar();
     });
     var si = document.getElementById('search-store');
     if (si) { var clon = si.cloneNode(true); si.parentNode.replaceChild(clon, si);
