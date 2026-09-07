@@ -930,8 +930,9 @@
                 && (!aZon || c.getAttribute('data-zona') === aZon)
                 && (!aAbierto || abierto(c));
             if (ok && aBusca) {
-                ok = (c.getAttribute('data-name') + ' ' + c.getAttribute('data-category') + ' '
-                    + c.getAttribute('data-par') + ' ' + c.getAttribute('data-fam')).toLowerCase().indexOf(aBusca) >= 0;
+                // sin acentos: «turin» encuentra «Chocolates Turín», «cinepolis» → «Cinépolis»
+                ok = norm(c.getAttribute('data-name') + ' ' + c.getAttribute('data-category') + ' '
+                    + c.getAttribute('data-par') + ' ' + c.getAttribute('data-fam')).indexOf(aBusca) >= 0;
             }
             c.style.display = ok ? '' : 'none';
             if (ok) n++;
@@ -959,7 +960,10 @@
     });
     var si = document.getElementById('search-store');
     if (si) { var clon = si.cloneNode(true); si.parentNode.replaceChild(clon, si);
-        clon.addEventListener('input', function(){ aBusca = clon.value.trim().toLowerCase(); aplicar(); }); }
+        clon.addEventListener('input', function(){ aBusca = norm(clon.value); aplicar(); }); }
+    // Scripts/main.js engancha su propio keyup a #search-store DESPUÉS de este script (dentro de $(document).ready)
+    // y pisaba la pestaña de familia y el contador. Se quita en un ready posterior: los ready de jQuery corren en orden.
+    if (window.jQuery) { jQuery(function () { jQuery('#search-store').off('keyup'); }); }
     var cont = document.createElement('p');
     cont.id = 'pu-count';
     cont.className = 'text-center text-xs uppercase tracking-[0.2em] text-gray-400 mb-8';
